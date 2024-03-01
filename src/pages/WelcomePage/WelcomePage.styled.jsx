@@ -32,6 +32,10 @@ export const Container = styled.div`
     max-width: 1440px;
     padding-left: 96px;
     padding-right: 32px;
+    padding-bottom: 171px;
+
+    display: flex;
+    gap: 76px;
   }
 `;
 
@@ -65,6 +69,10 @@ export const NavContainer = styled.nav`
   @media screen and (min-width: 768px) {
     gap: 20px;
     margin-bottom: 171px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 0;
   }
 `;
 
@@ -131,6 +139,13 @@ export const InfoHolder = styled.div`
   @media screen and (min-width: 768px) {
     gap: 56px;
   }
+
+  @media screen and (min-width: 1440px) {
+    gap: 39px;
+    width: 638px;
+
+    margin-top: 184px;
+  }
 `;
 
 // 350+ video tutorial
@@ -153,7 +168,11 @@ export const VideoTutorContainer = styled.div`
     height: 96px;
     gap: 12px;
     align-items: center;
-    margin-right: 199px;     
+    margin-right: 199px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-right: 432px;
   }
 `;
 
@@ -239,6 +258,7 @@ export const CalCaption = styled.span`
     margin-left: 11px;
     font-size: 16px;
     line-height: 150%;
+    margin-left: 11px;
   }
 `;
 

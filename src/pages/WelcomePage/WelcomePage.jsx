@@ -21,16 +21,18 @@ export default function WelcomePage() {
   return (
     <>
       <Container>
-        <Title>Transforming your body shape with Power Pulse</Title>
-        {/* <Outline>
-          <use></use>
-        </Outline> */}
-
-        {/* <HeroImageContainer> */}
-        <NavContainer>
-          <SignUp>Sign Up</SignUp>
-          <SignIn>Sign In</SignIn>
-        </NavContainer>
+       <div>
+         <Title>Transforming your body shape with Power Pulse</Title>
+         {/* <Outline>
+           <use></use>
+         </Outline> */}
+        
+         {/* <HeroImageContainer> */}
+         <NavContainer>
+           <SignUp>Sign Up</SignUp>
+           <SignIn>Sign In</SignIn>
+         </NavContainer>
+       </div>
         <InfoHolder>
           <VideoTutorContainer>
             <SvgVideo>
