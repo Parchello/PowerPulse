@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+// імпорти поки не видаляв бо поки не ясно де і як буде картинка героя. Стилізація часткова в кінці файлу
 // import heroMobile1x from '../../assets/heroImages/hero-mobile-1x-min.png';
 // import heroMobile2x from '../../assets/heroImages/hero-mobile-2x-min.png';
 // import herotablet1x from '../../assets/heroImages/hero-tablet-1x-min.png';
@@ -133,7 +134,6 @@ export const InfoHolder = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  /* height: 212px; */
   gap: 70px;
 
   @media screen and (min-width: 768px) {
@@ -157,7 +157,8 @@ export const VideoTutorContainer = styled.div`
   margin-right: 88px;
 
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+
   gap: 8px;
 
   padding: 14px 18px;
