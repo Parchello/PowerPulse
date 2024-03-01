@@ -17,14 +17,15 @@ export const Container = styled.div`
 
   margin-top: 127px;
 
-  @media screen and (min-width: 375px) {
-    max-width: 375px;
-  }
+  max-width: 375px;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
+
+    margin-top: 189px;
+    padding-bottom: 48px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -42,17 +43,29 @@ export const Title = styled.h1`
   max-width: 335px;
 
   margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 70px;
+    line-height: 111%;
+    max-width: 598px;
+
+    margin-bottom: 64px;
+  }
 `;
 
 export const Outline = styled.svg``;
 
 //nav
-
 export const NavContainer = styled.nav`
   display: flex;
   gap: 14px;
 
   margin-bottom: 231px;
+
+  @media screen and (min-width: 768px) {
+    gap: 20px;
+    margin-bottom: 171px;
+  }
 `;
 
 export const SignUp = styled.a`
@@ -73,7 +86,14 @@ export const SignUp = styled.a`
   :focus {
     background-color: ${(p) => p.theme.colors.orangeLight};
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 120%;
+    padding: 16px 60px;
+  }
 `;
+
 export const SignIn = styled.a`
   border: 1px solid ${(p) => p.theme.colors.grey};
   background-color: transparent;
@@ -93,6 +113,24 @@ export const SignIn = styled.a`
   :focus {
     border-color: ${(p) => p.theme.colors.orange};
   }
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 120%;
+    padding: 16px 60px;
+  }
+`;
+
+export const InfoHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* height: 212px; */
+  gap: 70px;
+
+  @media screen and (min-width: 768px) {
+    gap: 56px;
+  }
 `;
 
 // 350+ video tutorial
@@ -108,6 +146,15 @@ export const VideoTutorContainer = styled.div`
   gap: 8px;
 
   padding: 14px 18px;
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 36px 20px 23px;
+    width: 206px;
+    height: 96px;
+    gap: 12px;
+    align-items: center;
+    margin-right: 199px;     
+  }
 `;
 
 export const VideoCount = styled.p`
@@ -115,12 +162,24 @@ export const VideoCount = styled.p`
   font-size: 16px;
   line-height: 112%;
   margin-bottom: 4px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 100%;
+    margin-bottom: 8px;
+  }
 `;
 
 export const VideoCaption = styled.p`
   font-weight: 400;
   font-size: 12px;
+  line-height: 133%;
   color: ${(p) => p.theme.colors.grey};
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 150%;
+  }
 `;
 
 export const SvgVideo = styled.svg`
@@ -129,20 +188,13 @@ export const SvgVideo = styled.svg`
   height: 30px;
   border-radius: 50%;
   background-color: ${(p) => p.theme.colors.orangeLight};
-`;
 
-export const InfoHolder = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  height: 212px;
-  /* width: 234px; */
-  gap: 70px;
-
-  & ${VideoTutorContainer} {
-    /* margin-right: 88px; */
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
   }
 `;
+
 
 // 500 cal
 export const CalStatus = styled.div`
@@ -153,6 +205,12 @@ export const CalStatus = styled.div`
   background-color: ${(p) => p.theme.colors.orangeLight};
 
   padding: 14px 18px;
+
+  @media screen and (min-width: 768px) {
+    padding: 14px 28px;
+    width: 180px;
+    height: 110px;
+  }
 `;
 
 export const CalCount = styled.p`
@@ -161,14 +219,27 @@ export const CalCount = styled.p`
   line-height: 100%;
   letter-spacing: -0.04em;
   text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+    line-height: 104%;
+    letter-spacing: -0.02em;
+  }
 `;
 
 export const CalCaption = styled.span`
   font-size: 12px;
+  font-weight: 700;
   line-height: 133%;
   text-transform: lowercase;
   margin-left: 8px;
   color: ${(p) => p.theme.colors.grey};
+
+  @media screen and (min-width: 768px) {
+    margin-left: 11px;
+    font-size: 16px;
+    line-height: 150%;
+  }
 `;
 
 export const SvgRun = styled.svg`
@@ -180,6 +251,12 @@ export const SvgRun = styled.svg`
   border-radius: 50%;
 
   background-color: ${(p) => p.theme.colors.beige};
+
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 8px;
+  }
 `;
 
 // hero back img
