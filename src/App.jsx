@@ -6,7 +6,6 @@ import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
-// import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="*" element={<ErrorPage />} />
-          {/* <Route path="/profile" element={<ProfilePage />} /> */}
         </Route>
       </Routes>
     </div>
