@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+// import { NavLink as SignIn } from 'react-router-dom';
 
 // імпорти поки не видаляв бо поки не ясно де і як буде картинка героя. Стилізація часткова в кінці файлу
 // import heroMobile1x from '../../assets/heroImages/hero-mobile-1x-min.png';
@@ -14,7 +16,7 @@ export const Container = styled.div`
   padding-right: 20px;
   padding-bottom: 40px;
   margin: 0 auto;
-  outline: 2px solid red;
+  /* outline: 2px solid red; */
 
   margin-top: 127px;
 
@@ -77,12 +79,13 @@ export const NavContainer = styled.nav`
   }
 `;
 
-export const SignUp = styled.a`
+export const SignUp = styled(NavLink)`
   border-radius: 12px;
   padding: 12px 40px;
   display: block;
   height: 100%;
   background-color: ${(p) => p.theme.colors.orange};
+  color: ${(p) => p.theme.colors.white};
 
   font-weight: 500;
   font-size: 16px;
@@ -103,8 +106,10 @@ export const SignUp = styled.a`
   }
 `;
 
-export const SignIn = styled.a`
+export const SignIn = styled(NavLink)`
   border: 1px solid ${(p) => p.theme.colors.grey};
+  color: ${(p) => p.theme.colors.white};
+
   background-color: transparent;
   display: block;
   border-radius: 12px;
@@ -214,7 +219,6 @@ export const SvgVideo = styled.svg`
     height: 40px;
   }
 `;
-
 
 // 500 cal
 export const CalStatus = styled.div`
