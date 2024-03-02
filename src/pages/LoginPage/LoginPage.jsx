@@ -1,5 +1,11 @@
+import { SignInForm } from "../../components/SignInForm/SignInForm";
+import { LinkToSignUp } from "../../components/LinkToSignUp/LinkToSignUp";
+
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  function handleSubmit () {};
+  return ( <div><SignInForm handleSubmit={handleSubmit}/>
+  <LinkToSignUp/>
+  </div>);
 };
 
 export default LoginPage;
