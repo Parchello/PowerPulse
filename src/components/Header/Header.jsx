@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { MobileNav } from './MobileNav/MobileNav';
+import { DesktopNav } from './DesktopNav/DesktopNav';
 
 export const Header = () => {
-  return (
-    <div>
-      <nav>
-        <Link to="/register">Sign up</Link>
-        <Link to="/login">Sign in</Link>
-      </nav>
-    </div>
-  );
-};
+
+  const isBigScreen = useMediaQuery('(min-width: 1440px)')
+
+
+  return (<>
+    {isBigScreen ? <DesktopNav /> : <MobileNav />}
+     </>)
+ 
+}; 
