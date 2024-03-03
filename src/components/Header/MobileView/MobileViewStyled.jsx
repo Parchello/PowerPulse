@@ -13,7 +13,6 @@ export const MainDiv = styled.div`
     
 `
 export const MainDivLoggedIn = styled(MainDiv)`
-    position: relative;
     background-color: black;
     border-bottom: 1px solid rgba(239, 237, 232, 0.20);
     color: white;
