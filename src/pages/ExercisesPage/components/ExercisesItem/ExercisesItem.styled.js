@@ -21,7 +21,7 @@ export const ExercisLi = styled.li`
 
 export const ContainerExIt = styled.div`
   width: 335px;
-  /* height: 141px; */
+  height: 100%;
   padding: 16px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
@@ -46,7 +46,8 @@ export const Workout = styled.p`
 `;
 
 export const Button = styled.button`
-  display: block;
+  display: flex;
+  gap: 8px;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
@@ -55,9 +56,28 @@ export const Button = styled.button`
   border: none;
 `;
 
-export const ArrowSvg = styled.svg`
-  /* fill: ${(props) => props.theme.colors.orange}; */
-  stroke: white;
+export const ArrowSvgArrow = styled.svg`
+  stroke: ${(props) => props.theme.colors.orange};
+`;
+
+export const NameContainer = styled.div`
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+`;
+
+export const ContSpanRunning = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.colors.orangeLight};
+`;
+
+export const ArrowSvgRunning = styled.svg`
+  fill: ${(props) => props.theme.colors.white};
 `;
 
 export const ExeName = styled.p`
@@ -73,7 +93,6 @@ export const ExeName = styled.p`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin-bottom: 8px;
 `;
 
 export const ExerList = styled.ul`

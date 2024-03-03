@@ -1,15 +1,34 @@
 import Slider from 'react-slick';
-import filters from './filters.json';
+import filters from '../filters.json';
+
+import { settings } from '../../slidersSetings/sliderSetings.jsx';
 import {
   ExercisesItem,
   ExerscisesItemContainer,
   BodyPart,
   BodyPartCategory,
-} from '../exercisesPage.styled.js';
-
-import { settings } from '../slidersSetings/sliderSetings.jsx';
+} from './ExercisesSubcategoriesItem.Styled.js';
+// import { useSelector } from 'react-redux';
 
 const ExercisesSubcategoriesItem = () => {
+  // const selectedExersis = useSelector((state) => state.filters);
+
+  // const filteredData = filters.filter(
+  //   (item) => item.filter === selectedExersis
+  // );
+
+  //для роботи без бекенду
+  // let filteredData;
+
+  // if (selectedExersis) {
+  //   filteredData = filters.filter((item) => item.filter === selectedExersis);
+  // } else {
+  //   filteredData = filters;
+  // }
+  //
+
+  //  {filteredData.map((filter) => (
+
   return (
     <div>
       <Slider {...settings}>
