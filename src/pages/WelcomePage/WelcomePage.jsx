@@ -1,4 +1,5 @@
-import { HeroLayout } from '../../components/HeroLeyout/HeroLayout';
+import { HeroLayout } from '../../components/HeroLayout/HeroLayout';
+import sprite from '../../assets/sprite.svg';
 import {
   Title,
   Container,
@@ -11,7 +12,7 @@ import {
   VideoCount,
   SvgVideo,
   SvgRun,
-  // Outline,
+  Outline,
   InfoHolder,
   NavContainer,
   SignUp,
@@ -24,10 +25,12 @@ export default function WelcomePage() {
       <HeroLayout>
         <Container>
           <div>
-            <Title>Transforming your body shape with Power Pulse</Title>
-            {/* <Outline>
-           <use></use>
-         </Outline> */}
+            <Title>
+              Transforming your body shape with Power Pulse
+              <Outline>
+                <use xlinkHref={sprite + '#icon-Line'}></use>
+              </Outline>
+            </Title>
 
             {/* <HeroImageContainer> */}
             <NavContainer>
