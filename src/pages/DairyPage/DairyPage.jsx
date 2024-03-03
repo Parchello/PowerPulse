@@ -1,6 +1,6 @@
 import DairyExercises from '../../components/DairyExercise/DairyExercise';
 import DairyProducts from '../../components/DairyProducts/DairyProducts';
-import InfoBlock from '../../components/InfoBlock/InfoBlock';
+import InfoBlock from '../../components/Diary/InfoBlock/InfoBlock';
 
 const DairyPage = () => {
   return (
