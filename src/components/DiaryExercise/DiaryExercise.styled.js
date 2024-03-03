@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const DairyExercisesField = styled.div`
-  /* border: 1px solid rgba(239, 237, 232, 0.2); */
-  border: 1px solid black;
+  border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
   padding: 16px 105px 194px 105px;
   width: 335px;

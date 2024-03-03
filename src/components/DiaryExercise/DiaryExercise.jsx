@@ -1,4 +1,4 @@
-import { AddExerciseBtn, DairyExercisesField } from './DairyExercise.styled';
+import { AddExerciseBtn, DairyExercisesField } from './DiaryExercise.styled';
 
 const DairyExercises = () => {
   return (

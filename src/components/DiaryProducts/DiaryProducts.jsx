@@ -1,4 +1,4 @@
-import { AddProductBtn, DairyProductsField } from './DairyProducts.styled';
+import { AddProductBtn, DairyProductsField } from './DiaryProducts.styled';
 
 const DairyProducts = () => {
   return (

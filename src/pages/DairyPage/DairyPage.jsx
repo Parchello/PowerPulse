@@ -13,7 +13,12 @@ const DairyPage = () => {
       }}
     >
       <InfoBlock />
-      <DairyProducts></DairyProducts>
+      <DairyProducts>
+        <div>
+          <p>HALA MADRID!</p>
+          <div style={{ width: '150px', height: '150px', color: 'red' }}></div>
+        </div>
+      </DairyProducts>
       <DairyExercises></DairyExercises>
     </div>
   );

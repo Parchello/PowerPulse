@@ -40,7 +40,15 @@ const InfoBlock = ({ prop }) => {
           <b>85 min</b>
         </p>
       </UserInfoBlock>
-      <p>
+      <p
+        style={{
+          fontWeight: '400',
+          fontSize: '14px',
+          lineHeight: '129%',
+          color: 'rgba(239, 237, 232, 0.3)',
+          width: '303px',
+        }}
+      >
         Record all your meals in the calorie diary every day. This will help you
         be aware of your nutrition and make informed choices.
       </p>
