@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { Form, Field, FormGroup, ErrorMessage } from './SignInForm.styled';
+import { Form, Field, FormGroup, ErrorMessage, Button } from './SignInForm.styled';
 
 
 const signInSchema = Yup.object().shape({
@@ -39,7 +39,7 @@ export const SignInForm = ({handleSubmit}) => {
           <Field name="password"  id = "password" type = "password" placeholder = "Password"/>
           <ErrorMessage name="password" component="span" />
         </FormGroup>
-        <button type="submit">Submit</button>
+        <Button type="submit">Sign In</Button>
       </Form>
     </Formik>
     </div>
