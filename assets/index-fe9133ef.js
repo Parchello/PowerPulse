@@ -90,7 +90,7 @@ Error generating stack: `+o.message+`
     display: flex;
     flex-direction: row;
     align-items: center;
-`,Et="/PowerPulse/assets/sprite-8ce0eae5.svg",Ty=()=>{const e=Ci("(max-width: 767px)");return h.jsx(Nl,{to:"/",children:h.jsx("svg",{width:e?"126px":"151px",height:e?"13px":"17px",children:h.jsx("use",{xlinkHref:Et+"#icon-Logo-1"})})})},wk=_.ul`
+`,Et="/PowerPulse/assets/sprite-b7286093.svg",Ty=()=>{const e=Ci("(max-width: 767px)");return h.jsx(Nl,{to:"/",children:h.jsx("svg",{width:e?"126px":"151px",height:e?"13px":"17px",children:h.jsx("use",{xlinkHref:Et+"#icon-Logo-1"})})})},wk=_.ul`
     display: flex;
     flex-direction: column;
     gap: 16px;
