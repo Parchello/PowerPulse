@@ -1,4 +1,4 @@
-import { Navigation, NavigationBtn, StyledLink } from "./UserNavStyled";
+import { Navigation, NavigationBtn, StyledLink } from "./UserNav.Styled";
 
 
 export const UserNav = () => {
