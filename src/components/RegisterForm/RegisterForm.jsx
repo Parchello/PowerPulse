@@ -1,5 +1,6 @@
-import {ErrorMessage, Formik, Form, Field} from "formik"
+import {Formik, Form} from "formik"
 import * as Yup from 'yup';
+import { RegisterField, Label, RegisterErrorMessage, Button, FormContainer } from "./RegisterForm.styled";
 // import { useDispatch } from "react-redux"
 
 const RegisterSchema = Yup.object().shape({
@@ -22,26 +23,28 @@ export const RegisterForm = () => {
     //   onSubmit={() => {}}
     >
       <Form>
-        <label>
-          Name
-          <Field type="text" name="name" required />
-          <br />
-          <ErrorMessage name="name" component="span" />
-        </label>
-        <label>
-          Email
-          <Field type="email" name="email" placeholder="example@example.com" required />
-          <br />
-          <ErrorMessage name="email" component="span" />
-        </label>
-        <label>
-          Password
-          <Field type="password" name="password" required />
-          <br />
-          <ErrorMessage name="password" component="span" />
-        </label>
+        <FormContainer>
+                <Label >
+                Name
+                <RegisterField type="text" name="name" required />
+                <br />
+                <RegisterErrorMessage name="name" component="span" />
+                </Label>
+                <Label>
+                Email
+                <RegisterField type="email" name="email"  required />
+                <br />
+                <RegisterErrorMessage name="email" component="span" />
+                </Label>
+                <Label>
+                Password
+                <RegisterField type="password" name="password" required />
+                <br />
+                <RegisterErrorMessage name="password" component="span" />
+                </Label>
+        </FormContainer>
 
-        <button type="submit">Sign Up</button>
+        <Button type="submit">Sign Up</Button>
       </Form>
     </Formik>
   );
