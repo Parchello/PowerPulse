@@ -1,6 +1,6 @@
 import TitlePage from '../ProfilePage/TitlePage';
 import UserForm from '../ProfilePage/UserForm';
-// import Usercard from '../ProfilePage/UserCard';
+import Usercard from '../ProfilePage/UserCard';
 import styled from 'styled-components';
 
 const Section = styled.div`
@@ -9,11 +9,15 @@ const Section = styled.div`
   padding-right: 96px;
   padding-bottom: 44px;
 
+  display: flex;
+
   //mobile
   @media screen and (min-width: 320px) and (max-width: 375px) {
     padding-top: 40px;
     padding-left: 20px;
     padding-right: 20px;
+
+    flex-direction: column-reverse;
   }
 
   //tablet
@@ -22,16 +26,18 @@ const Section = styled.div`
     padding-left: 32px;
     padding-right: 40px;
     padding-bottom: 54px;
+
+    flex-direction: column-reverse;
   }
 `;
 
 const ProfilePage = () => {
   return (
     <>
+      <TitlePage titleName="Profile Settings" />
       <Section>
-        <TitlePage titleName="Profile Settings" />
         <UserForm />
-        {/* <Usercard /> */}
+        <Usercard />
       </Section>
     </>
   );
