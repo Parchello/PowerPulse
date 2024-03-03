@@ -1,6 +1,7 @@
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { MobileNav } from './MobileNav/MobileNav';
-import { DesktopNav } from './DesktopNav/DesktopNav';
+import { DesktopView } from './DesktopView/DesktopView';
+import { MobileView } from './MobileView/MobileView';
+
 
 export const Header = () => {
 
@@ -8,7 +9,7 @@ export const Header = () => {
 
 
   return (<>
-    {isBigScreen ? <DesktopNav /> : <MobileNav />}
+    {isBigScreen ? <DesktopView /> : <MobileView />}
      </>)
  
 }; 

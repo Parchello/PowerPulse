@@ -1,5 +1,8 @@
 import styled from 'styled-components';
+<<<<<<< HEAD
 import { NavLink } from 'react-router-dom';
+=======
+>>>>>>> 4278e6dd495bab5ddc216c2934ad871c3dacbf9d
 
 export const MainDiv = styled.div`
   position: absolute;
@@ -25,6 +28,7 @@ export const CloseBtn = styled.svg`
   align-self: flex-end;
 `;
 
+<<<<<<< HEAD
 export const Navigation = styled.ul`
   display: flex;
   flex-direction: column;
@@ -85,3 +89,11 @@ export const LogOutText = styled.p`
     line-height: 1.5;
   }
 `;
+=======
+export const LogOutDiv = styled.div`   
+    display: flex;
+    gap:8px;
+    align-items: center; 
+  }
+  `
+>>>>>>> 4278e6dd495bab5ddc216c2934ad871c3dacbf9d

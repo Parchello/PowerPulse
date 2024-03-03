@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Container, LinkToSign, Question } from "./LinkToSignUp.styled";
 export const LinkToSignUp = () => {
   return (
     <div>
-      <p>Don’t have an account?</p>
-      <Link to="/register"> Sign Up</Link>
+      <Container>
+      <Question>Don’t have an account?</Question>
+      <LinkToSign to="/register"> Sign Up</LinkToSign>
+      </Container>
     </div>
   );
 };
