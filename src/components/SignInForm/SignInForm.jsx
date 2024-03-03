@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { Form, Field, FormGroup, ErrorMessage, Button } from './SignInForm.styled';
+import { Form, Field, FormGroup, ErrorMessage, Button, Title, Text } from './SignInForm.styled';
 
 
 const signInSchema = Yup.object().shape({
@@ -16,8 +16,8 @@ const signInSchema = Yup.object().shape({
 export const SignInForm = ({handleSubmit}) => {
   return (
     <div>
-        <h1>Sign In</h1>
-        <p>Welcome! Please enter your credentials to login to the platform:</p>
+        <Title>Sign In</Title>
+        <Text>Welcome! Please enter your credentials to login to the platform:</Text>
     <Formik
       initialValues={{
         email: '',
