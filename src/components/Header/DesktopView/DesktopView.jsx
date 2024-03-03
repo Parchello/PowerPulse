@@ -1,4 +1,4 @@
-import {  MainDiv, MainDivLoggedIn, NavIconsDiv } from './DesktopViewStyled';
+import {  MainDiv, MainDivLoggedIn, NavIconsDiv } from './DesktopView.Styled';
 import { Logo } from '../Logo/Logo';
 import { UserNav } from '../UserNav/UserNav';
 import { UserBar } from '../UserBar/UserBar';

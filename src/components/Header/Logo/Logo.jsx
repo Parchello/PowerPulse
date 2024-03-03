@@ -12,7 +12,7 @@ export const Logo = () => {
 
   return (
     <Link to="/">
-         <svg width={isMobileScreen ? "82px" : "151px"} height={isMobileScreen ? "12px" : "17px"}>
+         <svg width={isMobileScreen ? "126px" : "151px"} height={isMobileScreen ? "13px" : "17px"}>
                   <use xlinkHref={sprite + "#icon-Logo-1" } />
               </svg>
       </Link>
