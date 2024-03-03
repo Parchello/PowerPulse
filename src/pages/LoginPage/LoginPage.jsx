@@ -2,17 +2,17 @@ import { SignInForm } from "../../components/SignInForm/SignInForm";
 import { LinkToSignUp } from "../../components/LinkToSignUp/LinkToSignUp";
 import { Wrapper } from "./LoginPage.styled";
 import { BackGround } from "./LoginPage.styled";
-import{
-  TutorialContainer,
-  Calculation,
-  Cal,
-  Count,
-  Tutorial,
-  Number,
-  Play,
-  Run,
-  ContainerSvg,
-} from './LoginPage.styled';
+// import{
+//   TutorialContainer,
+//   Calculation,
+//   Cal,
+//   Count,
+//   Tutorial,
+//   Number,
+//   Play,
+//   Run,
+//   ContainerSvg,
+// } from './LoginPage.styled';
 
 
 
@@ -23,7 +23,7 @@ const LoginPage = () => {
       <Wrapper>
     <SignInForm handleSubmit={handleSubmit}/>
   <LinkToSignUp/>
-  <ContainerSvg>
+  {/* <ContainerSvg>
     <TutorialContainer>
           <Play>
                 <use></use>
@@ -43,7 +43,7 @@ const LoginPage = () => {
                 </Count>
               </div>
             </Calculation>
-              </ContainerSvg>
+              </ContainerSvg> */}
   </Wrapper>
   </BackGround>
   </>);

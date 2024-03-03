@@ -29,12 +29,14 @@ width: 100%;
   @media screen and (min-width: 1440px) {
     width: 100%;
 
+    margin: 0 0 0 0;
+
     max-width: 1440px;
     padding-left: 96px;
     padding-right: 32px;
     padding-bottom: 171px;
 
-    display: flex;
+    
     gap: 76px;
   }`
 
@@ -58,7 +60,7 @@ width: 100%;
   @media screen and (min-width: 768px) {
     background-image: url(${herotablet1x});
     padding-top: 84px;
-    width: 670px;
+    // width: 670px;
     height: 100vh;
     background-size: cover;
     
@@ -76,10 +78,14 @@ width: 100%;
   @media screen and (min-width: 1440px) {
     background-image: url(${herodescktop1x});
 
-    background-size: 670px 800px;
-    max-width: 1440px;
-    padding-top: 200px;
-    margin: 0 auto;
+    background-size: contain;
+    background-position: right;
+    
+
+    // background-size: 670px 800px;
+    // max-width: 1440px;
+    // padding-top: 200px;
+    // margin: 0 0 0 0;
 
 
     @media (min-device-pixel-ratio: 2),
@@ -108,7 +114,8 @@ margin-top: 121px;
   gap: 39px;
   width: 638px;
 
-  margin-top: 184px;
+  margin-top: 80px;
+  margin-left: 1170px;
 }
 `;
 

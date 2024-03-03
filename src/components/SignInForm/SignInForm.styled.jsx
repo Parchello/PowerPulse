@@ -31,6 +31,11 @@ height: 46px;
     border-color: ${(p)=>p.theme.colors.orange} ;
 
   };
+
+  @media screen and (min-width: 1440px) {
+    width: 364px;
+height: 52px;
+  }
   `;
   
   export const FormGroup = styled.label`
