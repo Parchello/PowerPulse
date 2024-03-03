@@ -79,5 +79,8 @@
 <symbol id="icon-Line" viewBox="0 0 87 32">
 <path fill="none" stroke="#ef8964" style="stroke: var(--color1, #ef8964)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="0.9275" d="M61.051 0.464c-20.416 0.3-65 3.913-60.233 22.304 4.284 12.985 65.327 10.195 80.388 0.425s-5.623-19.937-34.455-16.338"></path>
 </symbol>
+<symbol id="icon-video-tutorial" viewBox="0 0 27 32">
+<path fill="#efede8" style="fill: var(--color1, #efede8)" d="M26.667 16l-26.667 15.396v-30.792l26.667 15.396z"></path>
+</symbol>
 </defs>
 </svg>
