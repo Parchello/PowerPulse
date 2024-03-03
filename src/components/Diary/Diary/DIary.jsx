@@ -13,7 +13,9 @@ const Diary = () => {
       }}
     >
       <InfoBlock />
-      <DairyProducts></DairyProducts>
+      <DairyProducts>
+        <p></p>
+      </DairyProducts>
       <DairyExercises></DairyExercises>
     </div>
   );
