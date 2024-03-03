@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import {  MainDiv, MainDivLoggedIn } from './MobileViewStyled';
+import {  MainDiv, MainDivLoggedIn } from './MobileView.Styled';
 import { MobileMenu } from '../MobileMenu/MobileMenu';
 import { Logo } from '../Logo/Logo';
 import { UserBar } from '../UserBar/UserBar';

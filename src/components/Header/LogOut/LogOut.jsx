@@ -1,8 +1,8 @@
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { Link } from 'react-router-dom';
-import sprite from '../../../assets/sprite.svg';
-import { Text } from './LogOutStyled';
+import sprite from "../../../assets/sprite.svg"
+import { Text } from './LogOut.Styled';
 
 export const LogOut = ({ color = '#EFEDE8' }) => {
   const isLogedIn = true;
