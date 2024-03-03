@@ -210,8 +210,10 @@ export const VideoCaption = styled.p`
   }
 `;
 
-export const SvgVideo = styled.svg`
-  display: block;
+export const SvgVideoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -220,6 +222,16 @@ export const SvgVideo = styled.svg`
   @media screen and (min-width: 768px) {
     width: 40px;
     height: 40px;
+  }
+`;
+
+export const SvgVideo = styled.svg`
+  width: 12px;
+  height: 12px;
+
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 20px;
   }
 `;
 
@@ -270,8 +282,10 @@ export const CalCaption = styled.span`
   }
 `;
 
-export const SvgRun = styled.svg`
-  display: block;
+export const SvgRunWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
   margin-bottom: 4px;
@@ -284,6 +298,16 @@ export const SvgRun = styled.svg`
     width: 24px;
     height: 24px;
     margin-bottom: 8px;
+  }
+`;
+
+export const SvgRun = styled.svg`
+  width: 12px;
+  height: 12px;
+
+  @media screen and (min-width: 768px) {
+    width: 16px;
+    height: 16px;
   }
 `;
 
