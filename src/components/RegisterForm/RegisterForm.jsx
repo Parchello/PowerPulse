@@ -1,6 +1,6 @@
 import {Formik, Form} from "formik"
 import * as Yup from 'yup';
-import { RegisterField, Label, RegisterErrorMessage, Button, FormContainer } from "./RegisterForm.styled";
+import { RegisterField, InputContainer, Label, Button, FormContainer } from "./RegisterForm.styled";
 // import { useDispatch } from "react-redux"
 
 const RegisterSchema = Yup.object().shape({
@@ -23,25 +23,24 @@ export const RegisterForm = () => {
     //   onSubmit={() => {}}
     >
       <Form>
-        <FormContainer>
-                <Label >
-                Name
-                <RegisterField type="text" name="name" required />
-                <br />
-                <RegisterErrorMessage name="name" component="span" />
-                </Label>
-                <Label>
-                Email
-                <RegisterField type="email" name="email"  required />
-                <br />
-                <RegisterErrorMessage name="email" component="span" />
-                </Label>
-                <Label>
-                Password
-                <RegisterField type="password" name="password" required />
-                <br />
-                <RegisterErrorMessage name="password" component="span" />
-                </Label>
+      <FormContainer>
+          <InputContainer>
+          <Label htmlFor="name">Name</Label>
+          <RegisterField id='name' type="text" name="name" required />
+          {/* <RegisterErrorMessage name="name" component="span" /> */}
+          </InputContainer>
+
+          <InputContainer>
+          <Label htmlFor="email">Email</Label>
+          <RegisterField id='email' type="email" name="email" required />
+          {/* <RegisterErrorMessage name="email" component="span" /> */}
+          </InputContainer>
+
+          <InputContainer>
+          <Label htmlFor="password">Password</Label>
+          <RegisterField id='password' type="password" name="password" required />
+          {/* <RegisterErrorMessage name="password" component="span" /> */}
+          </InputContainer>
         </FormContainer>
 
         <Button type="submit">Sign Up</Button>

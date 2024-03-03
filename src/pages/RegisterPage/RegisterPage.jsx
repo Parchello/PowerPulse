@@ -3,10 +3,12 @@ import { Container, Title, Paragraph, LinkText, SigninLink } from "./RegisterPag
 
 const RegisterPage = () => {
   return <Container>
+   <div>
     <Title>Sign Up</Title>
     <Paragraph>Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.</Paragraph>
     <RegisterForm/>
     <LinkText>Already have an account? <SigninLink to="/login">Sign In</SigninLink></LinkText>
+  </div>
   </Container>
 };
 

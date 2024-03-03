@@ -2,8 +2,13 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-    padding: 127px 20px 287px 20px; //check right values
-    background-color: ${(p) => p.theme.colors.black};      
+    padding: 127px 20px 0px 20px; //check right values
+    background-color: ${(p) => p.theme.colors.black};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; 
+    width: 100%;
 `
 
 export const Title = styled.h1`
@@ -19,7 +24,7 @@ export const Paragraph = styled.p`
     color: ${(p) => p.theme.colors.grey};
     margin-top: 14px;
     margin-bottom: 28px;
-    width: 335px;
+    max-width: 335px;
 `
 
 export const LinkText = styled.p`
