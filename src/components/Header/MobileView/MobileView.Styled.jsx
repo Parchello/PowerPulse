@@ -5,6 +5,8 @@ export const MainDiv = styled.div`
     background-color: transparent;
     color: white;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     @media (min-width: 768px) {
     height: 84px;
