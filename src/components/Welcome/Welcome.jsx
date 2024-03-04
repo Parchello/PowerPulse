@@ -9,8 +9,10 @@ export const Welcome = () => {
     <>
       <HeroLayout>
         <Container>
-          <MainTitle />
-          <Navigation />
+          <div>
+            <MainTitle />
+            <Navigation />
+          </div>
           <MainPageInfo />
         </Container>
       </HeroLayout>
