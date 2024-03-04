@@ -14,10 +14,10 @@ const isLoggedIn = true;
      <MainDivLoggedIn>
         <Logo/>
         <NavIconsDiv> 
-              <UserNav/>
-             <UserBar/>
+            <UserNav/>
+            <UserBar/>
         </NavIconsDiv>
-  </MainDivLoggedIn > :
+      </MainDivLoggedIn > :
 
           <MainDiv>
             <Logo/>
