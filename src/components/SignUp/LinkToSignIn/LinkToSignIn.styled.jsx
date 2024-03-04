@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 // треба првильно вирівняти на декстоп та планшет
 export const LinkText = styled.p`
     font-size: 12px;
-    line-height: 150%;
+    line-height: 1.5;
     color: rgba(239, 237, 232, 0.6);
     margin-top: 12px;
+    
+    @media screen and (min-width: 768px) {
+    padding-left: 15px;
+  }
 `
 
 export const SigninLink = styled(Link)`

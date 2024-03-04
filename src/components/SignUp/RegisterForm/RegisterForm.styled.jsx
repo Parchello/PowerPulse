@@ -59,7 +59,7 @@ export const Button = styled.button`
     width: 190px;
     height: 56px;
     font-size: 20px;
-    line-height: 120%;
+    line-height: 1.2;
     margin-top: 64px;
 }
 `
@@ -80,7 +80,7 @@ export const InputContainer = styled.div`
 
 export const Label = styled.label`
     font-size: 14px;
-    line-height: 129%;
+    line-height: 1.29;
     color: rgba(239, 237, 232, 0.6);
     position: absolute;
     top: 50%;
@@ -90,6 +90,6 @@ export const Label = styled.label`
 
 @media screen and (min-width: 768px) {
     font-size: 16px;
-    line-height: 150%;
+    line-height: 1.5;
 }
 `
