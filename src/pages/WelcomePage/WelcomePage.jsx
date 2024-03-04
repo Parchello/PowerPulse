@@ -3,7 +3,6 @@ import sprite from '../../assets/sprite.svg';
 import {
   Title,
   Container,
-  // HeroImageContainer,
   VideoTutorContainer,
   CalStatus,
   CalCaption,
@@ -18,7 +17,7 @@ import {
   SignUp,
   SignIn,
   SvgVideoWrapper,
-  SvgRunWrapper
+  SvgRunWrapper,
 } from './WelcomePage.styled';
 
 export default function WelcomePage() {
@@ -34,7 +33,6 @@ export default function WelcomePage() {
               </Outline>
             </Title>
 
-            {/* <HeroImageContainer> */}
             <NavContainer>
               <SignUp to="/register">Sign Up</SignUp>
               <SignIn to="/login">Sign In</SignIn>
@@ -67,7 +65,6 @@ export default function WelcomePage() {
               </div>
             </CalStatus>
           </InfoHolder>
-          {/* </HeroImageContainer> */}
         </Container>
       </HeroLayout>
     </>
