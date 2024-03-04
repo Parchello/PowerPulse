@@ -84,6 +84,8 @@ const CardContainer = styled.div`
   align-items: center;
 
   margin-bottom: 32px;
+
+  position: relative;
 `;
 
 const UserNameText = styled.p`
@@ -118,6 +120,30 @@ const ImgCircle = styled.div`
   justify-content: center;
 `;
 
+const UserImgLabel = styled.label`
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  position: relative;
+  bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const UserImgInput = styled.input`
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+`;
+
 const Usercard = () => {
   return (
     <UserCard>
@@ -129,12 +155,12 @@ const Usercard = () => {
           </svg>
         </ImgCircle>
 
-        <label htmlFor="avatar">
-          <input id="avatar" name="avatar" type="file" />
-          <svg width="20px" height="20px" fill="#e6533c">
-            <use xlinkHref={sprite + '#icon-check-mark'} />
+        <UserImgLabel htmlFor="avatar">
+          <UserImgInput id="avatar" name="avatar" type="file" />
+          <svg width="20px" height="20px" fill="#E6533C">
+            <use xlinkHref={sprite + '#icon-check-mark-4'} />
           </svg>
-        </label>
+        </UserImgLabel>
 
         <UserNameText>User name</UserNameText>
         <UserText>User</UserText>
