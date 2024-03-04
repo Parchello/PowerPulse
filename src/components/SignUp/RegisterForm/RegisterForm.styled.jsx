@@ -35,10 +35,12 @@ export const RegisterErrorMessage = styled(ErrorMessage)`
 `
 
 export const Button = styled.button`
+    display: block;
     border-radius: 12px;
+    border: none;
     padding: 12px 40px;
-    min-width: 136px;
-    min-height: 42px;
+    width: 136px;
+    height: 42px;
     background-color: ${(p) => p.theme.colors.orange};
     font-weight: 500;
     font-size: 16px;
@@ -54,8 +56,8 @@ export const Button = styled.button`
 
 @media screen and (min-width: 768px) {
     padding: 16px 60px;
-    min-width: 190px;
-    min-height: 56px;
+    width: 190px;
+    height: 56px;
     font-size: 20px;
     line-height: 120%;
     margin-top: 64px;
