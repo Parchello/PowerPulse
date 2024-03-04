@@ -187,7 +187,11 @@ const Usercard = () => {
         </ListItem>
       </ListUl>
       <Container>
-        <svg width="24px" height="24px">
+        <svg
+          width="34px"
+          height="34px"
+          style={{ width: '34px', height: '34px' }}
+        >
           <use xlinkHref={sprite + '#icon-icons'} />
         </svg>
         <p>
