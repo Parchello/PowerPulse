@@ -20,18 +20,21 @@ function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<WelcomePage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/login" element={<LoginPage />}/>
           <Route element={<PrivateRoute />}>
             <Route path="/user" element={<UserPage />} />
             <Route path="/diary" element={<DairyPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/exercises" element={<ExercisesPage />} />
             <Route path="/profile" element={<ProfilePage />} />
-          </Route>
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
+            </Route>
+            </Route>
+          <Route path="*" element={<ErrorPage />} /> 
       </Routes>
     </div>
   );
 }
 export default App;
+
+
+

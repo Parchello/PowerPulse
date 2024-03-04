@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { useFormik } from 'formik';
 
+import sprite from '../../assets/sprite.svg';
+
 const Form = styled.form`
   background-color: inherit;
 `;
@@ -112,7 +114,7 @@ const LabelRadioBtn = styled.label`
 `;
 
 const InputRadioBtn = styled.input`
-  background-color: black;
+  background-color: transparent;
   margin-right: 8px;
   width: 24px;
   height: 24px;
@@ -241,6 +243,7 @@ const UserForm = () => {
       <DataContainer>
         <DataContainerItem>
           <Label htmlFor="height">Height</Label>
+
           <InputShort
             id="height"
             name="height"
@@ -285,12 +288,16 @@ const UserForm = () => {
       <RadioBtnContainer>
         <Ul id="blood">
           <LiRadioBtn>
+            <svg width="24px" height="24px" fill="#636366">
+              <use xlinkHref={sprite + '#icon--RadioButton'} />
+            </svg>
             <InputRadioBtn
               name="blood"
               value="1"
               id="1"
               type="radio"
             ></InputRadioBtn>
+
             <LabelRadioBtn htmlFor="1">1</LabelRadioBtn>
           </LiRadioBtn>
           <LiRadioBtn>
