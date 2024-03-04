@@ -5,7 +5,7 @@ import { ProductsFilter } from './ProductsFilter/ProductsFilter';
 export const Products = () => {
   return (
     <Container>
-      <MainText>Products 111</MainText>
+      <MainText>Products</MainText>
       <ProductsFilter />
       <DietCardsList />
     </Container>
