@@ -1,53 +1,55 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const Container = styled.div`
-  /* width: 100%;
-  padding-left: 20px;
-  padding-right: 20px; */
-  padding-bottom: 40px;
-  /* margin: 0 auto; */
-  outline: 2px solid red;
+// const isLoggedIn = false;
 
-  /* max-width: 375px; */
+// export const Container = styled.div`
+//   /* width: 100%;
+//   padding-left: 20px;
+//   padding-right: 20px; */
+//   padding-bottom: 40px;
+//   /* margin: 0 auto; */
+//   outline: 2px solid red;
 
-  @media screen and (min-width: 768px) {
-    /* max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px; */
+//   /* max-width: 375px; */
 
-    padding-bottom: 48px;
-  }
+//   @media screen and (min-width: 768px) {
+//     /* max-width: 768px;
+//     padding-left: 32px;
+//     padding-right: 32px; */
 
-  @media screen and (min-width: 1440px) {
-    /* max-width: 1440px;
-    padding-left: 96px; */
-    padding-right: 0;
-    padding-bottom: 171px;
+//     padding-bottom: 48px;
+//   }
 
-    display: flex;
-    gap: 76px;
-  }
-`;
+//   @media screen and (min-width: 1440px) {
+//     /* max-width: 1440px;
+//     padding-left: 96px; */
+//     /* padding-right: ; */
+//     padding-bottom: 171px;
 
-export const Title = styled.h1`
-  position: relative;
-  font-weight: 500;
-  font-size: 38px;
-  line-height: 105%;
-  letter-spacing: 0.01em;
-  width: 335px; //or max-width
+//     display: flex;
+//     gap: 76px;
+//   }
+// `;
 
-  margin-bottom: 40px;
+// export const Title = styled.h1`
+//   position: relative;
+//   font-weight: 500;
+//   font-size: 38px;
+//   line-height: 105%;
+//   letter-spacing: 0.01em;
+//   width: 335px; //or max-width
 
-  @media screen and (min-width: 768px) {
-    font-size: 70px;
-    line-height: 111%;
-    width: 598px;
+//   margin-bottom: 40px;
 
-    margin-bottom: 64px;
-  }
-`;
+//   @media screen and (min-width: 768px) {
+//     font-size: 70px;
+//     line-height: 111%;
+//     width: 598px;
+
+//     margin-bottom: 64px;
+//   }
+// `;
 
 export const Outline = styled.svg`
   position: absolute;
