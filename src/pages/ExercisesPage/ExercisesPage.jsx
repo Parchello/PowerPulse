@@ -2,12 +2,12 @@ import {
   Container,
   Heading,
   NavContainer,
-  ArrowSvgBack,
-  BackButton,
+  // ArrowSvgBack,
+  // BackButton,
 } from './exercisesPage.styled.js';
 import ExercisesCategories from './components/ExercisesCategories/EsersicisesCategories.jsx';
 // import ExercisesItem from './components/ExercisesItem/ExercisesItem.jsx';
-import sprite from '../../assets/sprite.svg';
+// import sprite from '../../assets/sprite.svg';
 import ExercisesSubcategoriesItem from './components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem.jsx';
 // import { Provider, useSelector } from 'react-redux';
 // import { store } from '../../redux/store.js';
