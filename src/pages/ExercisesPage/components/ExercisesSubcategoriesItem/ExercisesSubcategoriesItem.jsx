@@ -17,7 +17,7 @@ const ExercisesSubcategoriesItem = () => {
   //   (item) => item.filter === selectedExersis
   // );
 
-  //для роботи без бекенду
+  // для роботи без бекенду
   // let filteredData;
 
   // if (selectedExersis) {
@@ -25,7 +25,6 @@ const ExercisesSubcategoriesItem = () => {
   // } else {
   //   filteredData = filters;
   // }
-  //
 
   //  {filteredData.map((filter) => (
 

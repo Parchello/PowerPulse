@@ -18,12 +18,12 @@ const ExercisesPage = () => {
     <div>
       {/* <Provider store={store}> */}
       <Container>
-        <BackButton type="button">
+        {/* <BackButton type="button">
           <ArrowSvgBack width="16" height="16">
             <use xlinkHref={sprite + '#icon-arrow'} />
           </ArrowSvgBack>
           Back
-        </BackButton>
+        </BackButton> */}
         <NavContainer>
           {/* {selectedExersis ? (
             <Heading>{selectedExersis}</Heading>

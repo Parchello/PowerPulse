@@ -6,7 +6,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import {
   Container,
   ContainerExIt,
-  ExercisLi,
   Workout,
   Button,
   ExeName,

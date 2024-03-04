@@ -1,8 +1,8 @@
 // import { useDispatch } from 'react-redux';
-// import {
-//   CategoryList,
-//   CategoryExercises,
-// } from './ExercisesCategories.styled.js';
+import {
+  CategoryList,
+  CategoryExercises,
+} from './ExercisesCategories.styled.js';
 // import { filtersAction } from '../../../../redux/store.js';
 
 const ExercisesCategories = () => {
@@ -21,6 +21,18 @@ const ExercisesCategories = () => {
           <CategoryExercises>Equipment</CategoryExercises>
         </li>
       </CategoryList> */}
+
+      <CategoryList>
+        <li>
+          <CategoryExercises>Body parts</CategoryExercises>
+        </li>
+        <li>
+          <CategoryExercises>Muscles</CategoryExercises>
+        </li>
+        <li>
+          <CategoryExercises>Equipment</CategoryExercises>
+        </li>
+      </CategoryList>
     </div>
   );
 };
