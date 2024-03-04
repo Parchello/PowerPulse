@@ -1,5 +1,13 @@
-// import { HeroLayout } from '../HeroLeyout/HeroLayout';
+import { DietCardsList } from './DietCardsList/DietCardsList';
+import { Container, MainText } from './Products.styled';
+import { ProductsFilter } from './ProductsFilter/ProductsFilter';
 
 export const Products = () => {
-  return <h1>Hello</h1>;
+  return (
+    <Container>
+      <MainText>Products</MainText>
+      <ProductsFilter />
+      <DietCardsList />
+    </Container>
+  );
 };

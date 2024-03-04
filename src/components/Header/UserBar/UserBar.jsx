@@ -1,6 +1,6 @@
 import useMediaQuery from '@mui/material/useMediaQuery';
 import sprite from "../../../assets/sprite.svg"
-import { Icons, LogOutContainer, UserCircle } from "./UserBarStyled";
+import { Icons, LogOutContainer, UserCircle } from "./UserBar.Styled";
 import { LogOut } from '../LogOut/LogOut';
 
 
