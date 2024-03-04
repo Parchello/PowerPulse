@@ -4,13 +4,14 @@ import { Header } from 'components/Header/Header';
 import { Container } from './SharedLayout.Styles';
 
 const SharedLayout = () => {
-  return (
-    <Container>
-      <Header />
+  return (<>
+  <Header />
+    <Container>    
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
     </Container>
+  </>
   );
 };
 
