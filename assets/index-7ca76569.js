@@ -444,16 +444,19 @@ Error generating stack: `+o.message+`
 `,n3=()=>f.jsx("div",{children:f.jsx(t3,{children:f.jsx(e3,{})})});function r3(){return f.jsx(Z1,{})}const i3=T.div`
   padding-bottom: 40px;
   padding-right: 20px;
+  padding-top: 127px;
   /* outline: 2px solid red; */
 
   @media screen and (min-width: 768px) {
     padding-bottom: 48px;
     padding-right: 32px;
+    padding-top: 189px;
   }
 
   @media screen and (min-width: 1440px) {
     padding-right: 0;
     padding-bottom: 171px;
+    padding-top: 200px;
 
     display: flex;
     gap: 76px;
