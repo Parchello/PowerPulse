@@ -1,6 +1,6 @@
-import { AddProductBtn, DairyProductsField } from './DiaryProducts.styled';
+import { AddProductBtn, DairyProductsField } from './DayProducts.styled';
 
-const DairyProducts = () => {
+const DayProducts = () => {
   return (
     <DairyProductsField>
       <p>Products</p>
@@ -9,4 +9,4 @@ const DairyProducts = () => {
   );
 };
 
-export default DairyProducts;
+export default DayProducts;
