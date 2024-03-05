@@ -9,6 +9,7 @@ export const DairyExercisesField = styled.div`
   min-height: 335px;
   display: flex;
   padding: 16px;
+  background: rgba(239, 237, 232, 0.05);
 `;
 
 export const ExerciseBlock = styled.div`
