@@ -26,20 +26,6 @@ export const MainText = styled.div`
   }
 `;
 
-// export const FiltersContainer = styled.div`
-//   margin-bottom: 40px;
-
-//   @media screen and (min-width: 768px) {
-//     margin-bottom: 32px;
-//   }
-
-//   @media screen and (min-width: 1440px) {
-//     margin-bottom: 28px;
-//     width: 664px;
-//     height: 52px;
-//   }
-// `;
-
 export const Filters = styled.div`
   margin-bottom: 40px;
   width: 335px;
@@ -50,17 +36,15 @@ export const Filters = styled.div`
 
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
-    /* Видаліть властивості width та height */
     width: 664px;
     height: 52px;
     flex-direction: row;
-
-    /* Вирівняння елементів по горизонталі */
   }
 
   @media screen and (min-width: 1440px) {
     margin-top: 68px;
     margin-bottom: 28px;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 `;
 
@@ -109,18 +93,6 @@ export const SearchInput = styled.input`
   }
 `;
 
-// export const SelectorBox = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   width: 335px;
-//   height: 46px;
-//   @media screen and (min-width: 768px) {
-//   }
-
-//   @media screen and (min-width: 1440px) {
-//   }
-// `;
-
 export const SelectorC = styled.select`
   background-color: black;
   color: #efede8;
@@ -129,12 +101,14 @@ export const SelectorC = styled.select`
   padding: 14px;
   width: 146px;
   height: 46px;
+
   @media screen and (min-width: 768px) {
     width: 192px;
     height: 52px;
   }
 
   @media screen and (min-width: 1440px) {
+    background-color: rgba(0, 0, 0, 0);
   }
 `;
 
@@ -146,11 +120,13 @@ export const SelectorA = styled.select`
   padding: 14px;
   width: 173px;
   height: 46px;
+
   @media screen and (min-width: 768px) {
     width: 204px;
     height: 52px;
   }
 
   @media screen and (min-width: 1440px) {
+    background-color: rgba(0, 0, 0, 0);
   }
 `;
