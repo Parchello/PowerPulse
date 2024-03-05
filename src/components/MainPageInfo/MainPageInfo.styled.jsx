@@ -5,6 +5,7 @@ export const InfoHolder = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 70px;
+  /* width: 335px; */
 
   @media screen and (min-width: 768px) {
     gap: 56px;
