@@ -1,13 +1,15 @@
 import { DietCardsList } from './DietCardsList/DietCardsList';
-import { Container, MainText } from './Products.styled';
+import { Container } from './Products.styled';
 import { ProductsFilter } from './ProductsFilter/ProductsFilter';
+import { ProductsLayout } from './ProductsLayOut/ProductsLayOut';
 
 export const Products = () => {
   return (
-    <Container>
-      <MainText>Products</MainText>
-      <ProductsFilter />
-      <DietCardsList />
-    </Container>
+    <ProductsLayout>
+      <Container>
+        <ProductsFilter />
+        <DietCardsList />
+      </Container>
+    </ProductsLayout>
   );
 };
