@@ -1,3 +1,6 @@
+import 'react-datepicker/dist/react-datepicker.css';
+import StyledDatepicker from './StyledDatepicker';
+
 const DaySwitch = () => {
   return (
     <div
@@ -9,7 +12,8 @@ const DaySwitch = () => {
       <h1>
         <b>Diary</b>
       </h1>
-      <p>Should be a calendar</p>
+
+      <StyledDatepicker />
     </div>
   );
 };

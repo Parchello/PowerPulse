@@ -2,6 +2,7 @@ import TitlePage from '../../pages/ProfilePage/TitlePage';
 import DayDashboard from './DayDashboard/DayDashboard';
 import DayExercises from './DayExercises/DayExercises';
 import DayProducts from './DayProducts/DayProducts';
+import DaySwitch from './DaySwitch/DaySwitch';
 
 const Diary = () => {
   return (
@@ -14,6 +15,7 @@ const Diary = () => {
       }}
     >
       <TitlePage />
+      <DaySwitch />
       <DayDashboard />
       <DayProducts />
       <DayExercises />
