@@ -12,10 +12,10 @@ export const BackGround = styled.div`
   background-repeat: no-repeat;
 
 
-
-  background-position-x: 100%;
-  background-position-y: 120%;
-  background-size: 80% auto;
+  // background-size: contain;
+  background-position-x: 200%;
+  background-position-y: 60%;
+  background-size: 90% auto;
   box-sizing: border-box;
   color: rgb(239, 237, 232);
   
