@@ -1,19 +1,5 @@
 import styled from 'styled-components';
-
-export const Container = styled.div`
-  margin: 0 auto;
-  @media screen and (max-width: 767px) {
-    max-width: 335px;
-  }
-
-  @media screen and (min-width: 768px) {
-    max-width: 704px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    max-width: 1249px;
-  }
-`;
+// import { ImageList as CustomImageList } from '@mui/material/ImageList';
 
 export const ExercisLi = styled.li`
   padding-bottom: 20px;
@@ -26,6 +12,10 @@ export const ContainerExIt = styled.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
   background: rgba(239, 237, 232, 0.05);
+
+  @media screen and (min-width: 1440px) {
+    width: 405px;
+  }
 `;
 
 export const ContainerWorkout = styled.div`
@@ -89,7 +79,7 @@ export const ExeName = styled.p`
     text-transform: uppercase;
   }
   display: block;
-  width: 100%; /* Або встановіть ширину, що вам потрібна */
+  width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -111,7 +101,4 @@ export const ExeItem = styled.li`
 export const SpanItem = styled.span`
   color: ${(props) => props.theme.colors.white};
   text-transform: capitalize;
-
-
-  }
 `;

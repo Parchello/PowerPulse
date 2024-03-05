@@ -28,12 +28,10 @@ export const settings = {
         transition: 'background-color 0.3s ease',
       }}
       onMouseEnter={(e) => {
-        // Додати обробник події для наведення миші
-        e.target.style.backgroundColor = '#e6533c'; // Змінити колір фону при наведенні
+        e.target.style.backgroundColor = '#e6533c';
       }}
       onMouseLeave={(e) => {
-        // Додати обробник події для відведення миші
-        e.target.style.backgroundColor = 'rgba(239, 237, 232, 0.2)'; // Повернути колір фону до звичайного
+        e.target.style.backgroundColor = 'rgba(239, 237, 232, 0.2)';
       }}
     ></div>
   ),
