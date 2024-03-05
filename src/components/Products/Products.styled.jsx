@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  /* width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 40px;
@@ -26,23 +26,15 @@ export const Container = styled.div`
 
     display: flex;
     gap: 76px;
-  }
+  } */
 `;
 
-export const MainText = styled.div`
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 117%;
-  margin-top: 40px;
-  margin-bottom: 40px;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 72px;
-    margin-bottom: 32px;
-    font-size: 32px;
-    line-height: 137%;
-  }
-
-  @media screen and (min-width: 1440px) {
-  }
-`;
+// export const FlexContainer = styled.div`
+//   /* Визначте бажаний проміжок між елементами */
+//   @media screen and (min-width: 1440px) {
+//     display: flex;
+//     align-items: center; /* Це забезпечить вирівнювання елементів по вертикалі */
+//     gap: 16px;
+//     justify-content: space-between; /* Це забезпечить рівномірний розподіл елементів по ширині контейнера */
+//   }
+// `;

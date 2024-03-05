@@ -5,6 +5,18 @@ export const DietBlockContainer = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px 16px;
+    overflow-y: auto;
+    max-height: 500px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 938px;
+  }
 `;
 
 export const DietBlock = styled.li`
@@ -16,6 +28,12 @@ export const DietBlock = styled.li`
   width: 335px;
   height: 141px;
   background: rgba(239, 237, 232, 0.05);
+
+  @media screen and (min-width: 1440px) {
+    width: 405px;
+    /* max-width: 405px;
+    flex-basis: calc((100% - 32px) / 2 - 16px); */
+  }
 `;
 
 export const DietTextBox = styled.div`

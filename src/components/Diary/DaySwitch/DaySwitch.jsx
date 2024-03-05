@@ -1,4 +1,4 @@
-const DataBlock = () => {
+const DaySwitch = () => {
   return (
     <div
       style={{
@@ -14,4 +14,4 @@ const DataBlock = () => {
   );
 };
 
-export default DataBlock;
+export default DaySwitch;

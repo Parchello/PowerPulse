@@ -1,6 +1,6 @@
-import { AddExerciseBtn, DairyExercisesField } from './DiaryExercise.styled';
+import { AddExerciseBtn, DairyExercisesField } from './DayExercises.styled';
 
-const DairyExercises = () => {
+const DayExercises = () => {
   return (
     <DairyExercisesField>
       <p>Exercises</p>
@@ -9,4 +9,4 @@ const DairyExercises = () => {
   );
 };
 
-export default DairyExercises;
+export default DayExercises;
