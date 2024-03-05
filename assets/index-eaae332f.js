@@ -1180,17 +1180,15 @@ margin-top: 12px`,fP=()=>u.jsx("div",{children:u.jsxs(dP,{children:[u.jsx(uP,{ch
 
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
-    /* Видаліть властивості width та height */
     width: 664px;
     height: 52px;
     flex-direction: row;
-
-    /* Вирівняння елементів по горизонталі */
   }
 
   @media screen and (min-width: 1440px) {
     margin-top: 68px;
     margin-bottom: 28px;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 `,bP=j.div`
   height: 46px;
@@ -1239,12 +1237,14 @@ margin-top: 12px`,fP=()=>u.jsx("div",{children:u.jsxs(dP,{children:[u.jsx(uP,{ch
   padding: 14px;
   width: 146px;
   height: 46px;
+
   @media screen and (min-width: 768px) {
     width: 192px;
     height: 52px;
   }
 
   @media screen and (min-width: 1440px) {
+    background-color: rgba(0, 0, 0, 0);
   }
 `,jP=j.select`
   background-color: black;
@@ -1254,16 +1254,21 @@ margin-top: 12px`,fP=()=>u.jsx("div",{children:u.jsxs(dP,{children:[u.jsx(uP,{ch
   padding: 14px;
   width: 173px;
   height: 46px;
+
   @media screen and (min-width: 768px) {
     width: 204px;
     height: 52px;
   }
 
   @media screen and (min-width: 1440px) {
+    background-color: rgba(0, 0, 0, 0);
   }
 `,OP=()=>u.jsxs(xP,{children:[u.jsx(wP,{children:"Products"}),u.jsxs(SP,{children:[u.jsxs(bP,{children:[u.jsx(EP,{type:"text",placeholder:"Search"}),u.jsx(kP,{width:"18px",height:"18px",children:u.jsx("use",{xlinkHref:Z+"#icon-search"})})]}),u.jsx(_P,{name:"Categories",id:"cat",placeholder:"Categories",children:u.jsx("option",{value:!0,disabled:!0,selected:!0,children:"Categories"})}),u.jsxs(jP,{name:"all",id:"all",children:[u.jsx("option",{value:!0,selected:!0,children:"All"}),u.jsx("option",{value:"",children:"Recommended"}),u.jsx("option",{value:"",children:"Not recommended"})]})]})]}),TP="/PowerPulse/assets/bg-products-24a3162a.jpg",CP="/PowerPulse/assets/bg-products@2x-35e40dce.jpg",$P=j.div`
   @media screen and (min-width: 1440px) {
     background-image: url(${TP});
+    /* background-size: contain;  */
+    background-repeat: no-repeat;
+    background-position: right;
 
     max-width: 1440px;
 
