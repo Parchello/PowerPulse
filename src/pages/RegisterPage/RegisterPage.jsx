@@ -1,14 +1,16 @@
-import { RegisterForm } from "../../components/RegisterForm/RegisterForm";
-import { Container, Title, Paragraph, LinkText, SigninLink } from "./RegisterPage.styled";
+import { LinkToSignIn } from "../../components/SignUp/LinkToSignIn/LinkToSignIn";
+import { RegisterForm } from "../../components/SignUp/RegisterForm/RegisterForm";
+import { SignUpInfo } from "../../components/SignUp/SignUpInfo/SignUpInfo";
+import { Container } from "../../components/SignUp/RegisterPage.styled";
+
 
 const RegisterPage = () => {
   return <Container>
-   <div>
-    <Title>Sign Up</Title>
-    <Paragraph>Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.</Paragraph>
+  <>
+    <SignUpInfo/>
     <RegisterForm/>
-    <LinkText>Already have an account? <SigninLink to="/login">Sign In</SigninLink></LinkText>
-  </div>
+    <LinkToSignIn/>
+  </>
   </Container>
 };
 

@@ -16,17 +16,31 @@ export const RegisterField = styled(Field)`
     border-color: ${(p) => p.theme.colors.orange};
     outline: none;
   }
+
+@media screen and (min-width: 768px) {
+    height: 52px;
+    width: 364px;
+}
 `
 
 export const RegisterErrorMessage = styled(ErrorMessage)`
-    
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 1440px) {
+      
+}    
 `
 
 export const Button = styled.button`
+    display: block;
     border-radius: 12px;
+    border: none;
     padding: 12px 40px;
-    min-width: 136px;
-    min-height: 42px;
+    width: 136px;
+    height: 42px;
     background-color: ${(p) => p.theme.colors.orange};
     font-weight: 500;
     font-size: 16px;
@@ -39,12 +53,25 @@ export const Button = styled.button`
     &:focus {
     background-color: ${(p) => p.theme.colors.orangeLight};
   }
+
+@media screen and (min-width: 768px) {
+    padding: 16px 60px;
+    width: 190px;
+    height: 56px;
+    font-size: 20px;
+    line-height: 120%;
+    margin-top: 64px;
+}
 `
 
 export const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 18px;
+
+@media screen and (min-width: 768px) {
+    gap: 20px;
+}
 `
 
 export const InputContainer = styled.div`
@@ -60,4 +87,9 @@ export const Label = styled.label`
     transform: translateY(-50%);
     left: 14px;
     pointer-events: none;
+
+@media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 150%;
+}
 `
