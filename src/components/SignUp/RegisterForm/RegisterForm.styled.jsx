@@ -1,9 +1,42 @@
 import {ErrorMessage, Field} from "formik";
 import styled from "styled-components";
 
+export const FormContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    
+
+@media screen and (min-width: 768px) {
+    gap: 20px;
+}
+`
+
+export const InputContainer = styled.div`
+    position: relative;
+`
+
+export const Label = styled.label`
+    font-size: 14px;
+    line-height: 1.29;
+    color: rgba(239, 237, 232, 0.6);
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    pointer-events: none;
+    transition: ${(p) => p.theme.transition};
+
+@media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+}
+`
+
 export const RegisterField = styled(Field)`
+    display: inline-block;
     border: 1px solid ${(p) => p.theme.colors.grey};
     border-radius: 12px;
+    outline: none;
     padding: 14px;
     width: 100%;
     height: 46px;
@@ -14,24 +47,16 @@ export const RegisterField = styled(Field)`
     &:focus,
     &:active {
     border-color: ${(p) => p.theme.colors.orange};
-    outline: none;
+
+    &:focus + ${Label}, &:not(:placeholder-shown) + ${Label} {
+        transform: translateY(-200%);
+    }
   }
 
 @media screen and (min-width: 768px) {
     height: 52px;
     width: 364px;
 }
-`
-
-export const RegisterErrorMessage = styled(ErrorMessage)`
-
-@media screen and (min-width: 768px) {
-
-}
-
-@media screen and (min-width: 1440px) {
-      
-}    
 `
 
 export const Button = styled.button`
@@ -64,32 +89,13 @@ export const Button = styled.button`
 }
 `
 
-export const FormContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+export const RegisterErrorMessage = styled(ErrorMessage)`
 
 @media screen and (min-width: 768px) {
-    gap: 20px;
+
 }
-`
 
-export const InputContainer = styled.div`
-    position: relative;
-`
-
-export const Label = styled.label`
-    font-size: 14px;
-    line-height: 1.29;
-    color: rgba(239, 237, 232, 0.6);
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 14px;
-    pointer-events: none;
-
-@media screen and (min-width: 768px) {
-    font-size: 16px;
-    line-height: 1.5;
-}
+@media screen and (min-width: 1440px) {
+      
+}    
 `
