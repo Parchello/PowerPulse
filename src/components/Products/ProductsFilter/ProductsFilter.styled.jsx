@@ -1,24 +1,78 @@
 import styled from 'styled-components';
 
-export const FiltersContainer = styled.div`
+export const MainFiltersContainer = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
+export const MainText = styled.div`
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 117%;
+  margin-top: 40px;
   margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
+    margin-top: 72px;
     margin-bottom: 32px;
+    font-size: 32px;
+    line-height: 137%;
   }
 
   @media screen and (min-width: 1440px) {
+  }
+`;
+
+// export const FiltersContainer = styled.div`
+//   margin-bottom: 40px;
+
+//   @media screen and (min-width: 768px) {
+//     margin-bottom: 32px;
+//   }
+
+//   @media screen and (min-width: 1440px) {
+//     margin-bottom: 28px;
+//     width: 664px;
+//     height: 52px;
+//   }
+// `;
+
+export const Filters = styled.div`
+  margin-bottom: 40px;
+  width: 335px;
+  height: 108px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+    /* Видаліть властивості width та height */
+    width: 664px;
+    height: 52px;
+    flex-direction: row;
+
+    /* Вирівняння елементів по горизонталі */
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 68px;
     margin-bottom: 28px;
   }
 `;
 
-export const Filters = styled.div`
-  width: 335px;
-  height: 108px;
+export const SearchInputBox = styled.div`
+  height: 46px;
+
   @media screen and (min-width: 768px) {
+    width: 236px;
+    height: 52px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 768px) {
   }
 `;
 
@@ -47,23 +101,25 @@ export const SearchInput = styled.input`
     color: #efede8;
   }
   @media screen and (min-width: 768px) {
+    width: 236px;
+    height: 52px;
   }
 
   @media screen and (min-width: 1440px) {
   }
 `;
 
-export const SelectorBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 335px;
-  height: 46px;
-  @media screen and (min-width: 768px) {
-  }
+// export const SelectorBox = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   width: 335px;
+//   height: 46px;
+//   @media screen and (min-width: 768px) {
+//   }
 
-  @media screen and (min-width: 1440px) {
-  }
-`;
+//   @media screen and (min-width: 1440px) {
+//   }
+// `;
 
 export const SelectorC = styled.select`
   background-color: black;
@@ -74,6 +130,8 @@ export const SelectorC = styled.select`
   width: 146px;
   height: 46px;
   @media screen and (min-width: 768px) {
+    width: 192px;
+    height: 52px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -89,6 +147,8 @@ export const SelectorA = styled.select`
   width: 173px;
   height: 46px;
   @media screen and (min-width: 768px) {
+    width: 204px;
+    height: 52px;
   }
 
   @media screen and (min-width: 1440px) {
