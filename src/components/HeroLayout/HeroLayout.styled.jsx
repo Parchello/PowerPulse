@@ -46,6 +46,7 @@ export const HeroHolder = styled.div`
     max-width: 1440px;
 
     padding-top: 200px;
+    margin-right: -96px;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
