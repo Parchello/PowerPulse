@@ -1,4 +1,4 @@
-import Diary from '../../components/Diary/Diary/DIary';
+import Diary from '../../components/Diary/DIary';
 
 const DairyPage = () => {
   return <Diary />;

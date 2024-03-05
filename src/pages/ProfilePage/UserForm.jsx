@@ -1,205 +1,23 @@
-import styled from 'styled-components';
 import { useFormik } from 'formik';
 
-import sprite from '../../assets/sprite.svg';
-
-const Form = styled.form`
-  background-color: inherit;
-`;
-
-const InputLong = styled.input`
-  background-color: inherit;
-  padding: 0;
-  outline: none !important;
-  display: block;
-  width: 341px;
-  height: 52px;
-  border-radius: 12px;
-  padding: 14px, 216px, 14px, 14px;
-  border: 1px, EFEDE8;
-  border-color: EFEDE8;
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    width: 100%;
-  }
-`;
-
-const InputShort = styled.input`
-  background-color: inherit;
-
-  display: block;
-  border-radius: 12px;
-  padding: 14px, 216px, 14px, 14px;
-  border: 1px, EFEDE8;
-  border-color: EFEDE8;
-
-  width: 159px;
-  height: 52px;
-
-  //mobile
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    height: 46px;
-    width: 100%;
-  }
-`;
-
-const Label = styled.label`
-  font-size: 14px;
-  line-height: 18px;
-  background-color: inherit;
-  color: rgba(239, 237, 232, 0.5);
-  margin-bottom: 8px;
-
-  //mobile
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    font-size: 14px;
-    line-height: 18px;
-    margin-bottom: 4px;
-  }
-`;
-
-const Ul = styled.ul`
-  background-color: inherit;
-  display: flex;
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    width: calc(50% - 10px);
-  }
-`;
-
-const UlLifeStyle = styled.ul`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 48px;
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    margin-bottom: 40px;
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 38px;
-  }
-`;
-
-const LiRadioBtn = styled.li`
-  background-color: inherit;
-  display: flex;
-
-  &:checked {
-    background-color: #e6533c;
-  }
-  margin-right: 8px;
-  margin-bottom: 8px;
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    flex: 1;
-  }
-`;
-
-const LabelRadioBtn = styled.label`
-  background-color: inherit;
-  font-size: 16px;
-  line-height: 24px;
-  background-color: inherit;
-  &:checked {
-    background-color: #e6533c;
-  }
-  color: #efede8;
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    font-size: 14px;
-    line-height: 18px;
-  }
-`;
-
-const InputRadioBtn = styled.input`
-  background-color: transparent;
-  margin-right: 8px;
-  width: 24px;
-  height: 24px;
-  border: none;
-
-  &:checked {
-    background-color: #e6533c;
-  }
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    width: 20px;
-    height: 20px;
-  }
-`;
-
-const RadioBtnContainer = styled.div`
-  display: flex;
-  gap: 32px;
-  margin-bottom: 32px;
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    gap: 20px;
-    margin-top: 8px;
-  }
-`;
-
-const NameEmailContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  margin-bottom: 14px;
-  //mobile
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    flex-direction: column;
-    gap: 14px;
-  }
-`;
-
-const DataContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  margin-bottom: 16px;
-
-  @media screen (min-width: 768px) {
-    flex-direction: row;
-
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-bottom: 16px;
-  }
-  //mobile
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    flex-direction: row;
-
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-bottom: 20px;
-  }
-`;
-
-const DataContainerItem = styled.div`
-  //   @media screen (min-width: 768px) and (max-width: 1439px) {
-  //     width: calc(50% - 7px);
-  //   }
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    width: calc(50% - 7px);
-  }
-`;
-
-const FormBtn = styled.button`
-  background: #e6533c;
-
-  color: rgba(239, 237, 232, 0.6);
-  border-radius: 12px;
-
-  width: 144px;
-  height: 56px;
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    width: 115px;
-    height: 42px;
-  }
-`;
+import {
+  InputLong,
+  InputShort,
+  Label,
+  Ul,
+  UlLifeStyle,
+  LiRadioBtn,
+  RadioBtnContainer,
+  NameEmailContainer,
+  DataContainer,
+  DataContainerItem,
+  FormBtn,
+  Form,
+  LabelRadioBtn,
+  InputRadioBtn,
+  NameEmailContainerItem,
+  BloodLabel,
+} from '../../pages/ProfilePage/StyledUserForm.jsx';
 
 const UserForm = () => {
   const formik = useFormik({
@@ -219,7 +37,7 @@ const UserForm = () => {
   return (
     <Form onSubmit={formik.handleSubmit}>
       <NameEmailContainer>
-        <div>
+        <NameEmailContainerItem>
           <Label htmlFor="name">Name</Label>
           <InputLong
             id="name"
@@ -228,8 +46,8 @@ const UserForm = () => {
             onChange={formik.handleChange}
             value={formik.values.name}
           />
-        </div>
-        <div>
+        </NameEmailContainerItem>
+        <NameEmailContainerItem>
           <Label htmlFor="email">Email</Label>
           <InputLong
             id="email"
@@ -238,7 +56,7 @@ const UserForm = () => {
             onChange={formik.handleChange}
             value={formik.values.email}
           />
-        </div>
+        </NameEmailContainerItem>
       </NameEmailContainer>
       <DataContainer>
         <DataContainerItem>
@@ -283,21 +101,16 @@ const UserForm = () => {
           />
         </DataContainerItem>
       </DataContainer>
-      <Label htmlFor="blood"> Blood</Label>
-
+      <BloodLabel htmlFor="blood"> Blood</BloodLabel>
       <RadioBtnContainer>
         <Ul id="blood">
           <LiRadioBtn>
-            <svg width="24px" height="24px" fill="#636366">
-              <use xlinkHref={sprite + '#icon--RadioButton'} />
-            </svg>
             <InputRadioBtn
               name="blood"
               value="1"
               id="1"
               type="radio"
             ></InputRadioBtn>
-
             <LabelRadioBtn htmlFor="1">1</LabelRadioBtn>
           </LiRadioBtn>
           <LiRadioBtn>
@@ -329,7 +142,7 @@ const UserForm = () => {
           </LiRadioBtn>
         </Ul>
 
-        <Ul>
+        <Ul id="gender">
           <LiRadioBtn>
             <InputRadioBtn
               id="female"

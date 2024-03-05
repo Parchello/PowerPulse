@@ -12,11 +12,12 @@ export const HeroHolder = styled.div`
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 298px 571px;
-  padding-top: 127px;
+  /* padding-top: 127px; */
 
   margin: 0 auto;
 
   max-width: 375px;
+  margin-right: -20px;
 
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -29,7 +30,8 @@ export const HeroHolder = styled.div`
 
     max-width: 768px;
     background-size: 437px 893px;
-    padding-top: 189px;
+    /* padding-top: 189px; */
+    margin-right: -32px;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -45,7 +47,8 @@ export const HeroHolder = styled.div`
 
     max-width: 1440px;
 
-    padding-top: 200px;
+    /* padding-top: 200px; */
+    margin-right: -96px;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),

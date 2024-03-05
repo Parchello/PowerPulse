@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const MainDiv = styled.div`
+
   position: absolute;
   top: 0;
   left: 0;
@@ -12,6 +13,7 @@ export const MainDiv = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 20px 20px;
+  z-index: 1000;
 
   overflow: hidden;
 
@@ -28,5 +30,4 @@ export const LogOutDiv = styled.div`
     display: flex;
     gap:8px;
     align-items: center; 
-  }
   `;

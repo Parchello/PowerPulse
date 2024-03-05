@@ -1,15 +1,23 @@
-import { RegisterForm } from "../../components/RegisterForm/RegisterForm";
-import { Container, Title, Paragraph, LinkText, SigninLink } from "./RegisterPage.styled";
+import { LinkToSignIn } from "../../components/SignUp/LinkToSignIn/LinkToSignIn";
+import { RegisterForm } from "../../components/SignUp/RegisterForm/RegisterForm";
+import { SignUpInfo } from "../../components/SignUp/SignUpInfo/SignUpInfo";
+import { Container } from "../../components/SignUp/RegisterPage.styled";
+import { HeroLayout } from "../../components/HeroLayout/HeroLayout";
+import { MainPageInfo } from "../../components/MainPageInfo/MainPageInfo";
 
 const RegisterPage = () => {
-  return <Container>
-   <div>
-    <Title>Sign Up</Title>
-    <Paragraph>Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.</Paragraph>
-    <RegisterForm/>
-    <LinkText>Already have an account? <SigninLink to="/login">Sign In</SigninLink></LinkText>
-  </div>
-  </Container>
+  return (
+  <HeroLayout>
+    <Container>
+    <div>
+      <SignUpInfo/>
+      <RegisterForm/>
+      <LinkToSignIn/>
+    </div>
+    <MainPageInfo/>
+    </Container>
+  </HeroLayout>
+  ) 
 };
 
 export default RegisterPage;
