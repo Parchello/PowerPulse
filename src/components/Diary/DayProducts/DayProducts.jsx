@@ -6,9 +6,9 @@ import {
   DairyProductsField,
   HeaderOfProductField,
   ListOfProducts,
-} from './DiaryProducts.styled';
+} from './DayProducts.styled';
 
-export const DiaryProducts = (prop) => {
+export const ProductsTable = (prop) => {
   const { dataProp } = prop;
   return (
     <DairyProductsField>
@@ -32,4 +32,4 @@ export const DiaryProducts = (prop) => {
   );
 };
 
-export default DiaryProducts;
+export default ProductsTable;

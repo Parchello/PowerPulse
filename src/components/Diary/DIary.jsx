@@ -1,6 +1,5 @@
-import { InfoBlock } from './InfoBlock/InfoBlock';
-import { DiaryExercises } from './DiaryExercise/DiaryExercise';
-import { DiaryProducts } from './DiaryProducts/DiaryProducts';
+import ExercisesTable from './DayExercises/DayExercises';
+import ProductsTable from './DayProducts/DayProducts';
 
 const resFromBackend = [
   // {
@@ -92,9 +91,9 @@ const Diary = () => {
         gap: '40px',
       }}
     >
-      <InfoBlock />
-      <DiaryProducts dataProp={resFromBackend} />
-      <DiaryExercises exeProp={resFromExeBackend} />
+      {/* <InfoBlock /> */}
+      <ProductsTable dataProp={resFromBackend} />
+      <ExercisesTable exeProp={resFromExeBackend} />
     </div>
   );
 };

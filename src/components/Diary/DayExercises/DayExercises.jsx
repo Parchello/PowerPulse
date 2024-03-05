@@ -6,9 +6,9 @@ import {
   DairyExercisesField,
   ExerciseBlock,
   HeaderOfExerciseField,
-} from './DiaryExercise.styled';
+} from './DayExercises.styled';
 
-export const DiaryExercises = (prop) => {
+export const ExercisesTable = (prop) => {
   const { exeProp } = prop;
   return (
     <DairyExercisesField>
@@ -31,4 +31,4 @@ export const DiaryExercises = (prop) => {
   );
 };
 
-export default DiaryExercises;
+export default ExercisesTable;
