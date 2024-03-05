@@ -26,6 +26,14 @@ export const UserCard = styled.div`
   padding-left: 50px;
   width: 439px;
   position: relative;
+
+  @media screen and (min-width: 375px) {
+    padding-left: 0px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-left: 50px;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -41,6 +49,15 @@ export const ListItem = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  // гумова
+  @media screen and (min-width: 320px) {
+    width: 40%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 214px;
+  }
 `;
 
 export const ListText = styled.p`
@@ -60,6 +77,16 @@ export const ListNumbers = styled.p`
 
   width: 64px;
   height: 32px;
+
+  @media screen and (min-width: 320px) {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
 `;
 
 export const DescrContainer = styled.div`
@@ -103,6 +130,17 @@ export const Container = styled.div`
   display: flex;
   gap: 8px;
   margin-bottom: 32px;
+
+  @media screen and (min-width: 320px) {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    justify-content: flex-start;
+    width: 439px;
+  }
 `;
 
 export const ImgCircle = styled.div`
@@ -147,4 +185,19 @@ export const LogOutDiv = styled.div`
   gap: 8px;
   position: absolute;
   right: 0;
+
+  @media screen and (min-width: 320px) {
+    margin-right: 20px;
+  }
+`;
+
+export const TextDescr = styled.p`
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(239, 237, 232, 0.3);
+
+  @media screen and (min-width: 320px) {
+    width: 75%;
+    text-align: justify;
+  }
 `;
