@@ -1,6 +1,8 @@
+import TitlePage from '../../pages/ProfilePage/TitlePage';
 import DayDashboard from './DayDashboard/DayDashboard';
 import DayExercises from './DayExercises/DayExercises';
 import DayProducts from './DayProducts/DayProducts';
+import DaySwitch from './DaySwitch/DaySwitch';
 
 const Diary = () => {
   return (
@@ -12,11 +14,11 @@ const Diary = () => {
         gap: '40px',
       }}
     >
+      <TitlePage />
+      <DaySwitch />
       <DayDashboard />
-      <DayProducts>
-        <p></p>
-      </DayProducts>
-      <DayExercises></DayExercises>
+      <DayProducts />
+      <DayExercises />
     </div>
   );
 };
