@@ -1,3 +1,4 @@
+import TitlePage from '../../pages/ProfilePage/TitlePage';
 import DayDashboard from './DayDashboard/DayDashboard';
 import DayExercises from './DayExercises/DayExercises';
 import DayProducts from './DayProducts/DayProducts';
@@ -12,11 +13,10 @@ const Diary = () => {
         gap: '40px',
       }}
     >
+      <TitlePage />
       <DayDashboard />
-      <DayProducts>
-        <p></p>
-      </DayProducts>
-      <DayExercises></DayExercises>
+      <DayProducts />
+      <DayExercises />
     </div>
   );
 };

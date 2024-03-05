@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const DairyProductsField = styled.div`
@@ -14,11 +15,14 @@ export const ProductBlock = styled.div`
   display: flex;
 `;
 
-export const AddProductBtn = styled.a`
+export const ProdLink = styled(Link)`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: ${(props) => props.theme.colors.orange};
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: flex-end;
   margin-left: auto;
-  color: orange;
 `;
