@@ -1,3 +1,4 @@
+
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Form, Field, FormGroup, ErrorMessage, Button, Title, Text } from './SignInForm.styled';
@@ -30,18 +31,24 @@ export const SignInForm = ({handleSubmit}) => {
         actions.resetForm();
       }}
     >
+      {({errors, touched}) => (
       <Form>
         <FormGroup>
-          <Field name="email" id = "email" type = "email" placeholder = "Email"/>
+          <Field name="email" id = "email" type = "email"  placeholder = "Email" className={errors.email && touched.email ? 'invalid'  : (touched.email && !errors.email) ? 'valid' : ''}/>
           <ErrorMessage name="email" component="span" />
         </FormGroup>
         <FormGroup>
-          <Field name="password"  id = "password" type = "password" placeholder = "Password"/>
+          <Field name="password"  id = "password" type = "password" placeholder = "Password" className={errors.password && touched.password ? 'invalid' : (touched.password && !errors.password) ? 'valid' : ''}/>
           <ErrorMessage name="password" component="span" />
         </FormGroup>
         <Button type="submit">Sign In</Button>
-      </Form>
+      </Form>)}
     </Formik>
     </div>
   );
 };
+
+
+
+
+

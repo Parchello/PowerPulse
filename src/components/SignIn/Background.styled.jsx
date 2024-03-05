@@ -8,10 +8,20 @@ import herodescktop2x from '../../assets/heroImages/hero-descktop-2x-min.png';
 
 export const BackGround = styled.div`
   background-image: url(${heroMobile1x});
-
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 100vh;
+  background-repeat: no-repeat;
+
+
+
+  background-position-x: 100%;
+  background-position-y: 100%;
+  background-size: 80% auto;
+  box-sizing: border-box;
+  color: rgb(239, 237, 232);
+  
+
+
+
 
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -21,6 +31,7 @@ export const BackGround = styled.div`
 
   @media screen and (min-width: 768px) {
     background-image: url(${herotablet1x});
+    background-size: contain;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),

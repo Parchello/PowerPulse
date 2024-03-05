@@ -1,15 +1,15 @@
 import { SignInForm } from '../../components/SignIn/SignInForm/SignInForm';
 import { LinkToSignUp } from '../../components/SignIn/LinkToSignUp/LinkToSignUp';
-import { Wrapper } from '../../components/SignIn/Wrapper.styled';
+import {BackGround} from "../../components/SignIn/Background.styled"
 
 const LoginPage = () => {
   function handleSubmit() {}
   return (
     <>
-      <Wrapper>
+    <BackGround>
         <SignInForm handleSubmit={handleSubmit} />
         <LinkToSignUp />
-      </Wrapper>
+        </BackGround>
     </>
   );
 };

@@ -16,21 +16,41 @@ import {
   `;
   
   export const Field = styled(FormikField)`
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  color: ${(p) => p.theme.colors.white};
+  
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+
 border: 1px solid rgba(239, 237, 232, 0.3);
 border-radius: 12px;
 padding: 14px 200px 14px 14px;
-width: 335px;
+width: 100%;
 height: 46px;
 &::placeholder { font-weight: 400;
   font-size: 14px;
   line-height: 129%;
   color: ${(p) => p.theme.colors.white};
   opacity: 30%;}
-  &:hover, :focus {
+  transition: border-color ${(p) => p.theme.transition};
+  &:hover {
     border-color: ${(p)=>p.theme.colors.orange} ;
-
   };
+
+
+  &.invalid {
+    border-color: red;
+  };
+
+  &.valid {
+    border-color: green;
+  }
+
+
+  @media screen and (min-width: 375px) {
+    width: 335px;
+  }
 
   @media screen and (min-width: 1440px) {
     width: 364px;
@@ -45,7 +65,7 @@ height: 52px;
   `;
   
   export const ErrorMessage = styled(FormikError)`
-    color: ${p => p.theme.colors.red};
+    color: red;
     font-size: 14px;
   `;
 
@@ -82,6 +102,7 @@ height: 52px;
   }`
 
   export const Title = styled.h1`
+  padding-top: 127px;
   font-weight: 700;
   font-size: 24px;
   line-height: 117%;
@@ -89,11 +110,14 @@ height: 52px;
   margin-bottom: 14px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 105px;
+    padding-top: 189px;
     font-size: 32px;
     line-height: 138%;
     margin-bottom: 16px;
   };
+  @media screen and (min-width: 1440px) {
+    padding-top: 200px;
+  }
   `
 
   export const Text = styled.h1`
