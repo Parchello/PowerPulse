@@ -3,12 +3,13 @@ import {
   ProductInfo,
   TitleName,
   BottomInfField,
+  LiExcersiceItem,
 } from './ExerciseItem.styled';
 
 export const ExerciseItem = ({ prop }) => {
   const { body_Part, equipment, name, target, burnedCalories, time } = prop;
   return (
-    <li>
+    <LiExcersiceItem>
       <TitleName>Body Part</TitleName>
       <ProductInfo>{body_Part}</ProductInfo>
       <TitleName>Equipment</TitleName>
@@ -30,7 +31,7 @@ export const ExerciseItem = ({ prop }) => {
           <BottomInfField>{time}</BottomInfField>
         </div>
       </BottomInf>
-    </li>
+    </LiExcersiceItem>
   );
 };
 

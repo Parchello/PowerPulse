@@ -1,5 +1,6 @@
 import {
   BottomInf,
+  LiItemProducts,
   ProductBottomInfo,
   ProductInfo,
   TitleName,
@@ -9,7 +10,7 @@ import { NotRecommended } from '../NotRecomended/NotRecommended';
 
 export const ProductItem = ({ prop }) => {
   return (
-    <li>
+    <LiItemProducts>
       <TitleName>Title</TitleName>
       <ProductInfo>{prop.title}</ProductInfo>
       <TitleName>Category</TitleName>
@@ -30,7 +31,7 @@ export const ProductItem = ({ prop }) => {
           </ProductBottomInfo>
         </div>
       </BottomInf>
-    </li>
+    </LiItemProducts>
   );
 };
 

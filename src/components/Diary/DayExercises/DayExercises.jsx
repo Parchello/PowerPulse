@@ -1,21 +1,25 @@
+import sprite from '../../../assets/sprite.svg';
+import {
+  DairyExercisesField,
+  ExerciseBlock,
+  ExersLink,
+  ExersTitle,
+} from './DayExercises.styled';
+
 import { ExerciseItem } from '../ExerciseItem/ExerciseItem';
 import { NotFoundExercises } from '../NotFoundExercises/NotFoundExercises';
 import { PositionCorrectorDiv } from '../NotFoundProducts/NotFoundProducts.styled';
-import {
-  AddExerciseBtn,
-  DairyExercisesField,
-  ExerciseBlock,
-  HeaderOfExerciseField,
-} from './DayExercises.styled';
-
+//
 export const ExercisesTable = (prop) => {
   const { exeProp } = prop;
+
   return (
     <DairyExercisesField>
-      <HeaderOfExerciseField>
-        <p>Exercises</p>
-        <AddExerciseBtn href="#">Add exercise</AddExerciseBtn>
-      </HeaderOfExerciseField>
+      <ExersTitle>Exercises</ExersTitle>
+      <ExersLink to="/exercises">Add exercise</ExersLink>
+      <svg width="16px" height="16px">
+        <use xlinkHref={sprite + '#icon-red-raw'} />
+      </svg>
       {exeProp.length > 0 ? (
         <ExerciseBlock>
           {exeProp.map((i) => (

@@ -2,21 +2,23 @@ import { NotFoundProducts } from '../NotFoundProducts/NotFoundProducts';
 import { PositionCorrectorDiv } from '../NotFoundProducts/NotFoundProducts.styled';
 import { ProductItem } from '../ProductItem/ProductItem';
 import {
-  AddProductBtn,
   DairyProductsField,
-  HeaderOfProductField,
   ListOfProducts,
+  ProdLink,
 } from './DayProducts.styled';
+
+import sprite from '../../../assets/sprite.svg';
+import { ExersTitle } from '../DayExercises/DayExercises.styled';
 
 export const ProductsTable = (prop) => {
   const { dataProp } = prop;
   return (
     <DairyProductsField>
-      <HeaderOfProductField>
-        <p>Products</p>
-        <AddProductBtn href="#">Add Product</AddProductBtn>
-      </HeaderOfProductField>
-
+      <ExersTitle>Products</ExersTitle>
+      <ProdLink to="/products">Add Product</ProdLink>
+      <svg width="16px" height="16px">
+        <use xlinkHref={sprite + '#icon-red-raw'} />
+      </svg>
       {dataProp.length > 0 ? (
         <ListOfProducts>
           {dataProp.map((i) => (

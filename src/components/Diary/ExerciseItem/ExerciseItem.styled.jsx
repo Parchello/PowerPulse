@@ -9,6 +9,10 @@ export const TitleName = styled.p`
   margin-bottom: 8px;
 `;
 
+export const LiExcersiceItem = styled.li`
+  margin-bottom: 40px;
+`;
+
 export const ProductInfo = styled.p`
   border: 1px solid rgba(239, 237, 232, 0.3);
   border-radius: 12px;
