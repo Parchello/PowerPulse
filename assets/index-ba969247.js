@@ -105,7 +105,7 @@ Error generating stack: `+o.message+`
     display: flex;
     flex-direction: row;
     align-items: center;
-`,V="/PowerPulse/assets/sprite-7ff6ad6d.svg",Sx=()=>{const e=Ji("(max-width: 767px)");return u.jsx(br,{to:"/",children:u.jsx("svg",{width:e?"126px":"151px",height:e?"13px":"17px",children:u.jsx("use",{xlinkHref:V+"#icon-Logo-1"})})})},e_=_.ul`
+`,V="/PowerPulse/assets/sprite-330ff6d7.svg",Sx=()=>{const e=Ji("(max-width: 767px)");return u.jsx(br,{to:"/",children:u.jsx("svg",{width:e?"126px":"151px",height:e?"13px":"17px",children:u.jsx("use",{xlinkHref:V+"#icon-Logo-1"})})})},e_=_.ul`
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -1783,6 +1783,7 @@ margin-top: 12px`,mP=()=>u.jsx("div",{children:u.jsxs(hP,{children:[u.jsx(fP,{ch
   min-height: 335px;
   display: flex;
   padding: 16px;
+  background: rgba(239, 237, 232, 0.05);
 `;_.div`
   display: flex;
 `;const mL=_(br)`
@@ -1820,6 +1821,7 @@ margin-top: 12px`,mP=()=>u.jsx("div",{children:u.jsxs(hP,{children:[u.jsx(fP,{ch
   min-height: 335px;
   display: flex;
   padding: 16px;
+  background: rgba(239, 237, 232, 0.05);
 `;_.div`
   display: flex;
 `;const vL=_(br)`
