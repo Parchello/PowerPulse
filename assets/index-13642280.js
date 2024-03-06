@@ -2500,8 +2500,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }
   .react-datepicker__day--keyboard-selected {
     border-radius: 50%;
-    background-color:white;
-    color:#3e85f3;
+    background-color:${e=>e.theme.colors.black};
+    color:${e=>e.theme.colors.white};
   }
  
 .react-datepicker__day--outside-month {
