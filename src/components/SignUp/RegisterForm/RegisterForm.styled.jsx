@@ -16,21 +16,21 @@ export const InputContainer = styled.div`
     position: relative;
 `
 
-export const Label = styled.label`
-    font-size: 14px;
-    line-height: 1.29;
-    color: rgba(239, 237, 232, 0.6);
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    pointer-events: none;
-    transition: transform ${(p) => p.theme.transition}, font-size ${(p) => p.theme.transition}, line-height ${(p) => p.theme.transition}, left ${(p) => p.theme.transition};
+// export const Label = styled.label`
+//     font-size: 14px;
+//     line-height: 1.29;
+//     color: rgba(239, 237, 232, 0.6);
+//     position: absolute;
+//     top: 14px;
+//     left: 14px;
+//     pointer-events: none;
+//     transition: transform ${(p) => p.theme.transition}, font-size ${(p) => p.theme.transition}, line-height ${(p) => p.theme.transition}, left ${(p) => p.theme.transition};
 
-@media screen and (min-width: 768px) {
-    font-size: 16px;
-    line-height: 1.5;
-}
-`
+// @media screen and (min-width: 768px) {
+//     font-size: 16px;
+//     line-height: 1.5;
+// }
+// `
 
 export const RegisterField = styled(Field)`
     display: inline-block;
@@ -45,6 +45,17 @@ export const RegisterField = styled(Field)`
     line-height: 1.29;
     color: ${(p) => p.theme.colors.white}; 
     transition: border-color ${(p) => p.theme.transition};
+
+    &::placeholder{
+        font-size: 14px;
+        line-height: 1.29;
+        color: rgba(239, 237, 232, 0.6);
+
+        @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 1.5;
+}
+    }
 
     @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -65,7 +76,7 @@ export const RegisterField = styled(Field)`
     border-color: ${(p) => p.theme.colors.orange};
 
 
-    &:focus + ${Label} {
+    /* &:focus { //-----------+label
         transform: translateY(-240%);
         font-size: 12px;
         line-height: 1.11;
@@ -78,7 +89,7 @@ export const RegisterField = styled(Field)`
         font-size: 14px;
         line-height: 1.29;
     }
-    }
+    } */
   }
 
 @media screen and (min-width: 768px) {
@@ -118,15 +129,16 @@ export const Button = styled.button`
 `
 
 export const Message = styled.span`
-  font-size: 14px;
-  color: #d80027;
+    font-size: 14px;
+    color: #d80027;
 `
 
 export const SuccessMessage = styled.span`
-  font-size: 14px;
-  color: #3cbf61;
+    font-size: 14px;
+    color: #3cbf61;
 `
 
 export const ErrorsMargin = styled.div`
     margin-top: 4px;
+    /* position: absolute; */
 `
