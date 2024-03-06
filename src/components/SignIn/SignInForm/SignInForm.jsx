@@ -2,8 +2,10 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Form, Field, FormGroup, SuccessMessage, Message, Button, Title, Text } from './SignInForm.styled';
+import { useDispatch } from 'react-redux';
+import {logIn} from "../../../redux/auth/operations"
 
-// export const SignInForm = ({handleSubmit}) => {
+//  const SignInForm = ({handleSubmit}) => {
 //   return (
 //     <div>
 //         <Title>Sign In</Title>
@@ -54,8 +56,12 @@ const signInSchema = Yup.object().shape({
 
 
 
-
-export const SignInForm = ({ handleSubmit }) => {
+ export const SignInForm = () => {
+  const dispatch = useDispatch();
+  const handleSubmit = (values, actions) => {
+    dispatch(logIn(values)); // Відправити дію logIn до Redux store
+    actions.resetForm();
+  };
   return (
     <div>
       <Title>Sign In</Title>
@@ -66,10 +72,12 @@ export const SignInForm = ({ handleSubmit }) => {
           password: '',
         }}
         validationSchema={signInSchema}
-        onSubmit={(values, actions) => {
-          handleSubmit(values);
-          actions.resetForm();
-        }}
+        // onSubmit = {(values, actions) => {
+        //   handleSubmit(values);
+        //   actions.resetForm();
+        // }}
+
+        onSubmit={handleSubmit}
       >
         {({ errors, touched }) => (
           <Form>
@@ -90,5 +98,3 @@ export const SignInForm = ({ handleSubmit }) => {
     </div>
   );
 };
-
-export default SignInForm;

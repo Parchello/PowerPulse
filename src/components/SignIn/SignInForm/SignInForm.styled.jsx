@@ -18,6 +18,7 @@ export const Form = styled(FormikForm)`
 export const Field = styled(FormikField)`
   background-color: transparent;
   color: ${(p) => p.theme.colors.white};
+  outline: none;
 
   font-weight: 400;
   font-size: 16px;
