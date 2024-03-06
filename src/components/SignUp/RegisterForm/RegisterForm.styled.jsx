@@ -70,6 +70,14 @@ export const RegisterField = styled(Field)`
     border-color: #3cbf61;
   }
 
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    background-color: transparent !important;
+    -webkit-text-fill-color: ${(p) => p.theme.colors.white} !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
     &:hover,
     &:focus,
     &:active {
@@ -139,6 +147,6 @@ export const SuccessMessage = styled.span`
 `
 
 export const ErrorsMargin = styled.div`
-    margin-top: 4px;
-    /* position: absolute; */
+    /* margin-top: 4px; */
+    position: absolute;
 `
