@@ -15,7 +15,7 @@ export const DietBlockContainer = styled.ul`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 938px;
+    width: 845px;
   }
 `;
 

@@ -5,10 +5,12 @@ import { MobileMenu } from '../MobileMenu/MobileMenu';
 import { Logo } from '../Logo/Logo';
 import { UserBar } from '../UserBar/UserBar';
 
+import Slide from '@mui/material/Slide';
 
-export const MobileView = () => {
 
-  const isLoggedIn = true;
+export const MobileView = ({isLoggedIn}) => {
+
+
   const [isOpen, setIsOpen] = useState(false);
 
 
