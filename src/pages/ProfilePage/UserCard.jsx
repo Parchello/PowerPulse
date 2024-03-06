@@ -17,6 +17,7 @@ import {
   UserImgLabel,
   UserImgInput,
   LogOutDiv,
+  TextDescr,
 } from './StyledUserCard';
 
 const Usercard = () => {
@@ -69,10 +70,10 @@ const Usercard = () => {
         >
           <use xlinkHref={sprite + '#icon-icons'} />
         </svg>
-        <p>
+        <TextDescr>
           We understand that each individual is unique, so the entire approach
           to diet is relative and tailored to your unique body and goals.
-        </p>
+        </TextDescr>
       </Container>
 
       <LogOutDiv>

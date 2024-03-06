@@ -1,16 +1,16 @@
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   CategoryList,
   CategoryExercises,
 } from './ExercisesCategories.styled.js';
-// import { filtersAction } from '../../../../redux/store.js';
+import { filtersAction } from '../store.js';
 
 const ExercisesCategories = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <div>
-      {/* <CategoryList>
+      <CategoryList>
         <li onClick={() => dispatch(filtersAction('Body parts'))}>
           <CategoryExercises>Body parts</CategoryExercises>
         </li>
@@ -18,18 +18,6 @@ const ExercisesCategories = () => {
           <CategoryExercises>Muscles</CategoryExercises>
         </li>
         <li onClick={() => dispatch(filtersAction('Equipment'))}>
-          <CategoryExercises>Equipment</CategoryExercises>
-        </li>
-      </CategoryList> */}
-
-      <CategoryList>
-        <li>
-          <CategoryExercises>Body parts</CategoryExercises>
-        </li>
-        <li>
-          <CategoryExercises>Muscles</CategoryExercises>
-        </li>
-        <li>
           <CategoryExercises>Equipment</CategoryExercises>
         </li>
       </CategoryList>

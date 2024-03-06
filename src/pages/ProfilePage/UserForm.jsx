@@ -15,6 +15,8 @@ import {
   Form,
   LabelRadioBtn,
   InputRadioBtn,
+  NameEmailContainerItem,
+  BloodLabel,
 } from '../../pages/ProfilePage/StyledUserForm.jsx';
 
 const UserForm = () => {
@@ -35,7 +37,7 @@ const UserForm = () => {
   return (
     <Form onSubmit={formik.handleSubmit}>
       <NameEmailContainer>
-        <div>
+        <NameEmailContainerItem>
           <Label htmlFor="name">Name</Label>
           <InputLong
             id="name"
@@ -44,8 +46,8 @@ const UserForm = () => {
             onChange={formik.handleChange}
             value={formik.values.name}
           />
-        </div>
-        <div>
+        </NameEmailContainerItem>
+        <NameEmailContainerItem>
           <Label htmlFor="email">Email</Label>
           <InputLong
             id="email"
@@ -54,7 +56,7 @@ const UserForm = () => {
             onChange={formik.handleChange}
             value={formik.values.email}
           />
-        </div>
+        </NameEmailContainerItem>
       </NameEmailContainer>
       <DataContainer>
         <DataContainerItem>
@@ -99,8 +101,7 @@ const UserForm = () => {
           />
         </DataContainerItem>
       </DataContainer>
-      <Label htmlFor="blood"> Blood</Label>
-
+      <BloodLabel htmlFor="blood"> Blood</BloodLabel>
       <RadioBtnContainer>
         <Ul id="blood">
           <LiRadioBtn>
@@ -141,7 +142,7 @@ const UserForm = () => {
           </LiRadioBtn>
         </Ul>
 
-        <Ul>
+        <Ul id="gender">
           <LiRadioBtn>
             <InputRadioBtn
               id="female"

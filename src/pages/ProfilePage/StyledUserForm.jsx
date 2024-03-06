@@ -3,6 +3,22 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   background-color: inherit;
+
+  @media screen and (min-width: 320px) {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1440px) {
+    justify-content: flex-start;
+    lign-items: flex-start;
+
+    width: 60%;
+  }
 `;
 
 export const InputLong = styled.input`
@@ -14,12 +30,8 @@ export const InputLong = styled.input`
   height: 52px;
   border-radius: 12px;
   padding: 14px, 216px, 14px, 14px;
-  border: 1px, EFEDE8;
-  border-color: EFEDE8;
-
-  @media screen and (min-width: 320px) and (max-width: 375px) {
-    width: 100%;
-  }
+  border: 1px solid rgba(239, 237, 232, 0.3);
+  border-color: rgba(239, 237, 232, 0.3);
 `;
 
 export const InputShort = styled.input`
@@ -28,16 +40,31 @@ export const InputShort = styled.input`
   display: block;
   border-radius: 12px;
   padding: 14px, 216px, 14px, 14px;
-  border: 1px, EFEDE8;
-  border-color: EFEDE8;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+  border-color: rgba(239, 237, 232, 0.3);
 
   width: 159px;
   height: 52px;
 
+  &:focus {
+    border: 1px solid #d80027;
+  }
+  &:hover {
+    border-color: #d80027;
+  }
   //mobile
   @media screen and (min-width: 320px) and (max-width: 375px) {
     height: 46px;
     width: 100%;
+  }
+  @media screen and (min-width: 375px) {
+    width: 160px;
+    height: 46px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 168px;
+    height: 52px;
   }
 `;
 
@@ -62,7 +89,10 @@ export const Ul = styled.ul`
   display: flex;
 
   @media screen and (min-width: 320px) and (max-width: 375px) {
-    width: calc(50% - 10px);
+    // width: calc(50% - 10px);
+    width: 40%;
+
+    gap: 4px;
   }
 `;
 
@@ -72,11 +102,17 @@ export const UlLifeStyle = styled.ul`
   margin-bottom: 48px;
 
   @media screen and (min-width: 320px) and (max-width: 375px) {
+    width: 100%;
     margin-bottom: 40px;
   }
 
   @media screen and (min-width: 768px) {
     margin-bottom: 38px;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 48px;
   }
 `;
 
@@ -92,6 +128,7 @@ export const LiRadioBtn = styled.li`
 
   @media screen and (min-width: 320px) and (max-width: 375px) {
     flex: 1;
+    margin-right: 0;
   }
 
   position: relative;
@@ -145,6 +182,11 @@ export const LiRadioBtn = styled.li`
 //     height: 20px;
 //   }
 // `;
+export const BloodLabel = styled(Label)`
+  @media screen and (min-width: 320px) {
+    margin-right: auto;
+  }
+`;
 
 export const RadioBtnContainer = styled.div`
   display: flex;
@@ -152,8 +194,13 @@ export const RadioBtnContainer = styled.div`
   margin-bottom: 32px;
 
   @media screen and (min-width: 320px) and (max-width: 375px) {
-    gap: 20px;
+    gap: 70px;
     margin-top: 8px;
+
+    width: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    margin-right: auto;
   }
 `;
 
@@ -167,6 +214,39 @@ export const NameEmailContainer = styled.div`
   @media screen and (min-width: 320px) and (max-width: 375px) {
     flex-direction: column;
     gap: 14px;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  @media screen and (min-width: 375px) {
+    flex-direction: column;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 
+
+    width: 100%;
+  }
+
+  @media screen and (min-width:768px){
+    flex-direction:row;
+  }
+
+  @media screen and (min-width:1440px){
+    align-items: flex-start;
+  gap:14px;
+ 
+  margin-bottom: 14px;
+  margin-right:auto;
+  
+  }
+`;
+
+export const NameEmailContainerItem = styled.div`
+  @media screen and (min-width: 320px) and (max-width: 1439px) {
+    width: 100%;
   }
 `;
 
@@ -181,23 +261,43 @@ export const DataContainer = styled.div`
 
     flex-wrap: wrap;
     gap: 14px;
-    margin-bottom: 16px;
+
+    margin-left: 0;
+    margin-right: 0;
   }
   //mobile
 
   @media screen and (min-width: 320px) and (max-width: 375px) {
     flex-direction: row;
-
     flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
     gap: 14px;
     margin-bottom: 20px;
+    margin-left: 20px;
+
+    width: 100%;
+  }
+  @media screen and (min-width: 375px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 20px;
+
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    align-items: flex-start;
+    justify-content: space-between;
   }
 `;
 
 export const DataContainerItem = styled.div`
-  //   @media screen (min-width: 768px) and (max-width: 1439px) {
-  //     width: calc(50% - 7px);
-  //   }
   @media screen and (min-width: 320px) and (max-width: 375px) {
     width: calc(50% - 7px);
   }
@@ -212,9 +312,19 @@ export const FormBtn = styled.button`
   width: 144px;
   height: 56px;
 
-  @media screen and (min-width: 320px) and (max-width: 375px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 115px;
     height: 42px;
+    margin-bottom: 44px;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 44px;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 1440px) {
   }
 `;
 
@@ -238,6 +348,16 @@ export const LabelRadioBtn = styled.label`
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50% 50%;
+
+    @media screen and (min-width: 320px) {
+      font-size: 14px;
+      line-height: 18px;
+
+      &::before {
+        width: 18px;
+        height: 18px;
+      }
+    }
   }
 `;
 export const InputRadioBtn = styled.input`
@@ -272,5 +392,10 @@ export const InputRadioBtn = styled.input`
     // background-size: 50%;
     // content: '';
     // background-image: url(${sprite + '#icon-1'});
+  }
+
+  @media screen and (min-width: 320px) {
+    width: 20px;
+    height: 20px;
   }
 `;
