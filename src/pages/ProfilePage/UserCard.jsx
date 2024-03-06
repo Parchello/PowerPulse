@@ -31,7 +31,8 @@ const Usercard = () => {
   // const [avatar, setAvatar] = useState() //тут отримати доступ до частини де зберігатиметься посилання на аватар у юзера
   //далі тут буде зберігатись посилання на аватар і зберігатись в стейт
 
-  // const userAvatar = <img src="" alt="User avatar"></img>;
+  //в срц в фігурних дужках завантажується аватар
+  // const userAvatar = <img src="" alt="User avatar" />;
 
   const defaultAvatar = (
     <svg width="102px" height="102px" fill="#EFEDE8">
