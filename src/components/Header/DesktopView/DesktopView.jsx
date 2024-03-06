@@ -3,9 +3,7 @@ import { Logo } from '../Logo/Logo';
 import { UserNav } from '../UserNav/UserNav';
 import { UserBar } from '../UserBar/UserBar';
 
-export const DesktopView = () => {
-
-const isLoggedIn = true;
+export const DesktopView = ({isLoggedIn}) => {
 
   return (
     <>
