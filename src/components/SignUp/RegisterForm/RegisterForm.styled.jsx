@@ -1,4 +1,4 @@
-import {ErrorMessage, Field} from "formik";
+import {Field} from "formik";
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
@@ -24,7 +24,7 @@ export const Label = styled.label`
     top: 14px;
     left: 14px;
     pointer-events: none;
-    transition: ${(p) => p.theme.transition};
+    transition: transform ${(p) => p.theme.transition}, font-size ${(p) => p.theme.transition}, line-height ${(p) => p.theme.transition}, left ${(p) => p.theme.transition};
 
 @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -41,15 +41,43 @@ export const RegisterField = styled(Field)`
     width: 100%;
     height: 46px;
     background-color: transparent;
+    font-size: 14px;
+    line-height: 1.29;
+    color: ${(p) => p.theme.colors.white}; 
     transition: border-color ${(p) => p.theme.transition};
+
+    @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+    &.invalid {
+    border-color: #d80027;
+  }
+
+    &.valid {
+    border-color: #3cbf61;
+  }
 
     &:hover,
     &:focus,
     &:active {
     border-color: ${(p) => p.theme.colors.orange};
 
-    &:focus + ${Label}, &:not(:placeholder-shown) + ${Label} {
+
+    &:focus + ${Label} {
+        transform: translateY(-240%);
+        font-size: 12px;
+        line-height: 1.11;
+        left: 0px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+
+        @media screen and (min-width: 768px) {
         transform: translateY(-200%);
+        font-size: 14px;
+        line-height: 1.29;
+    }
     }
   }
 
@@ -89,13 +117,16 @@ export const Button = styled.button`
 }
 `
 
-export const RegisterErrorMessage = styled(ErrorMessage)`
+export const Message = styled.span`
+  font-size: 14px;
+  color: #d80027;
+`
 
-@media screen and (min-width: 768px) {
+export const SuccessMessage = styled.span`
+  font-size: 14px;
+  color: #3cbf61;
+`
 
-}
-
-@media screen and (min-width: 1440px) {
-      
-}    
+export const ErrorsMargin = styled.div`
+    margin-top: 4px;
 `
