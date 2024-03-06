@@ -11,11 +11,9 @@ export const BackGround = styled.div`
   height: 100vh;
   background-repeat: no-repeat;
 
-
-  // background-size: contain;
-  background-position-x: 200%;
-  background-position-y: 60%;
-  background-size: 90% auto;
+  background-position-x: 140%;
+  background-position-y: 110%;
+  background-size: 80% auto;
   box-sizing: border-box;
   color: rgb(239, 237, 232);
   
@@ -31,9 +29,9 @@ export const BackGround = styled.div`
 
   @media screen and (min-width: 768px) {
     background-image: url(${herotablet1x});
-    background-size: contain;
-    // background-size: 40% auto;
-    // background-position-y: 130%;
+    background-size: 45% auto;
+    background-position-y: 180%;
+    background-position-x: 85%;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),

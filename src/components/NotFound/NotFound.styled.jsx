@@ -27,7 +27,7 @@ export const WrapperError = styled.div`
 
   @media screen and (min-width: 768px) {
     padding: 0px 32px;
-    transform: translateY(30vh);
+    transform: translateY(20vh);
   }
 
   @media screen and (min-width: 1440px) {
