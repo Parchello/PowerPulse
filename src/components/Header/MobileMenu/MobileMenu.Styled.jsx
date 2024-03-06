@@ -15,6 +15,12 @@ export const MainDiv = styled.div`
   padding: 20px 20px;
   z-index: 1000;
 
+  /* transform: translateY(-498px);
+  visibility: hidden;
+  
+  transform: none;
+  transition: transform 225ms cubic-bezier(0.17, 0.67, 0.83, 0.67) 0ms; */
+
   overflow: hidden;
 
   @media (min-width: 768px) {
