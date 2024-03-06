@@ -74,8 +74,12 @@ export const SvgIcon = styled.svg`
 `;
 
 export const SearchInput = styled.input`
-  background-color: black;
+  /* background-color: black; */
+
   background-color: rgba(0, 0, 0, 0);
+
+  color: #efede8;
+
   border: 1px solid rgba(239, 237, 232, 0.3);
   border-radius: 12px;
   padding: 14px;
