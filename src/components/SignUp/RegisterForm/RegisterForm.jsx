@@ -15,7 +15,8 @@ import {
   EyeBtn,
   EyeSvg,
 } from './RegisterForm.styled';
-// import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
+import { register } from '../../../redux/auth/operations';
 
 const RegisterSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
@@ -30,7 +31,11 @@ const RegisterSchema = Yup.object().shape({
 export const RegisterForm = () => {
   const [isVisiblePsw, setIsVisiblePsw] = useState(false);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const handleSubmit = (values, actions) => {
+    dispatch(register(values));
+    actions.resetForm();
+  }
 
   const successSvg = (
     <SuccessSvg>
@@ -52,13 +57,15 @@ export const RegisterForm = () => {
         password: '',
       }}
       validationSchema={RegisterSchema}
-      onSubmit={() => {
-        // handleSubmit(values);
-        // actions.resetForm();
-      }}
+      // onSubmit={() => {
+      //   handleSubmit(values);
+      //   actions.resetForm();
+      // }}
+
+      onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
-        <Form>
+        <Form noValidate>
           <FormContainer>
             <InputContainer>
               <RegisterField
