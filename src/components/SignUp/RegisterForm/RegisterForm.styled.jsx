@@ -13,6 +13,9 @@ export const FormContainer = styled.div`
 
 export const InputContainer = styled.div`
   position: relative;
+  @media screen and (min-width: 768px) {
+    max-width: 364px;
+  }
 `;
 
 // export const Label = styled.label`
@@ -101,7 +104,7 @@ export const RegisterField = styled(Field)`
 
   @media screen and (min-width: 768px) {
     height: 52px;
-    width: 364px;
+    max-width: 364px;
   }
 `;
 
@@ -172,11 +175,8 @@ export const EyeBtn = styled.button`
   border: none;
   outline: none;
   position: absolute;
-  /* transform: translateY(-100%); */
   top: 25%;
   right: 14px;
-  /* width: 20px;
-  height: 20px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,4 +185,9 @@ export const EyeBtn = styled.button`
 export const EyeSvg = styled.svg`
   width: 20px;
   height: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 25px;
+    height: 25px;
+  }
 `;
