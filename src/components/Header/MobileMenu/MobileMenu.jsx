@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from "react-dom";
 import { useLocation } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Slide from '@mui/material/Slide';
@@ -10,9 +11,11 @@ import { UserNav } from '../UserNav/UserNav';
 import { LogOut } from '../LogOut/LogOut';
 
 
+ const modalRoot = document.querySelector("#menu-root")
 
 
 export const MobileMenu = ({ closeMenu, isOpen }) => {
+
 
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
 
@@ -25,8 +28,8 @@ export const MobileMenu = ({ closeMenu, isOpen }) => {
    
   }, [location]);
 
-  return (
-    <Slide direction="down" in={isOpen} easing={{ enter: 'cubic-bezier(.17,.67,.83,.67)', exit: 'cubic-bezier(.17,.67,.83,.67)' }}>
+  return createPortal(
+    <Slide direction="down" in={isOpen} easing={{ enter: 'cubic-bezier(.17,.67,.83,.67)', exit: 'cubic-bezier(.17,.67,.83,.67)' }  } mountOnEnter unmountOnExit>
     <MainDiv>
       <CloseBtn width={isMobileScreen ? "24px" : "32px"} height={isMobileScreen ? "24px" : "32px"} stroke='#EFEDE8'
       onClick={closeMenu}>
@@ -37,6 +40,5 @@ export const MobileMenu = ({ closeMenu, isOpen }) => {
           <LogOut color="#EFEDE8"/>
       </LogOutDiv>
     </MainDiv>
-  </Slide>
-  )
+  </Slide>, modalRoot)
 }

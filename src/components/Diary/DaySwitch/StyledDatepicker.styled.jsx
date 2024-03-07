@@ -145,8 +145,8 @@ export const CalendarGlobalStyles = createGlobalStyle`
   }
   .react-datepicker__day--keyboard-selected {
     border-radius: 50%;
-    background-color:white;
-    color:#3e85f3;
+    background-color:${(props) => props.theme.colors.black};
+    color:${(props) => props.theme.colors.white};
   }
  
 .react-datepicker__day--outside-month {

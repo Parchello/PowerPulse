@@ -5,11 +5,11 @@ export const NavContainer = styled.nav`
   display: flex;
   gap: 14px;
 
-  margin-bottom: 231px;
+  margin-bottom: 229.64px;
 
   @media screen and (min-width: 768px) {
     gap: 20px;
-    margin-bottom: 171px;
+    margin-bottom: 170px;
   }
 
   @media screen and (min-width: 1440px) {
