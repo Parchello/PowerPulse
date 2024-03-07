@@ -2167,6 +2167,7 @@ min-height: 430px;
   justify-content: center;
 `,bF=E.label`
   background-color: transparent;
+  cursor: pointer;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -2203,7 +2204,7 @@ min-height: 430px;
     width: 75%;
     text-align: justify;
   }
-`,vF=()=>d.jsxs(uF,{children:[d.jsxs(fF,{children:[d.jsxs(mF,{children:[d.jsx("img",{src:""}),d.jsx("svg",{width:"102px",height:"102px",fill:"#EFEDE8",children:d.jsx("use",{xlinkHref:G+"#icon-user"})})]}),d.jsxs(bF,{htmlFor:"avatar",children:[d.jsx(hF,{id:"avatar",name:"avatar",type:"file"}),d.jsx("svg",{width:"20px",height:"20px",fill:"#E6533C",children:d.jsx("use",{xlinkHref:G+"#icon-check-mark-4"})})]}),d.jsx(cF,{children:"User name"}),d.jsx(pF,{children:"User"})]}),d.jsxs(dF,{children:[d.jsxs(a6,{children:[d.jsxs(l6,{children:[d.jsx("svg",{width:"20px",height:"20px",fill:"tomato",children:d.jsx("use",{xlinkHref:G+"#icon-fluent_food-24-filled"})}),d.jsx(o6,{children:"Daily calorie intake"})]}),d.jsx(s6,{children:"0"})]}),d.jsxs(a6,{children:[d.jsxs(l6,{children:[d.jsx("svg",{width:"20px",height:"20px",fill:"tomato",children:d.jsx("use",{xlinkHref:G+"#icon-dumbbell"})}),d.jsx(o6,{children:"Daily physical activity"})]}),d.jsx(s6,{children:"0 min"})]})]}),d.jsxs(gF,{children:[d.jsx("svg",{width:"34px",height:"34px",style:{width:"34px",height:"34px"},children:d.jsx("use",{xlinkHref:G+"#icon-icons"})}),d.jsx(wF,{children:"We understand that each individual is unique, so the entire approach to diet is relative and tailored to your unique body and goals."})]}),d.jsxs(yF,{children:[d.jsx(wm,{as:wm,children:"Logout"}),d.jsx("svg",{width:"20px",height:"20px",stroke:"#E6533C",children:d.jsx("use",{xlinkHref:G+"#icon-logout"})})]})]}),xF=E.div`
+`,vF=()=>{const e=d.jsx("svg",{width:"102px",height:"102px",fill:"#EFEDE8",children:d.jsx("use",{xlinkHref:G+"#icon-user"})}),t=r=>{const i=r.target.files[0];if(!i)return;const n=URL.createObjectURL(i);console.log(n)};return d.jsxs(uF,{children:[d.jsxs(fF,{children:[d.jsx(mF,{children:e}),d.jsxs(bF,{htmlFor:"avatar",children:[d.jsx(hF,{id:"avatar",name:"avatar",type:"file",onChange:t}),d.jsx("svg",{width:"20px",height:"20px",fill:"#E6533C",children:d.jsx("use",{xlinkHref:G+"#icon-check-mark-4"})})]}),d.jsx(cF,{children:"User name"}),d.jsx(pF,{children:"User"})]}),d.jsxs(dF,{children:[d.jsxs(a6,{children:[d.jsxs(l6,{children:[d.jsx("svg",{width:"20px",height:"20px",fill:"tomato",children:d.jsx("use",{xlinkHref:G+"#icon-fluent_food-24-filled"})}),d.jsx(o6,{children:"Daily calorie intake"})]}),d.jsx(s6,{children:"0"})]}),d.jsxs(a6,{children:[d.jsxs(l6,{children:[d.jsx("svg",{width:"20px",height:"20px",fill:"tomato",children:d.jsx("use",{xlinkHref:G+"#icon-dumbbell"})}),d.jsx(o6,{children:"Daily physical activity"})]}),d.jsx(s6,{children:"0 min"})]})]}),d.jsxs(gF,{children:[d.jsx("svg",{width:"34px",height:"34px",style:{width:"34px",height:"34px"},children:d.jsx("use",{xlinkHref:G+"#icon-icons"})}),d.jsx(wF,{children:"We understand that each individual is unique, so the entire approach to diet is relative and tailored to your unique body and goals."})]}),d.jsxs(yF,{children:[d.jsx(wm,{as:wm,children:"Logout"}),d.jsx("svg",{width:"20px",height:"20px",stroke:"#E6533C",children:d.jsx("use",{xlinkHref:G+"#icon-logout"})})]})]})},xF=E.div`
   display: flex;
 
   //mobile
