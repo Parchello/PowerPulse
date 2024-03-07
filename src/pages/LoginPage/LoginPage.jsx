@@ -7,13 +7,12 @@ import {PhotoHero} from "../../components/SignIn/SignInForm/PhotoHero/PhotoHero"
 
 
 const LoginPage = () => {
-  function handleSubmit() {}
   return (
     <>
     <PhotoHero>
       <Container>
         <Wrapper>
-        <SignInForm handleSubmit={handleSubmit} />
+        <SignInForm />
         <LinkToSignUp />
         </Wrapper>
         <MainPageInfo/>
