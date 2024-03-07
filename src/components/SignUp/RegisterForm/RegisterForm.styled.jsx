@@ -38,6 +38,7 @@ export const RegisterField = styled(Field)`
   outline: none;
   padding: 14px;
   width: 100%;
+  max-width: 335px;
   height: 46px;
   background-color: transparent;
   font-size: 14px;
@@ -148,7 +149,7 @@ export const SuccessMessage = styled.span`
   gap: 5px;
   position: absolute;
   left: -3px;
-  width: 117px;
+  width: 150px;
 `;
 
 export const ErrorsMargin = styled.div`
@@ -164,4 +165,24 @@ export const SuccessSvg = styled.svg`
 export const ErrorSvg = styled.svg`
   width: 15px;
   height: 15px;
+`;
+
+export const EyeBtn = styled.button`
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  /* transform: translateY(-100%); */
+  top: 25%;
+  right: 14px;
+  /* width: 20px;
+  height: 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const EyeSvg = styled.svg`
+  width: 20px;
+  height: 20px;
 `;

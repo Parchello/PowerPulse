@@ -12,6 +12,8 @@ import {
   FormContainer,
   ErrorSvg,
   SuccessSvg,
+  EyeBtn,
+  EyeSvg,
 } from './RegisterForm.styled';
 // import { useDispatch } from "react-redux"
 
@@ -140,6 +142,17 @@ export const RegisterForm = () => {
                       : ''
                 }
               />
+              <EyeBtn type="button" onClick={changeInputType}>
+                {isVisiblePsw ? (
+                  <EyeSvg>
+                    <use xlinkHref={sprite + '#icon-eye-off'}></use>
+                  </EyeSvg>
+                ) : (
+                  <EyeSvg>
+                    <use xlinkHref={sprite + '#icon-eye'}></use>
+                  </EyeSvg>
+                )}
+              </EyeBtn>
               {/* <Label htmlFor="password">Password</Label> */}
               {touched.password && (errors.password || !errors.password) && (
                 <ErrorsMargin>
@@ -156,11 +169,6 @@ export const RegisterForm = () => {
                   )}
                 </ErrorsMargin>
               )}
-              <button type="button" onClick={changeInputType}>
-                <svg>
-                  <use xlinkHref={sprite + '#icon-play'}></use>
-                </svg>
-              </button>
             </InputContainer>
           </FormContainer>
 
