@@ -8,14 +8,13 @@ import { Toaster } from 'react-hot-toast';
 const SharedLayout = () => {
   return (<>
   <Header />
-    <Container>
-      <Toaster/>    
+  <Toaster/> 
+    <Container>   
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
+    {/* <Toaster/> */}
     </Container>
-
-    <Toaster/>
   </>
   );
 };
