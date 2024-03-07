@@ -158,6 +158,7 @@ export const ImgCircle = styled.div`
 
 export const UserImgLabel = styled.label`
   background-color: transparent;
+  cursor: pointer;
   width: 32px;
   height: 32px;
   border-radius: 50%;

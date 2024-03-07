@@ -2,41 +2,8 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Form, Field, FormGroup, SuccessMessage, Message, Button, Title, Text } from './SignInForm.styled';
-
-// export const SignInForm = ({handleSubmit}) => {
-//   return (
-//     <div>
-//         <Title>Sign In</Title>
-//         <Text>Welcome! Please enter your credentials to login to the platform:</Text>
-//     <Formik
-//       initialValues={{
-//         email: '',
-//         password: '',
-//       }}
-//       validationSchema={signInSchema}
-//       onSubmit={(values, actions) => {
-//         handleSubmit(values);
-//         console.log(values);
-//         actions.resetForm();
-//       }}
-//     >
-//       {({errors, touched}) => (
-//       <Form>
-//         <FormGroup>
-//           <Field name="email" id = "email" type = "email"  placeholder = "Email" className={errors.email && touched.email ? 'invalid'  : (touched.email && !errors.email) ? 'valid' : ''}/>
-//           <ErrorMessage name="email" component="span"/>
-//         </FormGroup>
-//         <FormGroup>
-//           <Field name="password"  id = "password" type = "password" placeholder = "Password" className={errors.password && touched.password ? 'invalid' : (touched.password && !errors.password) ? 'valid' : ''}/>
-//           <ErrorMessage name="password" component="span" />
-//         </FormGroup>
-//         <Button type="submit">Sign In</Button>
-//       </Form>)}
-//     </Formik>
-//     </div>
-//   );
-// };
-
+import { useDispatch } from 'react-redux';
+import {logIn} from "../../../redux/auth/operations"
 
 
 
@@ -54,8 +21,12 @@ const signInSchema = Yup.object().shape({
 
 
 
-
-export const SignInForm = ({ handleSubmit }) => {
+ export const SignInForm = () => {
+  const dispatch = useDispatch();
+  const handleSubmit = (values, actions) => {
+    dispatch(logIn(values)); 
+    actions.resetForm();
+  };
   return (
     <div>
       <Title>Sign In</Title>
@@ -66,10 +37,12 @@ export const SignInForm = ({ handleSubmit }) => {
           password: '',
         }}
         validationSchema={signInSchema}
-        onSubmit={(values, actions) => {
-          handleSubmit(values);
-          actions.resetForm();
-        }}
+        // onSubmit = {(values, actions) => {
+        //   handleSubmit(values);
+        //   actions.resetForm();
+        // }}
+
+        onSubmit={handleSubmit}
       >
         {({ errors, touched }) => (
           <Form>
@@ -90,5 +63,3 @@ export const SignInForm = ({ handleSubmit }) => {
     </div>
   );
 };
-
-export default SignInForm;
