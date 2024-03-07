@@ -20,7 +20,7 @@ import {
 } from '../ExercisesItem.styled';
 import sprite from '../../../../../assets/sprite.svg';
 
-const ExercisesItemTabletAndDesctop = () => {
+const ExercisesItemTabletAndDesctop = ({ openModal }) => {
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
   const isTabletScreen = useMediaQuery('(max-width: 1439px)');
 
@@ -51,7 +51,7 @@ const ExercisesItemTabletAndDesctop = () => {
             <ContainerExIt>
               <ContainerWorkout>
                 <Workout>WORKOUT</Workout>
-                <Button>
+                <Button onClick={() => openModal()}>
                   Start
                   <ArrowSvgArrow width="16" height="16">
                     <use xlinkHref={sprite + '#icon-arrow'} />
