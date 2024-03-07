@@ -5,12 +5,18 @@ import { useEffect, useRef } from 'react';
 import {
   ButtonStartPause,
   ContaierTimerRutton,
+  TimerContainer,
+  Time,
+  CaloriesBurn,
+  CaloriesNumber,
 } from '../modal/AddExercisesForm.styled';
 import sprite from '../../../../assets/sprite.svg';
 
 const Timer = () => {
   const dispatch = useDispatch();
   const isPlay = useSelector((state) => state.isPlayed);
+  const calories = useSelector((state) => state.calories);
+
   const progressRef = useRef(null);
 
   const toggleTimer = () => {
@@ -30,41 +36,47 @@ const Timer = () => {
   };
 
   return (
-    <ContaierTimerRutton>
-      <CountdownCircleTimer
-        isPlaying={isPlay}
-        size={124}
-        colors={'#e6533c'}
-        strokeWidth={4}
-        trailColor={'rgba(239, 237, 232, 0.1)'}
-        colorsTime={[7, 5, 2, 0]}
-        duration={180}
-        onUpdate={(progress) => {
-          getProsseTime(progress);
-        }}
-      >
-        {({ remainingTime }) => {
-          const minutes = Math.floor(remainingTime / 60);
-          const seconds = remainingTime % 60;
-          return (
-            <div>
-              {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-            </div>
-          );
-        }}
-      </CountdownCircleTimer>
-      <ButtonStartPause onClick={toggleTimer}>
-        {isPlay ? (
-          <svg width="10" height="12">
-            <use xlinkHref={sprite + '#icon-pause'} />
-          </svg>
-        ) : (
-          <svg width="14" height="14">
-            <use xlinkHref={sprite + '#icon-play'} />
-          </svg>
-        )}
-      </ButtonStartPause>
-    </ContaierTimerRutton>
+    <TimerContainer>
+      <Time>Time</Time>
+      <ContaierTimerRutton>
+        <CountdownCircleTimer
+          isPlaying={isPlay}
+          size={124}
+          colors={'#e6533c'}
+          strokeWidth={4}
+          trailColor={'rgba(239, 237, 232, 0.1)'}
+          colorsTime={[7, 5, 2, 0]}
+          duration={180}
+          onUpdate={(progress) => {
+            getProsseTime(progress);
+          }}
+        >
+          {({ remainingTime }) => {
+            const minutes = Math.floor(remainingTime / 60);
+            const seconds = remainingTime % 60;
+            return (
+              <div>
+                {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+              </div>
+            );
+          }}
+        </CountdownCircleTimer>
+        <ButtonStartPause onClick={toggleTimer}>
+          {isPlay ? (
+            <svg width="10" height="12">
+              <use xlinkHref={sprite + '#icon-pause'} />
+            </svg>
+          ) : (
+            <svg width="14" height="14">
+              <use xlinkHref={sprite + '#icon-play'} />
+            </svg>
+          )}
+        </ButtonStartPause>
+      </ContaierTimerRutton>
+      <CaloriesBurn>
+        Burned calories: <CaloriesNumber>{calories}</CaloriesNumber>
+      </CaloriesBurn>
+    </TimerContainer>
   );
 };
 

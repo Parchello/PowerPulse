@@ -8,7 +8,7 @@ import {
   ExerscisesItemContainer,
   BodyPart,
   BodyPartCategory,
-} from './ExercisesSubcategoriesItem.Styled.js';
+} from './ExercisesSubcategoriesItem.Styled.jsx';
 
 const ExercisesSubcategoriesItem = () => {
   const selectedExersis = useSelector((state) => state.filters);

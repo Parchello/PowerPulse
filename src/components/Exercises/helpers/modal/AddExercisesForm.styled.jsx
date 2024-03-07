@@ -1,21 +1,30 @@
 import styled from 'styled-components';
 
 export const AddFormContainer = styled.div`
-  width: 694px;
+  /* width: 694px;
   height: 550px;
   padding: 48px 32px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
-  background: #10100f;
+  background: #10100f; */
 `;
 
 export const ExercContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    display: block;
+    margin-bottom: 0;
+  }
+
   display: flex;
   justify-content: space-between;
   margin-bottom: 14px;
 `;
 
 export const ImgContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    margin: 0 auto;
+  }
+
   position: relative;
   width: 270px;
   height: 226px;
@@ -40,6 +49,11 @@ export const ImageFon = styled.div`
 `;
 
 export const ListExerc = styled.ul`
+  @media screen and (max-width: 767px) {
+    width: 302px;
+    height: 132px;
+  }
+
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -48,6 +62,10 @@ export const ListExerc = styled.ul`
 `;
 
 export const ItemExerc = styled.li`
+  @media screen and (max-width: 767px) {
+    width: 147px;
+    height: 62px;
+  }
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
   padding: 12px 18px;
@@ -84,9 +102,15 @@ export const Span = styled.span`
 export const ButtonContainerTimer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 `;
 
 export const TimerContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+    margin-bottom: 40px;
+    margin-top: 14px;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,11 +157,36 @@ export const ContaierTimerRutton = styled.div`
 // Timer style
 
 export const AddDairyButton = styled.button`
+  @media screen and (max-width: 768px) {
+    margin-top: 24px;
+  }
   border-radius: 12px;
-  padding: 14px 32px;
+  /* padding: 14px 32px; */
   width: 151px;
   height: 52px;
   background-color: ${(props) => props.theme.colors.orange};
   border: none;
-  margin-top: 176px;
+  /* margin-top: 176px; */
 `;
+
+export const CloseBtn = styled.button`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  background-color: transparent;
+`;
+
+// @media screen and (min-width: 768px) {
+//   padding-bottom: 32px;
+// }
+
+// @media screen and (min-width: 1440px) {
+//   padding-bottom: 32px;
+// }
+
+/* @media screen and (min-width: 768px) {
+    width: calc((100% - 16px) / 3);
+  } */

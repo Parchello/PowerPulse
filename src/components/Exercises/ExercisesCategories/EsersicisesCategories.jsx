@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import {
   CategoryList,
   CategoryExercises,
-} from './ExercisesCategories.styled.js';
+} from './ExercisesCategories.styled.jsx';
 import { filtersAction } from '../store.js';
 
 const ExercisesCategories = () => {
