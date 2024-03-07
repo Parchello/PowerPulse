@@ -156,8 +156,12 @@ export const SuccessMessage = styled.span`
 `;
 
 export const ErrorsMargin = styled.div`
-  /* margin-top: 4px; */
+  margin-top: 1px;
   position: absolute;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 2px;
+  }
 `;
 
 export const SuccessSvg = styled.svg`

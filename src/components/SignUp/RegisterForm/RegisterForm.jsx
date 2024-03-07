@@ -142,11 +142,12 @@ export const RegisterForm = () => {
               <EyeBtn type="button" onClick={()=>{setIsVisiblePsw(!isVisiblePsw);}}>
                 {isVisiblePsw ? (
                   <EyeSvg>
-                    <use xlinkHref={sprite + '#icon-eye-off'}></use>
+                    <use xlinkHref={sprite + '#icon-eye'}></use>
+                    
                   </EyeSvg>
                 ) : (
                   <EyeSvg>
-                    <use xlinkHref={sprite + '#icon-eye'}></use>
+                    <use xlinkHref={sprite + '#icon-eye-off'}></use>
                   </EyeSvg>
                 )}
               </EyeBtn>
