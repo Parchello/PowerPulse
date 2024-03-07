@@ -11,7 +11,7 @@ const signInSchema = Yup.object().shape({
   email: Yup.string()
     .matches(
       /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
-      'Invalid email format'
+      'Invalid email format. Example of valid email: example@com.ua'
     )
     .required('Email is required'),
   password: Yup.string()
