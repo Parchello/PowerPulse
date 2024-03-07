@@ -18,6 +18,7 @@ import ProductsPage from './pages/ProductsPage/ProductsPage';
 import ExercisesPage from './pages/ExercisesPage/ExercisesPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import DairyPage from './pages/DairyPage/DairyPage';
+import {Loader} from "./components/Loader/Loader"
 
 function App() {
   const dispatch = useDispatch();
@@ -25,9 +26,7 @@ function App() {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  return isRefreshing ? (
-    <b>Refreshing user...</b>
-  ) :(  
+  return isRefreshing ? <Loader/> :(  
     <div>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
