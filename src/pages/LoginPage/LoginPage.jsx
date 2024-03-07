@@ -1,15 +1,24 @@
 import { SignInForm } from '../../components/SignIn/SignInForm/SignInForm';
 import { LinkToSignUp } from '../../components/SignIn/LinkToSignUp/LinkToSignUp';
-import { Wrapper } from '../../components/SignIn/Wrapper.styled';
+import {Wrapper} from "../../components/SignIn/Wrapper.styled";
+import {MainPageInfo} from  "../../components/MainPageInfo/MainPageInfo";
+import {Container} from "../../components/Welcome/Welcome.styled";
+import {PhotoHero} from "../../components/SignIn/SignInForm/PhotoHero/PhotoHero"
+
 
 const LoginPage = () => {
   function handleSubmit() {}
   return (
     <>
-      <Wrapper>
+    <PhotoHero>
+      <Container>
+        <Wrapper>
         <SignInForm handleSubmit={handleSubmit} />
         <LinkToSignUp />
-      </Wrapper>
+        </Wrapper>
+        <MainPageInfo/>
+        </Container>
+        </PhotoHero>
     </>
   );
 };

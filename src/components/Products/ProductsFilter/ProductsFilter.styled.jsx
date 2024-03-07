@@ -44,7 +44,7 @@ export const Filters = styled.div`
   @media screen and (min-width: 1440px) {
     margin-top: 68px;
     margin-bottom: 28px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
   }
 `;
 
@@ -75,6 +75,7 @@ export const SvgIcon = styled.svg`
 
 export const SearchInput = styled.input`
   background-color: black;
+  color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
   border-radius: 12px;
   padding: 14px;
@@ -90,6 +91,7 @@ export const SearchInput = styled.input`
   }
 
   @media screen and (min-width: 1440px) {
+    background-color: rgba(0, 0, 0, 0);
   }
 `;
 
