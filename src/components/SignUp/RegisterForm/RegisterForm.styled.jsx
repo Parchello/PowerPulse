@@ -161,8 +161,8 @@ export const ErrorsMargin = styled.div`
 `;
 
 export const SuccessSvg = styled.svg`
-  width: 20px;
-  height: 20px;
+  width: 21px;
+  height: 21px;
 `;
 
 export const ErrorSvg = styled.svg`
