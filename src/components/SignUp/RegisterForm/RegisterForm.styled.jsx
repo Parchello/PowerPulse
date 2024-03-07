@@ -146,6 +146,9 @@ export const SuccessMessage = styled.span`
   color: #3cbf61;
   display: flex;
   gap: 5px;
+  position: absolute;
+  left: -3px;
+  width: 117px;
 `;
 
 export const ErrorsMargin = styled.div`
