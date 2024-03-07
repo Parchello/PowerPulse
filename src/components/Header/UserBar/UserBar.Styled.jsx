@@ -42,3 +42,9 @@ export const LogOutContainer = styled.li`
     justify-content: center;
     align-items: center; 
 `
+
+export const MenuBtn = styled.li`
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+`
