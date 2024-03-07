@@ -9,6 +9,8 @@ import {
   InputContainer,
   Button,
   FormContainer,
+  ErrorSvg,
+  SuccessSvg,
 } from './RegisterForm.styled';
 // import { useDispatch } from "react-redux"
 
@@ -24,6 +26,18 @@ const RegisterSchema = Yup.object().shape({
 
 export const RegisterForm = () => {
   // const dispatch = useDispatch();
+
+  const successSvg = (
+    <SuccessSvg>
+      <use xlinkHref={sprite + '#icon-checkbox-circle-fillGreen'}></use>
+    </SuccessSvg>
+  );
+
+  const errorSvg = (
+    <ErrorSvg>
+      <use xlinkHref={sprite + '#icon-checkbox-circle-fill'}></use>
+    </ErrorSvg>
+  );
 
   return (
     <Formik
@@ -59,9 +73,13 @@ export const RegisterForm = () => {
               {/* <Label htmlFor="name" >Name</Label> */}
               {touched.name && (errors.name || !errors.name) && (
                 <ErrorsMargin>
-                  {errors.name && <Message>{errors.name}</Message>}
+                  {errors.name && (
+                    <Message>
+                      {errorSvg} {errors.name}
+                    </Message>
+                  )}
                   {!errors.name && (
-                    <SuccessMessage>Success name</SuccessMessage>
+                    <SuccessMessage>{successSvg}Success name</SuccessMessage>
                   )}
                 </ErrorsMargin>
               )}
