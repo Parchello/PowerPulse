@@ -12,6 +12,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from '../redux/auth/slice';
+import { ProfileReducer } from '../redux/profile/profileSlice.jsx';
 
 const authPersistConfig = {
   key: 'auth',
@@ -22,6 +23,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    profile: ProfileReducer,
   },
 
   middleware: (getDefaultMiddleware) =>
