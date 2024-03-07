@@ -1,13 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { DesktopView } from './DesktopView/DesktopView';
 import { MobileView } from './MobileView/MobileView';
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
+
+import { useAuth } from '../../hooks/useAuth';
+
 
 
 export const Header = () => {
 
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const { isLoggedIn } = useAuth();
 
   const isBigScreen = useMediaQuery('(min-width: 1440px)');
 
