@@ -30,9 +30,6 @@ const RegisterSchema = Yup.object().shape({
 export const RegisterForm = () => {
   const [isVisiblePsw, setIsVisiblePsw] = useState(false);
 
-  const changeInputType = () => {
-    setIsVisiblePsw(!isVisiblePsw);
-  };
   // const dispatch = useDispatch();
 
   const successSvg = (
@@ -142,7 +139,7 @@ export const RegisterForm = () => {
                       : ''
                 }
               />
-              <EyeBtn type="button" onClick={changeInputType}>
+              <EyeBtn type="button" onClick={()=>{setIsVisiblePsw(!isVisiblePsw);}}>
                 {isVisiblePsw ? (
                   <EyeSvg>
                     <use xlinkHref={sprite + '#icon-eye-off'}></use>
