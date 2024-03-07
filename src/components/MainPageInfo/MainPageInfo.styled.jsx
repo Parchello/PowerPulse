@@ -91,8 +91,11 @@ export const SvgVideoWrapper = styled.div`
 export const SvgVideo = styled.svg`
   width: 12px;
   height: 12px;
+  padding-left: 2px;
 
   @media screen and (min-width: 768px) {
+    padding-left: 5px;
+
     width: 20px;
     height: 20px;
   }
