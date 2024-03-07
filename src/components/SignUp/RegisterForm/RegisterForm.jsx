@@ -1,6 +1,7 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import sprite from '../../../assets/sprite.svg';
+import { useState } from 'react';
 import {
   RegisterField,
   Message,
@@ -25,6 +26,11 @@ const RegisterSchema = Yup.object().shape({
 });
 
 export const RegisterForm = () => {
+  const [isVisiblePsw, setIsVisiblePsw] = useState(false);
+
+  const changeInputType = () => {
+    setIsVisiblePsw(!isVisiblePsw);
+  };
   // const dispatch = useDispatch();
 
   const successSvg = (
@@ -122,7 +128,7 @@ export const RegisterForm = () => {
             <InputContainer>
               <RegisterField
                 id="password"
-                type="password"
+                type={isVisiblePsw ? 'text' : 'password'}
                 name="password"
                 placeholder="Password"
                 required
@@ -150,6 +156,11 @@ export const RegisterForm = () => {
                   )}
                 </ErrorsMargin>
               )}
+              <button type="button" onClick={changeInputType}>
+                <svg>
+                  <use xlinkHref={sprite + '#icon-play'}></use>
+                </svg>
+              </button>
             </InputContainer>
           </FormContainer>
 
