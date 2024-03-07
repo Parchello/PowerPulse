@@ -103,9 +103,14 @@ export const RegisterForm = () => {
               {/* <Label htmlFor="email">Email</Label> */}
               {touched.email && (errors.email || !errors.email) && (
                 <ErrorsMargin>
-                  {errors.email && <Message>{errors.email}</Message>}
+                  {errors.email && (
+                    <Message>
+                      {errorSvg}
+                      {errors.email}
+                    </Message>
+                  )}
                   {!errors.email && (
-                    <SuccessMessage>Success email</SuccessMessage>
+                    <SuccessMessage>{successSvg}Success email</SuccessMessage>
                   )}
                 </ErrorsMargin>
               )}
