@@ -110,7 +110,10 @@ export const RegisterForm = () => {
                     </Message>
                   )}
                   {!errors.email && (
-                    <SuccessMessage>{successSvg}Success email</SuccessMessage>
+                    <SuccessMessage>
+                      {successSvg}
+                      Success email
+                    </SuccessMessage>
                   )}
                 </ErrorsMargin>
               )}
@@ -134,9 +137,16 @@ export const RegisterForm = () => {
               {/* <Label htmlFor="password">Password</Label> */}
               {touched.password && (errors.password || !errors.password) && (
                 <ErrorsMargin>
-                  {errors.password && <Message>{errors.password}</Message>}
+                  {errors.password && (
+                    <Message>
+                      {errorSvg}
+                      {errors.password}
+                    </Message>
+                  )}
                   {!errors.password && (
-                    <SuccessMessage>Success password</SuccessMessage>
+                    <SuccessMessage>
+                      {successSvg}Success password
+                    </SuccessMessage>
                   )}
                 </ErrorsMargin>
               )}
