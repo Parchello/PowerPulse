@@ -150,5 +150,11 @@
 <symbol id="icon-checkbox-circle-fillGreen" viewBox="0 0 31 32">
 <path fill="#3cbf61" style="fill: var(--color1, #3cbf61)" d="M15.304 20.406c-5.123 0-9.275-4.152-9.275-9.275s4.153-9.275 9.275-9.275c5.123 0 9.275 4.153 9.275 9.275s-4.152 9.275-9.275 9.275zM14.232 15.29l6.558-6.559-1.311-1.312-5.246 5.247-2.624-2.624-1.312 1.312 3.935 3.936z"></path>
 </symbol>
+<symbol id="icon-pause" viewBox="0 0 26 32">
+<path fill="none" stroke="#efede8" style="stroke: var(--color1, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.16" d="M2.132 28.8v-25.6M23.465 28.8v-25.6"></path>
+</symbol>
+<symbol id="icon-play" viewBox="0 0 27 32">
+<path fill="#efede8" style="fill: var(--color1, #efede8); stroke: var(--color1, #efede8)" stroke="#efede8" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.4667" d="M2.444 2l21.778 14-21.778 14v-28z"></path>
+</symbol>
 </defs>
 </svg>
