@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import useMediaQuery from '@mui/material/useMediaQuery';
 import sprite from "../../../assets/sprite.svg"
 import { Icons, LogOutContainer, UserCircle } from "./UserBar.Styled";
@@ -15,10 +17,12 @@ export const UserBar = ( {openMenu}) => {
   return (
           <Icons>
             
-          <li>
+      <li>
+        <Link to="/profile">
                   <svg width={isMobileScreen ? "24px" : "28px"} height={isMobileScreen ? "24px" : "28px"} stroke='rgba(239, 237, 232, 0.3)'>
                   <use xlinkHref={sprite + "#icon-settings" } />
-                  </svg>
+          </svg>
+        </Link>
           </li>
           
                 <li>
