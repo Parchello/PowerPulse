@@ -133,6 +133,9 @@
 <symbol id="icon-arrow" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.7733" d="M16 29.867l13.867-13.867M29.867 16l-13.867-13.867M29.867 16h-27.733"></path>
 </symbol>
+<symbol id="icon-gray-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+<path d="M7.5 14L14 7.5M14 7.5L7.5 1M14 7.5H1" stroke="#EFEDE8" stroke-opacity="0.3" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
 <symbol id="icon-red-raw" width="15" height="15" viewBox="0 0 15 15" fill="none">
 <path d="M7.5 14L14 7.5M14 7.5L7.5 1M14 7.5H1" stroke="#E6533C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>
