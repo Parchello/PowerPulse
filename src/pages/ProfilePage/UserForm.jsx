@@ -1,6 +1,11 @@
 import { useFormik } from 'formik';
 
 import sprite from '../../assets/sprite.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { CurrentUser } from '../../redux/profile/selectors.jsx';
+import { fetchCurrentUser } from '../../redux/profile/operations.jsx';
+
+import axios from 'axios';
 
 import {
   StyldInputShort,
@@ -38,12 +43,18 @@ const validate = (values, props /* only available when using withFormik */) => {
   }
   if (!values.height) {
     errors.height = 'Height is required';
+  } else if (values.height < 150) {
+    errors.height = 'Height should be min.150cm';
   }
   if (!values.currentWeight) {
     errors.currentWeight = 'Current weight is required';
+  } else if (values.currentWeight < 35) {
+    errors.currentWeight = 'Min 35kg Weight required';
   }
   if (!values.desiredWeight) {
     errors.desiredWeight = 'Desired weight is required';
+  } else if (values.desiredWeight < 35) {
+    errors.currentWeight = 'Min 35kg Weight required';
   }
 
   console.log(errors);
@@ -51,6 +62,20 @@ const validate = (values, props /* only available when using withFormik */) => {
 
   return errors;
 };
+
+// function X() {
+//   return axios.get(
+//     'https://powerpulse-group5-backend.onrender.com/api/users/current'
+//   );
+// }
+// X()
+//   .then((response) => {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+// console.log('object');
 
 const UserForm = () => {
   const formik = useFormik({
@@ -69,6 +94,8 @@ const UserForm = () => {
     },
   });
 
+  const currentUser = useSelector(CurrentUser);
+  const dispatch = useDispatch();
   const handleInputStylesChange = (valueName) => {
     if (formik.errors[valueName]) {
       return (
@@ -91,6 +118,9 @@ const UserForm = () => {
       );
     }
   };
+
+  console.log(currentUser);
+  // dispatch(fetchCurrentUser);
 
   return (
     <Form onSubmit={formik.handleSubmit}>
@@ -131,7 +161,7 @@ const UserForm = () => {
           <StyldInputShort
             id="height"
             name="height"
-            type="text"
+            type="number"
             onChange={formik.handleChange}
             value={formik.values.height}
             success={!formik.errors.height && formik.values.height.length !== 0}
@@ -144,7 +174,7 @@ const UserForm = () => {
           <StyldInputShort
             id="currentWeight"
             name="currentWeight"
-            type="text"
+            type="number"
             onChange={formik.handleChange}
             value={formik.values.currentWeight}
             success={
@@ -160,7 +190,7 @@ const UserForm = () => {
           <StyldInputShort
             id="desiredWeight"
             name="desiredWeight"
-            type="text"
+            type="number"
             onChange={formik.handleChange}
             value={formik.values.desiredWeight}
             success={
@@ -176,7 +206,7 @@ const UserForm = () => {
           <StyldInputShort
             id="dateOfBirth"
             name="dateOfBirth"
-            type="text"
+            type="number"
             onChange={formik.handleChange}
             value={formik.values.dateOfBirth}
           />
