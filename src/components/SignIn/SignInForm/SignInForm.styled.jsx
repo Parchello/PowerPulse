@@ -1,7 +1,6 @@
 import {
   Form as FormikForm,
   Field as FormikField,
-  // ErrorMessage as FormikError,
 } from 'formik';
 import styled from 'styled-components';
 export const Form = styled(FormikForm)`
@@ -54,10 +53,6 @@ export const FormGroup = styled.label`
   flex-direction: column;
   gap: 4px;
 `;
-// export const ErrorMessage = styled(FormikError)`
-//   color: red;
-//   font-size: 14px;
-// `;
 
 export const Button = styled.button`
   width: 130px;
@@ -119,8 +114,57 @@ export const Text = styled.h1`
 export const Message = styled.span`
   font-size: 14px;
   color: red;
+  display: flex;
 `;
 export const SuccessMessage = styled.span`
+display: flex;
   font-size: 14px;
   color: green;
+`;
+export const BtnEye = styled.button`
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 25%;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const EyeSvg = styled.svg`
+  width: 20px;
+  height: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 25px;
+    height: 25px;
+  }
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+  @media screen and (min-width: 768px) {
+    max-width: 364px;
+  }
+`;
+
+export const GreenSvg = styled.svg`
+  width: 21px;
+  height: 21px;
+`;
+
+export const RedSvg = styled.svg`
+  width: 15px;
+  height: 15px;
+`;
+
+export const ErrorsMargin = styled.div`
+  margin-top: 1px;
+  position: absolute;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 2px;
+  }
 `;
