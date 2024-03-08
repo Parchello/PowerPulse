@@ -43,6 +43,10 @@ export const Field = styled(FormikField)`
   @media screen and (min-width: 375px) {
     width: 335px;
   }
+
+  @media screen and (min-width: 768px) {
+    width: 365px;
+  }
   @media screen and (min-width: 1440px) {
     width: 364px;
     height: 52px;

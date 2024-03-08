@@ -103,7 +103,8 @@ import { Form, Field,  SuccessMessage, Message, Button, Title, Text, ErrorsMargi
 import { useDispatch } from 'react-redux';
 import {logIn} from "../../../redux/auth/operations";
 import { useState } from "react";
-import sprite from "../../../assets/sprite.svg"
+import sprite from "../../../assets/sprite.svg";
+import { useAuth } from '../../../hooks/useAuth';
 
 
 
@@ -139,10 +140,13 @@ const signInSchema = Yup.object().shape({
 
 
   const dispatch = useDispatch();
+  const {isLoggedIn} = useAuth;
   const handleSubmit = (values, actions) => {
     dispatch(logIn(values)); 
+    isLoggedIn &&
     actions.resetForm();
   };
+
   return (
     <div>
       <Title>Sign In</Title>
