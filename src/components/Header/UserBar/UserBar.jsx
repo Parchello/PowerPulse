@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 import sprite from "../../../assets/sprite.svg"
-import { Icons, LogOutContainer, UserCircle } from "./UserBar.Styled";
+import { Icons, LogOutContainer, MenuBtn, UserCircle } from "./UserBar.Styled";
 import { LogOut } from '../LogOut/LogOut';
 
 
@@ -39,10 +39,13 @@ export const UserBar = ( {openMenu}) => {
               <LogOut color="#E6533C" />
               </LogOutContainer> :
 
-               <li><svg width={isMobileScreen ? "24px" : "32px"} height={isMobileScreen ? "24px" : "32px"} fill='#EFEDE8'
+        <li>
+          <MenuBtn typeof='button'>
+            <svg width={isMobileScreen ? "24px" : "32px"} height={isMobileScreen ? "24px" : "32px"} fill='#EFEDE8'
               onClick={openMenu}>
                   <use xlinkHref={sprite + "#icon-menu" } />
-            </svg>
+          </svg>
+          </MenuBtn>
           </li>}
                 
         </Icons>

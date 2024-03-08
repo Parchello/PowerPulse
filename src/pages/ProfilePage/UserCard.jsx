@@ -1,7 +1,7 @@
 import sprite from '../../assets/sprite.svg';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { useState } from 'react';
-
+import { logOut } from '../../redux/auth/operations.jsx';
 import { Text } from '../../components/Header/LogOut/LogOut.Styled';
 
 import {
@@ -22,10 +22,8 @@ import {
   TextDescr,
 } from './StyledUserCard';
 
-
-
 const Usercard = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // const user = useSelector(); //треба отримати дані про юзера зі стейту
   // const [avatar, setAvatar] = useState() //тут отримати доступ до частини де зберігатиметься посилання на аватар у юзера
@@ -59,6 +57,11 @@ const Usercard = () => {
     // } catch (error) {
     // console.log('Ooops, something went wrong. Try again', error)
     // }
+  };
+
+  const handleLogOut = () => {
+    console.log('LogOut function');
+    dispatch(logOut);
   };
 
   return (
@@ -116,7 +119,7 @@ const Usercard = () => {
         </TextDescr>
       </Container>
 
-      <LogOutDiv>
+      <LogOutDiv onClick={handleLogOut}>
         <Text as={Text}>Logout</Text>
         <svg width="20px" height="20px" stroke="#E6533C">
           <use xlinkHref={sprite + '#icon-logout'} />
