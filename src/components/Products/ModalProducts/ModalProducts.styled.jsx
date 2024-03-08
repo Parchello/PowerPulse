@@ -40,6 +40,12 @@ export const ModalContent = styled.div`
   transition:
     opacity 0.3s,
     transform 0.3s;
+
+  @media screen and (min-width: 768px) {
+    width: 479px;
+    height: 286px;
+    padding: 48px 32px;
+  }
 `;
 
 // content
@@ -51,6 +57,12 @@ export const DietInputBox = styled.div`
   margin-bottom: 16px;
   width: 287px;
   height: 84px;
+
+  @media screen and (min-width: 768px) {
+    width: 415px;
+    height: 40px;
+    flex-direction: row;
+  }
 `;
 
 export const DietNameText = styled.input`
@@ -60,6 +72,11 @@ export const DietNameText = styled.input`
   padding: 8px 14px 8px 14px;
   width: 287px;
   height: 34px;
+
+  @media screen and (min-width: 768px) {
+    width: 244px;
+    height: 40px;
+  }
 `;
 
 export const GramsInput = styled.input`
@@ -74,6 +91,11 @@ export const GramsInput = styled.input`
   &::placeholder {
     text-align: right;
   }
+
+  @media screen and (min-width: 768px) {
+    width: 155px;
+    height: 40px;
+  }
 `;
 
 export const CaloriesBox = styled.div`
@@ -83,6 +105,10 @@ export const CaloriesBox = styled.div`
   width: 65px;
   height: 18px;
   margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 64px;
+  }
 `;
 
 export const CaloriesText = styled.h2`
@@ -105,6 +131,12 @@ export const ButtonBox = styled.div`
   gap: 14px;
   width: 286px;
   height: 42px;
+
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+    width: 309px;
+    height: 52px;
+  }
 `;
 
 export const AddButton = styled.button`
@@ -118,6 +150,11 @@ export const AddButton = styled.button`
   padding: 12px 32px;
   width: 151px;
   height: 42px;
+
+  @media screen and (min-width: 768px) {
+    line-height: 150%;
+    height: 52px;
+  }
 `;
 
 export const CancelBox = styled.button`
@@ -131,6 +168,13 @@ export const CancelBox = styled.button`
   padding: 12px 32px;
   width: 121px;
   height: 42px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 120%;
+    width: 142px;
+    height: 52px;
+  }
 `;
 
 // close button
@@ -143,4 +187,9 @@ export const CloseBtn = styled.button`
   height: 22px;
   border: none;
   background-color: transparent;
+
+  @media screen and (min-width: 768px) {
+    width: 26px;
+    height: 26px;
+  }
 `;
