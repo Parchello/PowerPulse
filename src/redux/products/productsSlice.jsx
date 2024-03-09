@@ -10,13 +10,16 @@ export const productsSlice = createSlice({
     isLoading: false,
     filters: {
       search: '',
-      categories: '',
+      category: '',
       recomended: '',
     },
   },
   reducers: {
     setFilter(state, action) {
       state.filters.search = action.payload;
+    },
+    setCategory(state, action) {
+      state.filters.category = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -36,4 +39,4 @@ export const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { setFilter } = productsSlice.actions;
+export const { setFilter, setCategory } = productsSlice.actions;

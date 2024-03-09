@@ -14,10 +14,11 @@ import {
 } from './ProductsFilter.styled';
 import { getProductsCategories } from '../../../redux/products/operations';
 import {
+  selectCategory,
   selectProductsCategories,
   selectSearchFilter,
 } from '../../../redux/products/selectors';
-import { setFilter } from '../../../redux/products/productsSlice';
+import { setFilter, setCategory } from '../../../redux/products/productsSlice';
 
 export const ProductsFilter = () => {
   const dispatch = useDispatch();
@@ -26,8 +27,13 @@ export const ProductsFilter = () => {
     dispatch(getProductsCategories());
   }, [dispatch]);
 
-  const categoriesList = useSelector(selectProductsCategories);
+  const categoriesList = useSelector(selectProductsCategories); //список категорій
   const searchFilter = useSelector(selectSearchFilter);
+  const categoryFilter = useSelector(selectCategory);
+
+  const changeHandler = (evt) => {
+    console.dir(evt.target.value)
+  };
 
   return (
     <MainFiltersContainer>
@@ -45,7 +51,13 @@ export const ProductsFilter = () => {
           </SvgIcon>
         </SearchInputBox>
 
-        <SelectorC name="Categories" id="cat" placeholder="Categories">
+        <SelectorC
+          value={categoryFilter}
+          name="Categories"
+          id="cat"
+          placeholder="Categories"
+          onChange={evt => dispatch(setCategory(evt.target.value))}
+        >
           <Option value disabled selected>
             Categories
           </Option>
