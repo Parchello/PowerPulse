@@ -43,7 +43,7 @@ export const LogOutContainer = styled.li`
     align-items: center; 
 `
 
-export const MenuBtn = styled.li`
+export const MenuBtn = styled.button`
     background-color: transparent;
     border: none;
     cursor: pointer;
