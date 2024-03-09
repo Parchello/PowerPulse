@@ -16,7 +16,7 @@ import {
   DietInfoValue,
 } from './ProductsItem.styled';
 
-export const ProductsItem = () => {
+export const ProductsItem = ({ value: { calories, category, title, weight } }) => {
   return (
     <>
       <DietBlock>
@@ -37,10 +37,7 @@ export const ProductsItem = () => {
           <RawSvg width="24px" height="24px">
             <use xlinkHref={sprite + '#icon-running-man'} />
           </RawSvg>
-          <DietName>
-            Here will be name of diet
-            {title}
-          </DietName>
+          <DietName>{title}</DietName>
         </DietNameBox>
         <DietInfoList>
           <DietInfoItem>

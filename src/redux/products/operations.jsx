@@ -20,7 +20,7 @@ export const getAllProducts = createAsyncThunk(
     async (_, thunkAPI) => {
         try {
             const response = await axios.get("api/products")
-            return response.data
+            return response.data.products
         } catch (error) {
             toast.error('Error getting products');
             return thunkAPI.rejectWithValue(error.message)
