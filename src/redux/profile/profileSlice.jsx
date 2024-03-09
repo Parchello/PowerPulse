@@ -1,12 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCurrentUser } from '../../redux/profile/operations';
+import {
+  fetchCurrentUser,
+  patchUserParams,
+} from '../../redux/profile/operations';
 
 export const ProfileSlice = createSlice({
   name: 'profile',
   initialState: {
     currentUser: {
-      name: 'User Name',
+      name: '',
       email: '',
+    },
+    params: {
+      name: '',
+      height: null,
+      currentWeight: null,
+      desiredWeight: null,
+      birthday: null,
+      blood: null,
+      sex: null,
+      levelActivity: null,
     },
     isLoading: false,
     error: null,
@@ -15,6 +28,7 @@ export const ProfileSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        console.log('action payload in reducer', action.payload);
         state.currentUser = action.payload;
         state.isLoading = false;
         state.error = null;
@@ -24,6 +38,19 @@ export const ProfileSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCurrentUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error;
+      })
+      .addCase(patchUserParams.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.params = action.payload;
+      })
+      .addCase(patchUserParams.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(patchUserParams.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error;
       });
