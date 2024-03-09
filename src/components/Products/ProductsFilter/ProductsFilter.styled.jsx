@@ -4,7 +4,8 @@ export const MainFiltersContainer = styled.div`
   @media screen and (min-width: 1440px) {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: 454px;
   }
 `;
 
@@ -75,6 +76,7 @@ export const SvgIcon = styled.svg`
 
 export const SearchInput = styled.input`
   background-color: black;
+  outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
   border-radius: 12px;
@@ -84,6 +86,11 @@ export const SearchInput = styled.input`
 
   &::placeholder {
     color: #efede8;
+  }
+
+  &:focus,
+  :active {
+    border: 1px solid ${(p) => p.theme.colors.orange};
   }
   @media screen and (min-width: 768px) {
     width: 236px;
@@ -97,6 +104,8 @@ export const SearchInput = styled.input`
 
 export const SelectorC = styled.select`
   background-color: black;
+  outline: none;
+  /* background-color: #1c1c1c; */
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
   border-radius: 12px;
@@ -110,12 +119,23 @@ export const SelectorC = styled.select`
   }
 
   @media screen and (min-width: 1440px) {
-    background-color: rgba(0, 0, 0, 0);
+    /* background-color: rgba(0, 0, 0, 0); */
+    background-color: transparent;
   }
+`;
+
+//тут намагався стилізувати опції в селекті. Застосувався лише бекграунд
+export const Option = styled.option`
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  padding: 14px 32px 14px 14px;
+  width: 146px;
+  height: 228px;
 `;
 
 export const SelectorA = styled.select`
   background-color: black;
+  outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
   border-radius: 12px;

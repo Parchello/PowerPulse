@@ -1,22 +1,23 @@
 import avocadoImage from '../../../assets/img/avocado-img.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/sprite.svg';
 import { ModalProducts } from '../ModalProducts/ModalProducts';
 import {
-  AddBtn,
-  DietBlock,
+  // AddBtn,
+  // DietBlock,
   DietBlockContainer,
-  DietInfoHeading,
-  DietInfoItem,
-  DietInfoList,
-  DietInfoValue,
-  DietName,
-  DietNameBox,
-  DietText,
-  DietTextBox,
-  RecomendBox,
-  RecomendStatusCircle,
-  RecommendStatusText,
+  // DietInfoHeading,
+  // DietInfoItem,
+  // DietInfoList,
+  // DietInfoValue,
+  // DietName,
+  // DietNameBox,
+  // DietText,
+  // DietTextBox,
+  // RecomendBox,
+  // RecomendStatusCircle,
+  // RecommendStatusText,
 } from './DietCardsList.styled';
 import {
   AddButton,
@@ -37,299 +38,41 @@ import {
   CaloriesWellValue,
   ImgBox,
   NextProductBtn,
-  RawSvg,
+  // RawSvg,
   WellDoneTitle,
   WellDonebox,
 } from '../ModalWellDone/ModaWellDone.styled';
+import { getAllProducts } from '../../../redux/products/operations';
+// import { ProductsItem } from '../DietCard/ProductsItem';
+import {
+  selectAllProducts,
+  // selectIsLoading,
+  // selectVisibleProducts,
+} from '../../../redux/products/selectors';
 
 export const DietCardsList = () => {
+  const dispatch = useDispatch();
+  // const isLoading = useSelector(selectIsLoading);
   const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
   const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
 
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
+
+  const cards = useSelector(selectAllProducts);
+  // const filteredCards = useSelector(selectVisibleProducts)
+  console.log(cards);
+
+  // <AddBtn onClick={() => setModalProductsIsOpen(true)}>
+
   return (
     <>
-      <DietBlockContainer>
-        <DietBlock>
-          <DietTextBox>
-            <DietText>Diet</DietText>
-          </DietTextBox>
-          <RecomendBox>
-            <RecomendStatusCircle></RecomendStatusCircle>
-            <RecommendStatusText>Recommended</RecommendStatusText>
-            <AddBtn onClick={() => setModalProductsIsOpen(true)}>
-              Add
-              <svg width="16px" height="16px">
-                <use xlinkHref={sprite + '#icon-red-raw'} />
-              </svg>
-            </AddBtn>
-          </RecomendBox>
-          <DietNameBox>
-            <RawSvg width="24px" height="24px">
-              <use xlinkHref={sprite + '#icon-running-man'} />
-            </RawSvg>
-            <DietName>Here will be name of diet</DietName>
-          </DietNameBox>
-          <DietInfoList>
-            <DietInfoItem>
-              <DietInfoHeading>Calories: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Category: </DietInfoHeading>
-              <DietInfoValue>none</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Weight: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-          </DietInfoList>
-        </DietBlock>
-        <DietBlock>
-          <DietTextBox>
-            <DietText>Diet</DietText>
-          </DietTextBox>
-          <RecomendBox>
-            <RecomendStatusCircle></RecomendStatusCircle>
-            <RecommendStatusText>Recommended</RecommendStatusText>
-            <AddBtn>
-              Add
-              <svg width="16px" height="16px">
-                <use xlinkHref={sprite + '#icon-red-raw'} />
-              </svg>
-            </AddBtn>
-          </RecomendBox>
-          <DietNameBox>
-            <svg width="24px" height="24px">
-              <use xlinkHref={sprite + '#icon-running-man'} />
-            </svg>
-            <DietName>Here will be name of diet</DietName>
-          </DietNameBox>
-          <DietInfoList>
-            <DietInfoItem>
-              <DietInfoHeading>Calories: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Category: </DietInfoHeading>
-              <DietInfoValue>none</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Weight: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-          </DietInfoList>
-        </DietBlock>
-        <DietBlock>
-          <DietTextBox>
-            <DietText>Diet</DietText>
-          </DietTextBox>
-          <RecomendBox>
-            <RecomendStatusCircle></RecomendStatusCircle>
-            <RecommendStatusText>Recommended</RecommendStatusText>
-            <AddBtn>
-              Add
-              <svg width="16px" height="16px">
-                <use xlinkHref={sprite + '#icon-red-raw'} />
-              </svg>
-            </AddBtn>
-          </RecomendBox>
-          <DietNameBox>
-            <svg width="24px" height="24px">
-              <use xlinkHref={sprite + '#icon-running-man'} />
-            </svg>
-            <DietName>Here will be name of diet</DietName>
-          </DietNameBox>
-          <DietInfoList>
-            <DietInfoItem>
-              <DietInfoHeading>Calories: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Category: </DietInfoHeading>
-              <DietInfoValue>none</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Weight: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-          </DietInfoList>
-        </DietBlock>
-        <DietBlock>
-          <DietTextBox>
-            <DietText>Diet</DietText>
-          </DietTextBox>
-          <RecomendBox>
-            <RecomendStatusCircle></RecomendStatusCircle>
-            <RecommendStatusText>Recommended</RecommendStatusText>
-            <AddBtn>
-              Add
-              <svg width="16px" height="16px">
-                <use xlinkHref={sprite + '#icon-red-raw'} />
-              </svg>
-            </AddBtn>
-          </RecomendBox>
-          <DietNameBox>
-            <svg width="24px" height="24px">
-              <use xlinkHref={sprite + '#icon-running-man'} />
-            </svg>
-            <DietName>Here will be name of diet</DietName>
-          </DietNameBox>
-          <DietInfoList>
-            <DietInfoItem>
-              <DietInfoHeading>Calories: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Category: </DietInfoHeading>
-              <DietInfoValue>none</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Weight: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-          </DietInfoList>
-        </DietBlock>
-        <DietBlock>
-          <DietTextBox>
-            <DietText>Diet</DietText>
-          </DietTextBox>
-          <RecomendBox>
-            <RecomendStatusCircle></RecomendStatusCircle>
-            <RecommendStatusText>Recommended</RecommendStatusText>
-            <AddBtn>
-              Add
-              <svg width="16px" height="16px">
-                <use xlinkHref={sprite + '#icon-red-raw'} />
-              </svg>
-            </AddBtn>
-          </RecomendBox>
-          <DietNameBox>
-            <svg width="24px" height="24px">
-              <use xlinkHref={sprite + '#icon-running-man'} />
-            </svg>
-            <DietName>Here will be name of diet</DietName>
-          </DietNameBox>
-          <DietInfoList>
-            <DietInfoItem>
-              <DietInfoHeading>Calories: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Category: </DietInfoHeading>
-              <DietInfoValue>none</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Weight: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-          </DietInfoList>
-        </DietBlock>
-        <DietBlock>
-          <DietTextBox>
-            <DietText>Diet</DietText>
-          </DietTextBox>
-          <RecomendBox>
-            <RecomendStatusCircle></RecomendStatusCircle>
-            <RecommendStatusText>Recommended</RecommendStatusText>
-            <AddBtn>
-              Add
-              <svg width="16px" height="16px">
-                <use xlinkHref={sprite + '#icon-red-raw'} />
-              </svg>
-            </AddBtn>
-          </RecomendBox>
-          <DietNameBox>
-            <svg width="24px" height="24px">
-              <use xlinkHref={sprite + '#icon-running-man'} />
-            </svg>
-            <DietName>Here will be name of diet</DietName>
-          </DietNameBox>
-          <DietInfoList>
-            <DietInfoItem>
-              <DietInfoHeading>Calories: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Category: </DietInfoHeading>
-              <DietInfoValue>none</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Weight: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-          </DietInfoList>
-        </DietBlock>
-        <DietBlock>
-          <DietTextBox>
-            <DietText>Diet</DietText>
-          </DietTextBox>
-          <RecomendBox>
-            <RecomendStatusCircle></RecomendStatusCircle>
-            <RecommendStatusText>Recommended</RecommendStatusText>
-            <AddBtn>
-              Add
-              <svg width="16px" height="16px">
-                <use xlinkHref={sprite + '#icon-red-raw'} />
-              </svg>
-            </AddBtn>
-          </RecomendBox>
-          <DietNameBox>
-            <svg width="24px" height="24px">
-              <use xlinkHref={sprite + '#icon-running-man'} />
-            </svg>
-            <DietName>Here will be name of diet</DietName>
-          </DietNameBox>
-          <DietInfoList>
-            <DietInfoItem>
-              <DietInfoHeading>Calories: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Category: </DietInfoHeading>
-              <DietInfoValue>none</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Weight: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-          </DietInfoList>
-        </DietBlock>
-        <DietBlock>
-          <DietTextBox>
-            <DietText>Diet</DietText>
-          </DietTextBox>
-          <RecomendBox>
-            <RecomendStatusCircle></RecomendStatusCircle>
-            <RecommendStatusText>Recommended</RecommendStatusText>
-            <AddBtn>
-              Add
-              <svg width="16px" height="16px">
-                <use xlinkHref={sprite + '#icon-red-raw'} />
-              </svg>
-            </AddBtn>
-          </RecomendBox>
-          <DietNameBox>
-            <svg width="24px" height="24px">
-              <use xlinkHref={sprite + '#icon-running-man'} />
-            </svg>
-            <DietName>Here will be name of diet</DietName>
-          </DietNameBox>
-          <DietInfoList>
-            <DietInfoItem>
-              <DietInfoHeading>Calories: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Category: </DietInfoHeading>
-              <DietInfoValue>none</DietInfoValue>
-            </DietInfoItem>
-            <DietInfoItem>
-              <DietInfoHeading>Weight: </DietInfoHeading>
-              <DietInfoValue>0</DietInfoValue>
-            </DietInfoItem>
-          </DietInfoList>
-        </DietBlock>
-      </DietBlockContainer>
+      {
+        <DietBlockContainer>
+          {/* {cards.allowedProducts.map(item => <ProductsItem key={item.id} values={item} />)} */}
+        </DietBlockContainer>
+      }
       <ModalProducts
         isOpen={modalProductsIsOpen}
         onClose={() => setModalProductsIsOpen(false)}
