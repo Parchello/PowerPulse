@@ -1,5 +1,6 @@
 import avocadoImage from '../../../assets/img/avocado-img.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux'
 import sprite from '../../../assets/sprite.svg';
 import { ModalProducts } from '../ModalProducts/ModalProducts';
 import {
@@ -41,10 +42,17 @@ import {
   WellDoneTitle,
   WellDonebox,
 } from '../ModalWellDone/ModaWellDone.styled';
+import { getAllProducts } from '../../../redux/products/operations';
 
 export const DietCardsList = () => {
+  const dispatch = useDispatch();
   const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
   const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
+
+  useEffect(() => {
+    dispatch(getAllProducts())
+  }, [dispatch])
+  
 
   return (
     <>

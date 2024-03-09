@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getProductsCategories } from './operations';
+import { getProductsCategories, getAllProducts } from './operations';
 
 export const productsSlice = createSlice({
   name: 'products',
@@ -40,11 +40,11 @@ export const productsSlice = createSlice({
       state.filters.category = action.payload;
     },
     setRecomended(state, action) {
-      state.filters.recomended = action.payload
+      state.filters.recomended = action.payload;
     },
   },
   extraReducers: (builder) => {
-    builder
+    builder //categories
       .addCase(getProductsCategories.pending, (state, _) => {
         state.isLoading = true;
       })
@@ -53,6 +53,17 @@ export const productsSlice = createSlice({
         state.categoriesList = action.payload;
       })
       .addCase(getProductsCategories.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      }) //products
+      .addCase(getAllProducts.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(getAllProducts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.cards = action.payload;
+      })
+      .addCase(getAllProducts.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
