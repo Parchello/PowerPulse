@@ -113,10 +113,18 @@ export const SelectorC = styled.select`
 
   @media screen and (min-width: 1440px) {
     /* background-color: rgba(0, 0, 0, 0); */
+    background-color: transparent;
   }
 `;
 
-// export const
+//тут намагався стилізувати опції в селекті. Застосувався лише бекграунд
+export const Option = styled.option`
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  padding: 14px 32px 14px 14px;
+  width: 146px;
+  height: 228px;
+`;
 
 export const SelectorA = styled.select`
   background-color: black;

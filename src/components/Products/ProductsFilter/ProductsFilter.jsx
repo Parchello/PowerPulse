@@ -9,6 +9,7 @@ import {
   SearchInputBox,
   SelectorA,
   SelectorC,
+  Option,
   SvgIcon,
 } from './ProductsFilter.styled';
 import { getProductsCategories } from '../../../redux/products/operations';
@@ -35,19 +36,19 @@ export const ProductsFilter = () => {
         </SearchInputBox>
 
         <SelectorC name="Categories" id="cat" placeholder="Categories">
-          <option value disabled selected>
+          <Option value disabled selected>
             Categories
-          </option>
+          </Option>
           {categoriesList.map((item) => (
-            <option key={item} value={item}>{item}</option>
+            <Option key={item} value={item}>{item}</Option>
           ))}
         </SelectorC>
         <SelectorA name="all" id="all">
-          <option value selected>
+          <Option value selected>
             All
-          </option>
-          <option value="">Recommended</option>
-          <option value="">Not recommended</option>
+          </Option>
+          <Option value="">Recommended</Option>
+          <Option value="">Not recommended</Option>
         </SelectorA>
       </Filters>
     </MainFiltersContainer>
