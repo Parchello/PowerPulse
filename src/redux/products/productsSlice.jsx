@@ -14,6 +14,11 @@ export const productsSlice = createSlice({
       recomended: '',
     },
   },
+  reducers: {
+    setFilter(state, action) {
+      state.filters.search = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProductsCategories.pending, (state, _) => {
@@ -31,4 +36,4 @@ export const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer;
-// export const filterReducer = productsSlice.filters
+export const { setFilter } = productsSlice.actions;

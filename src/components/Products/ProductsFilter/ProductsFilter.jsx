@@ -13,7 +13,11 @@ import {
   SvgIcon,
 } from './ProductsFilter.styled';
 import { getProductsCategories } from '../../../redux/products/operations';
-import { selectProductsCategories } from '../../../redux/products/selectors';
+import {
+  selectProductsCategories,
+  selectSearchFilter,
+} from '../../../redux/products/selectors';
+import { setFilter } from '../../../redux/products/productsSlice';
 
 export const ProductsFilter = () => {
   const dispatch = useDispatch();
@@ -23,17 +27,19 @@ export const ProductsFilter = () => {
   }, [dispatch]);
 
   const categoriesList = useSelector(selectProductsCategories);
-
-  const searchHandler = () => {
-    
-  }
+  const searchFilter = useSelector(selectSearchFilter);
 
   return (
     <MainFiltersContainer>
       <MainText>Products</MainText>
       <Filters>
         <SearchInputBox>
-          <SearchInput type="text" placeholder="Search" />
+          <SearchInput
+            type="text"
+            placeholder="Search"
+            value={searchFilter}
+            onChange={(evt) => dispatch(setFilter(evt.target.value))}
+          />
           <SvgIcon width="18px" height="18px">
             <use xlinkHref={sprite + '#icon-search'} />
           </SvgIcon>
@@ -44,7 +50,9 @@ export const ProductsFilter = () => {
             Categories
           </Option>
           {categoriesList.map((item) => (
-            <Option key={item} value={item}>{item}</Option>
+            <Option key={item} value={item}>
+              {item}
+            </Option>
           ))}
         </SelectorC>
         <SelectorA name="all" id="all">
