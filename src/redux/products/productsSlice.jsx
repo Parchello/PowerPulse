@@ -1,20 +1,34 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
+import { getProductsCategories } from './operations';
 
 export const productsSlice = createSlice({
-    name: 'products',
-    initialState: {
-        cards: [],
-        isLoading: false,
-        filters: {
-            search: '',
-            categories: '',
-            recomended: '',
-        },
+  name: 'products',
+  initialState: {
+    error: null,
+    cards: [],
+    categoriesList: [],
+    isLoading: false,
+    filters: {
+      search: '',
+      categories: '',
+      recomended: '',
     },
-    extraReducers: builder => {
-        // builder.addCase()
-    }
-})
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getProductsCategories.pending, (state, _) => {
+        state.isLoading = true;
+      })
+      .addCase(getProductsCategories.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.categoriesList = action.payload;
+      })
+      .addCase(getProductsCategories.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
+});
 
-export const productsReducer = productsSlice.reducer
+export const productsReducer = productsSlice.reducer;
 // export const filterReducer = productsSlice.filters

@@ -98,6 +98,7 @@ export const SearchInput = styled.input`
 
 export const SelectorC = styled.select`
   background-color: black;
+  /* background-color: #1c1c1c; */
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
   border-radius: 12px;
@@ -111,9 +112,11 @@ export const SelectorC = styled.select`
   }
 
   @media screen and (min-width: 1440px) {
-    background-color: rgba(0, 0, 0, 0);
+    /* background-color: rgba(0, 0, 0, 0); */
   }
 `;
+
+// export const
 
 export const SelectorA = styled.select`
   background-color: black;
