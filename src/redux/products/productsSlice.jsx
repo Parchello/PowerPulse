@@ -12,8 +12,7 @@ export const productsSlice = createSlice({
         },
     },
     extraReducers: builder => {
-        builder
-            .addCase()
+        // builder.addCase()
     }
 })
 
