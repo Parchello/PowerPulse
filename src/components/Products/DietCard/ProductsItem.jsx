@@ -20,6 +20,8 @@ export const ProductsItem = ({
   value: { calories, category, title, weight },
   openModal,
 }) => {
+  // тут треба ще зробити так, щоб Recommended світився червоним або зеленим
+  //в залежності від того яка у користувача група крові
   return (
     <>
       <DietBlock>

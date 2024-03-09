@@ -64,7 +64,7 @@ export const DietCardsList = () => {
   const cards = useSelector(selectAllProducts);
   // const filteredCards = useSelector(selectVisibleProducts)
 
-  // <AddBtn onClick={() => setModalProductsIsOpen(true)}>
+  // треба описати логіку закриття модалки по бекдропу і по Esc
 
   return (
     <>
