@@ -15,12 +15,32 @@ export const productsSlice = createSlice({
     },
   },
   reducers: {
+    // setFilter(state, action) {
+    //   const { type, payload } = action;
+    //   switch (type) {
+    //     case 'search':
+    //       state.filters.search = payload;
+    //       break;
+    //     case 'category':
+    //       state.filters.category = payload;
+    //       break;
+    //     case 'recomended':
+    //       state.filters.recomended = payload;
+    //       break;
+
+    //     default:
+    //       break;
+    //   }
+    // },
     setFilter(state, action) {
       state.filters.search = action.payload;
     },
     setCategory(state, action) {
       state.filters.category = action.payload;
-    }
+    },
+    setRecomended(state, action) {
+      state.filters.recomended = action.payload
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -39,4 +59,4 @@ export const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { setFilter, setCategory } = productsSlice.actions;
+export const { setFilter, setCategory, setRecomended } = productsSlice.actions;

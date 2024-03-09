@@ -17,8 +17,13 @@ import {
   selectCategory,
   selectProductsCategories,
   selectSearchFilter,
+  selectRecomended,
 } from '../../../redux/products/selectors';
-import { setFilter, setCategory } from '../../../redux/products/productsSlice';
+import {
+  setFilter,
+  setCategory,
+  setRecomended,
+} from '../../../redux/products/productsSlice';
 
 export const ProductsFilter = () => {
   const dispatch = useDispatch();
@@ -30,10 +35,7 @@ export const ProductsFilter = () => {
   const categoriesList = useSelector(selectProductsCategories); //список категорій
   const searchFilter = useSelector(selectSearchFilter);
   const categoryFilter = useSelector(selectCategory);
-
-  const changeHandler = (evt) => {
-    console.dir(evt.target.value)
-  };
+  const recomendedFilter = useSelector(selectRecomended);
 
   return (
     <MainFiltersContainer>
@@ -56,7 +58,7 @@ export const ProductsFilter = () => {
           name="Categories"
           id="cat"
           placeholder="Categories"
-          onChange={evt => dispatch(setCategory(evt.target.value))}
+          onChange={(evt) => dispatch(setCategory(evt.target.value))}
         >
           <Option value disabled selected>
             Categories
@@ -67,12 +69,17 @@ export const ProductsFilter = () => {
             </Option>
           ))}
         </SelectorC>
-        <SelectorA name="all" id="all">
-          <Option value selected>
+        <SelectorA
+          value={recomendedFilter}
+          name="all"
+          id="all"
+          onChange={(evt) => dispatch(setRecomended(evt.target.value))}
+        >
+          <Option value="All" selected>
             All
           </Option>
-          <Option value="">Recommended</Option>
-          <Option value="">Not recommended</Option>
+          <Option value="Recommended">Recommended</Option>
+          <Option value="Not recommended">Not recommended</Option>
         </SelectorA>
       </Filters>
     </MainFiltersContainer>
