@@ -43,11 +43,14 @@ export const logIn = createAsyncThunk(
 );
 
 
-export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const logOut = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
   try {
     await axios.post('/api/users/logout');
     clearAuthHeader();
   } catch (error) {
+    toast.error("Something went wrong");
     return thunkAPI.rejectWithValue(error.message);
   }
 });
