@@ -3,9 +3,11 @@ import { useFormik } from 'formik';
 import sprite from '../../assets/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { CurrentUser } from '../../redux/profile/selectors.jsx';
-import { fetchCurrentUser } from '../../redux/profile/operations.jsx';
-
-import axios from 'axios';
+import {
+  fetchCurrentUser,
+  patchUserParams,
+} from '../../redux/profile/operations.jsx';
+import { useEffect } from 'react';
 
 import {
   StyldInputShort,
@@ -32,11 +34,11 @@ const validate = (values, props /* only available when using withFormik */) => {
   console.log('Validation function is called');
   const errors = {};
 
-  if (!values.email) {
-    errors.email = 'Email is required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
-  }
+  // if (!values.email) {
+  //   errors.email = 'Email is required';
+  // } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  //   errors.email = 'Invalid email address';
+  // }
 
   if (!values.name) {
     errors.name = 'Name is required!';
@@ -63,39 +65,48 @@ const validate = (values, props /* only available when using withFormik */) => {
   return errors;
 };
 
-// function X() {
-//   return axios.get(
-//     'https://powerpulse-group5-backend.onrender.com/api/users/current'
-//   );
-// }
-// X()
-//   .then((response) => {
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
-// console.log('object');
-
 const UserForm = () => {
+  const currentUser = useSelector(CurrentUser);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, []);
+
   const formik = useFormik({
     initialValues: {
-      name: '',
-      email: '',
+      name: currentUser.currentUser.name ? currentUser.currentUser.name : '',
+      email: currentUser.currentUser.email ? currentUser.currentUser.email : '',
       height: '',
       currentWeight: '',
       desiredWeight: '',
-      dateOfBirth: '',
+      birthday: '',
+      blood: null,
+      sex: '',
+      levelActivity: null,
     },
+
     validate,
     onSubmit: (values) => {
-      console.log('Form submitted:', values);
-      alert(JSON.stringify(values, null, 2));
+      // const patchUserParams = {
+      //   name: values.name,
+      //   height: values.height,
+      //   currentWeight: values.currentWeight,
+      //   desiredWeight: values.desiredWeight,
+      //   birthday: values.dateOfBirth,
+      //   blood: values.blood,
+      //   sex: values.sex,
+      //   levelActivity: values.levelActivity,
+      // };
+      //   console.log('Form submitted:');
+      // alert(JSON.stringify(patchUserParams, null, 2));
+
+      delete values.email;
+
+      console.log('values', values);
+      dispatch(patchUserParams({ values: values }));
     },
   });
 
-  const currentUser = useSelector(CurrentUser);
-  const dispatch = useDispatch();
   const handleInputStylesChange = (valueName) => {
     if (formik.errors[valueName]) {
       return (
@@ -107,7 +118,7 @@ const UserForm = () => {
         </ErrorDiv>
       );
     }
-    if (!formik.errors[valueName] && formik.values[valueName].length !== 0) {
+    if (!formik.errors[valueName] && formik.values[valueName] !== 0) {
       return (
         <SuccessDiv>
           <svg width="18px" height="18px">
@@ -119,8 +130,20 @@ const UserForm = () => {
     }
   };
 
-  console.log(currentUser);
-  // dispatch(fetchCurrentUser);
+  // const handleInputChange = (event) => {
+  //   const value = event.target.value;
+  //   const name = event.target.name;
+  //   switch (name) {
+  //     case 'name':
+  //       setName(value);
+  //       break;
+  //     case 'number':
+  //       setNumber(value);
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // };
 
   return (
     <Form onSubmit={formik.handleSubmit}>
@@ -133,7 +156,7 @@ const UserForm = () => {
             name="name"
             type="text"
             onChange={formik.handleChange}
-            value={formik.values.name}
+            value={currentUser.currentUser.name}
             success={!formik.errors.name && formik.values.name.length !== 0}
             error={formik.errors.name}
           />
@@ -147,8 +170,8 @@ const UserForm = () => {
             name="email"
             type="text"
             onChange={formik.handleChange}
-            value={formik.values.email}
-            success={!formik.errors.email && formik.values.email.length !== 0}
+            value={currentUser.currentUser.email}
+            success={!formik.errors.email && formik.values.email !== 0}
             error={formik.errors.email}
           />
           {handleInputStylesChange('email')}
@@ -204,11 +227,11 @@ const UserForm = () => {
         <DataContainerItem>
           <Label htmlFor="dateOfBirth">Date of Birth</Label>
           <StyldInputShort
-            id="dateOfBirth"
-            name="dateOfBirth"
-            type="number"
+            id="birthday"
+            name="birthday"
+            type="string"
             onChange={formik.handleChange}
-            value={formik.values.dateOfBirth}
+            value={formik.values.birthday}
           />
         </DataContainerItem>
       </DataContainer>
@@ -221,6 +244,9 @@ const UserForm = () => {
               value="1"
               id="1"
               type="radio"
+              onChange={(e) =>
+                formik.setFieldValue('blood', parseInt(e.target.value))
+              }
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="1">1</LabelRadioBtn>
           </LiRadioBtn>
@@ -230,6 +256,9 @@ const UserForm = () => {
               value="2"
               id="2"
               type="radio"
+              onChange={(e) =>
+                formik.setFieldValue('blood', parseInt(e.target.value))
+              }
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="2">2</LabelRadioBtn>
           </LiRadioBtn>
@@ -239,6 +268,9 @@ const UserForm = () => {
               value="3"
               id="3"
               type="radio"
+              onChange={(e) =>
+                formik.setFieldValue('blood', parseInt(e.target.value))
+              }
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="3">3</LabelRadioBtn>
           </LiRadioBtn>
@@ -248,18 +280,22 @@ const UserForm = () => {
               value="4"
               id="4"
               type="radio"
+              onChange={(e) =>
+                formik.setFieldValue('blood', parseInt(e.target.value))
+              }
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="4">4</LabelRadioBtn>
           </LiRadioBtn>
         </Ul>
 
-        <Ul id="gender">
+        <Ul id="sex">
           <LiRadioBtn>
             <InputRadioBtn
               id="female"
-              name="gender"
+              name="sex"
               value="female"
               type="radio"
+              onChange={formik.handleChange}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="female">Female</LabelRadioBtn>
           </LiRadioBtn>
@@ -267,20 +303,24 @@ const UserForm = () => {
             <InputRadioBtn
               type="radio"
               id="male"
-              name="gender"
+              name="sex"
               value="male"
+              onChange={formik.handleChange}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="male">Male</LabelRadioBtn>
           </LiRadioBtn>
         </Ul>
       </RadioBtnContainer>
-      <UlLifeStyle>
+      <UlLifeStyle id="levelActivity">
         <LiRadioBtn>
           <InputRadioBtn
             id="Sedentary"
-            name="lifeStyle"
-            value="Sedentary"
+            name="levelActivity"
+            value="1"
             type="radio"
+            onChange={(e) =>
+              formik.setFieldValue('levelActivity', parseInt(e.target.value))
+            }
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="Sedentary">
             Sedentary lifestyle (little or no physical activity)
@@ -289,9 +329,12 @@ const UserForm = () => {
         <LiRadioBtn>
           <InputRadioBtn
             id="Light"
-            name="lifeStyle"
-            value="Light"
+            name="levelActivity"
+            value="2"
             type="radio"
+            onChange={(e) =>
+              formik.setFieldValue('levelActivity', parseInt(e.target.value))
+            }
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="Light">
             Light activity (light exercises/sports 1-3 days per week)
@@ -300,9 +343,12 @@ const UserForm = () => {
         <LiRadioBtn>
           <InputRadioBtn
             id="Moderately"
-            name="lifeStyle"
-            value="Moderately"
+            name="levelActivity"
+            value="3"
             type="radio"
+            onChange={(e) =>
+              formik.setFieldValue('levelActivity', parseInt(e.target.value))
+            }
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="Moderately">
             Moderately active (moderate exercises/sports 3-5 days per week)
@@ -311,9 +357,12 @@ const UserForm = () => {
         <LiRadioBtn>
           <InputRadioBtn
             id="VeryActive"
-            name="lifeStyle"
-            value="VeryActive"
+            name="levelActivity"
+            value="4"
             type="radio"
+            onChange={(e) =>
+              formik.setFieldValue('levelActivity', parseInt(e.target.value))
+            }
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="VeryActive">
             Very active (intense exercises/sports 6-7 days per week)
@@ -322,9 +371,12 @@ const UserForm = () => {
         <LiRadioBtn>
           <InputRadioBtn
             id="ExtremelyActive"
-            name="lifeStyle"
-            value="ExtremelyActive"
+            name="levelActivity"
+            value="5"
             type="radio"
+            onChange={(e) =>
+              formik.setFieldValue('levelActivity', parseInt(e.target.value))
+            }
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="ExtremelyActive">
             Extremely active (very strenuous exercises/sports and physical work)
@@ -337,3 +389,11 @@ const UserForm = () => {
 };
 
 export default UserForm;
+
+// "currentWeight": 55,
+// "birthday": "20.02.1992",
+// "desiredWeight": 55,
+// "height": 160,
+// "levelActivity": 4,
+// "name": "examplea",
+// "sex": "male"
