@@ -49,6 +49,7 @@ import {
   selectIsLoading,
   // selectVisibleProducts,
 } from '../../../redux/products/selectors';
+import { Loader } from '../../Loader/Loader';
 
 export const DietCardsList = () => {
   const dispatch = useDispatch();
@@ -62,15 +63,21 @@ export const DietCardsList = () => {
 
   const cards = useSelector(selectAllProducts);
   // const filteredCards = useSelector(selectVisibleProducts)
-  console.log(cards);
 
   // <AddBtn onClick={() => setModalProductsIsOpen(true)}>
 
   return (
     <>
-      {!isLoading && (
+      {/* Лоадер якогось хєра не застосовується */}
+      {!isLoading && <Loader /> && (
         <DietBlockContainer>
-          {cards.map((item) => <ProductsItem key={ item.id} value={item} />)}
+          {cards.map((item) => (
+            <ProductsItem
+              key={item.id}
+              value={item}
+              openModal={setModalProductsIsOpen}
+            />
+          ))}
         </DietBlockContainer>
       )}
       <ModalProducts

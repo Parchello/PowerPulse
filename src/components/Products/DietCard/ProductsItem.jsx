@@ -16,7 +16,10 @@ import {
   DietInfoValue,
 } from './ProductsItem.styled';
 
-export const ProductsItem = ({ value: { calories, category, title, weight } }) => {
+export const ProductsItem = ({
+  value: { calories, category, title, weight },
+  openModal,
+}) => {
   return (
     <>
       <DietBlock>
@@ -26,7 +29,7 @@ export const ProductsItem = ({ value: { calories, category, title, weight } }) =
         <RecomendBox>
           <RecomendStatusCircle></RecomendStatusCircle>
           <RecommendStatusText>Recommended</RecommendStatusText>
-          <AddBtn onClick={() => setModalProductsIsOpen(true)}>
+          <AddBtn onClick={() => openModal(true)}>
             Add
             <svg width="16px" height="16px">
               <use xlinkHref={sprite + '#icon-red-raw'} />
