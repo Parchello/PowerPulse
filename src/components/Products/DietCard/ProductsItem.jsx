@@ -37,20 +37,23 @@ export const ProductsItem = () => {
           <RawSvg width="24px" height="24px">
             <use xlinkHref={sprite + '#icon-running-man'} />
           </RawSvg>
-          <DietName>Here will be name of diet</DietName>
+          <DietName>
+            Here will be name of diet
+            {title}
+          </DietName>
         </DietNameBox>
         <DietInfoList>
           <DietInfoItem>
-            <DietInfoHeading>Calories: </DietInfoHeading>
-            <DietInfoValue>0</DietInfoValue>
+            <DietInfoHeading>Calories:</DietInfoHeading>
+            <DietInfoValue> {calories}</DietInfoValue>
           </DietInfoItem>
           <DietInfoItem>
             <DietInfoHeading>Category: </DietInfoHeading>
-            <DietInfoValue>none</DietInfoValue>
+            <DietInfoValue>{category}</DietInfoValue>
           </DietInfoItem>
           <DietInfoItem>
             <DietInfoHeading>Weight: </DietInfoHeading>
-            <DietInfoValue>0</DietInfoValue>
+            <DietInfoValue>{weight}</DietInfoValue>
           </DietInfoItem>
         </DietInfoList>
       </DietBlock>

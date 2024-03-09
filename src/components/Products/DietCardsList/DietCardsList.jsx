@@ -43,16 +43,16 @@ import {
   WellDonebox,
 } from '../ModalWellDone/ModaWellDone.styled';
 import { getAllProducts } from '../../../redux/products/operations';
-import { ProductsItem } from '../DietCard/ProductsItem';
+// import { ProductsItem } from '../DietCard/ProductsItem';
 import {
   selectAllProducts,
-  selectIsLoading,
-  selectVisibleProducts,
+  // selectIsLoading,
+  // selectVisibleProducts,
 } from '../../../redux/products/selectors';
 
 export const DietCardsList = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
+  // const isLoading = useSelector(selectIsLoading);
   const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
   const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
 
@@ -68,15 +68,11 @@ export const DietCardsList = () => {
 
   return (
     <>
-      {!isLoading && (
+      {
         <DietBlockContainer>
-          {/* {cards.length > 0 ? (
-            cards.map((item) => <DietCard key={ } />)
-          ) : (
-            <p>Повідомлення, що список пустий. Треба красиво зробити</p>
-          )} */}
+          {/* {cards.allowedProducts.map(item => <ProductsItem key={item.id} values={item} />)} */}
         </DietBlockContainer>
-      )}
+      }
       <ModalProducts
         isOpen={modalProductsIsOpen}
         onClose={() => setModalProductsIsOpen(false)}
