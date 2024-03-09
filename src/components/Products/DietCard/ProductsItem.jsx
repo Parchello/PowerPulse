@@ -14,8 +14,9 @@ import {
   DietInfoItem,
   DietInfoHeading,
   DietInfoValue,
-} from './DietCard.styled';
-export const DietCard = () => {
+} from './ProductsItem.styled';
+
+export const ProductsItem = () => {
   return (
     <>
       <DietBlock>
