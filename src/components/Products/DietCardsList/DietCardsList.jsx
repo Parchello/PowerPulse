@@ -68,7 +68,6 @@ export const DietCardsList = () => {
 
   return (
     <>
-      {' '}
       {!isLoading && (
         <DietBlockContainer>
           {/* {cards.length > 0 ? (
