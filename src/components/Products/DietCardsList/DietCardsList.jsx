@@ -43,16 +43,17 @@ import {
   WellDonebox,
 } from '../ModalWellDone/ModaWellDone.styled';
 import { getAllProducts } from '../../../redux/products/operations';
-// import { ProductsItem } from '../DietCard/ProductsItem';
+import { ProductsItem } from '../DietCard/ProductsItem';
 import {
   selectAllProducts,
-  // selectIsLoading,
+  selectIsLoading,
   // selectVisibleProducts,
 } from '../../../redux/products/selectors';
+import { Loader } from '../../Loader/Loader';
 
 export const DietCardsList = () => {
   const dispatch = useDispatch();
-  // const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoading);
   const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
   const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
 
@@ -62,17 +63,23 @@ export const DietCardsList = () => {
 
   const cards = useSelector(selectAllProducts);
   // const filteredCards = useSelector(selectVisibleProducts)
-  console.log(cards);
 
-  // <AddBtn onClick={() => setModalProductsIsOpen(true)}>
+  // треба описати логіку закриття модалки по бекдропу і по Esc
 
   return (
     <>
-      {
+      {/* Лоадер якогось хєра не застосовується */}
+      {!isLoading && <Loader /> && (
         <DietBlockContainer>
-          {/* {cards.allowedProducts.map(item => <ProductsItem key={item.id} values={item} />)} */}
+          {cards.map((item) => (
+            <ProductsItem
+              key={item.id}
+              value={item}
+              openModal={setModalProductsIsOpen}
+            />
+          ))}
         </DietBlockContainer>
-      }
+      )}
       <ModalProducts
         isOpen={modalProductsIsOpen}
         onClose={() => setModalProductsIsOpen(false)}

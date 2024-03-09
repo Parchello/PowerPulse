@@ -23,7 +23,7 @@ export const DietBlockContainer = styled.ul`
     &::-webkit-scrollbar-thumb {
       border-radius: 12px;
       background: ${(p) => p.theme.colors.orangeLight};
-      height: 153px; // ця властивість не застосовується, хз чому.
+      height: 153px; 
     }
   }
 

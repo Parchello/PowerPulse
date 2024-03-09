@@ -16,7 +16,12 @@ import {
   DietInfoValue,
 } from './ProductsItem.styled';
 
-export const ProductsItem = () => {
+export const ProductsItem = ({
+  value: { calories, category, title, weight },
+  openModal,
+}) => {
+  // тут треба ще зробити так, щоб Recommended світився червоним або зеленим
+  //в залежності від того яка у користувача група крові
   return (
     <>
       <DietBlock>
@@ -26,7 +31,7 @@ export const ProductsItem = () => {
         <RecomendBox>
           <RecomendStatusCircle></RecomendStatusCircle>
           <RecommendStatusText>Recommended</RecommendStatusText>
-          <AddBtn onClick={() => setModalProductsIsOpen(true)}>
+          <AddBtn onClick={() => openModal(true)}>
             Add
             <svg width="16px" height="16px">
               <use xlinkHref={sprite + '#icon-red-raw'} />
@@ -37,10 +42,7 @@ export const ProductsItem = () => {
           <RawSvg width="24px" height="24px">
             <use xlinkHref={sprite + '#icon-running-man'} />
           </RawSvg>
-          <DietName>
-            Here will be name of diet
-            {title}
-          </DietName>
+          <DietName>{title}</DietName>
         </DietNameBox>
         <DietInfoList>
           <DietInfoItem>
