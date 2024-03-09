@@ -24,6 +24,10 @@ export const ProductsFilter = () => {
 
   const categoriesList = useSelector(selectProductsCategories);
 
+  const searchHandler = () => {
+    
+  }
+
   return (
     <MainFiltersContainer>
       <MainText>Products</MainText>
