@@ -1,8 +1,9 @@
 import sprite from '../../assets/sprite.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { useState } from 'react';
 import { logOut } from '../../redux/auth/operations.jsx';
 import { Text } from '../../components/Header/LogOut/LogOut.Styled';
+import { CurrentUser } from '../../redux/profile/selectors.jsx';
 
 import {
   UserCard,
@@ -24,7 +25,7 @@ import {
 
 const Usercard = () => {
   const dispatch = useDispatch();
-
+  const currentUser = useSelector(CurrentUser);
   // const user = useSelector(); //треба отримати дані про юзера зі стейту
   // const [avatar, setAvatar] = useState() //тут отримати доступ до частини де зберігатиметься посилання на аватар у юзера
   //далі тут буде зберігатись посилання на аватар і зберігатись в стейт
@@ -81,7 +82,7 @@ const Usercard = () => {
           </svg>
         </UserImgLabel>
 
-        <UserNameText>User name</UserNameText>
+        <UserNameText>{currentUser.currentUser.name}</UserNameText>
         <UserText>User</UserText>
       </CardContainer>
       <ListUl>
