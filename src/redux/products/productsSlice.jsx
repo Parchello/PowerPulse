@@ -15,6 +15,7 @@ export const productsSlice = createSlice({
     },
   },
   reducers: {
+    //тут я намагався 3 нижні редюсери записати одним і пропустити через свіч але не вийшло
     // setFilter(state, action) {
     //   const { type, payload } = action;
     //   switch (type) {
