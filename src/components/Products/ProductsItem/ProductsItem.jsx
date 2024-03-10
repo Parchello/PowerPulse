@@ -106,9 +106,7 @@ export const ProductsItem = ({
 
         <CaloriesBox>
           <CaloriesText>Calories:</CaloriesText>
-          <CaloriesValue>{
-            inputedCalories / 100
-          }</CaloriesValue>
+          <CaloriesValue>{inputedCalories / 100}</CaloriesValue>
         </CaloriesBox>
 
         <ButtonBox>
@@ -137,7 +135,7 @@ export const ProductsItem = ({
             <WellDoneTitle>Well done</WellDoneTitle>
             <CaloriesWellBox>
               <CaloriesWellText>Calories:</CaloriesWellText>
-              <CaloriesWellValue>00</CaloriesWellValue>
+              <CaloriesWellValue>{inputedCalories / 100}</CaloriesWellValue>
             </CaloriesWellBox>
           </WellDonebox>
 
