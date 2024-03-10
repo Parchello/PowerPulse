@@ -1,7 +1,27 @@
 import sprite from '../../../assets/sprite.svg';
 import { ModalProducts } from '../ModalProducts/ModalProducts';
-import { AddButton, ButtonBox, CaloriesBox, CaloriesText, CaloriesValue, CancelBox, DietInputBox, DietNameText, GramsInput } from '../ModalProducts/ModalProducts.styled';
-import { BackBtn, CaloriesWellBox, CaloriesWellText, CaloriesWellValue, ImgBox, NextProductBtn, RawSvg, WellDoneTitle, WellDonebox } from '../ModalWellDone/ModaWellDone.styled';
+import {
+  AddButton,
+  ButtonBox,
+  CaloriesBox,
+  CaloriesText,
+  CaloriesValue,
+  CancelBox,
+  DietInputBox,
+  DietNameText,
+  GramsInput,
+} from '../ModalProducts/ModalProducts.styled';
+import {
+  BackBtn,
+  CaloriesWellBox,
+  CaloriesWellText,
+  CaloriesWellValue,
+  ImgBox,
+  NextProductBtn,
+  RawSvg,
+  WellDoneTitle,
+  WellDonebox,
+} from '../ModalWellDone/ModaWellDone.styled';
 import { ModalWellDone } from '../ModalWellDone/ModalWellDone';
 import {
   DietBlock,
@@ -18,17 +38,20 @@ import {
   DietInfoHeading,
   DietInfoValue,
 } from './ProductsItem.styled';
-import avocadoImage from '../../../assets/img/avocado-img.png'
-import {useState } from 'react'
+import avocadoImage from '../../../assets/img/avocado-img.png';
+import { useState } from 'react';
 
 export const ProductsItem = ({
   value: { calories, category, title, weight },
   // openModal,
 }) => {
-   const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
-   const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
+  const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
+  const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
+  const [inputedCalories, setInputedCalories] = useState(0);
   // тут треба ще зробити так, щоб Recommended світився червоним або зеленим
   //в залежності від того яка у користувача група крові
+
+  
 
   return (
     <>
@@ -74,12 +97,18 @@ export const ProductsItem = ({
       >
         <DietInputBox>
           <DietNameText type="text" placeholder={title} readOnly />
-          <GramsInput type="text" placeholder="grams" />
+          <GramsInput
+            type="number"
+            placeholder="grams"
+            onChange={(evt) => setInputedCalories(evt.target.value)}
+          />
         </DietInputBox>
 
         <CaloriesBox>
           <CaloriesText>Calories:</CaloriesText>
-          <CaloriesValue>{calories}</CaloriesValue>
+          <CaloriesValue>{
+            inputedCalories / 100
+          }</CaloriesValue>
         </CaloriesBox>
 
         <ButtonBox>
@@ -112,9 +141,7 @@ export const ProductsItem = ({
             </CaloriesWellBox>
           </WellDonebox>
 
-          <NextProductBtn>
-            Next product
-          </NextProductBtn>
+          <NextProductBtn>Next product</NextProductBtn>
           <BackBtn>
             To the diary
             <svg width="16px" height="16px">
