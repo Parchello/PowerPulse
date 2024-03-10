@@ -1,8 +1,15 @@
 import { useFormik } from 'formik';
 
+import sprite from '../../assets/sprite.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { CurrentUser } from '../../redux/profile/selectors.jsx';
+import { fetchCurrentUser } from '../../redux/profile/operations.jsx';
+
+import axios from 'axios';
+
 import {
-  InputLong,
-  InputShort,
+  StyldInputShort,
+  StyledInputLong,
   Label,
   Ul,
   UlLifeStyle,
@@ -17,7 +24,58 @@ import {
   InputRadioBtn,
   NameEmailContainerItem,
   BloodLabel,
-} from '../../pages/ProfilePage/StyledUserForm.jsx';
+  ErrorDiv,
+  SuccessDiv,
+} from './UserForm.Styled.jsx';
+
+const validate = (values, props /* only available when using withFormik */) => {
+  console.log('Validation function is called');
+  const errors = {};
+
+  if (!values.email) {
+    errors.email = 'Email is required';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+
+  if (!values.name) {
+    errors.name = 'Name is required!';
+  }
+  if (!values.height) {
+    errors.height = 'Height is required';
+  } else if (values.height < 150) {
+    errors.height = 'Height should be min.150cm';
+  }
+  if (!values.currentWeight) {
+    errors.currentWeight = 'Current weight is required';
+  } else if (values.currentWeight < 35) {
+    errors.currentWeight = 'Min 35kg Weight required';
+  }
+  if (!values.desiredWeight) {
+    errors.desiredWeight = 'Desired weight is required';
+  } else if (values.desiredWeight < 35) {
+    errors.currentWeight = 'Min 35kg Weight required';
+  }
+
+  console.log(errors);
+  //...
+
+  return errors;
+};
+
+// function X() {
+//   return axios.get(
+//     'https://powerpulse-group5-backend.onrender.com/api/users/current'
+//   );
+// }
+// X()
+//   .then((response) => {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+// console.log('object');
 
 const UserForm = () => {
   const formik = useFormik({
@@ -29,70 +87,123 @@ const UserForm = () => {
       desiredWeight: '',
       dateOfBirth: '',
     },
+    validate,
     onSubmit: (values) => {
+      console.log('Form submitted:', values);
       alert(JSON.stringify(values, null, 2));
     },
   });
+
+  const currentUser = useSelector(CurrentUser);
+  const dispatch = useDispatch();
+  const handleInputStylesChange = (valueName) => {
+    if (formik.errors[valueName]) {
+      return (
+        <ErrorDiv>
+          <svg width="16px" height="16px">
+            <use href={sprite + '#icon-checkbox-circle-fill'} />
+          </svg>
+          {formik.errors[valueName]}
+        </ErrorDiv>
+      );
+    }
+    if (!formik.errors[valueName] && formik.values[valueName].length !== 0) {
+      return (
+        <SuccessDiv>
+          <svg width="18px" height="18px">
+            <use href={sprite + '#icon-checkbox-circle-fillGreen'} />
+          </svg>
+          Success
+        </SuccessDiv>
+      );
+    }
+  };
+
+  console.log(currentUser);
+  // dispatch(fetchCurrentUser);
 
   return (
     <Form onSubmit={formik.handleSubmit}>
       <NameEmailContainer>
         <NameEmailContainerItem>
           <Label htmlFor="name">Name</Label>
-          <InputLong
+          <StyledInputLong
+            placeholder="User name"
             id="name"
             name="name"
             type="text"
             onChange={formik.handleChange}
             value={formik.values.name}
+            success={!formik.errors.name && formik.values.name.length !== 0}
+            error={formik.errors.name}
           />
+          {handleInputStylesChange('name')}
         </NameEmailContainerItem>
         <NameEmailContainerItem>
           <Label htmlFor="email">Email</Label>
-          <InputLong
+          <StyledInputLong
+            placeholder="Email"
             id="email"
             name="email"
             type="text"
             onChange={formik.handleChange}
             value={formik.values.email}
+            success={!formik.errors.email && formik.values.email.length !== 0}
+            error={formik.errors.email}
           />
+          {handleInputStylesChange('email')}
         </NameEmailContainerItem>
       </NameEmailContainer>
       <DataContainer>
         <DataContainerItem>
           <Label htmlFor="height">Height</Label>
 
-          <InputShort
+          <StyldInputShort
             id="height"
             name="height"
             type="number"
             onChange={formik.handleChange}
             value={formik.values.height}
+            success={!formik.errors.height && formik.values.height.length !== 0}
+            error={formik.errors.height}
           />
+          {handleInputStylesChange('height')}
         </DataContainerItem>
         <DataContainerItem>
           <Label htmlFor="currentWeight">Current Weight</Label>
-          <InputShort
+          <StyldInputShort
             id="currentWeight"
             name="currentWeight"
             type="number"
             onChange={formik.handleChange}
             value={formik.values.currentWeight}
+            success={
+              !formik.errors.currentWeight &&
+              formik.values.currentWeight.length !== 0
+            }
+            error={formik.errors.currentWeight}
           />
+          {handleInputStylesChange('currentWeight')}
         </DataContainerItem>
         <DataContainerItem>
           <Label htmlFor="desiredWeight">Desired Weight</Label>
-          <InputShort
+          <StyldInputShort
             id="desiredWeight"
             name="desiredWeight"
             type="number"
             onChange={formik.handleChange}
             value={formik.values.desiredWeight}
+            success={
+              !formik.errors.desiredWeight &&
+              formik.values.desiredWeight.length !== 0
+            }
+            error={formik.errors.desiredWeight}
           />
+          {handleInputStylesChange('desiredWeight')}
         </DataContainerItem>
         <DataContainerItem>
           <Label htmlFor="dateOfBirth">Date of Birth</Label>
-          <InputShort
+          <StyldInputShort
             id="dateOfBirth"
             name="dateOfBirth"
             type="number"

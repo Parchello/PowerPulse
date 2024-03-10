@@ -14,9 +14,33 @@ export const clickCategory = (value) => {
   };
 };
 
+export const timerTime = (value) => {
+  return {
+    type: 'exercises/time',
+    payload: value,
+  };
+};
+
+export const timerPlay = (value) => {
+  return {
+    type: 'exercises/play',
+    payload: value,
+  };
+};
+
+export const Calories = (value) => {
+  return {
+    type: 'exercises/colories',
+    payload: value,
+  };
+};
+
 const initialState = {
   filters: '',
   category: '',
+  timer: '',
+  isPlayed: false,
+  calories: '',
 };
 
 const rootReduser = (state = initialState, action) => {
@@ -31,6 +55,22 @@ const rootReduser = (state = initialState, action) => {
         ...state,
         category: action.payload,
       };
+    case 'exercises/time':
+      return {
+        ...state,
+        timer: action.payload,
+      };
+    case 'exercises/play':
+      return {
+        ...state,
+        isPlayed: action.payload,
+      };
+    case 'exercises/colories':
+      return {
+        ...state,
+        calories: action.payload,
+      };
+
     default:
       return state;
   }

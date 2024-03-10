@@ -19,8 +19,9 @@ import {
   NameContainer,
 } from './ExercisesItem.styled';
 
-const ExercisesItem = () => {
+const ExercisesItem = ({ openModal }) => {
   const selectedCategory = useSelector((state) => state.category);
+
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
 
   const filteredExercises = exersises.filter(
@@ -37,7 +38,7 @@ const ExercisesItem = () => {
           <ContainerExIt>
             <ContainerWorkout>
               <Workout>WORKOUT</Workout>
-              <Button>
+              <Button onClick={() => openModal()}>
                 Start
                 <ArrowSvgArrow width="16" height="16">
                   <use xlinkHref={sprite + '#icon-arrow'} />
