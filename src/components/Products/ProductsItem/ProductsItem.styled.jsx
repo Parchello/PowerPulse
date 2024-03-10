@@ -38,26 +38,28 @@ export const RecomendBox = styled.div`
   margin-bottom: 41px;
   display: flex;
   align-items: center;
-  width: 191px;
-  /* width: ${(p) =>
-    p.isRecommended ? '180px' : '191px'}; */ //треба доробити розмір
+  justify-content: flex-end;
+  width: 200px;
   height: 18px;
 `;
 
-export const RecomendStatusCircle = styled.div`
-  /* margin: auto; */
-  border-radius: 10px;
-  width: 14px;
-  height: 14px;
-  background: ${(p) => (p.isRecommended ? '#e9101d' : '#419b09')};
-`;
-
 export const RecommendStatusText = styled.p`
-  margin-left: 8px;
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
   color: #efede8;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    display: block;
+    border-radius: 10px;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    background: ${(p) => (p.isRecommended ? '#e9101d' : '#419b09')};
+  }
 `;
 
 export const AddBtn = styled.button`

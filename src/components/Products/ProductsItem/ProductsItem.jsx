@@ -28,7 +28,6 @@ import {
   DietTextBox,
   DietText,
   RecomendBox,
-  RecomendStatusCircle,
   RecommendStatusText,
   AddBtn,
   DietNameBox,
@@ -65,10 +64,7 @@ export const ProductsItem = ({
           <DietText>Diet</DietText>
         </DietTextBox>
         <RecomendBox>
-          <RecomendStatusCircle
-            isRecommended={groupBloodNotAllowed[bloodType]}
-          ></RecomendStatusCircle>
-          <RecommendStatusText>
+          <RecommendStatusText isRecommended={groupBloodNotAllowed[bloodType]}>
             {groupBloodNotAllowed[bloodType]
               ? 'Not Recommended'
               : 'Recommended'}
