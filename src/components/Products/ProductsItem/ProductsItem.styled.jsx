@@ -37,24 +37,29 @@ export const RecomendBox = styled.div`
   margin-top: -20px;
   margin-bottom: 41px;
   display: flex;
-  width: 168px;
+  align-items: center;
+  justify-content: flex-end;
+  width: 200px;
   height: 18px;
 `;
 
-export const RecomendStatusCircle = styled.div`
-  margin: auto;
-  border-radius: 10px;
-  width: 14px;
-  height: 14px;
-  background: #419b09;
-`;
-
 export const RecommendStatusText = styled.p`
-  margin-left: 8px;
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
   color: #efede8;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    display: block;
+    border-radius: 10px;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    background: ${(p) => (p.isRecommended ? '#e9101d' : '#419b09')};
+  }
 `;
 
 export const AddBtn = styled.button`
@@ -86,6 +91,14 @@ export const DietName = styled.p`
   font-size: 20px;
   line-height: 120%;
   color: #efede8;
+  max-width: 258px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  @media screen and (min-width: 1440px) {
+    max-width: 333px;
+  }
 `;
 
 // diet info
@@ -117,4 +130,12 @@ export const DietInfoValue = styled.p`
   line-height: 150%;
   color: #efede8;
   margin: 0;
+  max-width: 76px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media screen and (min-width: 1440px) {
+    max-width: 130px;
+  }
 `;
