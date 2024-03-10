@@ -5,9 +5,8 @@ import { DietBlockContainer } from './DietCardsList.styled';
 import { getAllProducts } from '../../../redux/products/operations';
 import { ProductsItem } from '../ProductsItem/ProductsItem';
 import {
-  selectAllProducts,
   selectIsLoading,
-  // selectVisibleProducts, це ще знадобиться
+  selectVisibleProducts,
 } from '../../../redux/products/selectors';
 import { Loader } from '../../Loader/Loader';
 
@@ -19,8 +18,7 @@ export const DietCardsList = () => {
     dispatch(getAllProducts());
   }, [dispatch]);
 
-  const cards = useSelector(selectAllProducts);
-  // const filteredCards = useSelector(selectVisibleProducts)
+  const filteredCards = useSelector(selectVisibleProducts)
 
   // треба описати логіку закриття модалки по бекдропу і по Esc
 
@@ -32,11 +30,8 @@ export const DietCardsList = () => {
         {isLoading ? (
           <Loader />
         ) : (
-            cards.map((item) => (
-            <ProductsItem
-              key={item._id}
-              value={item}
-            />
+          filteredCards.map((item) => (
+            <ProductsItem key={item._id} value={item} />
           ))
         )}
       </DietBlockContainer>
