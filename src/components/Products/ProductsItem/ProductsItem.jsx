@@ -40,7 +40,7 @@ import {
 import avocadoImage from '../../../assets/img/avocado-img.png';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { CurrentUser } from '../../../redux/profile/selectors';
+import { SelectUser } from '../../../redux/profile/selectors';
 import { StyleSheetManager } from 'styled-components';
 import isPropValid from '@emotion/is-prop-valid';
 
