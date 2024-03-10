@@ -36,18 +36,21 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast.error(error.message);
+      toast.error("Email or password is wrong");
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 
-export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const logOut = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
   try {
     await axios.post('/api/users/logout');
     clearAuthHeader();
   } catch (error) {
+    toast.error("Something went wrong");
     return thunkAPI.rejectWithValue(error.message);
   }
 });

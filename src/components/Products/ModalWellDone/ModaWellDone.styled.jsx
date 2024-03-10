@@ -40,6 +40,12 @@ export const ModalContent = styled.div`
   transition:
     opacity 0.3s,
     transform 0.3s;
+
+  @media screen and (min-width: 768px) {
+    padding: 64px 136px;
+    width: 430px;
+    height: 428px;
+  }
 `;
 
 // content
@@ -51,6 +57,10 @@ export const ImgBox = styled.div`
   margin-bottom: 16px;
   width: 123px;
   height: 84px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const WellDonebox = styled.div`
@@ -64,6 +74,11 @@ export const WellDonebox = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    width: 109px;
+    margin-bottom: 32px;
+  }
 `;
 
 export const WellDoneTitle = styled.h3`
@@ -107,6 +122,11 @@ export const NextProductBtn = styled.button`
   height: 42px;
   background: #e6533c;
   margin-bottom: 16px;
+
+  @media screen and (min-width: 768px) {
+    line-height: 150%;
+    height: 52px;
+  }
 `;
 
 export const BackBtn = styled.button`

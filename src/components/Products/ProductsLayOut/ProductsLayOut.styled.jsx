@@ -6,11 +6,13 @@ import productsImgDesctop2x from '../../../assets/img/bg-products@2x.jpg';
 export const BgImgHolder = styled.div`
   @media screen and (min-width: 1440px) {
     background-image: url(${productsImgDesctop1x});
-    /* background-size: contain;  */
+    background-size: contain; 
     background-repeat: no-repeat;
     background-position: right;
 
     max-width: 1440px;
+    height: 716px;
+    margin-right: -96px;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
