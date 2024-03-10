@@ -41,6 +41,8 @@ import avocadoImage from '../../../assets/img/avocado-img.png';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CurrentUser } from '../../../redux/profile/selectors';
+import { StyleSheetManager } from 'styled-components';
+import isPropValid from '@emotion/is-prop-valid';
 
 export const ProductsItem = ({
   value: { calories, category, title, weight, groupBloodNotAllowed },
@@ -64,11 +66,16 @@ export const ProductsItem = ({
           <DietText>Diet</DietText>
         </DietTextBox>
         <RecomendBox>
-          <RecommendStatusText isRecommended={groupBloodNotAllowed[bloodType]}>
-            {groupBloodNotAllowed[bloodType]
-              ? 'Not Recommended'
-              : 'Recommended'}
-          </RecommendStatusText>
+          <StyleSheetManager shouldForwardProp={isPropValid}>
+            <RecommendStatusText
+              isRecommended={groupBloodNotAllowed[bloodType]}
+            >
+              {groupBloodNotAllowed[bloodType]
+                ? 'Not Recommended'
+                : 'Recommended'}
+            </RecommendStatusText>
+          </StyleSheetManager>
+
           <AddBtn onClick={() => setModalProductsIsOpen(true)}>
             Add
             <svg width="16px" height="16px">

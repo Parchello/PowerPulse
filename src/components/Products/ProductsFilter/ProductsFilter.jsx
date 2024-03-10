@@ -75,7 +75,7 @@ export const ProductsFilter = () => {
           id="all"
           onChange={(evt) => dispatch(setRecomended(evt.target.value))}
         >
-          <Option value="All" selected>
+          <Option value="All" defaultValue>
             All
           </Option>
           <Option value="Recommended">Recommended</Option>
