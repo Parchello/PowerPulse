@@ -21,7 +21,7 @@ import { register } from '../../../redux/auth/operations';
 const RegisterSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   email: Yup.string()
-    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Invalid email format')
+    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, 'Invalid email format. Example: ivanenko@com.ua')
     .required('Email is required'),
   password: Yup.string()
     .min(6, 'Password must be at least 6 characters')
