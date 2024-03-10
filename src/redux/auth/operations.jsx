@@ -21,7 +21,11 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast.error(error.message);
+      if (error.response && error.response.status === 409) {
+        toast.error('This email is already registered');
+      } else {
+        toast.error(error.message);
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
