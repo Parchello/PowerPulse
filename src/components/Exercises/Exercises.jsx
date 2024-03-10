@@ -11,6 +11,7 @@ import ExercisesList from './ExercisesList/ExercisesList.jsx';
 import ExercisesSubcategoriesList from './ExercisesSubcategoriesList/ExercisesSubcategoriesList.jsx';
 import BasicModalWindow from './helpers/modal/BasicModalWindow.jsx';
 import { useState } from 'react';
+import AddPExerciseSuccess from './helpers/modal/AddPExerciseSuccess/AddPExerciseSuccess.jsx';
 
 // import sprite from '../../assets/sprite.svg';
 
@@ -18,6 +19,7 @@ const Exercises = () => {
   const selectedExersis = useSelector((state) => state.filters);
   const selectedCategory = useSelector((state) => state.category);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpenSucc, setIsOpenSucc] = useState(true);
 
   function closeModal() {
     setIsOpen(false);
@@ -56,6 +58,7 @@ const Exercises = () => {
         </BackButton> */}
       </Container>
       <BasicModalWindow isOpen={modalIsOpen} closeModal={closeModal} />
+      <AddPExerciseSuccess isOpen={modalIsOpenSucc} />
     </div>
   );
 };

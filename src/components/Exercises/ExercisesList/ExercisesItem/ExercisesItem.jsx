@@ -14,8 +14,6 @@ import {
   ExerList,
   ContainerWorkout,
   ArrowSvgArrow,
-  ArrowSvgRunning,
-  ContSpanRunning,
   NameContainer,
 } from './ExercisesItem.styled';
 
@@ -46,11 +44,14 @@ const ExercisesItem = ({ openModal }) => {
               </Button>
             </ContainerWorkout>
             <NameContainer>
-              <ContSpanRunning>
-                <ArrowSvgRunning width="14" height="16">
+              <span>
+                {/* <ArrowSvgRunning width="14" height="16">
                   <use xlinkHref={sprite + '#icon-running-figure'} />
-                </ArrowSvgRunning>
-              </ContSpanRunning>
+                </ArrowSvgRunning> */}
+                <svg width="24px" height="24px">
+                  <use xlinkHref={sprite + '#icon-running-man'} />
+                </svg>
+              </span>
               <ExeName>{exercis.name}</ExeName>
             </NameContainer>
             <ExerList>

@@ -52,22 +52,9 @@ export const ArrowSvgArrow = styled.svg`
 
 export const NameContainer = styled.div`
   display: flex;
+  align-items: center;
   gap: 16px;
   margin-bottom: 8px;
-`;
-
-export const ContSpanRunning = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: ${(props) => props.theme.colors.orangeLight};
-`;
-
-export const ArrowSvgRunning = styled.svg`
-  fill: ${(props) => props.theme.colors.white};
 `;
 
 export const ExeName = styled.p`
