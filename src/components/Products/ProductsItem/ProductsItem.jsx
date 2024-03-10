@@ -40,18 +40,24 @@ import {
 } from './ProductsItem.styled';
 import avocadoImage from '../../../assets/img/avocado-img.png';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { CurrentUser } from '../../../redux/profile/selectors';
 
 export const ProductsItem = ({
-  value: { calories, category, title, weight },
-  // openModal,
+  value: { calories, category, title, weight, groupBloodNotAllowed },
+  
 }) => {
   const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
   const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
   const [inputedCalories, setInputedCalories] = useState(0);
+  // const user = useSelector(CurrentUser)
+  // const bloddType = user.params;
+  console.log(groupBloodNotAllowed);
+
+  const bloodType = "3";
+
   // тут треба ще зробити так, щоб Recommended світився червоним або зеленим
   //в залежності від того яка у користувача група крові
-
-  
 
   return (
     <>
@@ -60,8 +66,12 @@ export const ProductsItem = ({
           <DietText>Diet</DietText>
         </DietTextBox>
         <RecomendBox>
-          <RecomendStatusCircle></RecomendStatusCircle>
-          <RecommendStatusText>Recommended</RecommendStatusText>
+          <RecomendStatusCircle
+            isRecommended={groupBloodNotAllowed[bloodType]}
+          ></RecomendStatusCircle>
+          <RecommendStatusText>
+            {groupBloodNotAllowed[bloodType] ? 'Not Recommended' : 'Recommended'}
+          </RecommendStatusText>
           <AddBtn onClick={() => setModalProductsIsOpen(true)}>
             Add
             <svg width="16px" height="16px">

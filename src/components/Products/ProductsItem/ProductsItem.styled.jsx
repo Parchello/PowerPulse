@@ -37,7 +37,8 @@ export const RecomendBox = styled.div`
   margin-top: -20px;
   margin-bottom: 41px;
   display: flex;
-  width: 168px;
+  width: 180px;
+  /* width: ${p=>p.isRecommended ? '180px': "191px"}; */ //треба доробити розмір
   height: 18px;
 `;
 
@@ -46,7 +47,7 @@ export const RecomendStatusCircle = styled.div`
   border-radius: 10px;
   width: 14px;
   height: 14px;
-  background: #419b09;
+  background: ${p => p.isRecommended ? "#e9101d" : "#419b09"};
 `;
 
 export const RecommendStatusText = styled.p`
