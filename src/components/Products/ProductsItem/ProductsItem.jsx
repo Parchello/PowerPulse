@@ -29,6 +29,7 @@ export const ProductsItem = ({
    const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
   // тут треба ще зробити так, щоб Recommended світився червоним або зеленим
   //в залежності від того яка у користувача група крові
+
   return (
     <>
       <DietBlock>

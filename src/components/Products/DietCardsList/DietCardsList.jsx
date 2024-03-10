@@ -32,9 +32,9 @@ export const DietCardsList = () => {
         {isLoading ? (
           <Loader />
         ) : (
-          cards.map((item) => (
+            cards.map((item) => (
             <ProductsItem
-              key={item.id}
+              key={item._id}
               value={item}
             />
           ))

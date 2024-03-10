@@ -60,7 +60,7 @@ export const ProductsFilter = () => {
           placeholder="Categories"
           onChange={(evt) => dispatch(setCategory(evt.target.value))}
         >
-          <Option value disabled selected>
+          <Option value disabled defaultValue>
             Categories
           </Option>
           {categoriesList.map((item) => (
