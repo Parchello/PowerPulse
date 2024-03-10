@@ -160,6 +160,10 @@ export const CalendarGlobalStyles = createGlobalStyle`
   .react-datepicker__triangle {
     visibility: hidden;
   }
+
+.react-datepicker__calendar-icon{
+  fill: white;
+}
 `;
 
 export const TitleWrapper = styled.button`
