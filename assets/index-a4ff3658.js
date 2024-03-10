@@ -1231,7 +1231,7 @@ attempted value: ${a}
   line-height: 150%;
   border: 1px solid rgba(239, 237, 232, 0.3);
   border-radius: 12px;
-  padding: 14px 200px 14px 14px;
+  padding: 14px 14px 14px 14px;
   width: 100%;
   height: 46px;
   &::placeholder {
