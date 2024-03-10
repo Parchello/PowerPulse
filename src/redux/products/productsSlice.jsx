@@ -11,7 +11,7 @@ export const productsSlice = createSlice({
     filters: {
       search: '',
       category: '',
-      recomended: '',
+      recommended: '',
     },
   },
   reducers: {
@@ -40,7 +40,7 @@ export const productsSlice = createSlice({
       state.filters.category = action.payload;
     },
     setRecomended(state, action) {
-      state.filters.recomended = action.payload;
+      state.filters.recommended = action.payload;
     },
   },
   extraReducers: (builder) => {
