@@ -43,7 +43,7 @@ import {
   WellDonebox,
 } from '../ModalWellDone/ModaWellDone.styled';
 import { getAllProducts } from '../../../redux/products/operations';
-import { ProductsItem } from '../DietCard/ProductsItem';
+import { ProductsItem } from '../ProductsItem/ProductsItem';
 import {
   selectAllProducts,
   selectIsLoading,
