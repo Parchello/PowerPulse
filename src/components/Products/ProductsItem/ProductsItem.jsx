@@ -39,8 +39,8 @@ import {
 } from './ProductsItem.styled';
 import avocadoImage from '../../../assets/img/avocado-img.png';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { CurrentUser } from '../../../redux/profile/selectors';
+// import { useSelector } from 'react-redux';
+// import { SelectUser } from '../../../redux/profile/selectors';
 import { StyleSheetManager } from 'styled-components';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -50,7 +50,7 @@ export const ProductsItem = ({
   const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
   const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
   const [inputedCalories, setInputedCalories] = useState(0);
-  // const user = useSelector(CurrentUser)
+  // const user = useSelector(SelectUser)
   // const bloddType = user.params;
   // console.log(groupBloodNotAllowed);
 
