@@ -45,16 +45,15 @@ import { CurrentUser } from '../../../redux/profile/selectors';
 
 export const ProductsItem = ({
   value: { calories, category, title, weight, groupBloodNotAllowed },
-  
 }) => {
   const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
   const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
   const [inputedCalories, setInputedCalories] = useState(0);
   // const user = useSelector(CurrentUser)
   // const bloddType = user.params;
-  console.log(groupBloodNotAllowed);
+  // console.log(groupBloodNotAllowed);
 
-  const bloodType = "3";
+  const bloodType = '3';
 
   // тут треба ще зробити так, щоб Recommended світився червоним або зеленим
   //в залежності від того яка у користувача група крові
@@ -70,7 +69,9 @@ export const ProductsItem = ({
             isRecommended={groupBloodNotAllowed[bloodType]}
           ></RecomendStatusCircle>
           <RecommendStatusText>
-            {groupBloodNotAllowed[bloodType] ? 'Not Recommended' : 'Recommended'}
+            {groupBloodNotAllowed[bloodType]
+              ? 'Not Recommended'
+              : 'Recommended'}
           </RecommendStatusText>
           <AddBtn onClick={() => setModalProductsIsOpen(true)}>
             Add

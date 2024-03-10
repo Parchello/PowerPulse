@@ -38,7 +38,8 @@ export const RecomendBox = styled.div`
   margin-bottom: 41px;
   display: flex;
   width: 180px;
-  /* width: ${p=>p.isRecommended ? '180px': "191px"}; */ //треба доробити розмір
+  /* width: ${(p) =>
+    p.isRecommended ? '180px' : '191px'}; */ //треба доробити розмір
   height: 18px;
 `;
 
@@ -47,7 +48,7 @@ export const RecomendStatusCircle = styled.div`
   border-radius: 10px;
   width: 14px;
   height: 14px;
-  background: ${p => p.isRecommended ? "#e9101d" : "#419b09"};
+  background: ${(p) => (p.isRecommended ? '#e9101d' : '#419b09')};
 `;
 
 export const RecommendStatusText = styled.p`
@@ -87,6 +88,14 @@ export const DietName = styled.p`
   font-size: 20px;
   line-height: 120%;
   color: #efede8;
+  max-width: 258px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  @media screen and (min-width: 1440px) {
+    max-width: 333px;
+  }
 `;
 
 // diet info
@@ -118,4 +127,12 @@ export const DietInfoValue = styled.p`
   line-height: 150%;
   color: #efede8;
   margin: 0;
+  max-width: 76px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media screen and (min-width: 1440px) {
+    max-width: 130px;
+  }
 `;
