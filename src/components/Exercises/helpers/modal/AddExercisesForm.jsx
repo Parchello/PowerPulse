@@ -1,5 +1,5 @@
 // import { useDispatch, useSelector } from 'react-redux';
-import exercises from '../../exercises';
+// import exercises from '../../exercises';
 import Timer from '../timer/Timer';
 // import { useEffect } from 'react';
 import sprite from '../../../../assets/sprite.svg';
