@@ -28,8 +28,11 @@ export const MainDiv = styled.div`
   }
 `;
 
-export const CloseBtn = styled.svg`
+export const CloseBtn = styled.button`
   align-self: flex-end;
+
+  border: none;
+  background-color: transparent;
 `;
 
 export const LogOutDiv = styled.div`   

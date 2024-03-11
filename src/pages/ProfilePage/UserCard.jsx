@@ -1,8 +1,9 @@
 import sprite from '../../assets/sprite.svg';
-import { useDispatch } from 'react-redux';
-// import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import { logOut } from '../../redux/auth/operations.jsx';
 import { Text } from '../../components/Header/LogOut/LogOut.Styled';
+import { SelectUser } from '../../redux/profile/selectors.jsx';
 
 import {
   UserCard,
@@ -20,17 +21,21 @@ import {
   UserImgInput,
   LogOutDiv,
   TextDescr,
-} from './StyledUserCard';
+  UserImg,
+} from './UserCard.Styled.jsx';
+import { patchAvatar } from '../../redux/profile/operations.jsx';
 
 const Usercard = () => {
   const dispatch = useDispatch();
+  const user = useSelector(SelectUser);
 
   // const user = useSelector(); //треба отримати дані про юзера зі стейту
   // const [avatar, setAvatar] = useState() //тут отримати доступ до частини де зберігатиметься посилання на аватар у юзера
+  const [avatar, setAvatar] = useState();
   //далі тут буде зберігатись посилання на аватар і зберігатись в стейт
 
   //в срц в фігурних дужках завантажується аватар
-  // const userAvatar = <img src="" alt="User avatar" />;
+  const userAvatar = <UserImg src={avatar} alt="User avatar" />;
 
   const defaultAvatar = (
     <svg width="102px" height="102px" fill="#EFEDE8">
@@ -40,34 +45,35 @@ const Usercard = () => {
 
   //ф-ція обробник апдейта аватару
   const avatarFileHandler = (evt) => {
-    const avatar = evt.target.files[0];
-    if (!avatar) return;
+    const initialAvatar = evt.target.files[0];
+    if (!initialAvatar) return;
 
-    const object_URL = URL.createObjectURL(avatar);
+    const object_URL = URL.createObjectURL(initialAvatar);
 
     //setAvatar(object_URL) //треба засетити аватарЮРЛ в редакс стейт
-
-    console.log(object_URL);
+    setAvatar(object_URL);
+    // console.log(object_URL);
 
     //далі описується логіка відправки аватару на клаудінарі
     //для цього треба функція. В поточній версії мейну її нема
 
-    // try {
-    // dispatch() //тут виклик ф-ції для відправки аватару на сервер
-    // } catch (error) {
-    // console.log('Ooops, something went wrong. Try again', error)
-    // }
+    try {
+      // dispatch(); //тут виклик ф-ції для відправки аватару на сервер
+      dispatch(patchAvatar(initialAvatar));
+    } catch (error) {
+      console.log('Ooops, something went wrong. Try again', error);
+    }
   };
 
   const handleLogOut = () => {
-    console.log('LogOut function');
-    dispatch(logOut);
+    dispatch(logOut());
   };
 
+  console.log(avatar);
   return (
     <UserCard>
       <CardContainer>
-        <ImgCircle>{defaultAvatar}</ImgCircle>
+        <ImgCircle>{avatar ? userAvatar : defaultAvatar}</ImgCircle>
 
         <UserImgLabel htmlFor="avatar">
           <UserImgInput
@@ -81,7 +87,7 @@ const Usercard = () => {
           </svg>
         </UserImgLabel>
 
-        <UserNameText>User name</UserNameText>
+        <UserNameText>{user.name}</UserNameText>
         <UserText>User</UserText>
       </CardContainer>
       <ListUl>
@@ -92,7 +98,7 @@ const Usercard = () => {
             </svg>
             <ListText>Daily calorie intake</ListText>
           </DescrContainer>
-          <ListNumbers>0</ListNumbers>
+          <ListNumbers>{user.bmr || 0}</ListNumbers>
         </ListItem>
         <ListItem>
           <DescrContainer>
@@ -102,7 +108,7 @@ const Usercard = () => {
             <ListText>Daily physical activity</ListText>
           </DescrContainer>
 
-          <ListNumbers>0 min</ListNumbers>
+          <ListNumbers>110 mins</ListNumbers>
         </ListItem>
       </ListUl>
       <Container>

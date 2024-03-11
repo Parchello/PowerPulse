@@ -75,7 +75,7 @@ export const ListNumbers = styled.p`
   line-height: 32px;
   color: #efede8;
 
-  width: 64px;
+  width: 100%;
   height: 32px;
 
   @media screen and (min-width: 320px) {
@@ -156,6 +156,20 @@ export const ImgCircle = styled.div`
   justify-content: center;
 `;
 
+export const UserImg = styled.img`
+  width: 100%;
+  height: 150px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+
+  border: 1px solid #e6533c;
+  background-color: rgba(48, 48, 48, 0.3);
+`;
+
 export const UserImgLabel = styled.label`
   background-color: transparent;
   cursor: pointer;
@@ -186,6 +200,7 @@ export const LogOutDiv = styled.div`
   gap: 8px;
   position: absolute;
   right: 0;
+  cursor: pointer;
 
   @media screen and (min-width: 320px) {
     margin-right: 20px;

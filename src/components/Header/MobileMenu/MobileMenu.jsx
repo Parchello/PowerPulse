@@ -30,11 +30,13 @@ export const MobileMenu = ({ closeMenu, isOpen }) => {
 
   return createPortal(
     <Slide direction="down" in={isOpen} easing={{ enter: 'cubic-bezier(.17,.67,.83,.67)', exit: 'cubic-bezier(.17,.67,.83,.67)' }  } mountOnEnter unmountOnExit>
-    <MainDiv>
-      <CloseBtn width={isMobileScreen ? "24px" : "32px"} height={isMobileScreen ? "24px" : "32px"} stroke='#EFEDE8'
+      <MainDiv>
+        <CloseBtn>
+      <svg width={isMobileScreen ? "24px" : "32px"} height={isMobileScreen ? "24px" : "32px"} stroke='#EFEDE8'
       onClick={closeMenu}>
           <use xlinkHref={sprite + "#icon-close"} />
-          </CloseBtn>
+          </svg>
+        </CloseBtn>
       <UserNav/>
         <LogOutDiv>
           <LogOut color="#EFEDE8"/>

@@ -88,6 +88,12 @@ export const GramsInput = styled.input`
   width: 287px;
   height: 34px;
 
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
   &::placeholder {
     text-align: right;
   }

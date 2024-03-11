@@ -32,7 +32,11 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<WelcomePage />} />
+          <Route index element={
+              <RestrictedRoute
+                redirectTo="/diary"
+                component={<WelcomePage/>}
+              />} />
           <Route
             path="/register"
             element={

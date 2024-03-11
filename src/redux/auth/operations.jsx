@@ -21,7 +21,11 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast.error(error.message);
+      if (error.response && error.response.status === 409) {
+        toast.error('This email is already registered');
+      } else {
+        toast.error(error.message);
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -43,11 +47,14 @@ export const logIn = createAsyncThunk(
 );
 
 
-export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const logOut = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
   try {
     await axios.post('/api/users/logout');
     clearAuthHeader();
   } catch (error) {
+    toast.error("Something went wrong");
     return thunkAPI.rejectWithValue(error.message);
   }
 });

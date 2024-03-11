@@ -1,12 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCurrentUser } from '../../redux/profile/operations';
+import {
+  fetchCurrentUser,
+  patchUserParams,
+  patchAvatar,
+} from '../../redux/profile/operations';
 
 export const ProfileSlice = createSlice({
   name: 'profile',
   initialState: {
-    currentUser: {
-      name: 'User Name',
+    user: {
+      name: '',
       email: '',
+      height: null,
+      currentWeight: null,
+      desiredWeight: null,
+      birthday: null,
+      blood: null,
+      sex: null,
+      levelActivity: null,
+      bmr: null,
+      avatar: null,
     },
     isLoading: false,
     error: null,
@@ -15,7 +28,8 @@ export const ProfileSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-        state.currentUser = action.payload;
+        state.user.email = action.payload.email;
+        state.user.name = action.payload.name;
         state.isLoading = false;
         state.error = null;
       })
@@ -24,6 +38,39 @@ export const ProfileSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCurrentUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error;
+      })
+      .addCase(patchUserParams.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.user.name = action.payload.name;
+        state.user.height = action.payload.height;
+        state.user.currentWeight = action.payload.currentWeight;
+        state.user.desiredWeight = action.payload.desiredWeight;
+        state.user.birthday = action.payload.birthday;
+        state.user.blood = action.payload.blood;
+        state.user.sex = action.payload.sex;
+        state.user.levelActivity = action.payload.levelActivity;
+        state.user.bmr = action.payload.bmr;
+      })
+      .addCase(patchUserParams.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(patchUserParams.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error;
+      })
+      .addCase(patchAvatar.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.user.avatar = action.payload.avatarURL;
+      })
+      .addCase(patchAvatar.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(patchAvatar.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error;
       });
