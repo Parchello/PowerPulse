@@ -1,7 +1,12 @@
+import sprite from '../../../assets/sprite.svg';
 import { forwardRef, useState } from 'react';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
-import { CalendarGlobalStyles, TitleWrapper } from './StyledDatepicker.styled';
+import {
+  CalendarButton,
+  CalendarGlobalStyles,
+  TitleWrapper,
+} from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 const StyledDatepicker = () => {
@@ -40,8 +45,16 @@ const StyledDatepicker = () => {
         calendarStartDay={1}
         formatWeekDay={(day) => day.substr(0, 1)}
       />
-      <button onClick={handlePrevDay}>Prev</button>
-      <button onClick={handleNextDay}>Next</button>
+      <CalendarButton onClick={handlePrevDay}>
+        <svg width="12px" height="16px">
+          <use xlinkHref={sprite + '#chevron-left'} />
+        </svg>
+      </CalendarButton>
+      <CalendarButton onClick={handleNextDay}>
+        <svg width="12px" height="16px">
+          <use xlinkHref={sprite + '#chevron-right'} />
+        </svg>
+      </CalendarButton>
       <CalendarGlobalStyles />
     </>
   );
