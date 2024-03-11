@@ -8,7 +8,7 @@ export const HeaderOfExerciseField = styled.div`
 export const DairyExercisesField = styled.div`
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
-  padding: 16px 105px 194px 105px;
+  padding: 16px;
   width: 335px;
   min-height: 335px;
   max-height: 824px;
@@ -17,8 +17,17 @@ export const DairyExercisesField = styled.div`
   padding: 16px;
   overflow: hidden;
   background: rgba(239, 237, 232, 0.05);
-`;
 
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 234px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 826px;
+    height: 234px;
+  }
+`;
 export const ExerciseBlock = styled.ul`
   padding: 16px 0;
   overflow: scroll;
@@ -35,6 +44,7 @@ export const ExersLink = styled(Link)`
   display: flex;
   justify-content: flex-end;
   margin-left: auto;
+  margin-right: 8px;
 `;
 
 export const ExersTitle = styled.p`
