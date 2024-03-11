@@ -15,24 +15,6 @@ export const productsSlice = createSlice({
     },
   },
   reducers: {
-    //тут я намагався 3 нижні редюсери записати одним і пропустити через свіч але не вийшло
-    // setFilter(state, action) {
-    //   const { type, payload } = action;
-    //   switch (type) {
-    //     case 'search':
-    //       state.filters.search = payload;
-    //       break;
-    //     case 'category':
-    //       state.filters.category = payload;
-    //       break;
-    //     case 'recomended':
-    //       state.filters.recomended = payload;
-    //       break;
-
-    //     default:
-    //       break;
-    //   }
-    // },
     setFilter(state, action) {
       state.filters.search = action.payload;
     },
@@ -43,6 +25,7 @@ export const productsSlice = createSlice({
       state.filters.recommended = action.payload;
     },
   },
+ 
   extraReducers: (builder) => {
     builder //categories
       .addCase(getProductsCategories.pending, (state, _) => {
