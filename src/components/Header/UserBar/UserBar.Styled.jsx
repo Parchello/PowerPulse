@@ -23,6 +23,8 @@ export const UserCircle = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+
 
     height: 37px;
     width: 37px;
@@ -48,3 +50,11 @@ export const MenuBtn = styled.button`
     border: none;
     cursor: pointer;
 `
+
+export const UserImg = styled.img`
+  width: 100%;
+  height: 100%;
+  
+  object-fit: cover;
+  
+`;
