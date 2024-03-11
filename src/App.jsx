@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useAuth } from './hooks/useAuth';
 import { refreshUser } from './redux/auth/operations';
-import {SelectUser} from "./redux/profile/selectors"
+import {selectParams} from "./redux/auth/selectors";
 
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
@@ -22,9 +22,7 @@ import DairyPage from './pages/DairyPage/DairyPage';
 import { Loader } from './components/Loader/Loader';
 
 function App() {
-  const profile = useSelector(SelectUser);
-  // const params = profile.height && profile.currentWeight && profile.desiredWeight;
-  const params = profile.height;
+  const params = useSelector(selectParams);
   let fullParams =  params !== null ? true : false;
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();

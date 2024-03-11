@@ -39,8 +39,7 @@ export const logIn = createAsyncThunk(
       const res = await axios.post('/api/users/login', credentials);
       setAuthHeader(res.data.token);
       const params = await axios.get("/api/users/current");
-      console.log("params", params.data);
-      return res.data;
+      return params.data;
     } catch (error) {
       toast.error("Email or password is wrong");
       return thunkAPI.rejectWithValue(error.message);
@@ -76,6 +75,7 @@ export const refreshUser = createAsyncThunk(
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
       const res = await axios.get('api/users/current');
+      console.log("refresh",res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
