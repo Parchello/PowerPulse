@@ -1,19 +1,27 @@
+import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/sprite.svg';
 import { HeadOfField } from '../HeadOfField.styled';
 import {
   DairyExercisesField,
-  // ExerciseBlock,
+  ExerciseBlock,
   ExersLink,
   ExersTitle,
 } from './DayExercises.styled';
+import { useEffect } from 'react';
 
-// import { ExerciseItem } from '../ExerciseItem/ExerciseItem';
-// import { NotFoundExercises } from '../NotFoundExercises/NotFoundExercises';
-// import { PositionCorrectorDiv } from '../NotFoundProducts/NotFoundProducts.styled';
+import { ExerciseItem } from '../ExerciseItem/ExerciseItem';
+import { NotFoundExercises } from '../NotFoundExercises/NotFoundExercises';
+import { PositionCorrectorDiv } from '../NotFoundProducts/NotFoundProducts.styled';
+import { fetchDiaryExercises } from '../../../redux/diary/operations';
+import { selectDiaryExercises } from '../../../redux/diary/selectors';
 //
 export const ExercisesTable = () => {
-  // const { exeProp } = prop;
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchDiaryExercises());
+  }, [dispatch]);
+  const exercises = useSelector(selectDiaryExercises);
+  console.log(exercises.map((i) => console.log('check: ', i.exerciseId._id)));
   return (
     <DairyExercisesField>
       <HeadOfField>
@@ -23,17 +31,17 @@ export const ExercisesTable = () => {
           <use xlinkHref={sprite + '#icon-red-raw'} />
         </svg>
       </HeadOfField>
-      {/* {exeProp.length > 0 ? (
+      {exercises.length > 0 ? (
         <ExerciseBlock>
-          {exeProp.map((i) => (
-            <ExerciseItem key={i.id} prop={i} />
+          {exercises.map((i) => (
+            <ExerciseItem key={i.exerciseId._id} prop={i} />
           ))}
         </ExerciseBlock>
       ) : (
         <PositionCorrectorDiv>
           <NotFoundExercises />
         </PositionCorrectorDiv>
-      )} */}
+      )}
     </DairyExercisesField>
   );
 };
