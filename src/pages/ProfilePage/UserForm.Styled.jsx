@@ -336,6 +336,9 @@ export const FormBtn = styled.button`
 
   width: 144px;
   height: 56px;
+  &:disabled {
+    cursor: none;
+  }
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     width: 115px;

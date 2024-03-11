@@ -160,6 +160,10 @@ export const CalendarGlobalStyles = createGlobalStyle`
   .react-datepicker__triangle {
     visibility: hidden;
   }
+
+.react-datepicker__calendar-icon{
+  fill:${(props) => props.theme.colors.orangeLight};
+}
 `;
 
 export const TitleWrapper = styled.button`
@@ -175,4 +179,13 @@ export const TitleWrapper = styled.button`
   font-size: 16px;
   justify-content: space-around;
   align-items: center;
+`;
+
+export const CalendarButton = styled.button`
+  background-color: ${(props) => props.theme.colors.black};
+  background-repeat: no-repeat;
+  width: 32px; /* Ширина вашої іконки */
+  height: 32px; /* Висота вашої іконки */
+  border: none; /* Позбавте кнопку від рамки */
+  cursor: pointer;
 `;

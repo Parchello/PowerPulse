@@ -1,138 +1,75 @@
-import avocadoImage from '../../../assets/img/avocado-img.png';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import sprite from '../../../assets/sprite.svg';
-import { ModalProducts } from '../ModalProducts/ModalProducts';
-import {
-  // AddBtn,
-  // DietBlock,
-  DietBlockContainer,
-  // DietInfoHeading,
-  // DietInfoItem,
-  // DietInfoList,
-  // DietInfoValue,
-  // DietName,
-  // DietNameBox,
-  // DietText,
-  // DietTextBox,
-  // RecomendBox,
-  // RecomendStatusCircle,
-  // RecommendStatusText,
-} from './DietCardsList.styled';
-import {
-  AddButton,
-  ButtonBox,
-  CaloriesBox,
-  CaloriesText,
-  CaloriesValue,
-  CancelBox,
-  DietInputBox,
-  DietNameText,
-  GramsInput,
-} from '../ModalProducts/ModalProducts.styled';
-import { ModalWellDone } from '../ModalWellDone/ModalWellDone';
-import {
-  BackBtn,
-  CaloriesWellBox,
-  CaloriesWellText,
-  CaloriesWellValue,
-  ImgBox,
-  NextProductBtn,
-  // RawSvg,
-  WellDoneTitle,
-  WellDonebox,
-} from '../ModalWellDone/ModaWellDone.styled';
+import { DietBlockContainer } from './DietCardsList.styled';
+
 import { getAllProducts } from '../../../redux/products/operations';
-import { ProductsItem } from '../DietCard/ProductsItem';
+import { ProductsItem } from '../ProductsItem/ProductsItem';
 import {
   selectAllProducts,
   selectIsLoading,
-  // selectVisibleProducts,
 } from '../../../redux/products/selectors';
 import { Loader } from '../../Loader/Loader';
+
+import { selectFilter } from '../../../redux/products/selectors';
+
+const filterProduct = (productsList, filter) => {
+  const { search, category, recommended } = filter;
+
+  const isMatchSearchQuery = search
+    ? productsList.filter((el) =>
+        el.title.toLowerCase().includes(search.toLowerCase())
+      )
+    : productsList;
+
+  const isMatchCategory = category
+    ? isMatchSearchQuery.filter((el) => el.category === category)
+    : isMatchSearchQuery;
+
+  const isMatchRecommendation =
+    recommended === 'Recommended'
+      ? isMatchCategory.filter((i) => !i.recommended)
+      : recommended === 'NotRecommended'
+        ? isMatchCategory.filter((i) => i.recommended)
+        : isMatchCategory;
+
+  return isMatchRecommendation;
+};
 
 export const DietCardsList = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-  const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
-  const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
+  const filter = useSelector(selectFilter);
 
   useEffect(() => {
     dispatch(getAllProducts());
   }, [dispatch]);
 
-  const cards = useSelector(selectAllProducts);
-  // const filteredCards = useSelector(selectVisibleProducts)
+  const bloodType = '3';
+
+  const products = useSelector(selectAllProducts)
+    // .slice(0, 1000) //можна залишити замість пагінації. Не таке сильне навантаження будуе. І лагів менше
+    .map((item) => ({
+      ...item,
+      recommended: item.groupBloodNotAllowed[bloodType],
+    }));
+
+  const filteredCards = filterProduct(products, filter);
 
   // треба описати логіку закриття модалки по бекдропу і по Esc
 
   return (
     <>
-      {/* Лоадер якогось хєра не застосовується */}
-      {!isLoading && <Loader /> && (
-        <DietBlockContainer>
-          {cards.map((item) => (
-            <ProductsItem
-              key={item.id}
-              value={item}
-              openModal={setModalProductsIsOpen}
-            />
-          ))}
-        </DietBlockContainer>
-      )}
-      <ModalProducts
-        isOpen={modalProductsIsOpen}
-        onClose={() => setModalProductsIsOpen(false)}
-      >
-        <DietInputBox>
-          <DietNameText type="text" placeholder="Name of diet" readOnly />
-          <GramsInput type="text" placeholder="grams" />
-        </DietInputBox>
-
-        <CaloriesBox>
-          <CaloriesText>Calories:</CaloriesText>
-          <CaloriesValue>00</CaloriesValue>
-        </CaloriesBox>
-
-        <ButtonBox>
-          <AddButton
-            onClick={() => {
-              setModalProductsIsOpen(false);
-              setModalWellDoneIsOpen(true);
-            }}
-          >
-            Add to diary
-          </AddButton>
-          <CancelBox onClick={() => setModalProductsIsOpen(false)}>
-            Cancel
-          </CancelBox>
-        </ButtonBox>
-      </ModalProducts>
-      <ModalWellDone
-        isOpen={modalWellDoneIsOpen}
-        onClose={() => setModalWellDoneIsOpen(false)}
-      >
-        <ImgBox>
-          <img src={avocadoImage} alt="avocado" />
-        </ImgBox>
-        <div>
-          <WellDonebox>
-            <WellDoneTitle>Well done</WellDoneTitle>
-            <CaloriesWellBox>
-              <CaloriesWellText>Calories:</CaloriesWellText>
-              <CaloriesWellValue>00</CaloriesWellValue>
-            </CaloriesWellBox>
-          </WellDonebox>
-
-          <NextProductBtn>Next product</NextProductBtn>
-          <BackBtn>
-            To the diary
-            <svg width="16px" height="16px">
-              <use xlinkHref={sprite + '#icon-gray-arrow'} />
-            </svg>
-          </BackBtn>
-        </div>
-      </ModalWellDone>
+      {/* Лоадер якогось хєра не застосовується 
+      також треба обробити повідомлення про пустий список*/}
+      <DietBlockContainer>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          filteredCards.map((item) => (
+            <ProductsItem key={item._id} value={item} blood={bloodType} />
+          ))
+        )}
+      </DietBlockContainer>
     </>
   );
 };

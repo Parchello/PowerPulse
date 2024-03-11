@@ -2,17 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchCurrentUser,
   patchUserParams,
+  patchAvatar,
 } from '../../redux/profile/operations';
+import toast from 'react-hot-toast';
 
 export const ProfileSlice = createSlice({
   name: 'profile',
   initialState: {
-    currentUser: {
+    user: {
       name: '',
       email: '',
-    },
-    params: {
-      name: '',
       height: null,
       currentWeight: null,
       desiredWeight: null,
@@ -20,6 +19,8 @@ export const ProfileSlice = createSlice({
       blood: null,
       sex: null,
       levelActivity: null,
+      bmr: null,
+      avatar: null,
     },
     isLoading: false,
     error: null,
@@ -28,8 +29,8 @@ export const ProfileSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-        console.log('action payload in reducer', action.payload);
-        state.currentUser = action.payload;
+        state.user.email = action.payload.email;
+        state.user.name = action.payload.name;
         state.isLoading = false;
         state.error = null;
       })
@@ -44,13 +45,36 @@ export const ProfileSlice = createSlice({
       .addCase(patchUserParams.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.params = action.payload;
+        state.user.name = action.payload.name;
+        state.user.height = action.payload.height;
+        state.user.currentWeight = action.payload.currentWeight;
+        state.user.desiredWeight = action.payload.desiredWeight;
+        state.user.birthday = action.payload.birthday;
+        state.user.blood = action.payload.blood;
+        state.user.sex = action.payload.sex;
+        state.user.levelActivity = action.payload.levelActivity;
+        state.user.bmr = action.payload.bmr;
+
+        toast.success('Data saved!');
       })
       .addCase(patchUserParams.pending, (state, action) => {
         state.isLoading = true;
         state.error = null;
       })
       .addCase(patchUserParams.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error;
+        toast.error('Data required!');
+      })
+      .addCase(patchAvatar.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.user.avatar = action.payload.avatarURL;
+      })
+      .addCase(patchAvatar.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(patchAvatar.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error;
       });

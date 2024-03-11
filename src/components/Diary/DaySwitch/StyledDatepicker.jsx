@@ -1,11 +1,16 @@
+import sprite from '../../../assets/sprite.svg';
 import { forwardRef, useState } from 'react';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
-import { CalendarGlobalStyles, TitleWrapper } from './StyledDatepicker.styled';
+import {
+  CalendarButton,
+  CalendarGlobalStyles,
+  TitleWrapper,
+} from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 const StyledDatepicker = () => {
-  const [selectedDate, setSelectedDate] = useState(Date.now());
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
@@ -15,9 +20,22 @@ const StyledDatepicker = () => {
     );
   });
 
+  const handlePrevDay = () => {
+    const newDate = new Date(selectedDate);
+    newDate.setDate(selectedDate.getDate() - 1);
+    setSelectedDate(newDate);
+  };
+
+  const handleNextDay = () => {
+    const newDate = new Date(selectedDate);
+    newDate.setDate(selectedDate.getDate() + 1);
+    setSelectedDate(newDate);
+  };
+
   return (
     <>
       <DatePicker
+        showIcon
         selected={selectedDate}
         onChange={(date) => {
           setSelectedDate(date);
@@ -27,6 +45,16 @@ const StyledDatepicker = () => {
         calendarStartDay={1}
         formatWeekDay={(day) => day.substr(0, 1)}
       />
+      <CalendarButton onClick={handlePrevDay}>
+        <svg width="12px" height="16px">
+          <use xlinkHref={sprite + '#chevron-left'} />
+        </svg>
+      </CalendarButton>
+      <CalendarButton onClick={handleNextDay}>
+        <svg width="12px" height="16px">
+          <use xlinkHref={sprite + '#chevron-right'} />
+        </svg>
+      </CalendarButton>
       <CalendarGlobalStyles />
     </>
   );

@@ -2,13 +2,13 @@ import { useFormik } from 'formik';
 
 import sprite from '../../assets/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { CurrentUser } from '../../redux/profile/selectors.jsx';
+import { SelectUser } from '../../redux/profile/selectors.jsx';
 import {
   fetchCurrentUser,
   patchUserParams,
 } from '../../redux/profile/operations.jsx';
 import { useEffect } from 'react';
-
+import { Toaster } from 'react-hot-toast';
 import {
   StyldInputShort,
   StyledInputLong,
@@ -31,7 +31,6 @@ import {
 } from './UserForm.Styled.jsx';
 
 const validate = (values, props /* only available when using withFormik */) => {
-  console.log('Validation function is called');
   const errors = {};
 
   // if (!values.email) {
@@ -59,25 +58,27 @@ const validate = (values, props /* only available when using withFormik */) => {
     errors.currentWeight = 'Min 35kg Weight required';
   }
 
-  console.log(errors);
+  // console.log(errors);
   //...
 
   return errors;
 };
 
 const UserForm = () => {
-  const currentUser = useSelector(CurrentUser);
+  const currentUser = useSelector(SelectUser);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, []);
 
+  //// OLD FORM
   const formik = useFormik({
     initialValues: {
-      name: currentUser.currentUser.name ? currentUser.currentUser.name : '',
-      email: currentUser.currentUser.email ? currentUser.currentUser.email : '',
-      height: '',
-      currentWeight: '',
+      name: currentUser.name || '',
+      email: currentUser.email ? currentUser.email : '',
+      height: currentUser.height ? currentUser.height : '',
+      currentWeight: currentUser.currentWeight || '',
       desiredWeight: '',
       birthday: '',
       blood: null,
@@ -87,22 +88,9 @@ const UserForm = () => {
 
     validate,
     onSubmit: (values) => {
-      // const patchUserParams = {
-      //   name: values.name,
-      //   height: values.height,
-      //   currentWeight: values.currentWeight,
-      //   desiredWeight: values.desiredWeight,
-      //   birthday: values.dateOfBirth,
-      //   blood: values.blood,
-      //   sex: values.sex,
-      //   levelActivity: values.levelActivity,
-      // };
-      //   console.log('Form submitted:');
-      // alert(JSON.stringify(patchUserParams, null, 2));
-
       delete values.email;
 
-      console.log('values', values);
+      // console.log('values', values);
       dispatch(patchUserParams({ values: values }));
     },
   });
@@ -118,7 +106,31 @@ const UserForm = () => {
         </ErrorDiv>
       );
     }
-    if (!formik.errors[valueName] && formik.values[valueName] !== 0) {
+
+    if (!formik.errors[valueName] && formik.values[valueName] > 0) {
+      return (
+        <SuccessDiv>
+          <svg width="18px" height="18px">
+            <use href={sprite + '#icon-checkbox-circle-fillGreen'} />
+          </svg>
+          Success
+        </SuccessDiv>
+      );
+    }
+  };
+  const handleInputStringStylesChange = (valueName) => {
+    if (formik.errors[valueName]) {
+      return (
+        <ErrorDiv>
+          <svg width="16px" height="16px">
+            <use href={sprite + '#icon-checkbox-circle-fill'} />
+          </svg>
+          {formik.errors[valueName]}
+        </ErrorDiv>
+      );
+    }
+
+    if (!formik.errors[valueName] && formik.values[valueName].length !== 0) {
       return (
         <SuccessDiv>
           <svg width="18px" height="18px">
@@ -130,21 +142,7 @@ const UserForm = () => {
     }
   };
 
-  // const handleInputChange = (event) => {
-  //   const value = event.target.value;
-  //   const name = event.target.name;
-  //   switch (name) {
-  //     case 'name':
-  //       setName(value);
-  //       break;
-  //     case 'number':
-  //       setNumber(value);
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // };
-
+  // console.log('initialValues', formik.values.name);
   return (
     <Form onSubmit={formik.handleSubmit}>
       <NameEmailContainer>
@@ -156,11 +154,11 @@ const UserForm = () => {
             name="name"
             type="text"
             onChange={formik.handleChange}
-            value={currentUser.currentUser.name}
+            value={formik.values.name}
             success={!formik.errors.name && formik.values.name.length !== 0}
             error={formik.errors.name}
           />
-          {handleInputStylesChange('name')}
+          {handleInputStringStylesChange('name')}
         </NameEmailContainerItem>
         <NameEmailContainerItem>
           <Label htmlFor="email">Email</Label>
@@ -170,7 +168,7 @@ const UserForm = () => {
             name="email"
             type="text"
             onChange={formik.handleChange}
-            value={currentUser.currentUser.email}
+            value={currentUser.email}
             success={!formik.errors.email && formik.values.email !== 0}
             error={formik.errors.email}
           />
@@ -187,7 +185,14 @@ const UserForm = () => {
             type="number"
             onChange={formik.handleChange}
             value={formik.values.height}
-            success={!formik.errors.height && formik.values.height.length !== 0}
+            success={
+              !formik.errors.height &&
+              formik.values.height !== undefined &&
+              formik.values.height !== null &&
+              formik.values.height > 0
+                ? formik.values.height
+                : undefined
+            }
             error={formik.errors.height}
           />
           {handleInputStylesChange('height')}
@@ -202,7 +207,11 @@ const UserForm = () => {
             value={formik.values.currentWeight}
             success={
               !formik.errors.currentWeight &&
-              formik.values.currentWeight.length !== 0
+              formik.values.currentWeight > 0 &&
+              formik.values.currentWeight !== undefined &&
+              formik.values.currentWeight !== null
+                ? formik.values.currentWeight
+                : undefined
             }
             error={formik.errors.currentWeight}
           />
@@ -217,8 +226,9 @@ const UserForm = () => {
             onChange={formik.handleChange}
             value={formik.values.desiredWeight}
             success={
-              !formik.errors.desiredWeight &&
-              formik.values.desiredWeight.length !== 0
+              !formik.errors.desiredWeight && formik.values.desiredWeight > 0
+                ? formik.values.desiredWeight
+                : undefined
             }
             error={formik.errors.desiredWeight}
           />
@@ -383,17 +393,84 @@ const UserForm = () => {
           </LabelRadioBtn>
         </LiRadioBtn>
       </UlLifeStyle>
-      <FormBtn type="submit">Save</FormBtn>
+      <FormBtn type="submit" disabled={!formik.isValid}>
+        Save
+      </FormBtn>
+      <div>
+        <Toaster />
+      </div>
     </Form>
   );
 };
 
 export default UserForm;
 
-// "currentWeight": 55,
-// "birthday": "20.02.1992",
-// "desiredWeight": 55,
-// "height": 160,
-// "levelActivity": 4,
-// "name": "examplea",
-// "sex": "male"
+//FORM ON FORMIK
+
+// --------------
+// import { Formik } from 'formik';
+// import * as Yup from 'yup';
+// ///----------------
+// const UserFormSchema = Yup.object().shape({
+//   email: Yup.string().matches(
+//     /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
+//     'Invalid email format. Example: ivanov@com.ua'
+//   ),
+//   name: Yup.string().required('Name is required!'),
+// });
+//   const handleSubmit = (values) => {
+//     delete values.email;
+//     dispatch(patchUserParams({ values: values }));
+//   };
+
+//   return (
+//     <Formik
+//       initialValues={{
+//         email: currentUser.currentUser.email || '', // Используем значение из currentUser, если оно доступно
+//         name: currentUser.currentUser.name || '', // Используем значение из currentUser, если оно доступно
+//       }}
+//       validationSchema={UserFormSchema}
+//       onSubmit={handleSubmit}
+//     >
+//       {(
+//         { errors, touched, values } // Деструктурируем значения из Formik
+//       ) => (
+//         <Form>
+//           {' '}
+//           {/* Используем компонент Form из Formik */}
+//           <NameEmailContainer>
+//             <NameEmailContainerItem>
+//               <Label htmlFor="name">Name</Label>
+//               <Field type="text" name="email" placeholder="Email" />
+//               <StyledInputLong
+//                 placeholder="User name"
+//                 id="name"
+//                 name="name"
+//                 type="text"
+//                 onChange={handleChange} // Используем handleChange из Formik
+//                 value={values.name} // Обращаемся к значению напрямую из параметра values
+//                 success={!errors.name && values.name.length !== 0} // Проверяем напрямую из values
+//                 error={errors.name}
+//               />
+//               {handleInputStringStylesChange('name')}
+//             </NameEmailContainerItem>
+//             <NameEmailContainerItem>
+//               <Label htmlFor="email">Email</Label>
+//               <StyledInputLong
+//                 placeholder="Email"
+//                 id="email"
+//                 name="email"
+//                 type="text"
+//                 onChange={handleChange} // Используем handleChange из Formik
+//                 value={values.email} // Обращаемся к значению напрямую из параметра values
+//                 success={!errors.email && values.email.length !== 0} // Проверяем напрямую из values
+//                 error={errors.email}
+//               />
+//               {handleInputStylesChange('email')}
+//             </NameEmailContainerItem>
+//           </NameEmailContainer>
+//         </Form>
+//       )}
+//     </Formik>
+//   );
+// };

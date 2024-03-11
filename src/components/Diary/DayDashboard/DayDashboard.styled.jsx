@@ -6,7 +6,6 @@ export const MainInfoBlock = styled.div`
   padding: 14px;
   width: 157px;
   height: 96px;
-  margin-bottom: 20px;
   background-color: ${(props) => props.theme.colors.orange};
 
   padding-top: 15px;
@@ -38,8 +37,11 @@ export const SecondaryInfoBlock = styled.div`
   padding: 14px;
   width: 157px;
   height: 96px;
-  margin-bottom: 20px;
   background-color: rgba(239, 237, 232, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const DiaryWarningText = styled.p`
@@ -52,5 +54,55 @@ export const DiaryWarningText = styled.p`
 export const DiaryInfoContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 13px;
+  gap: 16px;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 704px;
+  }
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+`;
+
+export const MainBlockOfMainInfoBlock = styled.div`
+  display: flex;
+  gap: 16px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
+`;
+
+export const MainBlockOfSecondaryInfoBlock = styled.div`
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  width: 335px;
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
+`;
+
+export const RememberText = styled.div`
+  display: flex;
+  gap: 8px;
+  width: 335px;
+
+  @media screen and (min-width: 768px) {
+    width: 505px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 390px;
+  }
 `;

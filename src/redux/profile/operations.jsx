@@ -24,7 +24,7 @@ export const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const response = await axios.get('/api/users/current');
-      // console.log(response.data.user);
+
       return response.data.user;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -35,7 +35,6 @@ export const fetchCurrentUser = createAsyncThunk(
 export const patchUserParams = createAsyncThunk(
   'profile/userParams',
   async ({ values }, thunkAPI) => {
-    console.log('values in action', values);
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
@@ -45,9 +44,8 @@ export const patchUserParams = createAsyncThunk(
     token.set(persistedToken);
 
     try {
-      console.log('{values}', values);
       const res = await axios.patch('/api/users/params', values);
-      console.log('res in params', res);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -55,13 +53,31 @@ export const patchUserParams = createAsyncThunk(
   }
 );
 
-// "blood":3,
-// "currentWeight": 55,
-// "dateOfBirth": "20.02.1992",
-// "desiredWeight": 55,
-// "height": 160,
-// "levelActivity": 4,
-// "name": "examplea",
-// "sex": "male"
+export const patchAvatar = createAsyncThunk(
+  'profile/avatar',
+  async (avatar, thunkAPI) => {
+    console.log('avatar in operations', avatar);
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
 
-// }
+    if (!persistedToken) {
+      console.log('No token found');
+    }
+    token.set(persistedToken);
+
+    const formData = new FormData();
+    formData.append('avatar', avatar);
+
+    try {
+      const response = await axios.patch('/api/users/avatars', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      // console.log('res in action', response);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
