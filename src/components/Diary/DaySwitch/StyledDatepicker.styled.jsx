@@ -25,7 +25,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-1%, 0%);
+    transform: translate(-73%, 10%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -184,8 +184,9 @@ export const TitleWrapper = styled.button`
 export const CalendarButton = styled.button`
   background-color: ${(props) => props.theme.colors.black};
   background-repeat: no-repeat;
-  width: 32px; /* Ширина вашої іконки */
-  height: 32px; /* Висота вашої іконки */
-  border: none; /* Позбавте кнопку від рамки */
+  width: 32px;
+  height: 32px;
+  border: none;
   cursor: pointer;
 `;
+export const CalendarCont = styled.div``;
