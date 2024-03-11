@@ -1,108 +1,48 @@
-# React + Vite template
+EN/ Powerpulse is an interactive tool for determining an individual diet and
+exercise regimen that helps you maintain a healthy lifestyle and achieve your
+fitness goals. Through a combination of scientific data, personal preferences
+and user needs, we offer an individually tailored nutrition and exercise program
+that helps achieve a balance between health, energy and self-confidence.
 
-Цей проєкт було створено за допомогою [Create Vite](https://vitejs.dev/). Для
-знайомства і налаштування додаткових можливостей
-[звернися до документації](https://vitejs.dev/guide/).
+The main features of our site include:
 
-## Створення репозиторію за шаблоном
+Personalized analysis: Users can enter their goals and current level of physical
+activity, as well as specify their dietary preferences and restrictions.
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення
-репозиторію свого проєкту. Для цього натисни на кнопку `"Use this template"` і
-обери опцію `"Create a new repository"`, як показано на зображенні.
+Dietary recommendations: The site generates individual dietary recommendations,
+taking into account caloric balance, distribution of macronutrients and
+vitamins.
 
-![Creating repo from a template step 1](./src/assets/template-step-1.png)
+Selection of physical exercises: The site recommends an optimal set of physical
+exercises, taking into account the user's fitness goals and physical condition.
 
-На наступному кроці відкриється сторінка створення нового репозиторію. Заповни
-поле його імені, переконайся що репозиторій публічний, після чого натисни кнопку
-`"Create repository from template"`.
+Progress Monitoring: Users can keep a food and exercise diary to track their
+progress towards their goals.
 
-![Creating repo from a template step 2](./src/assets/template-step-2.png)
+Our site is dedicated to providing comprehensive assistance in maintaining a
+healthy lifestyle, creating a comfortable environment for achieving your fitness
+goals.
 
-Після того як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як показано
-на зображенні.
+UA/ Powerpulse - це інтерактивний інструмент для визначення індивідуального
+режиму харчування та фізичних вправ, який сприяє підтримці здорового способу
+життя і досягненню ваших фітнес-цілей. Завдяки комбінації наукових даних,
+персональних вподобань та потреб користувача, ми пропонуємо індивідуально
+налаштовану програму харчування та фізичних вправ, яка допомагає досягти балансу
+між здоров'ям, енергією і впевненістю у собі.
 
-![Settings GitHub Actions permissions step 1](./src/assets/gh-actions-perm-1.png)
+Основні функції нашого сайту включають:
 
-Проскроливши сторінку до самого кінця, у секції `"Workflow permissions"` вибери
-опцію `"Read and write permissions"` і постав галочку в чекбоксі. Це необхідно
-для автоматизації процесу деплою проєкту.
+Персоналізований аналіз: Користувачі можуть ввести свої цілі та поточний рівень
+фізичної активності, а також вказати свої діетичні вподобання та обмеження.
 
-![Settings GitHub Actions permissions step 2](./src/assets/gh-actions-perm-2.png)
+Рекомендації щодо харчування: Сайт генерує індивідуальні рекомендації з раціону
+харчування, враховуючи калорійний баланс, розподіл макронутрієнтів та вітамінів.
 
-Тепер у тебе є особистий репозиторій проєкту, зі структурою файлів і папок
-репозиторія-шаблону. Далі працюй з ним як з будь-яким іншим особистим
-репозиторієм, клонуй його собі на комп'ютер, пиши код, роби комміти і відправляй
-їх на GitHub.
+Підбір фізичних вправ: Сайт рекомендує оптимальний набір фізичних вправ,
+враховуючи фітнес-цілі та фізичний стан користувача.
 
-## Підготовка до роботи
+Моніторинг прогресу: Користувачі можуть вести щоденник харчування та тренувань,
+щоб відстежувати свій прогрес у досягненні цілей.
 
-1. Переконайся, що на комп'ютері встановлена LTS-версія Node.js.
-   [Скачай і встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встановіть базові залежності проекту командою `npm install`.
-3. Запустіть режим розробки, виконавши команду `npm run dev`.
-4. Перейди в браузері за адресою, що зазначено в терміналі.
-
-## Деплой
-
-Продакшн версія проєкту буде автоматично збиратися і деплоїтися на GitHub Pages,
-у гілку `gh-pages`, щоразу, коли оновлюється гілка `main`. Наприклад, після
-прямого пушу або прийнятого пул-реквесту. Для цього необхідно у файлі
-`vite.config.js` відредагувати поле `base`, замінивши `react_vite` на свою назву
-репозиторію `"/your_repo_name"`, і відправити зміни на GitHub.
-
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) і
-виставити роздачу продакшн версії файлів із папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
-
-![GitHub Pages settings](./src/assets/repo-settings.png)
-
-### Статус деплоя
-
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
-
-- **Жовтий колір** - виконується збірка і деплой проєкту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час збирання або деплою сталася помилка.
-
-Детальнішу інформацію про статус можна подивитися, клікнувши на іконку, і в
-випадаючому вікні перейти за посиланням `Details`.
-
-![Deployment status](./src/assets/deploy-status.png)
-
-### Жива сторінка
-
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися за
-адресою, вказаною в налаштуваннях GitHub-репозиторію (`Settings` > `Pages`).
-
-![GitHub-pages URL](./src/assets/gh-pages-url.png)
-
-Якщо відкривається порожня сторінка, переконайся що у вкладці `Console` немає
-помилок пов'язаних із неправильними шляхами до CSS і JS файлів проекту
-(**404**). Швидше за все найімовірніше, у тебе неправильне значення поля `base`
-у файлі `vite.config.js`.
-
-### Маршрутизація
-
-Якщо додаток використовує бібліотеку `react-router-dom` для маршрутизації,
-необхідно додатково налаштувати компонент `<BrowserRouter>`, передавши в пропе
-`basename` точну назву твого репозиторію. Слеш на початку рядка обов'язковий.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-### Додавання змінних в  .env
-Для зберігання конфігураційних даних, таких як API ключі, адреси серверів, порти та інші змінні використовуйте файл `.env`. Для цього необхідно з назви файлу `.env.template` видалити зайві ".template",після чого файл відповідатиме умовам файлу `.ignore` і буде зберігатися лише локально, не публікуючись на віддаленому репозиторії з метою безпеки. Задля використання змінних на GitHub-pages усі змінні, передбачені файлом .env, слід додати до файлу `.github/workflows/deploy.yml`, а також до налаштувань репозиторію. Для цього слід перейти (`Settings` > `Secrets and variables` > `Actions`)
-
-![Add enviroments from .env](./src/assets/secrets.png)
-
-## Як це працює
-
-1. Після кожного пушу в гілку `main` GitHub-репозиторію, запускається
-   спеціальний скрипт (GitHub Action) з файлу `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проєкт ініціалізується і
-   проходить збірку перед деплоєм. 3 Якщо всі кроки пройшли успішно, зібрана
-   продакшн-версія файлів проєкту відправляється в гілку `gh-pages`. В іншому
-   випадку, в логах виконання скрипта буде вказано в чому проблема.
+Наш сайт спрямований на надання всебічної допомоги у підтримці здорового способу
+життя, створюючи комфортне середовище для досягнення ваших фітнес-цілей.
