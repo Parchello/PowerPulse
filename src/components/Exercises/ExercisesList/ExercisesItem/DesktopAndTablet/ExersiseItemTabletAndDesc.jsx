@@ -1,8 +1,7 @@
-import exersises from '../../../exercises';
 import ImageListItem from '@mui/material/ImageListItem';
 import { CustomImageList } from '../../ExercisesList.styled';
 import { useMediaQuery } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   ContainerExIt,
@@ -17,19 +16,20 @@ import {
   NameContainer,
 } from '../ExercisesItem.styled';
 import sprite from '../../../../../assets/sprite.svg';
+import BackgroundImg from '../../../helpers/backgroundImg/backgroundImg';
+import { selectExercisesItem } from '../../../../../redux/exercises/selectors';
+import { setSelectedId } from '../../../../../redux/exercises/exercisesSlise';
 
 const ExercisesItemTabletAndDesctop = ({ openModal }) => {
+  const dispatch = useDispatch();
+  const visibleExercise = useSelector(selectExercisesItem);
+
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
   const isTabletScreen = useMediaQuery('(max-width: 1439px)');
 
-  const selectedCategory = useSelector((state) => state.category);
-
-  const filteredExercises = exersises.filter(
-    (exercise) => exercise.bodyPart === selectedCategory
-  );
-
   return (
     <div>
+      <BackgroundImg />
       <CustomImageList
         sx={{
           width: isTabletScreen ? 695 : 846,
@@ -41,15 +41,20 @@ const ExercisesItemTabletAndDesctop = ({ openModal }) => {
         rowHeight={isTabletScreen ? 163 : 141}
         variant="quilted"
       >
-        {filteredExercises.map((exercis) => (
+        {visibleExercise.map((exercis) => (
           <ImageListItem
-            key={exercis._id.$oid}
+            key={exercis._id}
             style={{ paddingBottom: isMobileScreen ? '20px' : '0' }}
           >
             <ContainerExIt>
               <ContainerWorkout>
                 <Workout>WORKOUT</Workout>
-                <Button onClick={() => openModal()}>
+                <Button
+                  onClick={() => {
+                    openModal();
+                    dispatch(setSelectedId(exercis));
+                  }}
+                >
                   Start
                   <ArrowSvgArrow width="16" height="16">
                     <use xlinkHref={sprite + '#icon-arrow'} />

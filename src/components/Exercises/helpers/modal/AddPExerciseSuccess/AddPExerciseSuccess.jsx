@@ -1,21 +1,21 @@
 import Modal from 'react-modal';
 import { useMediaQuery } from '@mui/material';
 import { useState } from 'react';
-import { Button, CloseBtn, Text, Link } from './AddPExerciseSuccess.styled';
+import {
+  Button,
+  CloseBtn,
+  Text,
+  Link,
+  Heading,
+  Img,
+  DoneContainer,
+} from './AddPExerciseSuccess.styled';
 import sprite from '../../../../../assets/sprite.svg';
+import thumb_up from '../../../../../assets/img/Thumb_up-img.png';
 
-const AddPExerciseSuccess = () => {
+const AddPExerciseSuccess = ({ isOpen, closeModal }) => {
   Modal.setAppElement('#root');
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
-  const [modalIsOpen, setIsOpen] = useState(true);
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
 
   const customStyles = {
     content: {
@@ -26,8 +26,8 @@ const AddPExerciseSuccess = () => {
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
       width: isMobileScreen ? '335px' : '430px',
-      height: isMobileScreen ? '788px' : '439px',
-      padding: isMobileScreen ? '48px 16px' : '64px 134px',
+      height: isMobileScreen ? '384px' : '439px',
+      padding: isMobileScreen ? '48px 89px' : '64px 134px',
       border: '1px solid rgba(239, 237, 232, 0.2)',
       borderRadius: '12px',
       backgroundColor: '#10100f',
@@ -38,28 +38,23 @@ const AddPExerciseSuccess = () => {
   };
 
   return (
-    <Modal
-      isOpen={modalIsOpen}
-      onRequestClose={closeModal}
-      style={customStyles}
-    >
+    <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles}>
       <div>
-        <CloseBtn onClick={() => closeModal(false)}>
+        <CloseBtn onClick={() => closeModal()}>
           <svg width="16px" height="16px">
             <use xlinkHref={sprite + '#icon-close'} />
           </svg>
         </CloseBtn>
 
-        <img
-          src="../../../../../../src/components/Exercises/image/Thumb_up.png"
-          alt=""
-        />
-
-        <h2>Well done</h2>
-        <Text>Your time: {}</Text>
-
-        <Text>Burned calories: {}</Text>
-        <Button>Next exercise</Button>
+        <DoneContainer>
+          <Img src={thumb_up} alt="thumb up" />
+          <div>
+            <Heading>Well done</Heading>
+            <Text>Your time: {}</Text>
+            <Text>Burned calories: {}</Text>
+          </div>
+          <Button>Next exercise</Button>
+        </DoneContainer>
         <Link href="#">
           To the diary{' '}
           <svg width="16px" height="16px">

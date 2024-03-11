@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 // import { ImageList as CustomImageList } from '@mui/material/ImageList';
 
+export const ContainerCubCateg = styled.div``;
+
 export const ExercisLi = styled.li`
   padding-bottom: 20px;
 `;

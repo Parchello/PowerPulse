@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Container,
   Heading,
@@ -10,16 +10,27 @@ import ExercisesCategories from './ExercisesCategories/EsersicisesCategories.jsx
 import ExercisesList from './ExercisesList/ExercisesList.jsx';
 import ExercisesSubcategoriesList from './ExercisesSubcategoriesList/ExercisesSubcategoriesList.jsx';
 import BasicModalWindow from './helpers/modal/BasicModalWindow.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddPExerciseSuccess from './helpers/modal/AddPExerciseSuccess/AddPExerciseSuccess.jsx';
+import {
+  selectFilters,
+  selectSelectedCategories,
+} from '../../redux/exercises/selectors.jsx';
+import {
+  getAllExercises,
+  getFilterExercises,
+} from '../../redux/exercises/operation.jsx';
 
 // import sprite from '../../assets/sprite.svg';
 
 const Exercises = () => {
-  const selectedExersis = useSelector((state) => state.filters);
-  const selectedCategory = useSelector((state) => state.category);
+  const dispatch = useDispatch();
+  const filters = useSelector(selectFilters);
+
+  const selectedCategory = useSelector(selectSelectedCategories);
+
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [modalIsOpenSucc, setIsOpenSucc] = useState(true);
+  const [modalIsOpenSucces, setIsOpenSucces] = useState(false);
 
   function closeModal() {
     setIsOpen(false);
@@ -29,14 +40,47 @@ const Exercises = () => {
     setIsOpen(true);
   }
 
-  console.log(selectedCategory);
+  function closeModalDone() {
+    setIsOpenSucces(false);
+  }
+
+  function openModalDone() {
+    setIsOpenSucces(true);
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await dispatch(getAllExercises());
+      } catch (error) {
+        console.error('Помилка при отриманні даних з getAllExercises:', error);
+      }
+    };
+
+    fetchData();
+  }, [dispatch]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await dispatch(getFilterExercises());
+      } catch (error) {
+        console.error(
+          'Помилка при отриманні даних з getFilterExercises:',
+          error
+        );
+      }
+    };
+
+    fetchData();
+  }, [dispatch]);
 
   return (
     <div>
       <Container>
         <NavContainer>
-          {selectedExersis ? (
-            <Heading>{selectedExersis}</Heading>
+          {filters ? (
+            <Heading>{filters}</Heading>
           ) : (
             <Heading>Exercises</Heading>
           )}
@@ -57,8 +101,15 @@ const Exercises = () => {
           Back
         </BackButton> */}
       </Container>
-      <BasicModalWindow isOpen={modalIsOpen} closeModal={closeModal} />
-      <AddPExerciseSuccess isOpen={modalIsOpenSucc} />
+      <BasicModalWindow
+        isOpen={modalIsOpen}
+        closeModal={closeModal}
+        openModalDone={openModalDone}
+      />
+      <AddPExerciseSuccess
+        isOpen={modalIsOpenSucces}
+        closeModal={closeModalDone}
+      />
     </div>
   );
 };

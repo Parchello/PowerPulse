@@ -1,24 +1,39 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   CategoryList,
   CategoryExercises,
 } from './ExercisesCategories.styled.jsx';
-import { filtersAction } from '../store.js';
+import { selectFilters } from '../../../redux/exercises/selectors.jsx';
+import { setFilter } from '../../../redux/exercises/exercisesSlise.jsx';
 
 const ExercisesCategories = () => {
   const dispatch = useDispatch();
+  const selectedFilters = useSelector(selectFilters);
 
   return (
     <div>
       <CategoryList>
-        <li onClick={() => dispatch(filtersAction('Body parts'))}>
-          <CategoryExercises>Body parts</CategoryExercises>
+        <li onClick={() => dispatch(setFilter('Body parts'))}>
+          <CategoryExercises
+            className={selectedFilters === 'Body parts' ? 'current' : ''}
+          >
+            Body parts
+          </CategoryExercises>
         </li>
-        <li onClick={() => dispatch(filtersAction('Muscles'))}>
-          <CategoryExercises>Muscles</CategoryExercises>
+        <li onClick={() => dispatch(setFilter('Muscles'))}>
+          <CategoryExercises
+            className={selectedFilters === 'Muscles' ? 'current' : ''}
+          >
+            Muscles
+          </CategoryExercises>
         </li>
-        <li onClick={() => dispatch(filtersAction('Equipment'))}>
-          <CategoryExercises>Equipment</CategoryExercises>
+        <li onClick={() => dispatch(setFilter('Equipment'))}>
+          <CategoryExercises
+            className={selectedFilters === 'Equipment' ? 'current' : ''}
+          >
+            {' '}
+            Equipment
+          </CategoryExercises>
         </li>
       </CategoryList>
     </div>

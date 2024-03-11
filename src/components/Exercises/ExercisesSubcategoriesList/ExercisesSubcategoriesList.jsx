@@ -1,11 +1,7 @@
 import ExercisesSubcategoriesItem from './ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 
 const ExercisesSubcategoriesList = () => {
-  return (
-    <div>
-      <ExercisesSubcategoriesItem />
-    </div>
-  );
+  return <ExercisesSubcategoriesItem />;
 };
 
 export default ExercisesSubcategoriesList;
