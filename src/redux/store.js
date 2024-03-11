@@ -15,6 +15,7 @@ import { authReducer } from '../redux/auth/slice';
 import { ProfileReducer } from '../redux/profile/profileSlice.jsx';
 import { productsReducer } from './products/productsSlice.jsx';
 import { DiaryProductsReducer } from './DiaryProducts/DiaryProductsSlice.js';
+import { exercisesReducer } from './exercises/exercisesSlise.jsx';
 
 const authPersistConfig = {
   key: 'auth',
@@ -28,6 +29,7 @@ export const store = configureStore({
     profile: ProfileReducer,
     products: productsReducer,
     diary: DiaryProductsReducer,
+    exercises: exercisesReducer,
   },
 
   middleware: (getDefaultMiddleware) =>

@@ -79,7 +79,7 @@ export const ProductsFilter = () => {
             All
           </Option>
           <Option value="Recommended">Recommended</Option>
-          <Option value="Not recommended">Not recommended</Option>
+          <Option value="NotRecommended">Not recommended</Option>
         </SelectorA>
       </Filters>
     </MainFiltersContainer>

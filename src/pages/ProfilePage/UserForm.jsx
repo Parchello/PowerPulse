@@ -8,7 +8,7 @@ import {
   patchUserParams,
 } from '../../redux/profile/operations.jsx';
 import { useEffect } from 'react';
-
+import { Toaster } from 'react-hot-toast';
 import {
   StyldInputShort,
   StyledInputLong,
@@ -31,7 +31,6 @@ import {
 } from './UserForm.Styled.jsx';
 
 const validate = (values, props /* only available when using withFormik */) => {
-  console.log('Validation function is called');
   const errors = {};
 
   // if (!values.email) {
@@ -59,7 +58,7 @@ const validate = (values, props /* only available when using withFormik */) => {
     errors.currentWeight = 'Min 35kg Weight required';
   }
 
-  console.log(errors);
+  // console.log(errors);
   //...
 
   return errors;
@@ -78,8 +77,8 @@ const UserForm = () => {
     initialValues: {
       name: currentUser.name || '',
       email: currentUser.email ? currentUser.email : '',
-      height: '',
-      currentWeight: '',
+      height: currentUser.height ? currentUser.height : '',
+      currentWeight: currentUser.currentWeight || '',
       desiredWeight: '',
       birthday: '',
       blood: null,
@@ -191,6 +190,8 @@ const UserForm = () => {
               formik.values.height !== undefined &&
               formik.values.height !== null &&
               formik.values.height > 0
+                ? formik.values.height
+                : undefined
             }
             error={formik.errors.height}
           />
@@ -206,7 +207,11 @@ const UserForm = () => {
             value={formik.values.currentWeight}
             success={
               !formik.errors.currentWeight &&
-              formik.values.currentWeight.length !== 0
+              formik.values.currentWeight > 0 &&
+              formik.values.currentWeight !== undefined &&
+              formik.values.currentWeight !== null
+                ? formik.values.currentWeight
+                : undefined
             }
             error={formik.errors.currentWeight}
           />
@@ -221,8 +226,9 @@ const UserForm = () => {
             onChange={formik.handleChange}
             value={formik.values.desiredWeight}
             success={
-              !formik.errors.desiredWeight &&
-              formik.values.desiredWeight.length !== 0
+              !formik.errors.desiredWeight && formik.values.desiredWeight > 0
+                ? formik.values.desiredWeight
+                : undefined
             }
             error={formik.errors.desiredWeight}
           />
@@ -387,7 +393,12 @@ const UserForm = () => {
           </LabelRadioBtn>
         </LiRadioBtn>
       </UlLifeStyle>
-      <FormBtn type="submit">Save</FormBtn>
+      <FormBtn type="submit" disabled={!formik.isValid}>
+        Save
+      </FormBtn>
+      <div>
+        <Toaster />
+      </div>
     </Form>
   );
 };

@@ -1,6 +1,6 @@
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { useDispatch, useSelector } from 'react-redux';
-import { timerPlay, timerTime } from '../../store';
+// import { timerPlay, timerTime } from '../../store';
 import { useEffect, useRef } from 'react';
 import {
   ButtonStartPause,
@@ -11,23 +11,31 @@ import {
   CaloriesNumber,
 } from '../modal/AddExercisesForm.styled';
 import sprite from '../../../../assets/sprite.svg';
+import {
+  selectCalories,
+  selectIsPlayed,
+} from '../../../../redux/exercises/selectors';
+import {
+  setIsPlayed,
+  setTimer,
+} from '../../../../redux/exercises/exercisesSlise';
 
 const Timer = () => {
   const dispatch = useDispatch();
-  const isPlay = useSelector((state) => state.isPlayed);
-  const calories = useSelector((state) => state.calories);
+  const isPlay = useSelector(selectIsPlayed);
+  const calories = useSelector(selectCalories);
 
   const progressRef = useRef(null);
 
   const toggleTimer = () => {
-    dispatch(timerPlay(!isPlay));
+    dispatch(setIsPlayed(!isPlay));
   };
 
   useEffect(() => {
     if (!isPlay && progressRef.current !== null) {
       const timeExerc = 180 - progressRef.current;
 
-      dispatch(timerTime(timeExerc));
+      dispatch(setTimer(timeExerc));
     }
   }, [isPlay, dispatch]);
 

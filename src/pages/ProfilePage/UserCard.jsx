@@ -69,7 +69,6 @@ const Usercard = () => {
     dispatch(logOut());
   };
 
-  console.log(avatar);
   return (
     <UserCard>
       <CardContainer>

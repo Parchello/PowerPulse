@@ -38,6 +38,10 @@ export const SecondaryInfoBlock = styled.div`
   width: 157px;
   height: 96px;
   background-color: rgba(239, 237, 232, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const DiaryWarningText = styled.p`

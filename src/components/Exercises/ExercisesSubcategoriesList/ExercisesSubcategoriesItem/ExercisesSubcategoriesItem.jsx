@@ -1,6 +1,4 @@
 import Slider from 'react-slick';
-import filters from '../../filters.json';
-import { clickCategory } from '../../store.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { settings } from '../../helpers/slidersSetings/sliderSetings.jsx';
 import {
@@ -9,33 +7,22 @@ import {
   BodyPart,
   BodyPartCategory,
 } from './ExercisesSubcategoriesItem.Styled.jsx';
+import { filteredCategory } from '../../../../redux/exercises/selectors.jsx';
+
+import { setCategory } from '../../../../redux/exercises/exercisesSlise.jsx';
 
 const ExercisesSubcategoriesItem = () => {
-  const selectedExersis = useSelector((state) => state.filters);
   const dispatch = useDispatch();
-
-  // const filteredData = filters.filter(
-  //   (item) => item.filter === selectedExersis
-  // );
-
-  // для роботи без бекенду =>>>
-  let filteredData;
-
-  if (selectedExersis) {
-    filteredData = filters.filter((item) => item.filter === selectedExersis);
-  } else {
-    filteredData = filters;
-  }
-  //=>>>
+  const visibleExercises = useSelector(filteredCategory);
 
   return (
     <div>
       <Slider {...settings}>
-        {filteredData.map((filter) => (
+        {visibleExercises.map((filter) => (
           <ExercisesItem
-            key={filter._id.$oid}
+            key={filter._id}
             style={{ width: 100 }}
-            onClick={() => dispatch(clickCategory(filter.name))}
+            onClick={() => dispatch(setCategory(filter.name))}
           >
             <ExerscisesItemContainer
               style={{

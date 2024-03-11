@@ -1,8 +1,6 @@
-import exersises from '../../exercises';
 import ImageListItem from '@mui/material/ImageListItem';
 import sprite from '../../../../assets/sprite.svg';
 import { useMediaQuery } from '@mui/material';
-import { useSelector } from 'react-redux';
 
 import {
   ContainerExIt,
@@ -14,23 +12,19 @@ import {
   ExerList,
   ContainerWorkout,
   ArrowSvgArrow,
-  ArrowSvgRunning,
-  ContSpanRunning,
   NameContainer,
 } from './ExercisesItem.styled';
+import { useSelector } from 'react-redux';
+import { selectExercisesItem } from '../../../../redux/exercises/selectors';
 
 const ExercisesItem = ({ openModal }) => {
-  const selectedCategory = useSelector((state) => state.category);
-
+  const visibleExercise = useSelector(selectExercisesItem);
+  console.log(visibleExercise);
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
-
-  const filteredExercises = exersises.filter(
-    (exercise) => exercise.bodyPart === selectedCategory
-  );
 
   return (
     <div>
-      {filteredExercises.map((exercis) => (
+      {visibleExercise.map((exercis) => (
         <ImageListItem
           key={exercis._id.$oid}
           style={{ paddingBottom: isMobileScreen ? '20px' : '0' }}
@@ -46,11 +40,14 @@ const ExercisesItem = ({ openModal }) => {
               </Button>
             </ContainerWorkout>
             <NameContainer>
-              <ContSpanRunning>
-                <ArrowSvgRunning width="14" height="16">
+              <span>
+                {/* <ArrowSvgRunning width="14" height="16">
                   <use xlinkHref={sprite + '#icon-running-figure'} />
-                </ArrowSvgRunning>
-              </ContSpanRunning>
+                </ArrowSvgRunning> */}
+                <svg width="24px" height="24px">
+                  <use xlinkHref={sprite + '#icon-running-man'} />
+                </svg>
+              </span>
               <ExeName>{exercis.name}</ExeName>
             </NameContainer>
             <ExerList>
