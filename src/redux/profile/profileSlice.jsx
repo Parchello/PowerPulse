@@ -29,6 +29,7 @@ export const ProfileSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.user.email = action.payload.email;
         state.user.name = action.payload.name;
         state.isLoading = false;
