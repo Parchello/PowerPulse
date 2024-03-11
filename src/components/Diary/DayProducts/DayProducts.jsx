@@ -12,8 +12,8 @@ import { ExersTitle } from '../DayExercises/DayExercises.styled';
 import { HeadOfField } from '../HeadOfField.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchDiaryProducts } from '../../../redux/DiaryProducts/operations';
-import { selectDiaryProducts } from '../../../redux/DiaryProducts/selectors';
+import { fetchDiaryProducts } from '../../../redux/diary/operations';
+import { selectDiaryProducts } from '../../../redux/diary/selectors';
 
 export const ProductsTable = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export const ProductsTable = () => {
       {products.length > 0 ? (
         <ListOfProducts>
           {products.map((i) => (
-            <ProductItem key={i.productId._id} prop={i} />
+            <ProductItem key={i._id} prop={i} />
           ))}
         </ListOfProducts>
       ) : (
