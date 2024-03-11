@@ -1,17 +1,23 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
 import sprite from "../../../assets/sprite.svg"
-import { Icons, LogOutContainer, MenuBtn, UserCircle } from "./UserBar.Styled";
+import { Icons, LogOutContainer, MenuBtn, UserCircle, UserImg } from "./UserBar.Styled";
 import { LogOut } from '../LogOut/LogOut';
+import { SelectUser } from '../../../redux/profile/selectors';
+
 
 
 export const UserBar = ( {openMenu}) => {
 
-    const isMobileScreen = useMediaQuery('(max-width: 767px)');
-    const isDesktopScreen = useMediaQuery('(min-width: 1440px)');
-
-
+  const isMobileScreen = useMediaQuery('(max-width: 767px)');
+  const isDesktopScreen = useMediaQuery('(min-width: 1440px)');
+  
+  const user = useSelector(SelectUser);
+  const defaultAvatar = (
+    <svg width={isMobileScreen ? "21px" : "24px"} height={isMobileScreen ? "21px" : "24px"} fill='#EFEDE8'>
+      <use xlinkHref={sprite + "#icon-user" } /></svg>)
   
 
   return (
@@ -27,9 +33,7 @@ export const UserBar = ( {openMenu}) => {
           
                 <li>
                   <UserCircle>
-                  <svg width={isMobileScreen ? "21px" : "24px"} height={isMobileScreen ? "21px" : "24px"} fill='#EFEDE8'>
-                  <use xlinkHref={sprite + "#icon-user" } />
-                  </svg>
+                  {user.avatar !== null? <UserImg src={user.avatar} alt="User avatar"/>: defaultAvatar}
                   </UserCircle>
                 </li>
           

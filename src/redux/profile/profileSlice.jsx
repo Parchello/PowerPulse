@@ -67,7 +67,7 @@ export const ProfileSlice = createSlice({
         toast.error('Data required!');
       })
       .addCase(patchAvatar.fulfilled, (state, action) => {
-        console.log(action.payload);
+        console.log("patchAvatar", action.payload);
         state.user.avatar = action.payload.avatarURL;
       })
       .addCase(patchAvatar.pending, (state, action) => {
