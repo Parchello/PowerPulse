@@ -32,6 +32,14 @@ export const ProfileSlice = createSlice({
         console.log(action.payload);
         state.user.email = action.payload.email;
         state.user.name = action.payload.name;
+        state.user.height = action.payload.height;
+        state.user.currentWeight = action.payload.currentWeight;
+        state.user.desiredWeight = action.payload.desiredWeight;
+        state.user.birthday = action.payload.birthday;
+        state.user.blood = action.payload.blood;
+        state.user.avatar = action.payload.avatarURL;
+        state.user.sex = action.payload.sex;
+        state.user.levelActivity = action.payload.levelActivity;
         state.isLoading = false;
         state.error = null;
       })
@@ -68,7 +76,7 @@ export const ProfileSlice = createSlice({
         toast.error('Data required!');
       })
       .addCase(patchAvatar.fulfilled, (state, action) => {
-        console.log(action.payload);
+        console.log("patchAvatar", action.payload);
         state.user.avatar = action.payload.avatarURL;
       })
       .addCase(patchAvatar.pending, (state, action) => {
