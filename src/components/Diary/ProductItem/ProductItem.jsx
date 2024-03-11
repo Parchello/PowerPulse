@@ -3,18 +3,21 @@ import {
   LiItemProducts,
   ProductBottomInfo,
   ProductInfo,
+  ProductInfoCategory,
   TitleName,
 } from './ProductItem.styled';
 // import { Recommended } from '../Recommended/Recommended';
 // import { NotRecommended } from '../NotRecomended/NotRecommended';
 import { useDispatch } from 'react-redux';
 import sprite from '../../../assets/sprite.svg';
-import { deleteProductDiaryById } from '../../../redux/DiaryProducts/operations';
+import { deleteProductDiaryById } from '../../../redux/diary/operations';
 
 export const ProductItem = ({ prop }) => {
   const {
     productId: { _id, title, category, calories, weight },
   } = prop;
+
+  console.log(_id, title, category, calories, weight);
 
   const dispatch = useDispatch();
   const handleDelete = () => {
@@ -27,14 +30,17 @@ export const ProductItem = ({ prop }) => {
 
     dispatch(deleteProductDiaryById(productInfo));
   };
-  console.log(prop);
 
   return (
     <LiItemProducts>
-      <TitleName>Title</TitleName>
-      <ProductInfo>{title}</ProductInfo>
-      <TitleName>Category</TitleName>
-      <ProductInfo>{category}</ProductInfo>
+      <div>
+        <TitleName>Title</TitleName>
+        <ProductInfo>{title}</ProductInfo>
+      </div>
+      <div>
+        <TitleName>Category</TitleName>
+        <ProductInfoCategory>{category}</ProductInfoCategory>
+      </div>
       <BottomInf>
         <div>
           <TitleName>Calories</TitleName>
@@ -50,8 +56,17 @@ export const ProductItem = ({ prop }) => {
             {/* {prop.notAllowed ? <NotRecommended /> : <Recommended />} */}
           </ProductBottomInfo>
         </div>
-        <button onClick={() => handleDelete()}>
-          <svg>
+        <button
+          onClick={() => handleDelete()}
+          style={{
+            background: 'none',
+            border: 'none',
+            width: '24px',
+            height: '24px',
+            marginTop: 'auto',
+          }}
+        >
+          <svg width={24} height={24}>
             <use xlinkHref={sprite + '#icon-red-raw'}></use>
           </svg>
         </button>

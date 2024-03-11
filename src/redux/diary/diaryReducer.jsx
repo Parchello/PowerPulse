@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+// import { initialState } from './initialState';
 import { initialState } from './initialState';
-import { deleteProductDiaryById, fetchDiaryProducts } from './operations';
+import {
+  deleteProductDiaryById,
+  fetchDiaryExercises,
+  fetchDiaryProducts,
+} from './operations';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -21,7 +26,6 @@ const diaryProductsSlice = createSlice({
     builder
       .addCase(fetchDiaryProducts.pending, handlePending)
       .addCase(fetchDiaryProducts.fulfilled, (state, action) => {
-        console.log('action: ', action.payload.products);
         state.isLoading = false;
         state.products = action.payload.products;
         state.error = null;
@@ -40,16 +44,17 @@ const diaryProductsSlice = createSlice({
         );
         state.products.splice(deletedProduct, 1);
       })
-      .addCase(deleteProductDiaryById.rejected, handleRejection);
+      .addCase(deleteProductDiaryById.rejected, handleRejection)
+      // exercises
 
-    // [fetchDiaryProducts.pending]: handlePending,
-    // [fetchDiaryProducts.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.products = action.payload;
-    //   state.error = null;
-    // },
-    // [fetchDiaryProducts.rejected]: handleRejection,
+      .addCase(fetchDiaryExercises.pending, handlePending)
+      .addCase(fetchDiaryExercises.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.exercises = action.payload.exercises;
+        state.error = null;
+      })
+      .addCase(fetchDiaryExercises.rejected, handleRejection);
   },
 });
 
-export const DiaryProductsReducer = diaryProductsSlice.reducer;
+export const diaryReducer = diaryProductsSlice.reducer;
