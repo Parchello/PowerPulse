@@ -23,8 +23,9 @@ import { Loader } from './components/Loader/Loader';
 
 function App() {
   const profile = useSelector(SelectUser);
-  const param = profile.height;
-  let full = param !== null ? true : false;
+  // const params = profile.height && profile.currentWeight && profile.desiredWeight;
+  const params = profile.height;
+  let fullParams =  params !== null ? true : false;
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
   useEffect(() => {
@@ -52,12 +53,16 @@ function App() {
           />
           <Route
             path="/login"
-            element={
+            element={fullParams ? (
+              <RestrictedRoute
+                redirectTo="/diary"
+                component={<LoginPage />} />
+            ) : (
               <RestrictedRoute
                 redirectTo="/profile"
                 component={<LoginPage />}
               />
-            }
+            )}
           />
           <Route
             path="/user"
