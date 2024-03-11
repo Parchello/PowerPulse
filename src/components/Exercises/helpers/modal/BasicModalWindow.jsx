@@ -2,7 +2,7 @@ import { useMediaQuery } from '@mui/material';
 import AddExerciseForm from './AddExercisesForm';
 import Modal from 'react-modal';
 
-const BasicModalWindow = ({ isOpen, closeModal }) => {
+const BasicModalWindow = ({ isOpen, closeModal, openModalDone }) => {
   Modal.setAppElement('#root');
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
 
@@ -29,7 +29,10 @@ const BasicModalWindow = ({ isOpen, closeModal }) => {
   return (
     <div>
       <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles}>
-        <AddExerciseForm closeModal={closeModal} />
+        <AddExerciseForm
+          closeModal={closeModal}
+          openModalDone={openModalDone}
+        />
       </Modal>
     </div>
   );

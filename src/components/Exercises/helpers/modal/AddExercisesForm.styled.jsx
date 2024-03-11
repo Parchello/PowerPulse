@@ -10,7 +10,7 @@ export const AddFormContainer = styled.div`
 `;
 
 export const ExercContainer = styled.div`
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: block;
     margin-bottom: 0;
   }
@@ -106,11 +106,12 @@ export const ButtonContainerTimer = styled.div`
 `;
 
 export const TimerContainer = styled.div`
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     margin-left: 0;
     margin-bottom: 40px;
     margin-top: 14px;
   }
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,16 +158,15 @@ export const ContaierTimerRutton = styled.div`
 // Timer style
 
 export const AddDairyButton = styled.button`
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     margin-top: 24px;
   }
+  margin-top: 0;
   border-radius: 12px;
-  /* padding: 14px 32px; */
   width: 151px;
   height: 52px;
   background-color: ${(props) => props.theme.colors.orange};
   border: none;
-  /* margin-top: 176px; */
 `;
 
 export const CloseBtn = styled.button`
