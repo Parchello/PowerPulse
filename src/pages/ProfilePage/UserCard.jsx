@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { logOut } from '../../redux/auth/operations.jsx';
 import { Text } from '../../components/Header/LogOut/LogOut.Styled';
 import { SelectUser } from '../../redux/profile/selectors.jsx';
-
+import { useEffect } from 'react';
 import {
   UserCard,
   ListItem,
@@ -28,14 +28,13 @@ import { patchAvatar } from '../../redux/profile/operations.jsx';
 const Usercard = () => {
   const dispatch = useDispatch();
   const user = useSelector(SelectUser);
-
-  // const user = useSelector(); //треба отримати дані про юзера зі стейту
-  // const [avatar, setAvatar] = useState() //тут отримати доступ до частини де зберігатиметься посилання на аватар у юзера
   const [avatar, setAvatar] = useState();
-  //далі тут буде зберігатись посилання на аватар і зберігатись в стейт
 
-  //в срц в фігурних дужках завантажується аватар
-  const userAvatar = <UserImg src={avatar} alt="User avatar" />;
+  useEffect(() => {
+    setAvatar(user.avatar);
+  }, [user.avatar]);
+
+  const userAvatar = <UserImg src={user.avatar || avatar} alt="User avatar" />;
 
   const defaultAvatar = (
     <svg width="102px" height="102px" fill="#EFEDE8">
@@ -50,15 +49,9 @@ const Usercard = () => {
 
     const object_URL = URL.createObjectURL(initialAvatar);
 
-    //setAvatar(object_URL) //треба засетити аватарЮРЛ в редакс стейт
     setAvatar(object_URL);
-    // console.log(object_URL);
-
-    //далі описується логіка відправки аватару на клаудінарі
-    //для цього треба функція. В поточній версії мейну її нема
 
     try {
-      // dispatch(); //тут виклик ф-ції для відправки аватару на сервер
       dispatch(patchAvatar(initialAvatar));
     } catch (error) {
       console.log('Ooops, something went wrong. Try again', error);
