@@ -4,6 +4,7 @@ import {
   patchUserParams,
   patchAvatar,
 } from '../../redux/profile/operations';
+import toast from 'react-hot-toast';
 
 export const ProfileSlice = createSlice({
   name: 'profile',
@@ -53,6 +54,8 @@ export const ProfileSlice = createSlice({
         state.user.sex = action.payload.sex;
         state.user.levelActivity = action.payload.levelActivity;
         state.user.bmr = action.payload.bmr;
+
+        toast.success('Data saved!');
       })
       .addCase(patchUserParams.pending, (state, action) => {
         state.isLoading = true;
@@ -61,6 +64,7 @@ export const ProfileSlice = createSlice({
       .addCase(patchUserParams.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error;
+        toast.error('Data required!');
       })
       .addCase(patchAvatar.fulfilled, (state, action) => {
         console.log(action.payload);
