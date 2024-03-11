@@ -38,6 +38,8 @@ export const logIn = createAsyncThunk(
     try {
       const res = await axios.post('/api/users/login', credentials);
       setAuthHeader(res.data.token);
+      const params = await axios.get("/api/users/current");
+      console.log("params", params.data);
       return res.data;
     } catch (error) {
       toast.error("Email or password is wrong");
