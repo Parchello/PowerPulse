@@ -3,8 +3,7 @@ import axios from 'axios';
 
 const token =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWQ2ZjViODFlNzQzZDk0YmQ4YmZkZSIsImlhdCI6MTcxMDE2OTA2NiwiZXhwIjoxNzEwMjUxODY2fQ.lG8fvIUCYgm8XzJhC6iOScEdTnKar5Urw-r-9hr1psY';
-axios.defaults.baseURL =
-  'https://powerpulse-group5-backend.onrender.com/api/diary/';
+axios.defaults.baseURL = 'https://powerpulse-group5-backend.onrender.com/';
 
 const date = '09/03/2024';
 // const requestData = {
