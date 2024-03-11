@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useAuth } from './hooks/useAuth';
 import { refreshUser } from './redux/auth/operations';
+import {SelectUser} from "./redux/profile/selectors"
 
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
@@ -21,6 +22,9 @@ import DairyPage from './pages/DairyPage/DairyPage';
 import { Loader } from './components/Loader/Loader';
 
 function App() {
+  const profile = useSelector(SelectUser);
+  const param = profile.height;
+  let full = param !== null ? true : false;
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
   useEffect(() => {
