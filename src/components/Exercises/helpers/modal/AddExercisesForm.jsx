@@ -18,11 +18,24 @@ import {
   CloseBtn,
 } from './AddExercisesForm.styled';
 import { useMediaQuery } from '@mui/material';
-import { useSelector } from 'react-redux';
-import { selectSelectedItem } from '../../../../redux/exercises/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectFormModal,
+  selectSelectedItem,
+} from '../../../../redux/exercises/selectors';
+import {
+  setFormModal,
+  setSucssesModal,
+} from '../../../../redux/exercises/exercisesSlise';
 
-const AddExerciseForm = ({ closeModal, openModalDone }) => {
+const AddExerciseForm = () => {
   const selectedItem = useSelector(selectSelectedItem);
+  const dispatch = useDispatch();
+
+  function closeModal() {
+    dispatch(setFormModal(false));
+  }
+
   // const timeTimer = useSelector((state) => state.timer);
   // const dispatch = useDispatch();
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
@@ -89,7 +102,10 @@ const AddExerciseForm = ({ closeModal, openModalDone }) => {
 
           {isBigScreen && <Timer />}
 
-          <AddDairyButton type="submit" onClick={() => openModalDone()}>
+          <AddDairyButton
+            type="submit"
+            onClick={() => dispatch(setSucssesModal(true))}
+          >
             Add to diary
           </AddDairyButton>
         </ButtonContainerTimer>

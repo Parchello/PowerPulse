@@ -15,6 +15,9 @@ export const exercisesSlise = createSlice({
     isPlayed: false,
     selectedItem: null,
     calories: null,
+
+    isOpenFormModal: false,
+    isOpenSucssesModal: false,
     error: null,
   },
   reducers: {
@@ -38,6 +41,12 @@ export const exercisesSlise = createSlice({
     },
     setCalories(state, action) {
       state.calories = action.payload;
+    },
+    setFormModal(state, action) {
+      state.isOpenFormModal = action.payload;
+    },
+    setSucssesModal(state, action) {
+      state.isOpenSucssesModal = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -76,4 +85,6 @@ export const {
   setIsPlayed,
   setCalories,
   setSelectedId,
+  setFormModal,
+  setSucssesModal,
 } = exercisesSlise.actions;

@@ -18,9 +18,12 @@ import {
 import sprite from '../../../../../assets/sprite.svg';
 import BackgroundImg from '../../../helpers/backgroundImg/backgroundImg';
 import { selectExercisesItem } from '../../../../../redux/exercises/selectors';
-import { setSelectedId } from '../../../../../redux/exercises/exercisesSlise';
+import {
+  setFormModal,
+  setSelectedId,
+} from '../../../../../redux/exercises/exercisesSlise';
 
-const ExercisesItemTabletAndDesctop = ({ openModal }) => {
+const ExercisesItemTabletAndDesctop = () => {
   const dispatch = useDispatch();
   const visibleExercise = useSelector(selectExercisesItem);
 
@@ -51,7 +54,7 @@ const ExercisesItemTabletAndDesctop = ({ openModal }) => {
                 <Workout>WORKOUT</Workout>
                 <Button
                   onClick={() => {
-                    openModal();
+                    dispatch(setFormModal(true));
                     dispatch(setSelectedId(exercis));
                   }}
                 >
