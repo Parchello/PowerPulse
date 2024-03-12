@@ -10,12 +10,15 @@ import {
   BottomInfFieldTime,
 } from './ExerciseItem.styled';
 import sprite from '../../../assets/sprite.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteExerciseById } from '../../../redux/diary/operations';
 import { DelBtn } from '../DelBtn/DelBtn.styled';
+import { Token } from '../../../redux/profile/selectors';
 
 export const ExerciseItem = ({ prop }) => {
   const dispatch = useDispatch();
+  const date = '13/03/2024';
+  const token = useSelector(Token);
   const {
     time,
     exerciseId: { _id, bodyPart, burnedCalories, equipment, name, target },
@@ -48,7 +51,9 @@ export const ExerciseItem = ({ prop }) => {
           <TitleName>Time</TitleName>
           <BottomInfFieldTime>{time}</BottomInfFieldTime>
         </div>
-        <DelBtn onClick={() => dispatch(deleteExerciseById(_id))}>
+        <DelBtn
+          onClick={() => dispatch(deleteExerciseById({ _id, token, date }))}
+        >
           <svg width={24} height={24}>
             <use xlinkHref={sprite + '#trash-03'}></use>
           </svg>
