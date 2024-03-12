@@ -25,7 +25,7 @@ export const getFilterExercises = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(
-        'api/exercises/filters?filter=Equipment&value=barbell'
+        'api/exercises/filters?filter=Body parts&value=back'
       );
       return response.data;
     } catch (error) {
