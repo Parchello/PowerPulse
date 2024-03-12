@@ -18,6 +18,27 @@ axios.defaults.baseURL = 'https://powerpulse-group5-backend.onrender.com/';
 
 const date = '11/03/2024';
 
+// dairy
+
+export const fetchDiaryDashboard = createAsyncThunk(
+  '/api/dashboard',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.get('api/diary', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        params: {
+          date,
+        },
+      });
+      return res.data;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 // products
 
 export const fetchDiaryProducts = createAsyncThunk(

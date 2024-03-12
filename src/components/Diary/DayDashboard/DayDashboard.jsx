@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/sprite.svg';
 import { DescrContainer } from '../../../pages/ProfilePage/UserCard.Styled';
 import {
@@ -9,9 +10,32 @@ import {
   MainInfoBlock,
   SecondaryInfoBlock,
   RememberText,
+  SecondaryInfoBlockMore,
+  SecondaryInfoBlockMoreExercises,
 } from './DayDashboard.styled';
+import { selectDayDashboard } from '../../../redux/diary/selectors';
+import { useEffect } from 'react';
+import { fetchDiaryDashboard } from '../../../redux/diary/operations';
+import { SelectUser } from '../../../redux/profile/selectors';
 
 const DayDashboard = () => {
+  const dispatch = useDispatch();
+  const dashboardInf = useSelector(selectDayDashboard);
+  useEffect(() => {
+    dispatch(fetchDiaryDashboard());
+  }, [dispatch]);
+  const {
+    Calories,
+    ExercisesTime,
+    // amountAll,
+    burnedCalories,
+  } = dashboardInf;
+  const bmrInf = useSelector(SelectUser);
+  // console.log(bmrInf);
+  const { bmr } = bmrInf;
+  // console.log(bmr);
+  // let { bmr } = bmrInf;
+  // bmr = 100;
   return (
     <>
       <DiaryInfoContainer>
@@ -23,7 +47,7 @@ const DayDashboard = () => {
               </svg>
               <InfoBlockLabel>Daily calorie intake</InfoBlockLabel>
             </DescrContainer>
-            <p>2200</p>
+            {bmr !== undefined ? <p>{bmr}</p> : <p>{0}</p>}
           </MainInfoBlock>
           <MainInfoBlock>
             <DescrContainer>
@@ -32,7 +56,13 @@ const DayDashboard = () => {
               </svg>
               <InfoBlockLabel>Daily physical activity</InfoBlockLabel>
             </DescrContainer>
-            <p>110</p>
+            <p>
+              {dashboardInf.ExercisesTime !== undefined ? (
+                <p>110 min</p>
+              ) : (
+                <p>0</p>
+              )}
+            </p>
           </MainInfoBlock>
         </MainBlockOfMainInfoBlock>
         <MainBlockOfSecondaryInfoBlock>
@@ -43,7 +73,7 @@ const DayDashboard = () => {
               </svg>
               <InfoBlockLabel>Calories consumed</InfoBlockLabel>
             </DescrContainer>
-            <p>110</p>
+            {dashboardInf.Calories !== undefined ? <p>{Calories}</p> : <p>0</p>}
           </SecondaryInfoBlock>
           <SecondaryInfoBlock>
             <DescrContainer>
@@ -52,26 +82,60 @@ const DayDashboard = () => {
               </svg>
               <InfoBlockLabel>Calories burned</InfoBlockLabel>
             </DescrContainer>
-            <p>110</p>
+            {dashboardInf.burnedCalories !== undefined ? (
+              <p>{burnedCalories}</p>
+            ) : (
+              <p>0</p>
+            )}
           </SecondaryInfoBlock>
-          <SecondaryInfoBlock>
-            <DescrContainer>
-              <svg width="12px" height="16px">
-                <use xlinkHref={sprite + '#icon-bubble'} />
-              </svg>
-              <InfoBlockLabel>Calories remaining</InfoBlockLabel>
-            </DescrContainer>
-            <p>110</p>
-          </SecondaryInfoBlock>
-          <SecondaryInfoBlock>
-            <DescrContainer>
-              <svg width="12px" height="16px">
-                <use xlinkHref={sprite + '#icon-running-figure'} />
-              </svg>
-              <InfoBlockLabel>Sports remaining</InfoBlockLabel>
-            </DescrContainer>
-            <p>110</p>
-          </SecondaryInfoBlock>
+          {Calories > bmr ? (
+            <SecondaryInfoBlockMore>
+              <DescrContainer>
+                <svg width="12px" height="16px">
+                  <use xlinkHref={sprite + '#icon-bubble'} />
+                </svg>
+                <InfoBlockLabel>Calories remaining</InfoBlockLabel>
+              </DescrContainer>
+              {/* math and render by conditions */}
+              <p>{bmr + Calories - burnedCalories}</p>
+            </SecondaryInfoBlockMore>
+          ) : (
+            <SecondaryInfoBlock>
+              <DescrContainer>
+                <svg width="12px" height="16px">
+                  <use xlinkHref={sprite + '#icon-bubble'} />
+                </svg>
+                <InfoBlockLabel>Calories remaining</InfoBlockLabel>
+              </DescrContainer>
+              {/* math and render by conditions */}
+              <p>{bmr - Calories}</p>
+            </SecondaryInfoBlock>
+          )}
+          {ExercisesTime > 11 ? (
+            <SecondaryInfoBlockMoreExercises>
+              <DescrContainer>
+                <svg width="12px" height="16px">
+                  <use xlinkHref={sprite + '#icon-running-figure'} />
+                </svg>
+                <InfoBlockLabel>Sports remaining</InfoBlockLabel>
+              </DescrContainer>
+              {/* math and render by conditions */}
+
+              <p>+{Math.abs(11 - ExercisesTime)}</p>
+            </SecondaryInfoBlockMoreExercises>
+          ) : (
+            <SecondaryInfoBlock>
+              <DescrContainer>
+                <svg width="12px" height="16px">
+                  <use xlinkHref={sprite + '#icon-running-figure'} />
+                </svg>
+                <InfoBlockLabel>Sports remaining</InfoBlockLabel>
+              </DescrContainer>
+              {/* math and render by conditions */}
+
+              <p>{110 - ExercisesTime}</p>
+            </SecondaryInfoBlock>
+          )}
         </MainBlockOfSecondaryInfoBlock>
         <RememberText>
           <svg width="24px" height="24px">

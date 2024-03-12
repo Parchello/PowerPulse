@@ -44,6 +44,32 @@ export const SecondaryInfoBlock = styled.div`
   justify-content: space-between;
 `;
 
+export const SecondaryInfoBlockMore = styled.div`
+  border: 1px solid #e9101d;
+  border-radius: 12px;
+  padding: 14px;
+  width: 157px;
+  height: 96px;
+  background-color: rgba(239, 237, 232, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const SecondaryInfoBlockMoreExercises = styled.div`
+  border: 1px solid #3cbf61;
+  border-radius: 12px;
+  padding: 14px;
+  width: 157px;
+  height: 96px;
+  background-color: rgba(239, 237, 232, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
 export const DiaryWarningText = styled.p`
   font-weight: 400;
   font-size: 14px;
