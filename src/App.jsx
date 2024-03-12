@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useAuth } from './hooks/useAuth';
 import { refreshUser } from './redux/auth/operations';
-import {selectParams} from "./redux/auth/selectors";
+import { selectParams } from './redux/auth/selectors';
 
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
@@ -17,13 +17,13 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import UserPage from './pages/UserPage/UserPage';
 import ProductsPage from './pages/ProductsPage/ProductsPage';
 import ExercisesPage from './pages/ExercisesPage/ExercisesPage';
-import ProfilePage from './pages/ProfilePage/ProfilePage';
+import ProfilePage from './pages/ProfilePage/ProfilePage/ProfilePage';
 import DairyPage from './pages/DairyPage/DairyPage';
 import { Loader } from './components/Loader/Loader';
 
 function App() {
   const params = useSelector(selectParams);
-  let fullParams =  params !== null ? true : false;
+  let fullParams = params !== null ? true : false;
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
   useEffect(() => {
@@ -35,11 +35,15 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={
+          <Route
+            index
+            element={
               <RestrictedRoute
                 redirectTo="/diary"
-                component={<WelcomePage/>}
-              />} />
+                component={<WelcomePage />}
+              />
+            }
+          />
           <Route
             path="/register"
             element={
@@ -51,16 +55,19 @@ function App() {
           />
           <Route
             path="/login"
-            element={fullParams ? (
-              <RestrictedRoute
-                redirectTo="/diary"
-                component={<LoginPage />} />
-            ) : (
-              <RestrictedRoute
-                redirectTo="/profile"
-                component={<LoginPage />}
-              />
-            )}
+            element={
+              fullParams ? (
+                <RestrictedRoute
+                  redirectTo="/diary"
+                  component={<LoginPage />}
+                />
+              ) : (
+                <RestrictedRoute
+                  redirectTo="/profile"
+                  component={<LoginPage />}
+                />
+              )
+            }
           />
           <Route
             path="/user"
