@@ -300,7 +300,7 @@ to {
     display: flex;
     flex-direction: row;
     align-items: center;
-`,X="/PowerPulse/assets/sprite-7fcb539c.svg",Up=e=>e.profile.user,uf=()=>{const e=be(Up),{isLoggedIn:t}=Os(),n=gn("(max-width: 767px)");return f.jsx(Cr,{to:e.birthday!==null||t===!1?"/":"/profile",children:f.jsx("svg",{width:n?"126px":"151px",height:n?"13px":"17px",children:f.jsx("use",{xlinkHref:X+"#icon-Logo-1"})})})},LF=C.ul`
+`,X="/PowerPulse/assets/sprite-b9548f36.svg",Up=e=>e.profile.user,uf=()=>{const e=be(Up),{isLoggedIn:t}=Os(),n=gn("(max-width: 767px)");return f.jsx(Cr,{to:e.birthday!==null||t===!1?"/":"/profile",children:f.jsx("svg",{width:n?"126px":"151px",height:n?"13px":"17px",children:f.jsx("use",{xlinkHref:X+"#icon-Logo-1"})})})},LF=C.ul`
     display: flex;
     flex-direction: column;
     gap: 16px;
