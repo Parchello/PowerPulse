@@ -1,4 +1,4 @@
-import TitlePage from '../../pages/ProfilePage/TitlePage';
+import TitlePage from '../../pages/ProfilePage/Title/TitlePage';
 import { BlockInfo } from './BlockInfo.styled';
 import DayDashboard from './DayDashboard/DayDashboard';
 import DayExercises from './DayExercises/DayExercises';
