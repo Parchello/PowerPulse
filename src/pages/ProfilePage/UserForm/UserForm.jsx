@@ -1,13 +1,13 @@
 import { useFormik } from 'formik';
 
-import sprite from '../../assets/sprite.svg';
+import sprite from '../../../assets/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { SelectUser } from '../../redux/profile/selectors.jsx';
+import { SelectUser } from '../../../redux/profile/selectors.jsx';
 import {
   fetchCurrentUser,
   patchUserParams,
-} from '../../redux/profile/operations.jsx';
-import { useEffect } from 'react';
+} from '../../../redux/profile/operations.jsx';
+import { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import {
   StyldInputShort,
@@ -29,8 +29,10 @@ import {
   ErrorDiv,
   SuccessDiv,
 } from './UserForm.Styled.jsx';
-import StyledDatepicker from '../../components/Diary/DaySwitch/StyledDatepicker.jsx';
-import { useFormikContext } from 'formik';
+// import StyledDatepicker from '../../../components/Diary/DaySwitch/StyledDatepicker.jsx';
+// import { useFormikContext } from 'formik';
+
+// import DatePicker from 'react-datepicker';
 
 const validate = (values, props /* only available when using withFormik */) => {
   const errors = {};
@@ -66,18 +68,29 @@ const validate = (values, props /* only available when using withFormik */) => {
   return errors;
 };
 
+// const DDatePicker = () => {
+//   const [startDate, setStartDate] = useState(new Date());
+//   return (
+//     <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+//   );
+// };
+
 const UserForm = () => {
   const currentUser = useSelector(SelectUser);
   const dispatch = useDispatch();
+  const [name, setName] = useState();
+
+  useEffect(() => {
+    setName(currentUser.name);
+  }, [currentUser.name]);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, []);
 
-  //// OLD FORM
   const formik = useFormik({
     initialValues: {
-      name: currentUser.name || '',
+      name: name || '',
       email: currentUser.email ? currentUser.email : '',
       height: currentUser.height ? currentUser.height : '',
       currentWeight: currentUser.currentWeight || '',
@@ -159,7 +172,6 @@ const UserForm = () => {
     }
   };
 
-  // console.log('initialValues', formik.values.name);
   return (
     <Form onSubmit={formik.handleSubmit}>
       <NameEmailContainer>
@@ -264,6 +276,10 @@ const UserForm = () => {
           {/* <StyledDatepicker
             selected={formik.values.birthday}
             onChange={(date) => formik.setFieldValue('birthday', date)}
+          /> */}
+          {/* <DDatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
           /> */}
         </DataContainerItem>
       </DataContainer>

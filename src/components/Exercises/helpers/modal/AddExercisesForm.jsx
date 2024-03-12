@@ -1,7 +1,4 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import exercises from '../../exercises';
 import Timer from '../timer/Timer';
-// import { useEffect } from 'react';
 import sprite from '../../../../assets/sprite.svg';
 import {
   AddFormContainer,
@@ -19,10 +16,7 @@ import {
 } from './AddExercisesForm.styled';
 import { useMediaQuery } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectFormModal,
-  selectSelectedItem,
-} from '../../../../redux/exercises/selectors';
+import { selectSelectedItem } from '../../../../redux/exercises/selectors';
 import {
   setFormModal,
   setSucssesModal,
@@ -32,31 +26,14 @@ const AddExerciseForm = () => {
   const selectedItem = useSelector(selectSelectedItem);
   const dispatch = useDispatch();
 
-  function closeModal() {
-    dispatch(setFormModal(false));
-  }
-
-  // const timeTimer = useSelector((state) => state.timer);
-  // const dispatch = useDispatch();
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
   const isBigScreen = useMediaQuery('(min-width: 768px)');
-
-  // useEffect(() => {
-  //   const item = exercises[0];
-
-  //   if (timeTimer !== 0) {
-  //     const burnedCalories = Math.round(
-  //       (timeTimer * item.burnedCalories) / 180
-  //     );
-  //     dispatch(Calories(burnedCalories));
-  //   }
-  // }, [timeTimer, dispatch]);
 
   return (
     <AddFormContainer>
       <div>
         <div>
-          <CloseBtn onClick={() => closeModal()}>
+          <CloseBtn onClick={() => dispatch(setFormModal(false))}>
             <svg width="16px" height="16px">
               <use xlinkHref={sprite + '#icon-close'} />
             </svg>
@@ -92,19 +69,14 @@ const AddExerciseForm = () => {
           </ExercContainer>
         </div>
         <ButtonContainerTimer>
-          {/* <TimerContainer>
-            <Time>Time</Time>
-            <Timer />
-            <CaloriesBurn>
-              Burned calories: <CaloriesNumber>{calories}</CaloriesNumber>
-            </CaloriesBurn>
-          </TimerContainer> */}
-
           {isBigScreen && <Timer />}
 
           <AddDairyButton
             type="submit"
-            onClick={() => dispatch(setSucssesModal(true))}
+            onClick={() => {
+              dispatch(setSucssesModal(true));
+              dispatch(setFormModal(false));
+            }}
           >
             Add to diary
           </AddDairyButton>

@@ -1,9 +1,9 @@
-import sprite from '../../assets/sprite.svg';
+import sprite from '../../../assets/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { logOut } from '../../redux/auth/operations.jsx';
-import { Text } from '../../components/Header/LogOut/LogOut.Styled';
-import { SelectUser } from '../../redux/profile/selectors.jsx';
+import { logOut } from '../../../redux/auth/operations.jsx';
+import { Text } from '../../../components/Header/LogOut/LogOut.Styled.jsx';
+import { SelectUser } from '../../../redux/profile/selectors.jsx';
 import { useEffect } from 'react';
 import {
   UserCard,
@@ -23,16 +23,16 @@ import {
   TextDescr,
   UserImg,
 } from './UserCard.Styled.jsx';
-import { patchAvatar } from '../../redux/profile/operations.jsx';
+import { patchAvatar } from '../../../redux/profile/operations.jsx';
 
 const Usercard = () => {
   const dispatch = useDispatch();
   const user = useSelector(SelectUser);
   const [avatar, setAvatar] = useState();
 
-  // useEffect(() => {
-  //   setAvatar(user.avatar);
-  // }, [user.avatar]);
+  useEffect(() => {
+    setAvatar(user.avatar);
+  }, [user.avatar]);
 
   const userAvatar = <UserImg src={user.avatar || avatar} alt="User avatar" />;
 
