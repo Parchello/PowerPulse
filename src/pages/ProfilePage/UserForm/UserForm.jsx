@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 
-import sprite from '../../assets/sprite.svg';
+import sprite from '../../../assets/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { SelectUser } from '../../../redux/profile/selectors.jsx';
 import {
