@@ -3,6 +3,7 @@ import { initialState } from './initialState';
 import {
   deleteExerciseById,
   deleteProductDiaryById,
+  fetchDiaryDashboard,
   fetchDiaryExercises,
   fetchDiaryProducts,
 } from './operations';
@@ -22,6 +23,13 @@ const diaryProductsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
+      .addCase(fetchDiaryDashboard.pending, handlePending)
+      .addCase(fetchDiaryDashboard.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.dayDasboard = action.payload;
+      })
+      .addCase(fetchDiaryDashboard.rejected, handleRejection)
       .addCase(fetchDiaryProducts.pending, handlePending)
       .addCase(fetchDiaryProducts.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -47,6 +55,7 @@ const diaryProductsSlice = createSlice({
 
       .addCase(fetchDiaryExercises.pending, handlePending)
       .addCase(fetchDiaryExercises.fulfilled, (state, action) => {
+        console.log(action);
         state.isLoading = false;
         state.exercises = action.payload.exercises;
         state.error = null;
