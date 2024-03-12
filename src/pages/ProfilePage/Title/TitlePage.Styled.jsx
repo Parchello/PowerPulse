@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-weight: 700;
   font-size: 32px;
   line-height: 44px;
@@ -24,9 +24,3 @@ const Title = styled.h1`
     margin-bottom: 64px;
   }
 `;
-
-const TitlePage = (props) => {
-  return <Title>{props.titleName}</Title>;
-};
-
-export default TitlePage;
