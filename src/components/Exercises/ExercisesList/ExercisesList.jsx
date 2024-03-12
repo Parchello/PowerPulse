@@ -3,17 +3,13 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { Container } from './ExercisesList.styled';
 import ExercisesItemTabletAndDesctop from './ExercisesItem/DesktopAndTablet/ExersiseItemTabletAndDesc';
 
-const ExercisesList = ({ openModal }) => {
+const ExercisesList = () => {
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
 
   return (
     <ul>
       <Container>
-        {isMobileScreen ? (
-          <ExercisesItem openModal={openModal} />
-        ) : (
-          <ExercisesItemTabletAndDesctop openModal={openModal} />
-        )}
+        {isMobileScreen ? <ExercisesItem /> : <ExercisesItemTabletAndDesctop />}
       </Container>
     </ul>
   );

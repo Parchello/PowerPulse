@@ -1,10 +1,19 @@
 import { useMediaQuery } from '@mui/material';
 import AddExerciseForm from './AddExercisesForm';
 import Modal from 'react-modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFormModal } from '../../../../redux/exercises/selectors';
+import { setFormModal } from '../../../../redux/exercises/exercisesSlise';
 
-const BasicModalWindow = ({ isOpen, closeModal, openModalDone }) => {
+const BasicModalWindow = () => {
   Modal.setAppElement('#root');
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
+  const osOpenFormModal = useSelector(selectFormModal);
+  const dispatch = useDispatch();
+
+  function closeModal() {
+    dispatch(setFormModal(false));
+  }
 
   const customStyles = {
     content: {
@@ -28,11 +37,12 @@ const BasicModalWindow = ({ isOpen, closeModal, openModalDone }) => {
 
   return (
     <div>
-      <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles}>
-        <AddExerciseForm
-          closeModal={closeModal}
-          openModalDone={openModalDone}
-        />
+      <Modal
+        isOpen={osOpenFormModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+      >
+        <AddExerciseForm />
       </Modal>
     </div>
   );

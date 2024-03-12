@@ -3,14 +3,14 @@ import {
   Container,
   Heading,
   NavContainer,
-  // ArrowSvgBack,
-  // BackButton,
+  ArrowSvgBack,
+  BackButton,
 } from './Exercises.styled.jsx';
 import ExercisesCategories from './ExercisesCategories/EsersicisesCategories.jsx';
 import ExercisesList from './ExercisesList/ExercisesList.jsx';
 import ExercisesSubcategoriesList from './ExercisesSubcategoriesList/ExercisesSubcategoriesList.jsx';
 import BasicModalWindow from './helpers/modal/BasicModalWindow.jsx';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import AddPExerciseSuccess from './helpers/modal/AddPExerciseSuccess/AddPExerciseSuccess.jsx';
 import {
   selectFilters,
@@ -21,32 +21,13 @@ import {
   getFilterExercises,
 } from '../../redux/exercises/operation.jsx';
 
-// import sprite from '../../assets/sprite.svg';
+import sprite from '../../assets/sprite.svg';
 
 const Exercises = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
 
   const selectedCategory = useSelector(selectSelectedCategories);
-
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [modalIsOpenSucces, setIsOpenSucces] = useState(false);
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModalDone() {
-    setIsOpenSucces(false);
-  }
-
-  function openModalDone() {
-    setIsOpenSucces(true);
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,6 +59,14 @@ const Exercises = () => {
   return (
     <div>
       <Container>
+        {filters && (
+          <BackButton type="button">
+            <ArrowSvgBack width="16" height="16">
+              <use xlinkHref={sprite + '#icon-arrow'} />
+            </ArrowSvgBack>
+            Back
+          </BackButton>
+        )}
         <NavContainer>
           {filters ? (
             <Heading>{filters}</Heading>
@@ -88,28 +77,10 @@ const Exercises = () => {
           <ExercisesCategories />
         </NavContainer>
 
-        {selectedCategory ? (
-          <ExercisesList openModal={openModal} />
-        ) : (
-          <ExercisesSubcategoriesList />
-        )}
-
-        {/* <BackButton type="button">
-          <ArrowSvgBack width="16" height="16">
-            <use xlinkHref={sprite + '#icon-arrow'} />
-          </ArrowSvgBack>
-          Back
-        </BackButton> */}
+        {selectedCategory ? <ExercisesList /> : <ExercisesSubcategoriesList />}
       </Container>
-      <BasicModalWindow
-        isOpen={modalIsOpen}
-        closeModal={closeModal}
-        openModalDone={openModalDone}
-      />
-      <AddPExerciseSuccess
-        isOpen={modalIsOpenSucces}
-        closeModal={closeModalDone}
-      />
+      <BasicModalWindow />
+      <AddPExerciseSuccess />
     </div>
   );
 };

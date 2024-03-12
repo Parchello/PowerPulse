@@ -13,6 +13,10 @@ export const selectIsPlayed = (state) => state.exercises.isPlayed;
 export const selectSelectedItem = (state) => state.exercises.selectedItem;
 export const selectCalories = (state) => state.exercises.calories;
 
+//
+export const selectFormModal = (state) => state.exercises.isOpenFormModal;
+export const selectSucssesModal = (state) => state.exercises.isOpenSucssesModal;
+
 export const filteredCategory = createSelector(
   [selectAllCategory, selectFilters],
   (category, filters) => {
