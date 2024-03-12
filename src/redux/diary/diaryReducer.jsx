@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { initialState } from './initialState';
 import { initialState } from './initialState';
 import {
+  deleteExerciseById,
   deleteProductDiaryById,
   fetchDiaryExercises,
   fetchDiaryProducts,
@@ -9,13 +9,11 @@ import {
 
 const handlePending = (state) => {
   state.isLoading = true;
-  console.log(state);
 };
 
 const handleRejection = (state, action) => {
-  console.log(state, action);
-  // state.diary.isLoading = false;
-  // state.diary.error = action.payload;
+  state.isLoading = false;
+  state.error = action.payload;
 };
 
 const diaryProductsSlice = createSlice({
@@ -36,15 +34,15 @@ const diaryProductsSlice = createSlice({
 
       .addCase(deleteProductDiaryById.pending, handlePending)
       .addCase(deleteProductDiaryById.fulfilled, (state, action) => {
-        console.log(action);
         state.isLoading = false;
         state.error = null;
         const deletedProduct = state.products.findIndex(
-          (product) => product._id === action.payload.products.productId._id
+          (product) => product._id === action.meta.arg
         );
         state.products.splice(deletedProduct, 1);
       })
       .addCase(deleteProductDiaryById.rejected, handleRejection)
+
       // exercises
 
       .addCase(fetchDiaryExercises.pending, handlePending)
@@ -53,7 +51,19 @@ const diaryProductsSlice = createSlice({
         state.exercises = action.payload.exercises;
         state.error = null;
       })
-      .addCase(fetchDiaryExercises.rejected, handleRejection);
+
+      .addCase(fetchDiaryExercises.rejected, handleRejection)
+      // deleteExercise
+      .addCase(deleteExerciseById.pending, handlePending)
+      .addCase(deleteExerciseById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const deletedExercise = state.exercises.findIndex(
+          (exercise) => exercise._id === action.meta.arg
+        );
+        state.exercises.splice(deletedExercise, 1);
+      })
+      .addCase(deleteExerciseById.rejected, handleRejection);
   },
 });
 

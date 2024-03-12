@@ -21,6 +21,7 @@ export const ProductsTable = () => {
     dispatch(fetchDiaryProducts());
   }, [dispatch]);
   const products = useSelector(selectDiaryProducts);
+  console.log('products: ', products);
   return (
     <DairyProductsField>
       <HeadOfField>

@@ -10,18 +10,14 @@ import {
   BottomInfFieldTime,
 } from './ExerciseItem.styled';
 import sprite from '../../../assets/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { deleteExerciseById } from '../../../redux/diary/operations';
 
 export const ExerciseItem = ({ prop }) => {
+  const dispatch = useDispatch();
   const {
     time,
-    exerciseId: {
-      // _id,
-      bodyPart,
-      burnedCalories,
-      equipment,
-      name,
-      target,
-    },
+    exerciseId: { _id, bodyPart, burnedCalories, equipment, name, target },
   } = prop;
 
   return (
@@ -52,7 +48,7 @@ export const ExerciseItem = ({ prop }) => {
           <BottomInfFieldTime>{time}</BottomInfFieldTime>
         </div>
         <button
-          // onClick={() => handleDelete()}
+          onClick={() => dispatch(deleteExerciseById(_id))}
           style={{
             background: 'none',
             border: 'none',
