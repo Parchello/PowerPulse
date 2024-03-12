@@ -14,14 +14,21 @@ import { NotFoundExercises } from '../NotFoundExercises/NotFoundExercises';
 import { PositionCorrectorDiv } from '../NotFoundProducts/NotFoundProducts.styled';
 import { fetchDiaryExercises } from '../../../redux/diary/operations';
 import { selectDiaryExercises } from '../../../redux/diary/selectors';
+import { Token } from '../../../redux/profile/selectors';
 //
 export const ExercisesTable = () => {
   const dispatch = useDispatch();
+  const token = useSelector(Token);
+  const date = '13/03/2024';
   useEffect(() => {
-    dispatch(fetchDiaryExercises());
-  }, [dispatch]);
+    const request = {
+      token,
+      date,
+    };
+    dispatch(fetchDiaryExercises(request));
+  }, [dispatch, token]);
   const exercises = useSelector(selectDiaryExercises);
-  console.log(exercises.map((i) => console.log('check: ', i.exerciseId._id)));
+  // console.log(exercises.map((i) => console.log('check: ', i.exerciseId._id)));
   return (
     <DairyExercisesField>
       <HeadOfField>

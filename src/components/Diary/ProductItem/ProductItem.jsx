@@ -12,22 +12,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/sprite.svg';
 import { deleteProductDiaryById } from '../../../redux/diary/operations';
 import { DelBtn } from '../DelBtn/DelBtn.styled';
-import { SelectUser } from '../../../redux/profile/selectors';
+import { SelectUser, Token } from '../../../redux/profile/selectors';
 
 export const ProductItem = ({ prop }) => {
   const {
     productId: { _id, title, category, calories, weight, groupBloodNotAllowed },
   } = prop;
 
-  console.log(groupBloodNotAllowed);
-
   const userInfo = useSelector(SelectUser);
-
-  console.log(userInfo.blood);
-
-  console.log(groupBloodNotAllowed[userInfo.blood - 1]);
-
+  const date = '13/03/2024';
   const dispatch = useDispatch();
+  const token = useSelector(Token);
 
   return (
     <LiItemProducts>
@@ -58,7 +53,9 @@ export const ProductItem = ({ prop }) => {
             )}
           </ProductBottomInfo>
         </div>
-        <DelBtn onClick={() => dispatch(deleteProductDiaryById(_id))}>
+        <DelBtn
+          onClick={() => dispatch(deleteProductDiaryById({ _id, date, token }))}
+        >
           <svg width={24} height={24}>
             <use xlinkHref={sprite + '#trash-03'}></use>
           </svg>

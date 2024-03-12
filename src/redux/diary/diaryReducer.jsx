@@ -27,7 +27,7 @@ const diaryProductsSlice = createSlice({
       .addCase(fetchDiaryDashboard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.dayDasboard = action.payload;
+        state.dayDashboard = action.payload;
       })
       .addCase(fetchDiaryDashboard.rejected, handleRejection)
       .addCase(fetchDiaryProducts.pending, handlePending)
