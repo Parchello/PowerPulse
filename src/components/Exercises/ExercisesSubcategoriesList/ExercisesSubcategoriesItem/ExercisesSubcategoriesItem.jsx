@@ -15,6 +15,7 @@ import { getAllExercises } from '../../../../redux/exercises/operation.jsx';
 const ExercisesSubcategoriesItem = () => {
   const dispatch = useDispatch();
   const visibleExercises = useSelector(filteredCategory);
+  console.log(visibleExercises);
 
   // Функція, що викликає getFilterExercises при кліку на елемент
   const handleClick = (params) => {
