@@ -142,8 +142,8 @@ export const ProductsItem = ({
         <ButtonBox>
           <AddButton
             onClick={() => {
-              dispatch(addProductToDiary());
-              console.log(productData);
+              dispatch(addProductToDiary(productData));
+              // console.log(productData);
               setModalProductsIsOpen(false);
               setModalWellDoneIsOpen(true);
             }}

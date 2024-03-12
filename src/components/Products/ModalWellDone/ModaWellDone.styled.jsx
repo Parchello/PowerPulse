@@ -139,8 +139,13 @@ export const BackBtn = styled(NavLink)`
   background-color: inherit;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  gap: 8px;
+  /* display: flex;
+  gap: 8px; */
+  margin: 0 auto; /* Це вирівнюватиме кнопку по центру горизонтально */
+  display: flex; /* Встановлюємо flexbox */
+  align-items: center; /* Вирівнюємо текст по вертикалі по центру */
+  justify-content: center; /* Вирівнюємо текст по горизонталі по центру */
+  gap: 8px; /* Простір між текстом і іконкою */
   /* width: 97px; */
   height: 18px;
 `;
