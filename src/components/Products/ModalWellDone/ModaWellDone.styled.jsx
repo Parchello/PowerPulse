@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Modal = styled.div`
@@ -129,7 +130,7 @@ export const NextProductBtn = styled.button`
   }
 `;
 
-export const BackBtn = styled.button`
+export const BackBtn = styled(NavLink)`
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
