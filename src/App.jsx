@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useAuth } from './hooks/useAuth';
 import { refreshUser } from './redux/auth/operations';
+import {selectParams} from "./redux/auth/selectors";
 
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
@@ -21,6 +22,8 @@ import DairyPage from './pages/DairyPage/DairyPage';
 import { Loader } from './components/Loader/Loader';
 
 function App() {
+  const params = useSelector(selectParams);
+  let fullParams =  params !== null ? true : false;
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
   useEffect(() => {
@@ -48,12 +51,16 @@ function App() {
           />
           <Route
             path="/login"
-            element={
+            element={fullParams ? (
+              <RestrictedRoute
+                redirectTo="/diary"
+                component={<LoginPage />} />
+            ) : (
               <RestrictedRoute
                 redirectTo="/profile"
                 component={<LoginPage />}
               />
-            }
+            )}
           />
           <Route
             path="/user"
