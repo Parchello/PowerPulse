@@ -16,10 +16,7 @@ import {
   selectFilters,
   selectSelectedCategories,
 } from '../../redux/exercises/selectors.jsx';
-import {
-  getAllExercises,
-  getFilterExercises,
-} from '../../redux/exercises/operation.jsx';
+import { getFilterExercises } from '../../redux/exercises/operation.jsx';
 
 import sprite from '../../assets/sprite.svg';
 
@@ -29,22 +26,22 @@ const Exercises = () => {
 
   const selectedCategory = useSelector(selectSelectedCategories);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const result = await dispatch(getAllExercises());
+  //     } catch (error) {
+  //       console.error('Помилка при отриманні даних з getAllExercises:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [dispatch]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await dispatch(getAllExercises());
-      } catch (error) {
-        console.error('Помилка при отриманні даних з getAllExercises:', error);
-      }
-    };
-
-    fetchData();
-  }, [dispatch]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await dispatch(getFilterExercises());
+        await dispatch(getFilterExercises());
       } catch (error) {
         console.error(
           'Помилка при отриманні даних з getFilterExercises:',

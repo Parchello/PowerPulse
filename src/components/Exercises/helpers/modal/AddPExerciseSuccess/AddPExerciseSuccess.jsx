@@ -1,6 +1,5 @@
 import Modal from 'react-modal';
 import { useMediaQuery } from '@mui/material';
-import { useState } from 'react';
 import {
   Button,
   CloseBtn,
@@ -13,23 +12,29 @@ import {
 import sprite from '../../../../../assets/sprite.svg';
 import thumb_up from '../../../../../assets/img/Thumb_up-img.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSucssesModal } from '../../../../../redux/exercises/selectors';
+import {
+  selectCalories,
+  selectSucssesModal,
+  selectTimer,
+} from '../../../../../redux/exercises/selectors';
 import {
   setFormModal,
   setSucssesModal,
 } from '../../../../../redux/exercises/exercisesSlise';
+import { CaloriesNumber } from '../AddExercisesForm.styled';
 
 const AddPExerciseSuccess = () => {
   const isOpenSucssesModal = useSelector(selectSucssesModal);
+  const time = useSelector(selectTimer);
+  const calories = useSelector(selectCalories);
+
   const dispatch = useDispatch();
 
   Modal.setAppElement('#root');
 
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
 
-  function closeModal() {
-    dispatch(setSucssesModal(false));
-  }
+  function closeModal() {}
 
   const customStyles = {
     content: {
@@ -68,8 +73,12 @@ const AddPExerciseSuccess = () => {
           <Img src={thumb_up} alt="thumb up" />
           <div>
             <Heading>Well done</Heading>
-            <Text>Your time: {}</Text>
-            <Text>Burned calories: {}</Text>
+            <Text>
+              Your time: <CaloriesNumber>{time} minutes</CaloriesNumber>
+            </Text>
+            <Text>
+              Burned calories: <CaloriesNumber>{calories}</CaloriesNumber>
+            </Text>
           </div>
           <Button
             onClick={() => {

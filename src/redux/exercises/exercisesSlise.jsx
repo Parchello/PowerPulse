@@ -7,9 +7,10 @@ export const exercisesSlise = createSlice({
     isLoading: false,
     exercises: [],
     category: [],
-    filters: 'bodyPart',
+    filters: 'Body parts',
     selectedCategories: '',
     filteredCategory: '',
+    urlParams: 'bodyPart',
 
     timer: null,
     isPlayed: false,
@@ -27,8 +28,12 @@ export const exercisesSlise = createSlice({
     setCategory(state, action) {
       state.selectedCategories = action.payload;
     },
+
     setFilteredCategory(state, action) {
       state.filteredCategory = action.payload;
+    },
+    setUrlParams(state, action) {
+      state.urlParams = action.payload;
     },
     setTimer(state, action) {
       state.timer = action.payload;
@@ -81,6 +86,7 @@ export const {
   setFilter,
   setCategory,
   setFilteredCategory,
+  setUrlParams,
   setTimer,
   setIsPlayed,
   setCalories,
