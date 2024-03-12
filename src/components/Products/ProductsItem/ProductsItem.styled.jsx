@@ -12,8 +12,6 @@ export const DietBlock = styled.li`
 
   @media screen and (min-width: 1440px) {
     width: 405px;
-    /* max-width: 405px;
-    flex-basis: calc((100% - 32px) / 2 - 16px); */
   }
 `;
 
