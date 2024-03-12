@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectExercises } from '../../../../redux/exercises/selectors';
 import {
   setFormModal,
+  setSelectedId,
   setSucssesModal,
 } from '../../../../redux/exercises/exercisesSlise';
 
@@ -30,7 +31,7 @@ const ExercisesItem = () => {
     <div>
       {visibleExercise.map((exercis) => (
         <ImageListItem
-          key={exercis._id.$oid}
+          key={exercis._id}
           style={{ paddingBottom: isMobileScreen ? '20px' : '0' }}
         >
           <ContainerExIt>
@@ -39,7 +40,7 @@ const ExercisesItem = () => {
               <Button
                 onClick={() => {
                   dispatch(setFormModal(true));
-                  dispatch(setSucssesModal(exercis));
+                  dispatch(setSelectedId(exercis));
                 }}
               >
                 Start
@@ -50,9 +51,6 @@ const ExercisesItem = () => {
             </ContainerWorkout>
             <NameContainer>
               <span>
-                {/* <ArrowSvgRunning width="14" height="16">
-                  <use xlinkHref={sprite + '#icon-running-figure'} />
-                </ArrowSvgRunning> */}
                 <svg width="24px" height="24px">
                   <use xlinkHref={sprite + '#icon-running-man'} />
                 </svg>

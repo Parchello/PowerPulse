@@ -78,7 +78,9 @@ export const ErrorButton = styled(Link)`
   color: ${(p) => p.theme.colors.white};
 
   text-align: center;
-  padding-top: 12px;
+  // padding-top: 12px;
+  padding: 12px 40px;
+  text-align: center;
   font-weight: 500;
   font-size: 16px;
   line-height: 112%;
