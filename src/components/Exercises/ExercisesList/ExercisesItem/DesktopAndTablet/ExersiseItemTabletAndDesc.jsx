@@ -17,7 +17,7 @@ import {
 } from '../ExercisesItem.styled';
 import sprite from '../../../../../assets/sprite.svg';
 import BackgroundImg from '../../../helpers/backgroundImg/backgroundImg';
-import { selectExercisesItem } from '../../../../../redux/exercises/selectors';
+import { selectExercises } from '../../../../../redux/exercises/selectors';
 import {
   setFormModal,
   setSelectedId,
@@ -25,7 +25,7 @@ import {
 
 const ExercisesItemTabletAndDesctop = () => {
   const dispatch = useDispatch();
-  const visibleExercise = useSelector(selectExercisesItem);
+  const visibleExercise = useSelector(selectExercises);
 
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
   const isTabletScreen = useMediaQuery('(max-width: 1439px)');
