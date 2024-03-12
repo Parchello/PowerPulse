@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const CloseBtn = styled.button`
   position: absolute;
@@ -75,7 +76,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Link = styled.a`
+export const LinkToDairy = styled(Link)`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;

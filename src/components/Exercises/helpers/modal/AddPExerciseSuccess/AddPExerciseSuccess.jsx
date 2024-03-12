@@ -5,17 +5,31 @@ import {
   Button,
   CloseBtn,
   Text,
-  Link,
+  LinkToDairy,
   Heading,
   Img,
   DoneContainer,
 } from './AddPExerciseSuccess.styled';
 import sprite from '../../../../../assets/sprite.svg';
 import thumb_up from '../../../../../assets/img/Thumb_up-img.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectSucssesModal } from '../../../../../redux/exercises/selectors';
+import {
+  setFormModal,
+  setSucssesModal,
+} from '../../../../../redux/exercises/exercisesSlise';
 
-const AddPExerciseSuccess = ({ isOpen, closeModal }) => {
+const AddPExerciseSuccess = () => {
+  const isOpenSucssesModal = useSelector(selectSucssesModal);
+  const dispatch = useDispatch();
+
   Modal.setAppElement('#root');
+
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
+
+  function closeModal() {
+    dispatch(setSucssesModal(false));
+  }
 
   const customStyles = {
     content: {
@@ -38,7 +52,11 @@ const AddPExerciseSuccess = ({ isOpen, closeModal }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles}>
+    <Modal
+      isOpen={isOpenSucssesModal}
+      onRequestClose={closeModal}
+      style={customStyles}
+    >
       <div>
         <CloseBtn onClick={() => closeModal()}>
           <svg width="16px" height="16px">
@@ -53,14 +71,21 @@ const AddPExerciseSuccess = ({ isOpen, closeModal }) => {
             <Text>Your time: {}</Text>
             <Text>Burned calories: {}</Text>
           </div>
-          <Button>Next exercise</Button>
+          <Button
+            onClick={() => {
+              dispatch(setSucssesModal(false));
+              dispatch(setFormModal(false));
+            }}
+          >
+            Next exercise
+          </Button>
         </DoneContainer>
-        <Link href="#">
+        <LinkToDairy to="/diary">
           To the diary{' '}
           <svg width="16px" height="16px">
             <use xlinkHref={sprite + '#icon-gray-arrow'} />
           </svg>
-        </Link>
+        </LinkToDairy>
       </div>
     </Modal>
   );

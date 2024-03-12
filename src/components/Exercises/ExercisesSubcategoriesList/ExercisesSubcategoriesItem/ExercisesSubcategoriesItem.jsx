@@ -10,10 +10,18 @@ import {
 import { filteredCategory } from '../../../../redux/exercises/selectors.jsx';
 
 import { setCategory } from '../../../../redux/exercises/exercisesSlise.jsx';
+import { getAllExercises } from '../../../../redux/exercises/operation.jsx';
 
 const ExercisesSubcategoriesItem = () => {
   const dispatch = useDispatch();
   const visibleExercises = useSelector(filteredCategory);
+
+  // Функція, що викликає getFilterExercises при кліку на елемент
+  const handleClick = (params) => {
+    const { name, filter, value } = params;
+    dispatch(setCategory(name)); // Встановлюємо вибрану категорію перед викликом запиту
+    dispatch(getAllExercises({ filter: filter, value: value })); // Викликаємо запит з новими параметрами
+  };
 
   return (
     <div>
@@ -22,7 +30,7 @@ const ExercisesSubcategoriesItem = () => {
           <ExercisesItem
             key={filter._id}
             style={{ width: 100 }}
-            onClick={() => dispatch(setCategory(filter.name))}
+            onClick={() => handleClick(filter)}
           >
             <ExerscisesItemContainer
               style={{

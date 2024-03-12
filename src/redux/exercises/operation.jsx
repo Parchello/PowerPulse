@@ -6,9 +6,11 @@ axios.defaults.baseURL = 'https://powerpulse-group5-backend.onrender.com';
 
 export const getAllExercises = createAsyncThunk(
   'exercises',
-  async (_, thunkAPI) => {
+  async ({ filter, value }, thunkAPI) => {
     try {
-      const response = await axios.get('api/exercises');
+      const response = await axios.get(
+        `api/exercises?filter=${filter}&value=${value}`
+      );
 
       return response.data;
     } catch (error) {
@@ -22,7 +24,9 @@ export const getFilterExercises = createAsyncThunk(
   'exercises/filters',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('api/exercises/filters');
+      const response = await axios.get(
+        'api/exercises/filters?filter=Body parts&value=back'
+      );
       return response.data;
     } catch (error) {
       toast.error('Error getting exercises');
