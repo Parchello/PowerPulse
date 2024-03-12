@@ -7,7 +7,7 @@ export const exercisesSlise = createSlice({
     isLoading: false,
     exercises: [],
     category: [],
-    filters: 'Body parts',
+    filters: 'bodyPart',
     selectedCategories: '',
     filteredCategory: '',
 

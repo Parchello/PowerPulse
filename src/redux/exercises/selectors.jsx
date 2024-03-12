@@ -29,23 +29,23 @@ export const filteredCategory = createSelector(
   }
 );
 
-export const selectExercisesItem = createSelector(
-  [selectExercises, selectFilters, selectSelectedCategories],
-  (exercises, filters, selectedCategories) => {
-    if (filters === 'Body parts') {
-      return exercises.filter((item) =>
-        item.bodyPart.toLowerCase().includes(selectedCategories.toLowerCase())
-      );
-    }
-    if (filters === 'Muscles') {
-      return exercises.filter((item) =>
-        item.target.toLowerCase().includes(selectedCategories.toLowerCase())
-      );
-    }
-    if (filters === 'Equipment') {
-      return exercises.filter((item) =>
-        item.equipment.toLowerCase().includes(selectedCategories.toLowerCase())
-      );
-    }
-  }
-);
+// export const selectExercisesItem = createSelector(
+//   [selectExercises, selectFilters, selectSelectedCategories],
+//   (exercises, filters, selectedCategories) => {
+//     if (filters === 'Body parts') {
+//       return exercises.filter((item) =>
+//         item.bodyPart.toLowerCase().includes(selectedCategories.toLowerCase())
+//       );
+//     }
+//     if (filters === 'Muscles') {
+//       return exercises.filter((item) =>
+//         item.target.toLowerCase().includes(selectedCategories.toLowerCase())
+//       );
+//     }
+//     if (filters === 'Equipment') {
+//       return exercises.filter((item) =>
+//         item.equipment.toLowerCase().includes(selectedCategories.toLowerCase())
+//       );
+//     }
+//   }
+// );
