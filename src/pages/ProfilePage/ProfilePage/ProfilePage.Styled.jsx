@@ -1,9 +1,6 @@
-import TitlePage from '../ProfilePage/TitlePage';
-import UserForm from '../ProfilePage/UserForm';
-import Usercard from '../ProfilePage/UserCard';
 import styled from 'styled-components';
 
-const Section = styled.div`
+export const Section = styled.div`
   display: flex;
 
   //mobile
@@ -30,17 +27,3 @@ const Section = styled.div`
     flex-direction: row;
   }
 `;
-
-const ProfilePage = () => {
-  return (
-    <>
-      <TitlePage titleName="Profile Settings" />
-      <Section>
-        <UserForm />
-        <Usercard />
-      </Section>
-    </>
-  );
-};
-
-export default ProfilePage;
