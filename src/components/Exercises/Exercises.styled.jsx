@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   /* padding: 40px 20px 80px 20px; */
   margin: 0 auto;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   position: relative;
 
   @media screen and (max-width: 767px) {
