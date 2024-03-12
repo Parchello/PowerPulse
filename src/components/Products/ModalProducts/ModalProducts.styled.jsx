@@ -90,9 +90,9 @@ export const GramsInput = styled.input`
 
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
   &::placeholder {
     text-align: right;
@@ -156,6 +156,10 @@ export const AddButton = styled.button`
   padding: 12px 32px;
   width: 151px;
   height: 42px;
+
+  &:hover {
+    background: #ef8964;
+  }
 
   @media screen and (min-width: 768px) {
     line-height: 150%;

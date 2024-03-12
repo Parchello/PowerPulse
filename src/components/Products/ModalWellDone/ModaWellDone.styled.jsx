@@ -124,6 +124,10 @@ export const NextProductBtn = styled.button`
   background: #e6533c;
   margin-bottom: 16px;
 
+  &:hover {
+    background: #ef8964;
+  }
+
   @media screen and (min-width: 768px) {
     line-height: 150%;
     height: 52px;
@@ -137,17 +141,16 @@ export const BackBtn = styled(NavLink)`
   color: rgba(239, 237, 232, 0.3);
   border: none;
   background-color: inherit;
-  margin-left: auto;
-  margin-right: auto;
-  /* display: flex;
-  gap: 8px; */
-  margin: 0 auto; /* Це вирівнюватиме кнопку по центру горизонтально */
-  display: flex; /* Встановлюємо flexbox */
-  align-items: center; /* Вирівнюємо текст по вертикалі по центру */
-  justify-content: center; /* Вирівнюємо текст по горизонталі по центру */
-  gap: 8px; /* Простір між текстом і іконкою */
-  /* width: 97px; */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   height: 18px;
+
+  &:hover {
+    color: #efede8;
+  }
 `;
 
 export const RawSvg = styled.svg``;

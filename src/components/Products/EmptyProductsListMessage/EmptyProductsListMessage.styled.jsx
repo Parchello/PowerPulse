@@ -1,10 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const EmptyListInfoBox = styled.div`
+  margin-top: 24px;
   width: 100%;
   max-width: 335px;
 
   @media screen and (min-width: 768px) {
+    margin-top: 100px;
     max-width: 580px;
   }
 `;
