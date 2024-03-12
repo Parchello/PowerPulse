@@ -25,7 +25,6 @@ const diaryProductsSlice = createSlice({
     builder
       .addCase(fetchDiaryDashboard.pending, handlePending)
       .addCase(fetchDiaryDashboard.fulfilled, (state, action) => {
-        console.log(action);
         state.isLoading = false;
         state.error = null;
         state.dayDasboard = action.payload;
@@ -56,6 +55,7 @@ const diaryProductsSlice = createSlice({
 
       .addCase(fetchDiaryExercises.pending, handlePending)
       .addCase(fetchDiaryExercises.fulfilled, (state, action) => {
+        console.log(action);
         state.isLoading = false;
         state.exercises = action.payload.exercises;
         state.error = null;

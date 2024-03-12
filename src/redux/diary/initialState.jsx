@@ -1,5 +1,5 @@
 export const initialState = {
-  dayDasboard: [],
+  dayDashboard: [],
   products: [],
   exercises: [],
   isLoading: false,
