@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/sprite.svg';
-import { DescrContainer } from '../../../pages/ProfilePage/UserCard.Styled';
+import { DescrContainer } from '../../../pages/ProfilePage/UserCard/UserCard.Styled';
 import {
   DiaryInfoContainer,
   DiaryWarningText,
