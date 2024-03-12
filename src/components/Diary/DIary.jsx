@@ -12,7 +12,8 @@ const Diary = () => {
   return (
     <DiaryMainDiv>
       <TitleDayBlock>
-        <TitlePage titleName="Diary" /> <DaySwitch />
+        <TitlePage titleName="Diary" />
+        <DaySwitch />
       </TitleDayBlock>
       <BlockInfo>
         <DayDashboard />
