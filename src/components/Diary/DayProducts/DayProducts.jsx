@@ -14,12 +14,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchDiaryProducts } from '../../../redux/diary/operations';
 import { selectDiaryProducts } from '../../../redux/diary/selectors';
+import { Token } from '../../../redux/profile/selectors';
 
 export const ProductsTable = () => {
   const dispatch = useDispatch();
+  const token = useSelector(Token);
+  const date = '13/03/2024';
   useEffect(() => {
-    dispatch(fetchDiaryProducts());
-  }, [dispatch]);
+    const request = {
+      token,
+      date,
+    };
+    dispatch(fetchDiaryProducts(request));
+  }, [dispatch, token]);
   const products = useSelector(selectDiaryProducts);
   console.log('products: ', products);
   return (

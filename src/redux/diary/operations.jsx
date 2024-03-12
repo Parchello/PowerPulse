@@ -1,28 +1,22 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjA5M2I2NThhY2FlN2VkYWJmMTgyNCIsImlhdCI6MTcxMDI2NTI3MCwiZXhwIjoxNzEwMzQ4MDcwfQ.lUUrarcU2X8Ufl4LxgfDnkMTHhsFzn3VV5pqY04qZbU';
 axios.defaults.baseURL = 'https://powerpulse-group5-backend.onrender.com/';
-
-// useEffect(() => {
-//   const token = useSelector(Token);
-// });
-
-const date = '11/03/2024';
 
 // dairy
 
 export const fetchDiaryDashboard = createAsyncThunk(
   '/api/dashboard',
-  async (_, thunkAPI) => {
+  async (info, thunkAPI) => {
+    const { token, date } = info;
+
     try {
-      const res = await axios.get('api/diary', {
+      const res = await axios.get('api/diary/', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
         params: {
-          date,
+          date: date,
         },
       });
       return res.data;
@@ -36,9 +30,10 @@ export const fetchDiaryDashboard = createAsyncThunk(
 
 export const fetchDiaryProducts = createAsyncThunk(
   '/api/diary',
-  async (_, thunkAPI) => {
+  async (info, thunkAPI) => {
+    const { token, date } = info;
     try {
-      const res = await axios.get('api/diary', {
+      const res = await axios.get('api/diary/', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -55,7 +50,8 @@ export const fetchDiaryProducts = createAsyncThunk(
 
 export const deleteProductDiaryById = createAsyncThunk(
   '/dairy/product',
-  async (_id, thunkAPI) => {
+  async (inf, thunkAPI) => {
+    const { date, _id, token } = inf;
     try {
       const res = await axios.delete(
         'api/diary/delproduct',
@@ -81,7 +77,8 @@ export const deleteProductDiaryById = createAsyncThunk(
 
 export const fetchDiaryExercises = createAsyncThunk(
   '/api/diary/exercises',
-  async (_, thunkAPI) => {
+  async (info, thunkAPI) => {
+    const { date, token } = info;
     try {
       const res = await axios.get('api/diary/', {
         headers: {
@@ -100,7 +97,8 @@ export const fetchDiaryExercises = createAsyncThunk(
 
 export const deleteExerciseById = createAsyncThunk(
   '/dairy/exercise',
-  async (_id, thunkAPI) => {
+  async (inf, thunkAPI) => {
+    const { _id, token, date } = inf;
     try {
       const res = await axios.delete(
         'api/diary/delexercise',

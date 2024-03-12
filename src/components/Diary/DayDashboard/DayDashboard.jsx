@@ -16,26 +16,32 @@ import {
 import { selectDayDashboard } from '../../../redux/diary/selectors';
 import { useEffect } from 'react';
 import { fetchDiaryDashboard } from '../../../redux/diary/operations';
-import { SelectUser } from '../../../redux/profile/selectors';
+import { SelectUser, Token } from '../../../redux/profile/selectors';
 
 const DayDashboard = () => {
   const dispatch = useDispatch();
   const dashboardInf = useSelector(selectDayDashboard);
+  const token = useSelector(Token);
+  const date = '13/03/2024';
+
   useEffect(() => {
-    dispatch(fetchDiaryDashboard());
-  }, [dispatch]);
+    const request = {
+      token,
+      date,
+    };
+    dispatch(fetchDiaryDashboard(request));
+  }, [dispatch, token]);
+
   const {
     Calories,
     ExercisesTime,
     // amountAll,
     burnedCalories,
   } = dashboardInf;
+
   const bmrInf = useSelector(SelectUser);
-  // console.log(bmrInf);
   const { bmr } = bmrInf;
-  // console.log(bmr);
-  // let { bmr } = bmrInf;
-  // bmr = 100;
+
   return (
     <>
       <DiaryInfoContainer>
@@ -111,7 +117,7 @@ const DayDashboard = () => {
               <p>{bmr - Calories}</p>
             </SecondaryInfoBlock>
           )}
-          {ExercisesTime > 11 ? (
+          {ExercisesTime > 110 ? (
             <SecondaryInfoBlockMoreExercises>
               <DescrContainer>
                 <svg width="12px" height="16px">
@@ -121,7 +127,7 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
 
-              <p>+{Math.abs(11 - ExercisesTime)}</p>
+              <p>+{Math.abs(110 - ExercisesTime)}</p>
             </SecondaryInfoBlockMoreExercises>
           ) : (
             <SecondaryInfoBlock>
