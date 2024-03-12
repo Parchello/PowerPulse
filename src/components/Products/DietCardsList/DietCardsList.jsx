@@ -10,6 +10,7 @@ import {
 } from '../../../redux/products/selectors';
 import { Loader } from '../../Loader/Loader';
 
+import { EmptyProductsListMessage } from '../EmptyProductsListMessage/EmptyProductsListMessage';
 import { selectFilter } from '../../../redux/products/selectors';
 
 const filterProduct = (productsList, filter) => {
@@ -64,6 +65,8 @@ export const DietCardsList = () => {
       <DietBlockContainer>
         {isLoading ? (
           <Loader />
+        ) : filteredCards.length === 0 ? (
+          <EmptyProductsListMessage />
         ) : (
           filteredCards.map((item) => (
             <ProductsItem key={item._id} value={item} blood={bloodType} />

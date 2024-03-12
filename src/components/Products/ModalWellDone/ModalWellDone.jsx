@@ -7,11 +7,17 @@ import {
 } from './ModaWellDone.styled';
 
 export const ModalWellDone = ({ isOpen, onClose, children }) => {
+  const onWrapperClick = (event) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
     <>
       {isOpen && (
         <Modal>
-          <ModalWrapper>
+          <ModalWrapper onClick={onWrapperClick}>
             <ModalContent>
               <CloseBtn onClick={() => onClose()}>
                 <svg width="16px" height="16px">
