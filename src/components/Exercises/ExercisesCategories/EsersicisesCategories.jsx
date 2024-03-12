@@ -13,9 +13,9 @@ const ExercisesCategories = () => {
   return (
     <div>
       <CategoryList>
-        <li onClick={() => dispatch(setFilter('Body parts'))}>
+        <li onClick={() => dispatch(setFilter('Body part'))}>
           <CategoryExercises
-            className={selectedFilters === 'Body parts' ? 'current' : ''}
+            className={selectedFilters === 'Body part' ? 'current' : ''}
           >
             Body parts
           </CategoryExercises>

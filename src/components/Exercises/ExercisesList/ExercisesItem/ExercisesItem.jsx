@@ -14,12 +14,16 @@ import {
   ArrowSvgArrow,
   NameContainer,
 } from './ExercisesItem.styled';
-import { useSelector } from 'react-redux';
-import { selectExercisesItem } from '../../../../redux/exercises/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectExercises } from '../../../../redux/exercises/selectors';
+import {
+  setFormModal,
+  setSucssesModal,
+} from '../../../../redux/exercises/exercisesSlise';
 
-const ExercisesItem = ({ openModal }) => {
-  const visibleExercise = useSelector(selectExercisesItem);
-  console.log(visibleExercise);
+const ExercisesItem = () => {
+  const dispatch = useDispatch();
+  const visibleExercise = useSelector(selectExercises);
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
 
   return (
@@ -32,7 +36,12 @@ const ExercisesItem = ({ openModal }) => {
           <ContainerExIt>
             <ContainerWorkout>
               <Workout>WORKOUT</Workout>
-              <Button onClick={() => openModal()}>
+              <Button
+                onClick={() => {
+                  dispatch(setFormModal(true));
+                  dispatch(setSucssesModal(exercis));
+                }}
+              >
                 Start
                 <ArrowSvgArrow width="16" height="16">
                   <use xlinkHref={sprite + '#icon-arrow'} />

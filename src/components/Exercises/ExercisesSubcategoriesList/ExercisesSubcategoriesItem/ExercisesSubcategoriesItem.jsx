@@ -7,21 +7,33 @@ import {
   BodyPart,
   BodyPartCategory,
 } from './ExercisesSubcategoriesItem.Styled.jsx';
-import { filteredCategory } from '../../../../redux/exercises/selectors.jsx';
+import {
+  filteredCategory,
+  selectFilters,
+} from '../../../../redux/exercises/selectors.jsx';
 
 import { setCategory } from '../../../../redux/exercises/exercisesSlise.jsx';
-import { getAllExercises } from '../../../../redux/exercises/operation.jsx';
+import {
+  getAllExercises,
+  getFilterExercises,
+} from '../../../../redux/exercises/operation.jsx';
+import { useEffect } from 'react';
 
 const ExercisesSubcategoriesItem = () => {
   const dispatch = useDispatch();
   const visibleExercises = useSelector(filteredCategory);
+  const filter = useSelector(selectFilters);
+  console.log(filter);
   console.log(visibleExercises);
 
-  // Функція, що викликає getFilterExercises при кліку на елемент
+  useEffect(() => {
+    dispatch(getFilterExercises());
+  }, [dispatch]);
+
   const handleClick = (item) => {
     const { name } = item;
     dispatch(setCategory(name)); // Встановлюємо вибрану категорію перед викликом запиту
-    dispatch(getAllExercises({ value: name })); // Викликаємо запит з новими параметрами
+    dispatch(getAllExercises({ filter: filter, value: name })); // Викликаємо запит з новими параметрами
   };
 
   return (
