@@ -4,7 +4,10 @@ import {
   CategoryExercises,
 } from './ExercisesCategories.styled.jsx';
 import { selectFilters } from '../../../redux/exercises/selectors.jsx';
-import { setFilter } from '../../../redux/exercises/exercisesSlise.jsx';
+import {
+  setFilter,
+  setUrlParams,
+} from '../../../redux/exercises/exercisesSlise.jsx';
 
 const ExercisesCategories = () => {
   const dispatch = useDispatch();
@@ -13,21 +16,36 @@ const ExercisesCategories = () => {
   return (
     <div>
       <CategoryList>
-        <li onClick={() => dispatch(setFilter('Body part'))}>
+        <li
+          onClick={() => {
+            dispatch(setUrlParams('bodyPart'));
+            dispatch(setFilter('Body parts'));
+          }}
+        >
           <CategoryExercises
-            className={selectedFilters === 'Body part' ? 'current' : ''}
+            className={selectedFilters === 'Body parts' ? 'current' : ''}
           >
             Body parts
           </CategoryExercises>
         </li>
-        <li onClick={() => dispatch(setFilter('Muscles'))}>
+        <li
+          onClick={() => {
+            dispatch(setUrlParams('target'));
+            dispatch(setFilter('Muscles'));
+          }}
+        >
           <CategoryExercises
             className={selectedFilters === 'Muscles' ? 'current' : ''}
           >
             Muscles
           </CategoryExercises>
         </li>
-        <li onClick={() => dispatch(setFilter('Equipment'))}>
+        <li
+          onClick={() => {
+            dispatch(setUrlParams('equipment'));
+            dispatch(setFilter('Equipment'));
+          }}
+        >
           <CategoryExercises
             className={selectedFilters === 'Equipment' ? 'current' : ''}
           >

@@ -78,6 +78,14 @@ export const ExerList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 4px 16px;
+
+  @media screen and (min-width: 1440px) {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex-wrap: nowrap;
+  }
 `;
 
 export const ExeItem = styled.li`

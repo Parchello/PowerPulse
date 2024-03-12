@@ -6,6 +6,7 @@ export const selectExercises = (state) => state.exercises.exercises;
 export const selectFilters = (state) => state.exercises.filters;
 export const selectSelectedCategories = (state) =>
   state.exercises.selectedCategories;
+export const selectUrlParams = (state) => state.exercises.urlParams;
 export const selectFilteredCategory = (state) =>
   state.exercises.filteredCategory;
 export const selectTimer = (state) => state.exercises.timer;

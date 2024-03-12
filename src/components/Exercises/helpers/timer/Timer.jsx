@@ -14,8 +14,11 @@ import sprite from '../../../../assets/sprite.svg';
 import {
   selectCalories,
   selectIsPlayed,
+  selectSelectedItem,
+  selectTimer,
 } from '../../../../redux/exercises/selectors';
 import {
+  setCalories,
   setIsPlayed,
   setTimer,
 } from '../../../../redux/exercises/exercisesSlise';
@@ -24,6 +27,10 @@ const Timer = () => {
   const dispatch = useDispatch();
   const isPlay = useSelector(selectIsPlayed);
   const calories = useSelector(selectCalories);
+  const timeTimer = useSelector(selectTimer);
+  const selectedItem = useSelector(selectSelectedItem);
+
+  const { burnedCalories } = selectedItem;
 
   const progressRef = useRef(null);
 
@@ -42,6 +49,15 @@ const Timer = () => {
   const getProsseTime = (progress) => {
     progressRef.current = progress;
   };
+
+  useEffect(() => {
+    // const timeTimerinutes = timeTimer / 60;
+
+    if (timeTimer !== 0) {
+      const calculatedCalories = Math.round((timeTimer * burnedCalories) / 180);
+      dispatch(setCalories(calculatedCalories));
+    }
+  }, [timeTimer, burnedCalories, dispatch]);
 
   return (
     <TimerContainer>

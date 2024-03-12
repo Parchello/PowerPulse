@@ -9,31 +9,21 @@ import {
 } from './ExercisesSubcategoriesItem.Styled.jsx';
 import {
   filteredCategory,
-  selectFilters,
+  selectUrlParams,
 } from '../../../../redux/exercises/selectors.jsx';
 
+import { getAllExercises } from '../../../../redux/exercises/operation.jsx';
 import { setCategory } from '../../../../redux/exercises/exercisesSlise.jsx';
-import {
-  getAllExercises,
-  getFilterExercises,
-} from '../../../../redux/exercises/operation.jsx';
-import { useEffect } from 'react';
 
 const ExercisesSubcategoriesItem = () => {
   const dispatch = useDispatch();
   const visibleExercises = useSelector(filteredCategory);
-  const filter = useSelector(selectFilters);
-  console.log(filter);
-  console.log(visibleExercises);
-
-  useEffect(() => {
-    dispatch(getFilterExercises());
-  }, [dispatch]);
+  const urlParams = useSelector(selectUrlParams);
 
   const handleClick = (item) => {
     const { name } = item;
-    dispatch(setCategory(name)); // Встановлюємо вибрану категорію перед викликом запиту
-    dispatch(getAllExercises({ filter: filter, value: name })); // Викликаємо запит з новими параметрами
+    dispatch(setCategory(name));
+    dispatch(getAllExercises({ filter: urlParams, value: name }));
   };
 
   return (
