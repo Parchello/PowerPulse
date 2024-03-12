@@ -20,16 +20,6 @@ export const ProductItem = ({ prop }) => {
   console.log(_id, title, category, calories, weight);
 
   const dispatch = useDispatch();
-  const handleDelete = () => {
-    const productInfo = {
-      productId: _id,
-      date: '09/03/2024',
-      weight: weight,
-      calories: calories,
-    };
-
-    dispatch(deleteProductDiaryById(productInfo));
-  };
 
   return (
     <LiItemProducts>
@@ -57,7 +47,7 @@ export const ProductItem = ({ prop }) => {
           </ProductBottomInfo>
         </div>
         <button
-          onClick={() => handleDelete()}
+          onClick={() => dispatch(deleteProductDiaryById(_id))}
           style={{
             background: 'none',
             border: 'none',

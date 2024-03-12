@@ -15,32 +15,33 @@ import { getAllExercises } from '../../../../redux/exercises/operation.jsx';
 const ExercisesSubcategoriesItem = () => {
   const dispatch = useDispatch();
   const visibleExercises = useSelector(filteredCategory);
+  console.log(visibleExercises);
 
   // Функція, що викликає getFilterExercises при кліку на елемент
-  const handleClick = (params) => {
-    const { name, filter, value } = params;
+  const handleClick = (item) => {
+    const { name } = item;
     dispatch(setCategory(name)); // Встановлюємо вибрану категорію перед викликом запиту
-    dispatch(getAllExercises({ filter: filter, value: value })); // Викликаємо запит з новими параметрами
+    dispatch(getAllExercises({ value: name })); // Викликаємо запит з новими параметрами
   };
 
   return (
     <div>
       <Slider {...settings}>
-        {visibleExercises.map((filter) => (
+        {visibleExercises.map((item) => (
           <ExercisesItem
-            key={filter._id}
+            key={item._id}
             style={{ width: 100 }}
-            onClick={() => handleClick(filter)}
+            onClick={() => handleClick(item)}
           >
             <ExerscisesItemContainer
               style={{
-                backgroundImage: `linear-gradient(rgba(4, 4, 4, 0.5), rgba(4, 4, 4, 0.5)), url(${filter.imgURL})`,
+                backgroundImage: `linear-gradient(rgba(4, 4, 4, 0.5), rgba(4, 4, 4, 0.5)), url(${item.imgURL})`,
               }}
             >
               <BodyPart>
-                {filter.name.charAt(0).toUpperCase() + filter.name.slice(1)}
+                {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
               </BodyPart>
-              <BodyPartCategory>{filter.filter}</BodyPartCategory>
+              <BodyPartCategory>{item.filter}</BodyPartCategory>
             </ExerscisesItemContainer>
           </ExercisesItem>
         ))}

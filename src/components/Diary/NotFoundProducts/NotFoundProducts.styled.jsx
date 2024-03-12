@@ -14,4 +14,9 @@ export const PositionCorrectorDiv = styled.div`
   position: relative;
   padding-top: 50%;
   justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    height: 100%;
+    padding: 0;
+  }
 `;
