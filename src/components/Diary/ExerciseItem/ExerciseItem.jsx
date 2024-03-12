@@ -12,6 +12,7 @@ import {
 import sprite from '../../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { deleteExerciseById } from '../../../redux/diary/operations';
+import { DelBtn } from '../DelBtn/DelBtn.styled';
 
 export const ExerciseItem = ({ prop }) => {
   const dispatch = useDispatch();
@@ -47,20 +48,11 @@ export const ExerciseItem = ({ prop }) => {
           <TitleName>Time</TitleName>
           <BottomInfFieldTime>{time}</BottomInfFieldTime>
         </div>
-        <button
-          onClick={() => dispatch(deleteExerciseById(_id))}
-          style={{
-            background: 'none',
-            border: 'none',
-            width: '24px',
-            height: '24px',
-            marginTop: 'auto',
-          }}
-        >
+        <DelBtn onClick={() => dispatch(deleteExerciseById(_id))}>
           <svg width={24} height={24}>
-            <use xlinkHref={sprite + '#icon-red-raw'}></use>
+            <use xlinkHref={sprite + '#trash-03'}></use>
           </svg>
-        </button>
+        </DelBtn>
       </BottomInf>
     </LiExcersiceItem>
   );

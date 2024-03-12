@@ -6,18 +6,26 @@ import {
   ProductInfoCategory,
   TitleName,
 } from './ProductItem.styled';
-// import { Recommended } from '../Recommended/Recommended';
-// import { NotRecommended } from '../NotRecomended/NotRecommended';
-import { useDispatch } from 'react-redux';
+import { Recommended } from '../Recommended/Recommended';
+import { NotRecommended } from '../NotRecomended/NotRecommended';
+import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/sprite.svg';
 import { deleteProductDiaryById } from '../../../redux/diary/operations';
+import { DelBtn } from '../DelBtn/DelBtn.styled';
+import { SelectUser } from '../../../redux/profile/selectors';
 
 export const ProductItem = ({ prop }) => {
   const {
-    productId: { _id, title, category, calories, weight },
+    productId: { _id, title, category, calories, weight, groupBloodNotAllowed },
   } = prop;
 
-  console.log(_id, title, category, calories, weight);
+  console.log(groupBloodNotAllowed);
+
+  const userInfo = useSelector(SelectUser);
+
+  console.log(userInfo.blood);
+
+  console.log(groupBloodNotAllowed[userInfo.blood - 1]);
 
   const dispatch = useDispatch();
 
@@ -43,23 +51,18 @@ export const ProductItem = ({ prop }) => {
         <div>
           <TitleName>Recommend</TitleName>
           <ProductBottomInfo>
-            {/* {prop.notAllowed ? <NotRecommended /> : <Recommended />} */}
+            {groupBloodNotAllowed[userInfo.blood - 1] ? (
+              <NotRecommended />
+            ) : (
+              <Recommended />
+            )}
           </ProductBottomInfo>
         </div>
-        <button
-          onClick={() => dispatch(deleteProductDiaryById(_id))}
-          style={{
-            background: 'none',
-            border: 'none',
-            width: '24px',
-            height: '24px',
-            marginTop: 'auto',
-          }}
-        >
+        <DelBtn onClick={() => dispatch(deleteProductDiaryById(_id))}>
           <svg width={24} height={24}>
-            <use xlinkHref={sprite + '#icon-red-raw'}></use>
+            <use xlinkHref={sprite + '#trash-03'}></use>
           </svg>
-        </button>
+        </DelBtn>
       </BottomInf>
     </LiItemProducts>
   );
