@@ -1,15 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import { useSelector } from 'react-redux';
-// import { Token } from '../profile/selectors';
-// import { useEffect } from 'react';
-
-// const tokenFromLS = localStorage.getItem('token');
-
-// console.log(tokenFromLS);
 
 const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWY0NjY1YzAyMTE5NDQ0ODQ2NTNkOSIsImlhdCI6MTcxMDE4MDY0OCwiZXhwIjoxNzEwMjYzNDQ4fQ.Hx8wPr-xseRZ9tpxsWOEr7oqaN9FRwFBE-QboGkmnf8';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjA5M2I2NThhY2FlN2VkYWJmMTgyNCIsImlhdCI6MTcxMDI2NTI3MCwiZXhwIjoxNzEwMzQ4MDcwfQ.lUUrarcU2X8Ufl4LxgfDnkMTHhsFzn3VV5pqY04qZbU';
 axios.defaults.baseURL = 'https://powerpulse-group5-backend.onrender.com/';
 
 // useEffect(() => {
@@ -45,7 +38,7 @@ export const fetchDiaryProducts = createAsyncThunk(
   '/api/diary',
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get('api/diary/', {
+      const res = await axios.get('api/diary', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
