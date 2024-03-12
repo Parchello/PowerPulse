@@ -30,9 +30,9 @@ const Usercard = () => {
   const user = useSelector(SelectUser);
   const [avatar, setAvatar] = useState();
 
-  useEffect(() => {
-    setAvatar(user.avatar);
-  }, [user.avatar]);
+  // useEffect(() => {
+  //   setAvatar(user.avatar);
+  // }, [user.avatar]);
 
   const userAvatar = <UserImg src={user.avatar || avatar} alt="User avatar" />;
 

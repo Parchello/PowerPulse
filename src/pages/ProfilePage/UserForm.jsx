@@ -29,6 +29,8 @@ import {
   ErrorDiv,
   SuccessDiv,
 } from './UserForm.Styled.jsx';
+import StyledDatepicker from '../../components/Diary/DaySwitch/StyledDatepicker.jsx';
+import { useFormikContext } from 'formik';
 
 const validate = (values, props /* only available when using withFormik */) => {
   const errors = {};
@@ -94,6 +96,21 @@ const UserForm = () => {
       dispatch(patchUserParams({ values: values }));
     },
   });
+
+  // const DatePickerWrapper = () => {
+  //   const formik = useFormikContext();
+
+  //   const handleDateChange = (date) => {
+  //     formik.setFieldValue('birthday', date);
+  //   };
+
+  //   return (
+  //     <StyledDatepicker
+  //       selected={formik.values.birthday}
+  //       onChange={handleDateChange}
+  //     />
+  //   );
+  // };
 
   const handleInputStylesChange = (valueName) => {
     if (formik.errors[valueName]) {
@@ -237,12 +254,17 @@ const UserForm = () => {
         <DataContainerItem>
           <Label htmlFor="dateOfBirth">Date of Birth</Label>
           <StyldInputShort
+            placeholder="YYYY-MM-DD"
             id="birthday"
             name="birthday"
             type="string"
             onChange={formik.handleChange}
             value={formik.values.birthday}
           />
+          {/* <StyledDatepicker
+            selected={formik.values.birthday}
+            onChange={(date) => formik.setFieldValue('birthday', date)}
+          /> */}
         </DataContainerItem>
       </DataContainer>
       <BloodLabel htmlFor="blood"> Blood</BloodLabel>
