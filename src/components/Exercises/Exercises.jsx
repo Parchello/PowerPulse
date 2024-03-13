@@ -27,7 +27,6 @@ const Exercises = () => {
   console.log(filters);
 
   const selectedCategory = useSelector(selectSelectedCategories);
-  console.log(selectedCategory);
 
   useEffect(() => {
     const fetchData = async () => {
