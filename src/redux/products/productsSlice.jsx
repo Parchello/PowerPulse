@@ -47,9 +47,8 @@ export const productsSlice = createSlice({
         state.cards = action.payload;
       })
       .addCase(getAllProducts.rejected, (state, action) => {
-        console.log('action', action)
         state.isLoading = false;
-        state.error = action.payload;
+        state.error = action.meta.payload;
       });
   },
 });

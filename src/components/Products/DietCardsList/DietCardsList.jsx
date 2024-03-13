@@ -12,7 +12,7 @@ import { Loader } from '../../Loader/Loader';
 
 import { EmptyProductsListMessage } from '../EmptyProductsListMessage/EmptyProductsListMessage';
 // import { selectFilter } from '../../../redux/products/selectors';
-import {SelectUser} from '../../../redux/profile/selectors'
+import { SelectUser } from '../../../redux/profile/selectors';
 
 export const DietCardsList = () => {
   const dispatch = useDispatch();
@@ -24,19 +24,7 @@ export const DietCardsList = () => {
     dispatch(getAllProducts());
   }, [dispatch]);
 
-  // const bloodType = '3';
-
-  // const products = useSelector(selectAllProducts)
-  //   // .slice(0, 1000) //можна залишити замість пагінації. Не таке сильне навантаження будуе. І лагів менше
-  //   .map((item) => ({
-  //     ...item,
-  //     recommended: item.groupBloodNotAllowed[bloodType],
-  //   }));
-
-  const products = useSelector(selectAllProducts)
-  console.log(products)
-
-  // const filteredCards = filterProduct(products, filter);
+  const products = useSelector(selectAllProducts);
 
   // треба описати логіку закриття модалки по бекдропу і по Esc
 

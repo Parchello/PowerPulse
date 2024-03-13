@@ -13,13 +13,11 @@ import {
   SvgIcon,
   SvgIconClearInput,
 } from './ProductsFilter.styled';
-import { getAllProducts, getProductsCategories } from '../../../redux/products/operations';
 import {
-  // selectCategory,
-  selectProductsCategories,
-  // selectSearchFilter,
-  // selectRecomended,
-} from '../../../redux/products/selectors';
+  getAllProducts,
+  getProductsCategories,
+} from '../../../redux/products/operations';
+import { selectProductsCategories } from '../../../redux/products/selectors';
 import {
   setFilter,
   setCategory,
@@ -41,9 +39,7 @@ export const ProductsFilter = () => {
     setSearchParams(searchParams);
   };
 
-  useEffect(() => {
-    dispatch(getProductsCategories());
-  }, []);
+  useEffect(() => {dispatch(getProductsCategories())}, []);
 
   useEffect(() => {
     dispatch(setFilter(searchQuery));
@@ -59,9 +55,6 @@ export const ProductsFilter = () => {
   }, [dispatch, searchQuery, searchCategory, searchRecommend]);
 
   const categoriesList = useSelector(selectProductsCategories); //список категорій
-  // const searchFilter = useSelector(selectSearchFilter);
-  // const categoryFilter = useSelector(selectCategory);
-  // const recomendedFilter = useSelector(selectRecomended);
 
   const isSearchNotEmpty = searchQuery.trim() !== '';
 
@@ -119,7 +112,7 @@ export const ProductsFilter = () => {
           <Option value="" defaultValue>
             All
           </Option>
-          <Option value={"true"}>Recommended</Option>
+          <Option value={'true'}>Recommended</Option>
           <Option value="false">Not recommended</Option>
         </SelectorA>
       </Filters>
