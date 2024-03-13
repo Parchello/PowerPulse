@@ -11,50 +11,32 @@ import {
 import { Loader } from '../../Loader/Loader';
 
 import { EmptyProductsListMessage } from '../EmptyProductsListMessage/EmptyProductsListMessage';
-import { selectFilter } from '../../../redux/products/selectors';
-
-const filterProduct = (productsList, filter) => {
-  const { search, category, recommended } = filter;
-
-  const isMatchSearchQuery = search
-    ? productsList.filter((el) =>
-        el.title.toLowerCase().includes(search.toLowerCase())
-      )
-    : productsList;
-
-  const isMatchCategory = category
-    ? isMatchSearchQuery.filter((el) => el.category === category)
-    : isMatchSearchQuery;
-
-  const isMatchRecommendation =
-    recommended === 'Recommended'
-      ? isMatchCategory.filter((i) => !i.recommended)
-      : recommended === 'NotRecommended'
-        ? isMatchCategory.filter((i) => i.recommended)
-        : isMatchCategory;
-
-  return isMatchRecommendation;
-};
+// import { selectFilter } from '../../../redux/products/selectors';
+import {SelectUser} from '../../../redux/profile/selectors'
 
 export const DietCardsList = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-  const filter = useSelector(selectFilter);
+  const userBloodType = useSelector(SelectUser).blood;
+  // const filter = useSelector(selectFilter);
 
   useEffect(() => {
     dispatch(getAllProducts());
   }, [dispatch]);
 
-  const bloodType = '3';
+  // const bloodType = '3';
+
+  // const products = useSelector(selectAllProducts)
+  //   // .slice(0, 1000) //можна залишити замість пагінації. Не таке сильне навантаження будуе. І лагів менше
+  //   .map((item) => ({
+  //     ...item,
+  //     recommended: item.groupBloodNotAllowed[bloodType],
+  //   }));
 
   const products = useSelector(selectAllProducts)
-    // .slice(0, 1000) //можна залишити замість пагінації. Не таке сильне навантаження будуе. І лагів менше
-    .map((item) => ({
-      ...item,
-      recommended: item.groupBloodNotAllowed[bloodType],
-    }));
+  console.log(products)
 
-  const filteredCards = filterProduct(products, filter);
+  // const filteredCards = filterProduct(products, filter);
 
   // треба описати логіку закриття модалки по бекдропу і по Esc
 
@@ -65,11 +47,11 @@ export const DietCardsList = () => {
       <DietBlockContainer>
         {isLoading ? (
           <Loader />
-        ) : filteredCards.length === 0 ? (
+        ) : products.length === 0 ? (
           <EmptyProductsListMessage />
         ) : (
-          filteredCards.map((item) => (
-            <ProductsItem key={item._id} value={item} blood={bloodType} />
+          products.map((item) => (
+            <ProductsItem key={item._id} value={item} blood={userBloodType} />
           ))
         )}
       </DietBlockContainer>

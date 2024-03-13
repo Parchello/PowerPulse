@@ -43,10 +43,11 @@ export const productsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getAllProducts.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.isLoading = null;
         state.cards = action.payload;
       })
       .addCase(getAllProducts.rejected, (state, action) => {
+        console.log('action', action)
         state.isLoading = false;
         state.error = action.payload;
       });

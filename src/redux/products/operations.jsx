@@ -17,12 +17,17 @@ export const getProductsCategories = createAsyncThunk(
 
 export const getAllProducts = createAsyncThunk(
   'products/getAllProducts',
-  async (_, thunkAPI) => {
+  async (query = {}, thunkAPI) => {
+    const { title = "", category = "", recommended = "" } = query;
+    let endpoint = 'api/products';
     try {
-      const response = await axios.get('api/products');
+      if (title || category || recommended) {
+        endpoint += `?title=${title}&category=${category}&recommended=${recommended}`;
+      }
+      const response = await axios.get(endpoint);
       return response.data.products;
     } catch (error) {
-      toast.error('Error getting products');
+      toast.error("Sorry. We don't find any results");
       return thunkAPI.rejectWithValue(error.message);
     }
   }
