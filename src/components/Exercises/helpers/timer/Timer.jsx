@@ -14,12 +14,14 @@ import sprite from '../../../../assets/sprite.svg';
 import {
   selectCalories,
   selectIsPlayed,
+  selectPassTime,
   selectSelectedItem,
   selectTimer,
 } from '../../../../redux/exercises/selectors';
 import {
   setCalories,
   setIsPlayed,
+  setPassTime,
   setTimer,
 } from '../../../../redux/exercises/exercisesSlise';
 
@@ -28,6 +30,7 @@ const Timer = () => {
   const isPlay = useSelector(selectIsPlayed);
   const calories = useSelector(selectCalories);
   const timeTimer = useSelector(selectTimer);
+  const passTime = useSelector(selectPassTime);
   const selectedItem = useSelector(selectSelectedItem);
 
   const { burnedCalories } = selectedItem;
@@ -38,26 +41,44 @@ const Timer = () => {
     dispatch(setIsPlayed(!isPlay));
   };
 
-  useEffect(() => {
-    if (!isPlay && progressRef.current !== null) {
-      const timeExerc = 180 - progressRef.current;
+  // useEffect(() => {
+  //   if (!isPlay && progressRef.current !== null) {
+  //     const timeExerc = 180 - progressRef.current;
 
-      dispatch(setTimer(timeExerc));
-    }
-  }, [isPlay, dispatch]);
+  //     dispatch(setTimer(timeExerc));
+  //   }
+  // }, [isPlay, dispatch]);
+
+  // const getProsseTime = (progress) => {
+  //   progressRef.current = progress;
+  // };
 
   const getProsseTime = (progress) => {
     progressRef.current = progress;
   };
 
+  // useEffect(() => {
+  //   if (timeTimer !== 0) {
+  //     const calculatedCalories = Math.round((timeTimer * burnedCalories) / 180);
+  //     dispatch(setCalories(calculatedCalories));
+  //   }
+  // }, [timeTimer, burnedCalories, dispatch]);
   useEffect(() => {
-    // const timeTimerinutes = timeTimer / 60;
+    if (isPlay) {
+      const intervalId = setInterval(() => {
+        dispatch(setPassTime(passTime - 1));
+        dispatch(setTimer(180 - passTime));
+        const timeTimerinutes = timeTimer / 60;
 
-    if (timeTimer !== 0) {
-      const calculatedCalories = Math.round((timeTimer * burnedCalories) / 180);
-      dispatch(setCalories(calculatedCalories));
+        const calculatedCalories = Math.round(
+          (timeTimerinutes * burnedCalories) / 180
+        );
+        dispatch(setCalories(calculatedCalories));
+      }, 1000);
+
+      return () => clearInterval(intervalId);
     }
-  }, [timeTimer, burnedCalories, dispatch]);
+  }, [isPlay, dispatch, timeTimer, burnedCalories, passTime]);
 
   return (
     <TimerContainer>

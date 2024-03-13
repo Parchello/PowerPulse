@@ -16,7 +16,8 @@ export const exercisesSlise = createSlice({
     filteredCategory: '',
     urlParams: 'bodyPart',
 
-    timer: null,
+    timer: '',
+    passTime: 180,
     isPlayed: false,
     selectedItem: null,
     calories: null,
@@ -42,6 +43,9 @@ export const exercisesSlise = createSlice({
 
     setTimer(state, action) {
       state.timer = action.payload;
+    },
+    setPassTime(state, action) {
+      state.passTime = action.payload;
     },
     setIsPlayed(state, action) {
       state.isPlayed = action.payload;
@@ -115,4 +119,5 @@ export const {
   setSelectedId,
   setFormModal,
   setSucssesModal,
+  setPassTime,
 } = exercisesSlise.actions;
