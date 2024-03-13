@@ -7,6 +7,7 @@ export const selectFilters = (state) => state.exercises.filters;
 export const selectSelectedCategories = (state) =>
   state.exercises.selectedCategories;
 export const selectUrlParams = (state) => state.exercises.urlParams;
+// export const selectTitle = (state) => state.exercises.initialTitle;
 export const selectFilteredCategory = (state) =>
   state.exercises.filteredCategory;
 export const selectTimer = (state) => state.exercises.timer;
@@ -29,24 +30,3 @@ export const filteredCategory = createSelector(
     );
   }
 );
-
-// export const selectExercisesItem = createSelector(
-//   [selectExercises, selectFilters, selectSelectedCategories],
-//   (exercises, filters, selectedCategories) => {
-//     if (filters === 'Body parts') {
-//       return exercises.filter((item) =>
-//         item.bodyPart.toLowerCase().includes(selectedCategories.toLowerCase())
-//       );
-//     }
-//     if (filters === 'Muscles') {
-//       return exercises.filter((item) =>
-//         item.target.toLowerCase().includes(selectedCategories.toLowerCase())
-//       );
-//     }
-//     if (filters === 'Equipment') {
-//       return exercises.filter((item) =>
-//         item.equipment.toLowerCase().includes(selectedCategories.toLowerCase())
-//       );
-//     }
-//   }
-// );
