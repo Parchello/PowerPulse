@@ -144,6 +144,7 @@ export const Option = styled.option`
   padding: 14px 32px 14px 14px;
   width: 146px;
   height: 228px;
+  text-transform: capitalize;
 `;
 
 export const SelectorA = styled.select`
