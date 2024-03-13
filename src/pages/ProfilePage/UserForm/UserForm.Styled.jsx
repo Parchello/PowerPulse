@@ -61,6 +61,7 @@ export const InputShort = styled.input`
   border-color: rgba(239, 237, 232, 0.3);
 
   color: #efede8;
+  text-indent: 14px;
 
   width: 159px;
   height: 52px;
@@ -330,7 +331,7 @@ export const DataContainerItem = styled.div`
 
 export const FormBtn = styled.button`
   background: #e6533c;
-
+  border: none;
   color: rgba(239, 237, 232, 0.6);
   border-radius: 12px;
 
