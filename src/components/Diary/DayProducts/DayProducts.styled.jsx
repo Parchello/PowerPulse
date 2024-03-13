@@ -4,7 +4,28 @@ import styled from 'styled-components';
 export const ListOfProducts = styled.ul`
   padding: 16px 0;
   overflow: scroll;
-  max-height: 808px;
+  overflow-x: hidden;
+  min-height: 305px;
+  max-height: 802px;
+  scroll-behavior: smooth;
+
+  @media screen and (min-width: 768px) {
+    height: 305px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+
+    background: rgba(239, 237, 232, 0.1);
+  }
 `;
 
 export const HeaderOfProductField = styled.div`
@@ -32,6 +53,9 @@ export const DairyProductsField = styled.div`
   @media screen and (min-width: 1440px) {
     width: 826px;
     height: 234px;
+  }
+
+  &::-webkit-scrollbar {
   }
 `;
 export const ProductBlock = styled.div`
