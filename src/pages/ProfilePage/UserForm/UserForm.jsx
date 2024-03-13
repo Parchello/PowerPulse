@@ -78,11 +78,11 @@ const validate = (values, props /* only available when using withFormik */) => {
 const UserForm = () => {
   const currentUser = useSelector(SelectUser);
   const dispatch = useDispatch();
-  const [name, setName] = useState();
-
-  useEffect(() => {
-    setName(currentUser.name);
-  }, [currentUser.name]);
+  // const [name, setName] = useState();
+  console.log(currentUser);
+  // useEffect(() => {
+  //   setName(currentUser.name);
+  // }, [currentUser.name]);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -90,15 +90,17 @@ const UserForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: name || '',
+      name: currentUser.name || '',
       email: currentUser.email ? currentUser.email : '',
       height: currentUser.height ? currentUser.height : '',
-      currentWeight: currentUser.currentWeight || '',
-      desiredWeight: currentUser.desiredWeight || '',
-      birthday: currentUser.birthday || '',
-      blood: currentUser.blood || null,
-      sex: currentUser.sex || '',
-      levelActivity: currentUser.levelActivity || null,
+      currentWeight: currentUser.currentWeight ? currentUser.currentWeight : '',
+      desiredWeight: currentUser.desiredWeight ? currentUser.desiredWeight : '',
+      birthday: currentUser.birthday ? currentUser.birthday : '',
+      blood: currentUser.blood ? currentUser.blood : null,
+      sex: currentUser.sex ? currentUser.sex : '',
+      levelActivity: currentUser.levelActivity
+        ? currentUser.levelActivity
+        : null,
     },
 
     validate,
@@ -109,6 +111,27 @@ const UserForm = () => {
       dispatch(patchUserParams({ values: values }));
     },
   });
+
+  console.log(currentUser);
+
+  useEffect(() => {
+    if (currentUser.name !== '') {
+      formik.setFormikState((prevState) => ({
+        ...prevState,
+        values: {
+          name: currentUser.name,
+          email: currentUser.email,
+          height: currentUser.height,
+          currentWeight: currentUser.currentWeight,
+          desiredWeight: currentUser.desiredWeight,
+          birthday: currentUser.birthday?.slice(0, 10) || '',
+          blood: currentUser.blood,
+          sex: currentUser.sex,
+          levelActivity: currentUser.levelActivity,
+        },
+      }));
+    }
+  }, [currentUser]);
 
   // const DatePickerWrapper = () => {
   //   const formik = useFormikContext();
@@ -184,8 +207,10 @@ const UserForm = () => {
             type="text"
             onChange={formik.handleChange}
             value={formik.values.name}
-            success={!formik.errors.name && formik.values.name.length !== 0}
-            error={formik.errors.name}
+            success={
+              !formik?.errors?.name && formik?.values?.name?.length !== 0
+            }
+            error={formik?.errors?.name}
           />
           {handleInputStringStylesChange('name')}
         </NameEmailContainerItem>
@@ -198,8 +223,8 @@ const UserForm = () => {
             type="text"
             onChange={formik.handleChange}
             value={currentUser.email}
-            success={!formik.errors.email && formik.values.email !== 0}
-            error={formik.errors.email}
+            success={!formik?.errors?.email && formik?.values?.email !== 0}
+            error={formik?.errors?.email}
           />
           {handleInputStylesChange('email')}
         </NameEmailContainerItem>
@@ -255,11 +280,12 @@ const UserForm = () => {
             onChange={formik.handleChange}
             value={formik.values.desiredWeight}
             success={
-              !formik.errors.desiredWeight && formik.values.desiredWeight > 0
-                ? formik.values.desiredWeight
+              !formik?.errors?.desiredWeight &&
+              formik?.values?.desiredWeight > 0
+                ? formik?.values?.desiredWeight
                 : undefined
             }
-            error={formik.errors.desiredWeight}
+            error={formik?.errors?.desiredWeight}
           />
           {handleInputStylesChange('desiredWeight')}
         </DataContainerItem>
@@ -295,6 +321,7 @@ const UserForm = () => {
               onChange={(e) =>
                 formik.setFieldValue('blood', parseInt(e.target.value))
               }
+              checked={currentUser.blood === 1 && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="1">1</LabelRadioBtn>
           </LiRadioBtn>
@@ -307,6 +334,7 @@ const UserForm = () => {
               onChange={(e) =>
                 formik.setFieldValue('blood', parseInt(e.target.value))
               }
+              checked={currentUser.blood === 2 && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="2">2</LabelRadioBtn>
           </LiRadioBtn>
@@ -319,6 +347,7 @@ const UserForm = () => {
               onChange={(e) =>
                 formik.setFieldValue('blood', parseInt(e.target.value))
               }
+              checked={currentUser.blood === 3 && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="3">3</LabelRadioBtn>
           </LiRadioBtn>
@@ -331,6 +360,7 @@ const UserForm = () => {
               onChange={(e) =>
                 formik.setFieldValue('blood', parseInt(e.target.value))
               }
+              checked={currentUser.blood === 4 && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="4">4</LabelRadioBtn>
           </LiRadioBtn>
@@ -344,6 +374,7 @@ const UserForm = () => {
               value="female"
               type="radio"
               onChange={formik.handleChange}
+              checked={currentUser.sex === 'female' && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="female">Female</LabelRadioBtn>
           </LiRadioBtn>
@@ -354,6 +385,7 @@ const UserForm = () => {
               name="sex"
               value="male"
               onChange={formik.handleChange}
+              checked={currentUser.sex === 'male' && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="male">Male</LabelRadioBtn>
           </LiRadioBtn>
@@ -369,6 +401,7 @@ const UserForm = () => {
             onChange={(e) =>
               formik.setFieldValue('levelActivity', parseInt(e.target.value))
             }
+            checked={currentUser.levelActivity === 1 && true}
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="Sedentary">
             Sedentary lifestyle (little or no physical activity)
@@ -383,6 +416,7 @@ const UserForm = () => {
             onChange={(e) =>
               formik.setFieldValue('levelActivity', parseInt(e.target.value))
             }
+            checked={currentUser.levelActivity === 2 && true}
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="Light">
             Light activity (light exercises/sports 1-3 days per week)
@@ -397,6 +431,7 @@ const UserForm = () => {
             onChange={(e) =>
               formik.setFieldValue('levelActivity', parseInt(e.target.value))
             }
+            checked={currentUser.levelActivity === 3 && true}
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="Moderately">
             Moderately active (moderate exercises/sports 3-5 days per week)
@@ -411,6 +446,7 @@ const UserForm = () => {
             onChange={(e) =>
               formik.setFieldValue('levelActivity', parseInt(e.target.value))
             }
+            checked={currentUser.levelActivity === 4 && true}
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="VeryActive">
             Very active (intense exercises/sports 6-7 days per week)
@@ -425,6 +461,7 @@ const UserForm = () => {
             onChange={(e) =>
               formik.setFieldValue('levelActivity', parseInt(e.target.value))
             }
+            checked={currentUser.levelActivity === 5 && true}
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="ExtremelyActive">
             Extremely active (very strenuous exercises/sports and physical work)
@@ -442,73 +479,3 @@ const UserForm = () => {
 };
 
 export default UserForm;
-
-//FORM ON FORMIK
-
-// --------------
-// import { Formik } from 'formik';
-// import * as Yup from 'yup';
-// ///----------------
-// const UserFormSchema = Yup.object().shape({
-//   email: Yup.string().matches(
-//     /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
-//     'Invalid email format. Example: ivanov@com.ua'
-//   ),
-//   name: Yup.string().required('Name is required!'),
-// });
-//   const handleSubmit = (values) => {
-//     delete values.email;
-//     dispatch(patchUserParams({ values: values }));
-//   };
-
-//   return (
-//     <Formik
-//       initialValues={{
-//         email: currentUser.currentUser.email || '', // Используем значение из currentUser, если оно доступно
-//         name: currentUser.currentUser.name || '', // Используем значение из currentUser, если оно доступно
-//       }}
-//       validationSchema={UserFormSchema}
-//       onSubmit={handleSubmit}
-//     >
-//       {(
-//         { errors, touched, values } // Деструктурируем значения из Formik
-//       ) => (
-//         <Form>
-//           {' '}
-//           {/* Используем компонент Form из Formik */}
-//           <NameEmailContainer>
-//             <NameEmailContainerItem>
-//               <Label htmlFor="name">Name</Label>
-//               <Field type="text" name="email" placeholder="Email" />
-//               <StyledInputLong
-//                 placeholder="User name"
-//                 id="name"
-//                 name="name"
-//                 type="text"
-//                 onChange={handleChange} // Используем handleChange из Formik
-//                 value={values.name} // Обращаемся к значению напрямую из параметра values
-//                 success={!errors.name && values.name.length !== 0} // Проверяем напрямую из values
-//                 error={errors.name}
-//               />
-//               {handleInputStringStylesChange('name')}
-//             </NameEmailContainerItem>
-//             <NameEmailContainerItem>
-//               <Label htmlFor="email">Email</Label>
-//               <StyledInputLong
-//                 placeholder="Email"
-//                 id="email"
-//                 name="email"
-//                 type="text"
-//                 onChange={handleChange} // Используем handleChange из Formik
-//                 value={values.email} // Обращаемся к значению напрямую из параметра values
-//                 success={!errors.email && values.email.length !== 0} // Проверяем напрямую из values
-//                 error={errors.email}
-//               />
-//               {handleInputStylesChange('email')}
-//             </NameEmailContainerItem>
-//           </NameEmailContainer>
-//         </Form>
-//       )}
-//     </Formik>
-//   );
-// };
