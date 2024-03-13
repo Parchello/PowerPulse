@@ -11,6 +11,7 @@ import {
   SelectorC,
   Option,
   SvgIcon,
+  SvgIconClearInput,
 } from './ProductsFilter.styled';
 import { getProductsCategories } from '../../../redux/products/operations';
 import {
@@ -37,6 +38,8 @@ export const ProductsFilter = () => {
   const categoryFilter = useSelector(selectCategory);
   const recomendedFilter = useSelector(selectRecomended);
 
+  const isSearchNotEmpty = searchFilter.trim() !== '';
+
   return (
     <MainFiltersContainer>
       <MainText>Products</MainText>
@@ -51,6 +54,15 @@ export const ProductsFilter = () => {
           <SvgIcon width="18px" height="18px">
             <use xlinkHref={sprite + '#icon-search'} />
           </SvgIcon>
+          {isSearchNotEmpty && (
+            <SvgIconClearInput
+              width="18px"
+              height="18px"
+              onClick={() => dispatch(setFilter(''))}
+            >
+              <use xlinkHref={sprite + '#icon-red-cross'} />
+            </SvgIconClearInput>
+          )}
         </SearchInputBox>
 
         <SelectorC
@@ -60,7 +72,7 @@ export const ProductsFilter = () => {
           placeholder="Categories"
           onChange={(evt) => dispatch(setCategory(evt.target.value))}
         >
-          <Option value disabled defaultValue>
+          <Option value="Categories" defaultValue>
             Categories
           </Option>
           {categoriesList.map((item) => (

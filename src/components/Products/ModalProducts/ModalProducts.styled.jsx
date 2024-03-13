@@ -27,7 +27,6 @@ export const ModalWrapper = styled.div`
 export const ModalContent = styled.div`
   position: relative;
   margin: 20px;
-  /* width: 100%; */
   padding: 48px 24px;
   width: 335px;
   height: 280px;
@@ -90,9 +89,9 @@ export const GramsInput = styled.input`
 
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
   &::placeholder {
     text-align: right;
@@ -157,6 +156,10 @@ export const AddButton = styled.button`
   width: 151px;
   height: 42px;
 
+  &:hover {
+    background: #ef8964;
+  }
+
   @media screen and (min-width: 768px) {
     line-height: 150%;
     height: 52px;
@@ -174,6 +177,10 @@ export const CancelBox = styled.button`
   padding: 12px 32px;
   width: 121px;
   height: 42px;
+
+  &:hover {
+    border-color: #e6533c;
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 20px;

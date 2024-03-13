@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Modal = styled.div`
@@ -123,25 +124,33 @@ export const NextProductBtn = styled.button`
   background: #e6533c;
   margin-bottom: 16px;
 
+  &:hover {
+    background: #ef8964;
+  }
+
   @media screen and (min-width: 768px) {
     line-height: 150%;
     height: 52px;
   }
 `;
 
-export const BackBtn = styled.button`
+export const BackBtn = styled(NavLink)`
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
   color: rgba(239, 237, 232, 0.3);
   border: none;
   background-color: inherit;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
-  /* width: 97px; */
   height: 18px;
+
+  &:hover {
+    color: #efede8;
+  }
 `;
 
 export const RawSvg = styled.svg``;

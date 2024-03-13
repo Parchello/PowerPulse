@@ -4,7 +4,6 @@ export const MainFiltersContainer = styled.div`
   @media screen and (min-width: 1440px) {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     gap: 454px;
   }
 `;
@@ -67,15 +66,26 @@ export const SvgIcon = styled.svg`
   float: right;
   bottom: 32px;
   right: 14px;
-  @media screen and (min-width: 768px) {
-  }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 768px) {
+    bottom: 35px;
+  }
+`;
+
+export const SvgIconClearInput = styled.svg`
+  position: relative;
+  z-index: 2;
+  float: right;
+  bottom: 32px;
+  right: 22px;
+
+  @media screen and (min-width: 768px) {
+    bottom: 35px;
   }
 `;
 
 export const SearchInput = styled.input`
-  background-color: black;
+  background-color: ${(p) => p.theme.colors.black};
   outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -103,9 +113,12 @@ export const SearchInput = styled.input`
 `;
 
 export const SelectorC = styled.select`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+
   background-color: black;
   outline: none;
-  /* background-color: #1c1c1c; */
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
   border-radius: 12px;
@@ -114,12 +127,12 @@ export const SelectorC = styled.select`
   height: 46px;
 
   @media screen and (min-width: 768px) {
+    line-height: 150%;
     width: 192px;
     height: 52px;
   }
 
   @media screen and (min-width: 1440px) {
-    /* background-color: rgba(0, 0, 0, 0); */
     background-color: transparent;
   }
 `;
@@ -134,6 +147,10 @@ export const Option = styled.option`
 `;
 
 export const SelectorA = styled.select`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+
   background-color: black;
   outline: none;
   color: #efede8;
@@ -144,6 +161,7 @@ export const SelectorA = styled.select`
   height: 46px;
 
   @media screen and (min-width: 768px) {
+    line-height: 150%;
     width: 204px;
     height: 52px;
   }
