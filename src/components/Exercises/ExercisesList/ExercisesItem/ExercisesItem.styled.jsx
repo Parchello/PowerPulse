@@ -46,6 +46,10 @@ export const Button = styled.button`
   color: ${(props) => props.theme.colors.orange};
   background-color: transparent;
   border: none;
+  &:hover,
+  :focus {
+    color: ${(props) => props.theme.colors.white};
+  }
 `;
 
 export const ArrowSvgArrow = styled.svg`

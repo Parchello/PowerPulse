@@ -32,3 +32,16 @@ export const getFilterExercises = createAsyncThunk(
     }
   }
 );
+
+export const addExerciseToDiary = createAsyncThunk(
+  'exercises/addexercis',
+  async (exerciseData, thunkAPI) => {
+    try {
+      const response = await axios.post('api/diary/addexercise', exerciseData);
+      return response.data;
+    } catch (error) {
+      toast.error('Unable to add exercise');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

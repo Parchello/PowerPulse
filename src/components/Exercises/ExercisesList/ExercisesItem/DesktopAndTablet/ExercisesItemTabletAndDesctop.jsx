@@ -2,7 +2,6 @@ import ImageListItem from '@mui/material/ImageListItem';
 import { CustomImageList } from '../../ExercisesList.styled';
 import { useMediaQuery } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   ContainerExIt,
   Workout,
@@ -23,7 +22,7 @@ import {
   setSelectedId,
 } from '../../../../../redux/exercises/exercisesSlise';
 
-const ExercisesItemTabletAndDesctop = () => {
+export const ExercisesItemTabletAndDesctop = () => {
   const dispatch = useDispatch();
   const visibleExercise = useSelector(selectExercises);
 
@@ -34,14 +33,13 @@ const ExercisesItemTabletAndDesctop = () => {
     <div>
       <BackgroundImg />
       <CustomImageList
-        isTabletScreen={isTabletScreen}
         sx={{
           width: isTabletScreen ? 695 : 846,
           height: 487,
           overflowY: 'auto',
         }}
-        // gap={(32, 32)}
         cols={2}
+        gap={(32, 16)}
         rowHeight={isTabletScreen ? 163 : 141}
         variant="quilted"
       >
@@ -91,5 +89,3 @@ const ExercisesItemTabletAndDesctop = () => {
     </div>
   );
 };
-
-export default ExercisesItemTabletAndDesctop;

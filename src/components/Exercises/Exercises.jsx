@@ -42,27 +42,25 @@ const Exercises = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <Container>
-        {filters && (
-          <BackButton type="button">
-            <ArrowSvgBack width="16" height="16">
-              <use xlinkHref={sprite + '#icon-arrow'} />
-            </ArrowSvgBack>
-            Back
-          </BackButton>
-        )}
-        <NavContainer>
-          <TitlePage />
+    <Container>
+      {/* {filters && (
+        <BackButton type="button">
+          <ArrowSvgBack width="16" height="16">
+            <use xlinkHref={sprite + '#icon-arrow'} />
+          </ArrowSvgBack>
+          Back
+        </BackButton>
+      )} */}
+      <NavContainer>
+        <TitlePage />
 
-          <ExercisesCategories />
-        </NavContainer>
+        <ExercisesCategories />
+      </NavContainer>
 
-        {selectedCategory ? <ExercisesList /> : <ExercisesSubcategoriesList />}
-      </Container>
+      {selectedCategory ? <ExercisesList /> : <ExercisesSubcategoriesList />}
       <BasicModalWindow />
       <AddPExerciseSuccess />
-    </div>
+    </Container>
   );
 };
 

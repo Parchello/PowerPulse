@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllExercises, getFilterExercises } from './operation';
+import {
+  addExerciseToDiary,
+  getAllExercises,
+  getFilterExercises,
+} from './operation';
 
 export const exercisesSlise = createSlice({
   name: 'exercise',
@@ -36,9 +40,9 @@ export const exercisesSlise = createSlice({
     setUrlParams(state, action) {
       state.urlParams = action.payload;
     },
-    setTitle(state, action) {
-      state.initialTitle = action.payload;
-    },
+    // setTitle(state, action) {
+    //   state.initialTitle = action.payload;
+    // },
     setTimer(state, action) {
       state.timer = action.payload;
     },
@@ -81,6 +85,23 @@ export const exercisesSlise = createSlice({
       .addCase(getFilterExercises.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(addExerciseToDiary.pending, (state) => {
+        state.isLoading = true;
+        state.isOpenFormModal = true;
+        state.isOpenSucssesModal = false;
+      })
+      .addCase(addExerciseToDiary.fulfilled, (state) => {
+        state.isLoading = false;
+        state.error = null;
+        state.isOpenFormModal = false;
+        state.isOpenSucssesModal = true;
+      })
+      .addCase(addExerciseToDiary.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+        state.isOpenFormModal = true;
+        state.isOpenSucssesModal = false;
       });
   },
 });
@@ -97,5 +118,5 @@ export const {
   setSelectedId,
   setFormModal,
   setSucssesModal,
-  setTitle,
+  // setTitle,
 } = exercisesSlise.actions;

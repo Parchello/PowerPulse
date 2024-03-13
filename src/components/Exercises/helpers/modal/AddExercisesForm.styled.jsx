@@ -147,6 +147,13 @@ export const ButtonStartPause = styled.button`
 
   margin-top: 14px;
   margin-bottom: 8px;
+
+  transition: ${(props) => props.theme.transition};
+
+  &:hover,
+  :focus {
+    background-color: ${(props) => props.theme.colors.orangeLight};
+  }
 `;
 
 export const ContaierTimerRutton = styled.div`
@@ -166,7 +173,13 @@ export const AddDairyButton = styled.button`
   width: 151px;
   height: 52px;
   background-color: ${(props) => props.theme.colors.orange};
+  color: ${(props) => props.theme.colors.white};
   border: none;
+  transition: ${(props) => props.theme.transition};
+  &:hover,
+  :focus {
+    background-color: ${(props) => props.theme.colors.orangeLight};
+  }
 `;
 
 export const CloseBtn = styled.button`
@@ -178,15 +191,3 @@ export const CloseBtn = styled.button`
   border: none;
   background-color: transparent;
 `;
-
-// @media screen and (min-width: 768px) {
-//   padding-bottom: 32px;
-// }
-
-// @media screen and (min-width: 1440px) {
-//   padding-bottom: 32px;
-// }
-
-/* @media screen and (min-width: 768px) {
-    width: calc((100% - 16px) / 3);
-  } */
