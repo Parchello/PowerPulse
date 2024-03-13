@@ -3346,7 +3346,28 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
 `,wX=_.ul`
   padding: 16px 0;
   overflow: scroll;
-  max-height: 808px;
+  overflow-x: hidden;
+  min-height: 305px;
+  max-height: 802px;
+  scroll-behavior: smooth;
+
+  @media screen and (min-width: 768px) {
+    height: 305px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+
+    background: rgba(239, 237, 232, 0.1);
+  }
 `,bX=_(Or)`
   font-weight: 500;
   font-size: 14px;
@@ -3413,7 +3434,9 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
     padding: 8px;
     width: 90px;
     height: 40px;
-    overflow: scroll;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
   }
 
   @media screen and (min-width: 1440px) {
@@ -3429,6 +3452,9 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
   margin-bottom: 16px;
 
@@ -3438,7 +3464,6 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
     padding: 8px 10px;
     width: 132px;
     height: 40px;
-    overflow: scroll;
   }
 
   @media screen and (min-width: 1440px) {
@@ -3455,12 +3480,15 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   font-size: 14px;
   line-height: 129%;
 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
   margin-bottom: 16px;
 
   @media screen and (min-width: 768px) {
     padding: 8px;
     width: 128px;
-    overflow: scroll;
   }
 
   @media screen and (min-width: 1440px) {
@@ -3478,6 +3506,9 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   padding: 8px;
   width: 80px;
   height: 38px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     width: 78px;
@@ -3492,6 +3523,9 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   padding: 8px;
   width: 76px;
   height: 38px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     width: 72px;
@@ -3506,10 +3540,12 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   padding: 8px;
   width: 81px;
   height: 38px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     width: 84px;
-    overflow: scroll;
   }
 
   @media screen and (min-width: 1440px) {
@@ -3564,6 +3600,7 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   margin-bottom: 8px;
 `,IX=_.li`
   margin-bottom: 40px;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -3581,6 +3618,10 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   font-size: 14px;
   line-height: 129%;
 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
   margin-bottom: 16px;
 
   @media screen and (min-width: 768px) {
@@ -3589,7 +3630,7 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
     padding: 8px;
     width: 204px;
     height: 40px;
-    overflow: scroll;
+    /* overflow: scroll; */
   }
 
   @media screen and (min-width: 1440px) {
@@ -3609,6 +3650,10 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   font-size: 14px;
   line-height: 129%;
 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
   margin-bottom: 16px;
 
   @media screen and (min-width: 768px) {
@@ -3617,7 +3662,6 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
     padding: 8px 14px;
     width: 128px;
     height: 40px;
-    overflow: scroll;
   }
 
   @media screen and (min-width: 1440px) {
@@ -3639,6 +3683,10 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   padding: 10px 14px;
   width: 81px;
   height: 38px;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
   @media screen and (min-width: 1440px) {
     border: 1px solid rgba(239, 237, 232, 0.3);
@@ -3670,7 +3718,28 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
 `,YX=()=>f.jsxs(HX,{children:[f.jsx(UX,{}),"No"]}),VX=({prop:e})=>{const{productId:{_id:t,title:n,category:r,calories:i,weight:o,groupBloodNotAllowed:a}}=e,s=oe(Ms),l="13/03/2024",c=Ve(),d=oe(jc);return f.jsxs(IX,{children:[f.jsxs("div",{children:[f.jsx(Zs,{children:"Title"}),f.jsx(AX,{children:n})]}),f.jsxs("div",{children:[f.jsx(Zs,{children:"Category"}),f.jsx(LX,{children:r})]}),f.jsxs(FX,{children:[f.jsxs("div",{children:[f.jsx(Zs,{children:"Calories"}),f.jsx(qm,{children:i})]}),f.jsxs("div",{children:[f.jsx(Zs,{children:"Weight"}),f.jsx(qm,{children:o})]}),f.jsxs("div",{children:[f.jsx(Zs,{children:"Recommend"}),f.jsx(qm,{children:a[s.blood-1]?f.jsx(YX,{}):f.jsx(BX,{})})]}),f.jsx(gD,{onClick:()=>c(hd({_id:t,date:l,token:d})),children:f.jsx("svg",{width:24,height:24,children:f.jsx("use",{xlinkHref:X+"#trash-03"})})})]})]})},qX=_.ul`
   padding: 16px 0;
   overflow: scroll;
-  max-height: 808px;
+  overflow-x: hidden;
+  min-height: 305px;
+  max-height: 802px;
+  scroll-behavior: smooth;
+
+  @media screen and (min-width: 768px) {
+    height: 305px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+
+    background: rgba(239, 237, 232, 0.1);
+  }
 `;_.div`
   display: flex;
 `;const KX=_.div`
@@ -3694,6 +3763,9 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   @media screen and (min-width: 1440px) {
     width: 826px;
     height: 234px;
+  }
+
+  &::-webkit-scrollbar {
   }
 `;_.div`
   display: flex;
