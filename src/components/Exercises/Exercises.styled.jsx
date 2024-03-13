@@ -18,15 +18,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Heading = styled.h1`
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.17;
-  color: ${(props) => props.theme.colors.white};
-  /* margin-bottom: 20px; */
-  margin: 0;
-`;
-
 export const NavContainer = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;

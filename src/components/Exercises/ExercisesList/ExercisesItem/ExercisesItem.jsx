@@ -19,7 +19,6 @@ import { selectExercises } from '../../../../redux/exercises/selectors';
 import {
   setFormModal,
   setSelectedId,
-  setSucssesModal,
 } from '../../../../redux/exercises/exercisesSlise';
 
 const ExercisesItem = () => {
