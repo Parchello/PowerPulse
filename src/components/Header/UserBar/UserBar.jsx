@@ -33,7 +33,7 @@ export const UserBar = ( {openMenu}) => {
           
                 <li>
                   <UserCircle>
-                  {user.avatar !== null? <UserImg src={user.avatar} alt="User avatar"/>: defaultAvatar}
+                  {user.avatar !== "" && user.avatar !== null ? <UserImg src={user.avatar} alt="User avatar"/>: defaultAvatar}
                   </UserCircle>
                 </li>
           
