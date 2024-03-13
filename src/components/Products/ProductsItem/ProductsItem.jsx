@@ -171,7 +171,9 @@ export const ProductsItem = ({
             </CaloriesWellBox>
           </WellDonebox>
 
-          <NextProductBtn>Next product</NextProductBtn>
+          <NextProductBtn onClick={() => setModalWellDoneIsOpen(false)}>
+            Next product
+          </NextProductBtn>
           <BackBtn to="/diary" onClick={handleBackClick}>
             To the diary
             <svg width="16px" height="16px">

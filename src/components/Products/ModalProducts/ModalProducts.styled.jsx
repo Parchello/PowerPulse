@@ -27,7 +27,6 @@ export const ModalWrapper = styled.div`
 export const ModalContent = styled.div`
   position: relative;
   margin: 20px;
-  /* width: 100%; */
   padding: 48px 24px;
   width: 335px;
   height: 280px;
@@ -178,6 +177,10 @@ export const CancelBox = styled.button`
   padding: 12px 32px;
   width: 121px;
   height: 42px;
+
+  &:hover {
+    border-color: #e6533c;
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 20px;
