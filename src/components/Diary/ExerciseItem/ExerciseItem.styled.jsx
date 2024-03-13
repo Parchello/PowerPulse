@@ -42,7 +42,9 @@ export const ProductInfoBodyPart = styled.p`
     padding: 8px;
     width: 90px;
     height: 40px;
-    overflow: scroll;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
   }
 
   @media screen and (min-width: 1440px) {
@@ -60,6 +62,9 @@ export const ProductInfoEquip = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
   margin-bottom: 16px;
 
@@ -69,7 +74,6 @@ export const ProductInfoEquip = styled.p`
     padding: 8px 10px;
     width: 132px;
     height: 40px;
-    overflow: scroll;
   }
 
   @media screen and (min-width: 1440px) {
@@ -88,12 +92,15 @@ export const ProductInfoName = styled.p`
   font-size: 14px;
   line-height: 129%;
 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
   margin-bottom: 16px;
 
   @media screen and (min-width: 768px) {
     padding: 8px;
     width: 128px;
-    overflow: scroll;
   }
 
   @media screen and (min-width: 1440px) {
@@ -115,6 +122,9 @@ export const BottomInfFieldTarget = styled.p`
   padding: 8px;
   width: 80px;
   height: 38px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     width: 78px;
@@ -131,6 +141,9 @@ export const BottomInfFieldTime = styled.p`
   padding: 8px;
   width: 76px;
   height: 38px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     width: 72px;
@@ -147,10 +160,12 @@ export const BottomInfFieldCalor = styled.p`
   padding: 8px;
   width: 81px;
   height: 38px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     width: 84px;
-    overflow: scroll;
   }
 
   @media screen and (min-width: 1440px) {

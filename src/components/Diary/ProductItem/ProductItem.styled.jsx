@@ -11,6 +11,7 @@ export const TitleName = styled.p`
 
 export const LiItemProducts = styled.li`
   margin-bottom: 40px;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -30,6 +31,10 @@ export const ProductInfo = styled.p`
   font-size: 14px;
   line-height: 129%;
 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
   margin-bottom: 16px;
 
   @media screen and (min-width: 768px) {
@@ -38,7 +43,7 @@ export const ProductInfo = styled.p`
     padding: 8px;
     width: 204px;
     height: 40px;
-    overflow: scroll;
+    /* overflow: scroll; */
   }
 
   @media screen and (min-width: 1440px) {
@@ -60,6 +65,10 @@ export const ProductInfoCategory = styled.div`
   font-size: 14px;
   line-height: 129%;
 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
   margin-bottom: 16px;
 
   @media screen and (min-width: 768px) {
@@ -68,7 +77,6 @@ export const ProductInfoCategory = styled.div`
     padding: 8px 14px;
     width: 128px;
     height: 40px;
-    overflow: scroll;
   }
 
   @media screen and (min-width: 1440px) {
@@ -94,6 +102,10 @@ export const ProductBottomInfo = styled.div`
   padding: 10px 14px;
   width: 81px;
   height: 38px;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 
   @media screen and (min-width: 1440px) {
     border: 1px solid rgba(239, 237, 232, 0.3);
