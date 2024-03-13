@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Container,
-  Heading,
   NavContainer,
   ArrowSvgBack,
   BackButton,
@@ -19,24 +18,13 @@ import {
 import { getFilterExercises } from '../../redux/exercises/operation.jsx';
 
 import sprite from '../../assets/sprite.svg';
+import TitlePage from './TitlePage/TitlePage.jsx';
 
 const Exercises = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
 
   const selectedCategory = useSelector(selectSelectedCategories);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const result = await dispatch(getAllExercises());
-  //     } catch (error) {
-  //       console.error('Помилка при отриманні даних з getAllExercises:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [dispatch]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,11 +53,7 @@ const Exercises = () => {
           </BackButton>
         )}
         <NavContainer>
-          {filters ? (
-            <Heading>{filters}</Heading>
-          ) : (
-            <Heading>Exercises</Heading>
-          )}
+          <TitlePage />
 
           <ExercisesCategories />
         </NavContainer>
