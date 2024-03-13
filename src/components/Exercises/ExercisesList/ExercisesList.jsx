@@ -1,7 +1,7 @@
 import ExercisesItem from './ExercisesItem/ExercisesItem';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Container } from './ExercisesList.styled';
-import ExercisesItemTabletAndDesctop from './ExercisesItem/DesktopAndTablet/ExersiseItemTabletAndDesc';
+import { ExercisesItemTabletAndDesctop } from './ExercisesItem/DesktopAndTablet/ExercisesItemTabletAndDesctop';
 
 const ExercisesList = () => {
   const isMobileScreen = useMediaQuery('(max-width: 767px)');

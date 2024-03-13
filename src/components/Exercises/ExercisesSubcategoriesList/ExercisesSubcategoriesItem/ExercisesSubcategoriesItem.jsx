@@ -9,16 +9,19 @@ import {
 } from './ExercisesSubcategoriesItem.Styled.jsx';
 import {
   filteredCategory,
+  selectIsLoading,
   selectUrlParams,
 } from '../../../../redux/exercises/selectors.jsx';
 
 import { getAllExercises } from '../../../../redux/exercises/operation.jsx';
 import { setCategory } from '../../../../redux/exercises/exercisesSlise.jsx';
+import { Loader } from '../../../Loader/Loader.jsx';
 
 const ExercisesSubcategoriesItem = () => {
   const dispatch = useDispatch();
   const visibleExercises = useSelector(filteredCategory);
   const urlParams = useSelector(selectUrlParams);
+  const isLoading = useSelector(selectIsLoading);
 
   const handleClick = (item) => {
     const { name } = item;
@@ -28,6 +31,7 @@ const ExercisesSubcategoriesItem = () => {
 
   return (
     <div>
+      {isLoading && <Loader />}
       <Slider {...settings}>
         {visibleExercises.map((item) => (
           <ExercisesItem

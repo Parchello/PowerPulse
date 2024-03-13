@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const selectIsLoading = (state) => state.isLoading;
+export const selectIsLoading = (state) => state.exercises.isLoading;
 export const selectAllCategory = (state) => state.exercises.category;
 export const selectExercises = (state) => state.exercises.exercises;
 export const selectFilters = (state) => state.exercises.filters;

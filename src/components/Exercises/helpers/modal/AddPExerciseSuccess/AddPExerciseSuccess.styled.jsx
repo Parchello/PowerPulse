@@ -86,12 +86,10 @@ export const LinkToDairy = styled(Link)`
   justify-content: center;
   align-items: center;
   gap: 8px;
+  transition: ${(props) => props.theme.transition};
 
   &:hover,
   &:focus {
     color: ${(props) => props.theme.colors.white};
-  }
-  &:hover svg {
-    /* stroke: ${(props) => props.theme.colors.white}; */
   }
 `;

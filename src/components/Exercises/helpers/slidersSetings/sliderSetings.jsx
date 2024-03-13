@@ -7,6 +7,7 @@ export const settings = {
   initialSlide: 0,
   rows: 2,
   arrows: false,
+
   appendDots: (dots) => (
     <div
       style={{
@@ -42,18 +43,15 @@ export const settings = {
       settings: {
         slidesToShow: 5,
         slidesToScroll: 10,
-
-        dots: true,
       },
     },
     {
-      breakpoint: 1430,
+      breakpoint: 1439,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 9,
 
         rows: 3,
-        dots: true,
       },
     },
     {

@@ -14,9 +14,9 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1440px) {
     max-width: 1249px;
+    padding-bottom: 81px;
   }
 `;
-//
 
 export const CustomImageList = styled(ImageList)({
   '&::-webkit-scrollbar': {
@@ -28,7 +28,7 @@ export const CustomImageList = styled(ImageList)({
     borderRadius: '4px',
   },
   '&::-webkit-scrollbar-thumb': {
-    background: '#e6533c',
+    background: '#ef8964',
     borderRadius: '4px',
   },
 });
