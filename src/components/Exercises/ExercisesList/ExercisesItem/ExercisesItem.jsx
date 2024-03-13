@@ -15,19 +15,26 @@ import {
   NameContainer,
 } from './ExercisesItem.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectExercises } from '../../../../redux/exercises/selectors';
+import {
+  selectExercises,
+  selectIsLoading,
+} from '../../../../redux/exercises/selectors';
 import {
   setFormModal,
   setSelectedId,
 } from '../../../../redux/exercises/exercisesSlise';
+import { Loader } from '../../../Loader/Loader';
 
 const ExercisesItem = () => {
   const dispatch = useDispatch();
   const visibleExercise = useSelector(selectExercises);
+  const isLoading = useSelector(selectIsLoading);
+
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
 
   return (
     <div>
+      {isLoading && <Loader />}
       {visibleExercise.map((exercis) => (
         <ImageListItem
           key={exercis._id}

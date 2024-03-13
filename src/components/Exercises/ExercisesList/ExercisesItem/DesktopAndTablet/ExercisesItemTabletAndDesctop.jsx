@@ -16,15 +16,20 @@ import {
 } from '../ExercisesItem.styled';
 import sprite from '../../../../../assets/sprite.svg';
 import BackgroundImg from '../../../helpers/backgroundImg/backgroundImg';
-import { selectExercises } from '../../../../../redux/exercises/selectors';
+import {
+  selectExercises,
+  selectIsLoading,
+} from '../../../../../redux/exercises/selectors';
 import {
   setFormModal,
   setSelectedId,
 } from '../../../../../redux/exercises/exercisesSlise';
+import { Loader } from '../../../../Loader/Loader';
 
 export const ExercisesItemTabletAndDesctop = () => {
   const dispatch = useDispatch();
   const visibleExercise = useSelector(selectExercises);
+  const isLoading = useSelector(selectIsLoading);
 
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
   const isTabletScreen = useMediaQuery('(max-width: 1439px)');
@@ -32,6 +37,7 @@ export const ExercisesItemTabletAndDesctop = () => {
   return (
     <div>
       <BackgroundImg />
+      {isLoading && <Loader />}
       <CustomImageList
         sx={{
           width: isTabletScreen ? 695 : 846,
@@ -39,14 +45,17 @@ export const ExercisesItemTabletAndDesctop = () => {
           overflowY: 'auto',
         }}
         cols={2}
-        gap={(32, 16)}
+        gap={0}
         rowHeight={isTabletScreen ? 163 : 141}
         variant="quilted"
       >
         {visibleExercise.map((exercis) => (
           <ImageListItem
             key={exercis._id}
-            style={{ paddingBottom: isMobileScreen ? '20px' : '0' }}
+            style={{
+              paddingBottom: isMobileScreen ? '20px' : '0',
+              marginBottom: '30px',
+            }}
           >
             <ContainerExIt>
               <ContainerWorkout>

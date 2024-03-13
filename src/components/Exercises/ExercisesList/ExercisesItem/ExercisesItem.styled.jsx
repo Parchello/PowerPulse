@@ -97,6 +97,11 @@ export const ExeItem = styled.li`
   font-size: 12px;
   line-height: 1.5;
   color: rgba(239, 237, 232, 0.4);
+  &:last-child {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 `;
 
 export const SpanItem = styled.span`

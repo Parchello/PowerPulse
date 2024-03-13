@@ -15,7 +15,6 @@ export const exercisesSlise = createSlice({
     selectedCategories: '',
     filteredCategory: '',
     urlParams: 'bodyPart',
-    // initialTitle: 'Exercises',
 
     timer: null,
     isPlayed: false,
@@ -40,9 +39,7 @@ export const exercisesSlise = createSlice({
     setUrlParams(state, action) {
       state.urlParams = action.payload;
     },
-    // setTitle(state, action) {
-    //   state.initialTitle = action.payload;
-    // },
+
     setTimer(state, action) {
       state.timer = action.payload;
     },
@@ -118,5 +115,4 @@ export const {
   setSelectedId,
   setFormModal,
   setSucssesModal,
-  // setTitle,
 } = exercisesSlise.actions;

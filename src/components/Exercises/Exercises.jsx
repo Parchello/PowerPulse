@@ -19,12 +19,15 @@ import { getFilterExercises } from '../../redux/exercises/operation.jsx';
 
 import sprite from '../../assets/sprite.svg';
 import TitlePage from './TitlePage/TitlePage.jsx';
+import { setCategory } from '../../redux/exercises/exercisesSlise.jsx';
 
 const Exercises = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
+  console.log(filters);
 
   const selectedCategory = useSelector(selectSelectedCategories);
+  console.log(selectedCategory);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,18 +44,22 @@ const Exercises = () => {
     fetchData();
   }, [dispatch]);
 
+  const handleButtonClick = () => {
+    dispatch(setCategory());
+  };
+
   return (
     <Container>
-      {/* {filters && (
-        <BackButton type="button">
+      {selectedCategory && (
+        <BackButton type="button" onClick={handleButtonClick}>
           <ArrowSvgBack width="16" height="16">
             <use xlinkHref={sprite + '#icon-arrow'} />
           </ArrowSvgBack>
           Back
         </BackButton>
-      )} */}
+      )}
       <NavContainer>
-        <TitlePage />
+        {selectedCategory ? <TitlePage category={filters} /> : <TitlePage />}
 
         <ExercisesCategories />
       </NavContainer>
