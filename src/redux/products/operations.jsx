@@ -25,7 +25,7 @@ export const getAllProducts = createAsyncThunk(
         endpoint += `?title=${title}&category=${category}&recommended=${recommended}`;
       }
       const response = await axios.get(endpoint);
-      return response.data.products || [];
+      return response.data.products;
     } catch (error) {
       //сумнівне рішення, як на мене. Але по іншому не знаю як =(
       if (error.response && error.response.status === 404) {

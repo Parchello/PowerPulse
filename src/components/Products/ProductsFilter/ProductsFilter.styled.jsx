@@ -85,7 +85,7 @@ export const SvgIconClearInput = styled.svg`
 `;
 
 export const SearchInput = styled.input`
-  background-color: ${(p) => p.theme.colors.black};
+  background-color: transparent;
   outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -117,7 +117,7 @@ export const SelectorC = styled.select`
   font-size: 14px;
   line-height: 129%;
 
-  background-color: black;
+  background-color: transparent;
   outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -152,7 +152,7 @@ export const SelectorA = styled.select`
   font-size: 14px;
   line-height: 129%;
 
-  background-color: black;
+  background-color: transparent;
   outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
