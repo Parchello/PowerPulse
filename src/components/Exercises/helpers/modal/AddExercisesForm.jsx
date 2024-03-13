@@ -23,6 +23,7 @@ import {
 } from '../../../../redux/exercises/selectors';
 import {
   setFormModal,
+  setIsPlayed,
   setSucssesModal,
 } from '../../../../redux/exercises/exercisesSlise';
 import { addExerciseToDiary } from '../../../../redux/exercises/operation';
@@ -50,6 +51,7 @@ const AddExerciseForm = () => {
   };
 
   function onClick() {
+    dispatch(setIsPlayed(false));
     {
       dispatch(addExerciseToDiary(exerciseData))
         .unwrap()
