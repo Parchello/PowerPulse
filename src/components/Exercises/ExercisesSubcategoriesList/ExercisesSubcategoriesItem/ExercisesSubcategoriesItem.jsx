@@ -45,16 +45,13 @@ const ExercisesSubcategoriesItem = () => {
         modules={[Navigation, Pagination, A11y, Grid]}
         spaceBetween={16}
         slidesPerView={isMobileScreen ? 1 : isTabletScreen ? 3 : 5}
-        slidesPerColumn={isMobileScreen ? 1 : isTabletScreen ? 9 : 10}
         navigation
         grid={{
           rows: isMobileScreen ? 20 : isTabletScreen ? 3 : 2,
           columns: isMobileScreen ? 1 : isTabletScreen ? 3 : 2,
-          fill: 'row',
+          fill: 'columns',
         }}
         pagination={{ clickable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
       >
         {visibleExercises.map((item) => (
           <SwiperSlide
