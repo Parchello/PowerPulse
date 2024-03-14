@@ -24,7 +24,6 @@ import { setCategory } from '../../redux/exercises/exercisesSlise.jsx';
 const Exercises = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
-  console.log(filters);
 
   const selectedCategory = useSelector(selectSelectedCategories);
 

@@ -18,8 +18,9 @@ import {
   selectTimer,
 } from '../../../../../redux/exercises/selectors';
 import {
-  setFormModal,
+  setCalories,
   setSucssesModal,
+  setTimer,
 } from '../../../../../redux/exercises/exercisesSlise';
 import { CaloriesNumber } from '../AddExercisesForm.styled';
 
@@ -34,7 +35,15 @@ const AddPExerciseSuccess = () => {
 
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
 
-  function closeModal() {}
+  function closeModal() {
+    dispatch(setSucssesModal(false));
+  }
+
+  function onClickNext() {
+    dispatch(setSucssesModal(false));
+    dispatch(setTimer(0));
+    dispatch(setCalories(0));
+  }
 
   const customStyles = {
     content: {
@@ -80,14 +89,7 @@ const AddPExerciseSuccess = () => {
               Burned calories: <CaloriesNumber>{calories}</CaloriesNumber>
             </Text>
           </div>
-          <Button
-            onClick={() => {
-              dispatch(setSucssesModal(false));
-              dispatch(setFormModal(false));
-            }}
-          >
-            Next exercise
-          </Button>
+          <Button onClick={() => onClickNext()}>Next exercise</Button>
         </DoneContainer>
         <LinkToDairy to="/diary">
           To the diary{' '}
