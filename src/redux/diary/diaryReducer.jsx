@@ -21,6 +21,13 @@ const diaryProductsSlice = createSlice({
   name: 'diary',
   initialState,
 
+  reducers: {
+    setInitialDate: (state, action) => {
+      state.initialDate = action.payload;
+      console.log('StateDate', action.payload);
+    },
+  },
+
   extraReducers: (builder) => {
     builder
       // dashboard
@@ -80,3 +87,4 @@ const diaryProductsSlice = createSlice({
 });
 
 export const diaryReducer = diaryProductsSlice.reducer;
+export const { setInitialDate } = diaryProductsSlice.actions;
