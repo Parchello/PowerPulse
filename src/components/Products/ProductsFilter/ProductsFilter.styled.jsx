@@ -85,7 +85,7 @@ export const SvgIconClearInput = styled.svg`
 `;
 
 export const SearchInput = styled.input`
-  background-color: ${(p) => p.theme.colors.black};
+  background-color: transparent;
   outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -112,12 +112,16 @@ export const SearchInput = styled.input`
   }
 `;
 
+export const SelectWrapper = styled.div`
+  position: relative;
+`;
+
 export const SelectorC = styled.select`
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
 
-  background-color: black;
+  background-color: transparent;
   outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -125,6 +129,9 @@ export const SelectorC = styled.select`
   padding: 14px;
   width: 146px;
   height: 46px;
+
+  cursor: pointer;
+  appearance: none;
 
   @media screen and (min-width: 768px) {
     line-height: 150%;
@@ -137,13 +144,22 @@ export const SelectorC = styled.select`
   }
 `;
 
-//тут намагався стилізувати опції в селекті. Застосувався лише бекграунд
+export const SvgChevronDown = styled.svg`
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  pointer-events: none;
+`;
+
 export const Option = styled.option`
   background-color: #1c1c1c;
   border-radius: 12px;
   padding: 14px 32px 14px 14px;
   width: 146px;
   height: 228px;
+  text-indent: 20px;
+  text-transform: capitalize;
 `;
 
 export const SelectorA = styled.select`
@@ -151,7 +167,7 @@ export const SelectorA = styled.select`
   font-size: 14px;
   line-height: 129%;
 
-  background-color: black;
+  background-color: transparent;
   outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -159,6 +175,9 @@ export const SelectorA = styled.select`
   padding: 14px;
   width: 173px;
   height: 46px;
+
+  cursor: pointer;
+  appearance: none;
 
   @media screen and (min-width: 768px) {
     line-height: 150%;

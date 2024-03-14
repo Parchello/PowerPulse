@@ -321,7 +321,7 @@ const UserForm = () => {
               onChange={(e) =>
                 formik.setFieldValue('blood', parseInt(e.target.value))
               }
-              checked={currentUser.blood === 1 && true}
+              checked={formik.values.blood === 1 && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="1">1</LabelRadioBtn>
           </LiRadioBtn>
@@ -334,7 +334,7 @@ const UserForm = () => {
               onChange={(e) =>
                 formik.setFieldValue('blood', parseInt(e.target.value))
               }
-              checked={currentUser.blood === 2 && true}
+              checked={formik.values.blood === 2 && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="2">2</LabelRadioBtn>
           </LiRadioBtn>
@@ -347,7 +347,7 @@ const UserForm = () => {
               onChange={(e) =>
                 formik.setFieldValue('blood', parseInt(e.target.value))
               }
-              checked={currentUser.blood === 3 && true}
+              checked={formik.values.blood === 3 && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="3">3</LabelRadioBtn>
           </LiRadioBtn>
@@ -360,7 +360,7 @@ const UserForm = () => {
               onChange={(e) =>
                 formik.setFieldValue('blood', parseInt(e.target.value))
               }
-              checked={currentUser.blood === 4 && true}
+              checked={formik.values.blood === 4 && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="4">4</LabelRadioBtn>
           </LiRadioBtn>
@@ -374,7 +374,7 @@ const UserForm = () => {
               value="female"
               type="radio"
               onChange={formik.handleChange}
-              checked={currentUser.sex === 'female' && true}
+              checked={formik.values.sex === 'female' && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="female">Female</LabelRadioBtn>
           </LiRadioBtn>
@@ -385,7 +385,7 @@ const UserForm = () => {
               name="sex"
               value="male"
               onChange={formik.handleChange}
-              checked={currentUser.sex === 'male' && true}
+              checked={formik.values.sex === 'male' && true}
             ></InputRadioBtn>
             <LabelRadioBtn htmlFor="male">Male</LabelRadioBtn>
           </LiRadioBtn>
@@ -401,7 +401,7 @@ const UserForm = () => {
             onChange={(e) =>
               formik.setFieldValue('levelActivity', parseInt(e.target.value))
             }
-            checked={currentUser.levelActivity === 1 && true}
+            checked={formik.values.levelActivity === 1 && true}
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="Sedentary">
             Sedentary lifestyle (little or no physical activity)
@@ -416,7 +416,7 @@ const UserForm = () => {
             onChange={(e) =>
               formik.setFieldValue('levelActivity', parseInt(e.target.value))
             }
-            checked={currentUser.levelActivity === 2 && true}
+            checked={formik.values.levelActivity === 2 && true}
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="Light">
             Light activity (light exercises/sports 1-3 days per week)
@@ -431,7 +431,7 @@ const UserForm = () => {
             onChange={(e) =>
               formik.setFieldValue('levelActivity', parseInt(e.target.value))
             }
-            checked={currentUser.levelActivity === 3 && true}
+            checked={formik.values.levelActivity === 3 && true}
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="Moderately">
             Moderately active (moderate exercises/sports 3-5 days per week)
@@ -446,7 +446,7 @@ const UserForm = () => {
             onChange={(e) =>
               formik.setFieldValue('levelActivity', parseInt(e.target.value))
             }
-            checked={currentUser.levelActivity === 4 && true}
+            checked={formik.values.levelActivity === 4 && true}
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="VeryActive">
             Very active (intense exercises/sports 6-7 days per week)
@@ -461,7 +461,7 @@ const UserForm = () => {
             onChange={(e) =>
               formik.setFieldValue('levelActivity', parseInt(e.target.value))
             }
-            checked={currentUser.levelActivity === 5 && true}
+            checked={formik.values.levelActivity === 5 && true}
           ></InputRadioBtn>
           <LabelRadioBtn htmlFor="ExtremelyActive">
             Extremely active (very strenuous exercises/sports and physical work)

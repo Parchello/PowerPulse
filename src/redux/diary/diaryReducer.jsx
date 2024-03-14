@@ -21,6 +21,13 @@ const diaryProductsSlice = createSlice({
   name: 'diary',
   initialState,
 
+  reducers: {
+    setInitialDate: (state, action) => {
+      state.initialDate = action.payload;
+      console.log('StateDate', action.payload);
+    },
+  },
+
   extraReducers: (builder) => {
     builder
       // dashboard
@@ -48,7 +55,7 @@ const diaryProductsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const deletedProduct = state.products.findIndex(
-          (product) => product._id === action.meta.arg
+          (product) => product.productId._id === action.meta.arg._id
         );
         state.products.splice(deletedProduct, 1);
       })
@@ -71,7 +78,7 @@ const diaryProductsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const deletedExercise = state.exercises.findIndex(
-          (exercise) => exercise._id === action.meta.arg
+          (exercise) => exercise.exerciseId._id === action.meta.arg._id
         );
         state.exercises.splice(deletedExercise, 1);
       })
@@ -80,3 +87,4 @@ const diaryProductsSlice = createSlice({
 });
 
 export const diaryReducer = diaryProductsSlice.reducer;
+export const { setInitialDate } = diaryProductsSlice.actions;

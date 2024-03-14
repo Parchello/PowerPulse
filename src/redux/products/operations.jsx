@@ -17,12 +17,38 @@ export const getProductsCategories = createAsyncThunk(
 
 export const getAllProducts = createAsyncThunk(
   'products/getAllProducts',
-  async (_, thunkAPI) => {
+  async (query = {}, thunkAPI) => {
+    const { title = '', category = '', recommended = '' } = query;
+
+    let endpoint = 'api/products';
     try {
-      const response = await axios.get('api/products');
+      let endpoint = 'api/products';
+      const queryParams = {};
+
+      if (title.trim() !== '') {
+        queryParams.title = title;
+      }
+
+      if (category.trim() !== '') {
+        queryParams.category = category;
+      }
+
+      if (recommended.trim() !== '') {
+        queryParams.recommended = recommended;
+      }
+
+      const queryString = new URLSearchParams(queryParams).toString();
+      if (queryString !== '') {
+        endpoint += `?${queryString}`;
+      }
+
+      const response = await axios.get(endpoint);
       return response.data.products;
     } catch (error) {
-      toast.error('Error getting products');
+      if (error.response.data.message === 'Products not found') {
+        return [];
+      }
+      toast.error("Sorry. We don't find any results");
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -33,7 +59,7 @@ export const addProductToDiary = createAsyncThunk(
   async (productData, thunkAPI) => {
     try {
       const response = await axios.post('api/diary/addproduct', productData);
-      console.log(response);
+      console.log('resp: ', response);
       return response.data;
     } catch (error) {
       toast.error('Unable to add product');
