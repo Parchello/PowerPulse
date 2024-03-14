@@ -36,6 +36,7 @@ const diaryProductsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.dayDashboard = action.payload || [];
+        console.log('ACTION', action);
       })
       .addCase(fetchDiaryDashboard.rejected, handleRejection)
 

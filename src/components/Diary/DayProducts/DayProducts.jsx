@@ -19,15 +19,27 @@ import { Token } from '../../../redux/profile/selectors';
 export const ProductsTable = () => {
   const dispatch = useDispatch();
   const token = useSelector(Token);
-  // const date = '13/03/2024';
+  const date = '14/03/2024';
+
   const initialDate = useSelector((state) => state.diary.initialDate);
+
+  const formatingDate = (date) => {
+    const dateObject = new Date(date);
+    const day = String(dateObject.getDate()).padStart(2, '0');
+    const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+    const year = dateObject.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  const dateNow = formatingDate(initialDate);
+  console.log('FFFFFFFF', dateNow);
   useEffect(() => {
     const request = {
       token,
-      date: initialDate,
+      date: dateNow,
     };
     dispatch(fetchDiaryProducts(request));
-  }, [dispatch, token, initialDate]);
+  }, [dispatch, token, dateNow]);
   const products = useSelector(selectDiaryProducts);
   console.log('products: ', products);
   return (

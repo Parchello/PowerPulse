@@ -22,7 +22,7 @@ const DayDashboard = () => {
   const dispatch = useDispatch();
   const dashboardInf = useSelector(selectDayDashboard);
   const token = useSelector(Token);
-  const date = '13/03/2024';
+  const date = '14/03/2024';
 
   useEffect(() => {
     const request = {
