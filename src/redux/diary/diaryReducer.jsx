@@ -13,6 +13,8 @@ const handlePending = (state) => {
 };
 
 const handleRejection = (state, action) => {
+  console.log('action', action);
+
   state.isLoading = false;
   state.error = action.payload;
 };
@@ -35,15 +37,17 @@ const diaryProductsSlice = createSlice({
       .addCase(fetchDiaryDashboard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.dayDashboard = action.payload || [];
+        state.dayDashboard = action?.payload || [];
+        console.log('ACTION', action);
       })
       .addCase(fetchDiaryDashboard.rejected, handleRejection)
 
       // diary
       .addCase(fetchDiaryProducts.pending, handlePending)
       .addCase(fetchDiaryProducts.fulfilled, (state, action) => {
+        console.log('action', action);
         state.isLoading = false;
-        state.products = action.payload.products || [];
+        state.products = action.payload?.products || [];
         state.error = null;
       })
       .addCase(fetchDiaryProducts.rejected, handleRejection)
@@ -67,7 +71,7 @@ const diaryProductsSlice = createSlice({
       .addCase(fetchDiaryExercises.fulfilled, (state, action) => {
         console.log(action);
         state.isLoading = false;
-        state.exercises = action.payload.exercises || [];
+        state.exercises = action.payload?.exercises || [];
         state.error = null;
       })
 

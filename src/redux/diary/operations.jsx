@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://powerpulse-group5-backend.onrender.com/';
+// axios.defaults.baseURL = 'https://powerpulse-group5-backend.onrender.com/';
 
 // dairy
 
@@ -32,17 +32,18 @@ export const fetchDiaryProducts = createAsyncThunk(
   async (info, thunkAPI) => {
     const { token, date } = info;
     try {
-      const res = await axios.get('api/diary/', {
+      const res = await axios.get(`/api/diary?date=${date}`, {
         headers: {
           Authorization: `Bearer ${token}`,
-        },
-        params: {
-          date,
-        },
+        }
       });
       return res.data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      console.log('ERROR', error)
+      if (error.response.data.message === 'Dairy entry not found') {
+        return [];
+      }
+        thunkAPI.rejectWithValue(error.message);
     }
   }
 );

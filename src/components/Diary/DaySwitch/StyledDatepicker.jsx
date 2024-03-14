@@ -17,7 +17,7 @@ const StyledDatepicker = () => {
   const initialDate = useSelector((state) => state.diary.initialDate);
 
   // console.log('new date', selectedDate);
-  // console.log('init', initialDate);
+  console.log('init', initialDate);
   const user = useSelector((state) => state.diary.dayDashboard);
   console.log('user', user);
 
@@ -34,21 +34,20 @@ const StyledDatepicker = () => {
   const handlePrevDay = () => {
     const newDate = new Date(selectedDate);
     newDate.setDate(selectedDate.getDate() - 1);
-    if (newDate > new Date(user.createdAt)) {
+    if (newDate >= new Date(user.createdAt)) {
+      console.log('BTN regdate', new Date(user.createdAt));
       setSelectedDate(newDate);
-      dispatch(setInitialDate(format(newDate, 'MM/dd/yyyy')));
+      dispatch(setInitialDate(format(newDate, 'dd/MM/yyyy')));
     }
   };
 
   // format(new Date(2014, 1, 11), 'MM/dd/yyyy');
 
   const handleNextDay = () => {
-    const newDate = new Date(selectedDate);
+    const newDate = selectedDate;
     newDate.setDate(selectedDate.getDate() + 1);
-    if (newDate > new Date(user.createdAt)) {
-      setSelectedDate(newDate);
-      dispatch(setInitialDate(format(newDate, 'MM/dd/yyyy')));
-    }
+    setSelectedDate(newDate);
+    dispatch(setInitialDate(format(newDate, 'dd/MM/yyyy')));
   };
 
   return (
@@ -56,13 +55,14 @@ const StyledDatepicker = () => {
       <CalendarCont>
         <DatePicker
           showIcon
-          selected={initialDate}
+          selected={selectedDate}
           minDate={user.createdAt}
           onChange={(date) => {
             setSelectedDate(date);
+            dispatch(setInitialDate(format(date, 'dd/MM/yyyy')));
           }}
           customInput={<CustomInput />}
-          dateFormat={'dd MM yyyy'}
+          dateFormat={'dd/MM/yyyy'}
           calendarStartDay={1}
           formatWeekDay={(day) => day.substr(0, 1)}
         />
