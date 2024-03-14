@@ -4,4 +4,5 @@ export const initialState = {
   exercises: [],
   isLoading: false,
   error: null,
+  initialDate: new Date().toString(),
 };

@@ -1,9 +1,8 @@
 import sprite from '../../../assets/sprite.svg';
-import { forwardRef, useState, useEffect } from 'react';
+import { forwardRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
-import { fetchCurrentUser } from '../../../redux/profile/operations';
 import {
   CalendarButton,
   CalendarCont,
@@ -11,24 +10,18 @@ import {
   TitleWrapper,
 } from './StyledDatepicker.styled';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import { setInitialDate } from '../../../redux/diary/diaryReducer';
 
 const StyledDatepicker = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  // const [registrationDate, setRegistrationDate] = useState(new Date());
-  // const dispatch = useDispatch();
-  // const user = useSelector((state) => state.auth.user);
+  const initialDate = useSelector((state) => state.diary.initialDate);
 
-  // useEffect(() => {
-  //   dispatch(fetchCurrentUser());
-  // }, [dispatch]);
+  // console.log('new date', selectedDate);
+  // console.log('init', initialDate);
+  const user = useSelector((state) => state.diary.dayDashboard);
+  console.log('user', user);
 
-  // useEffect(() => {
-  //   if (user) {
-  //     const regDate = new Date(user.createdAt);
-  //     setRegistrationDate(regDate);
-  //     setSelectedDate(regDate);
-  //   }
-  // }, [user]);
+  const dispatch = useDispatch();
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
@@ -41,14 +34,21 @@ const StyledDatepicker = () => {
   const handlePrevDay = () => {
     const newDate = new Date(selectedDate);
     newDate.setDate(selectedDate.getDate() - 1);
-
-    setSelectedDate(newDate);
+    if (newDate > new Date(user.createdAt)) {
+      setSelectedDate(newDate);
+      dispatch(setInitialDate(format(newDate, 'MM/dd/yyyy')));
+    }
   };
+
+  // format(new Date(2014, 1, 11), 'MM/dd/yyyy');
 
   const handleNextDay = () => {
     const newDate = new Date(selectedDate);
     newDate.setDate(selectedDate.getDate() + 1);
-    setSelectedDate(newDate);
+    if (newDate > new Date(user.createdAt)) {
+      setSelectedDate(newDate);
+      dispatch(setInitialDate(format(newDate, 'MM/dd/yyyy')));
+    }
   };
 
   return (
@@ -56,7 +56,8 @@ const StyledDatepicker = () => {
       <CalendarCont>
         <DatePicker
           showIcon
-          selected={selectedDate}
+          selected={initialDate}
+          minDate={user.createdAt}
           onChange={(date) => {
             setSelectedDate(date);
           }}

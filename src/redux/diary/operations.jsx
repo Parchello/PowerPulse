@@ -9,7 +9,6 @@ export const fetchDiaryDashboard = createAsyncThunk(
   '/api/dashboard',
   async (info, thunkAPI) => {
     const { token, date } = info;
-
     try {
       const res = await axios.get('api/diary/', {
         headers: {
