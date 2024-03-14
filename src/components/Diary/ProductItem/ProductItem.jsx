@@ -16,11 +16,15 @@ import { SelectUser, Token } from '../../../redux/profile/selectors';
 
 export const ProductItem = ({ prop }) => {
   const {
-    productId: { _id, title, category, calories, weight, groupBloodNotAllowed },
+    calories,
+    amount,
+    productId: { _id, title, category, groupBloodNotAllowed },
   } = prop;
 
+  console.log(prop);
+
   const userInfo = useSelector(SelectUser);
-  const date = '13/03/2024';
+  const date = '14/03/2024';
   const dispatch = useDispatch();
   const token = useSelector(Token);
 
@@ -41,7 +45,7 @@ export const ProductItem = ({ prop }) => {
         </div>
         <div>
           <TitleName>Weight</TitleName>
-          <ProductBottomInfo>{weight}</ProductBottomInfo>
+          <ProductBottomInfo>{amount}</ProductBottomInfo>
         </div>
         <div>
           <TitleName>Recommend</TitleName>

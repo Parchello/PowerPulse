@@ -60,8 +60,8 @@ export const deleteProductDiaryById = createAsyncThunk(
             Authorization: `Bearer ${token}`,
           },
           data: {
-            date,
             productId: _id,
+            date,
           },
         }
       );
