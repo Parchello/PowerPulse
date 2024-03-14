@@ -17,16 +17,17 @@ import { selectDiaryExercises } from '../../../redux/diary/selectors';
 import { Token } from '../../../redux/profile/selectors';
 //
 export const ExercisesTable = () => {
+  const initialDate = useSelector((state) => state.diary.initialDate);
   const dispatch = useDispatch();
   const token = useSelector(Token);
-  const date = '13/03/2024';
+  // const date = '13/03/2024';
   useEffect(() => {
     const request = {
       token,
-      date,
+      date: initialDate,
     };
     dispatch(fetchDiaryExercises(request));
-  }, [dispatch, token]);
+  }, [dispatch, token, initialDate]);
   const exercises = useSelector(selectDiaryExercises);
   return (
     <DairyExercisesField>
