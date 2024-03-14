@@ -85,7 +85,7 @@ export const SvgIconClearInput = styled.svg`
 `;
 
 export const SearchInput = styled.input`
-  background-color: ${(p) => p.theme.colors.black};
+  background-color: transparent;
   outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -117,7 +117,7 @@ export const SelectorC = styled.select`
   font-size: 14px;
   line-height: 129%;
 
-  background-color: black;
+  background-color: transparent;
   outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -144,6 +144,7 @@ export const Option = styled.option`
   padding: 14px 32px 14px 14px;
   width: 146px;
   height: 228px;
+  text-transform: capitalize;
 `;
 
 export const SelectorA = styled.select`
@@ -151,7 +152,7 @@ export const SelectorA = styled.select`
   font-size: 14px;
   line-height: 129%;
 
-  background-color: black;
+  background-color: transparent;
   outline: none;
   color: #efede8;
   border: 1px solid rgba(239, 237, 232, 0.3);
