@@ -93,7 +93,8 @@ export const DietName = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  
+  text-transform: capitalize;
+
   @media screen and (min-width: 1440px) {
     max-width: 333px;
   }
