@@ -26,12 +26,8 @@ export const DietCardsList = () => {
 
   const products = useSelector(selectAllProducts);
 
-  // треба описати логіку закриття модалки по бекдропу і по Esc
-
   return (
     <>
-      {/* Лоадер якогось хєра не застосовується 
-      також треба обробити повідомлення про пустий список*/}
       <DietBlockContainer>
         {isLoading ? (
           <Loader />

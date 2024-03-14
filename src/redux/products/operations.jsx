@@ -18,17 +18,33 @@ export const getProductsCategories = createAsyncThunk(
 export const getAllProducts = createAsyncThunk(
   'products/getAllProducts',
   async (query = {}, thunkAPI) => {
-    const { title = "", category = "", recommended = "" } = query;
-    let endpoint = 'api/products';
+    const { title = '', category = '', recommended = '' } = query;
+
     try {
-      if (title || category || recommended) {
-        endpoint += `?title=${title}&category=${category}&recommended=${recommended}`;
+      let endpoint = 'api/products';
+      const queryParams = {};
+
+      if (title.trim() !== '') {
+        queryParams.title = title;
       }
+
+      if (category.trim() !== '') {
+        queryParams.category = category;
+      }
+
+      if (recommended.trim() !== '') {
+        queryParams.recommended = recommended;
+      }
+
+      const queryString = new URLSearchParams(queryParams).toString();
+      if (queryString !== '') {
+        endpoint += `?${queryString}`;
+      }
+
       const response = await axios.get(endpoint);
       return response.data.products;
     } catch (error) {
-      //сумнівне рішення, як на мене. Але по іншому не знаю як =(
-      if (error.response && error.response.status === 404) {
+      if (error.response.data.message === 'Products not found') {
         return [];
       }
       toast.error("Sorry. We don't find any results");
@@ -36,6 +52,7 @@ export const getAllProducts = createAsyncThunk(
     }
   }
 );
+
 
 export const addProductToDiary = createAsyncThunk(
   'diary/addProduct',
