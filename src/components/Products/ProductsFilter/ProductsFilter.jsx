@@ -12,6 +12,8 @@ import {
   Option,
   SvgIcon,
   SvgIconClearInput,
+  SelectWrapper,
+  SvgChevronDown,
 } from './ProductsFilter.styled';
 import {
   getAllProducts,
@@ -39,7 +41,10 @@ export const ProductsFilter = () => {
     setSearchParams(searchParams);
   };
 
-  useEffect(() => {dispatch(getProductsCategories())}, []);
+  useEffect(() => {
+    dispatch(getProductsCategories());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     dispatch(setFilter(searchQuery));
@@ -84,37 +89,47 @@ export const ProductsFilter = () => {
             </SvgIconClearInput>
           )}
         </SearchInputBox>
-
-        <SelectorC
-          value={searchCategory}
-          name="Categories"
-          id="cat"
-          placeholder="Categories"
-          onChange={(evt) => updateFilterParams('category', evt.target.value)}
-        >
-          <Option value="" defaultValue>
-            Categories
-          </Option>
-          {categoriesList.map((item) => (
-            <Option key={item} value={item}>
-              {item}
+        <SelectWrapper>
+          <SelectorC
+            value={searchCategory}
+            name="Categories"
+            id="cat"
+            placeholder="Categories"
+            onChange={(evt) => updateFilterParams('category', evt.target.value)}
+          >
+            <Option value="" defaultValue>
+              Categories
             </Option>
-          ))}
-        </SelectorC>
-        <SelectorA
-          value={searchRecommend}
-          name="all"
-          id="all"
-          onChange={(evt) =>
-            updateFilterParams('recommended', evt.target.value)
-          }
-        >
-          <Option value="" defaultValue>
-            All
-          </Option>
-          <Option value={'true'}>Recommended</Option>
-          <Option value="false">Not recommended</Option>
-        </SelectorA>
+            {categoriesList.map((item) => (
+              <Option key={item} value={item}>
+                {item}
+              </Option>
+            ))}
+          </SelectorC>
+          <SvgChevronDown width="18px" height="18px">
+            <use xlinkHref={sprite + '#icon-chevron-down'} />
+          </SvgChevronDown>
+        </SelectWrapper>
+
+        <SelectWrapper>
+          <SelectorA
+            value={searchRecommend}
+            name="all"
+            id="all"
+            onChange={(evt) =>
+              updateFilterParams('recommended', evt.target.value)
+            }
+          >
+            <Option value="" defaultValue>
+              All
+            </Option>
+            <Option value={'true'}>Recommended</Option>
+            <Option value="false">Not recommended</Option>
+          </SelectorA>
+          <SvgChevronDown width="18px" height="18px">
+            <use xlinkHref={sprite + '#icon-chevron-down'} />
+          </SvgChevronDown>
+        </SelectWrapper>
       </Filters>
     </MainFiltersContainer>
   );

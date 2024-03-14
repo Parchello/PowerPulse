@@ -20,6 +20,7 @@ export const getAllProducts = createAsyncThunk(
   async (query = {}, thunkAPI) => {
     const { title = '', category = '', recommended = '' } = query;
 
+    let endpoint = 'api/products';
     try {
       let endpoint = 'api/products';
       const queryParams = {};
@@ -53,13 +54,12 @@ export const getAllProducts = createAsyncThunk(
   }
 );
 
-
 export const addProductToDiary = createAsyncThunk(
   'diary/addProduct',
   async (productData, thunkAPI) => {
     try {
       const response = await axios.post('api/diary/addproduct', productData);
-      console.log(response);
+      console.log('resp: ', response);
       return response.data;
     } catch (error) {
       toast.error('Unable to add product');

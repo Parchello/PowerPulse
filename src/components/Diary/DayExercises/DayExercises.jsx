@@ -28,7 +28,6 @@ export const ExercisesTable = () => {
     dispatch(fetchDiaryExercises(request));
   }, [dispatch, token]);
   const exercises = useSelector(selectDiaryExercises);
-  // console.log(exercises.map((i) => console.log('check: ', i.exerciseId._id)));
   return (
     <DairyExercisesField>
       <HeadOfField>

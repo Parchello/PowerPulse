@@ -25,10 +25,10 @@ export const productsSlice = createSlice({
       state.filters.recommended = action.payload;
     },
   },
- 
+
   extraReducers: (builder) => {
     builder //categories
-      .addCase(getProductsCategories.pending, (state, _) => {
+      .addCase(getProductsCategories.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(getProductsCategories.fulfilled, (state, action) => {
@@ -39,7 +39,7 @@ export const productsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       }) //products
-      .addCase(getAllProducts.pending, (state, action) => {
+      .addCase(getAllProducts.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(getAllProducts.fulfilled, (state, action) => {

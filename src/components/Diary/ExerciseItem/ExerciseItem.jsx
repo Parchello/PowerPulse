@@ -17,7 +17,7 @@ import { Token } from '../../../redux/profile/selectors';
 
 export const ExerciseItem = ({ prop }) => {
   const dispatch = useDispatch();
-  const date = '13/03/2024';
+  const date = '14/03/2024';
   const token = useSelector(Token);
   const {
     time,

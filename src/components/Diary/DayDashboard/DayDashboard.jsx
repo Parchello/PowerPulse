@@ -17,6 +17,7 @@ import { selectDayDashboard } from '../../../redux/diary/selectors';
 import { useEffect } from 'react';
 import { fetchDiaryDashboard } from '../../../redux/diary/operations';
 import { SelectUser, Token } from '../../../redux/profile/selectors';
+import { fetchCurrentUser } from '../../../redux/profile/operations';
 
 const DayDashboard = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const DayDashboard = () => {
       date,
     };
     dispatch(fetchDiaryDashboard(request));
+    dispatch(fetchCurrentUser());
   }, [dispatch, token]);
 
   const {
@@ -79,7 +81,11 @@ const DayDashboard = () => {
               </svg>
               <InfoBlockLabel>Calories consumed</InfoBlockLabel>
             </DescrContainer>
-            {dashboardInf.Calories !== undefined ? <p>{Calories}</p> : <p>0</p>}
+            {dashboardInf.Calories !== undefined ? (
+              <p>{Math.round(Calories)}</p>
+            ) : (
+              <p>0</p>
+            )}
           </SecondaryInfoBlock>
           <SecondaryInfoBlock>
             <DescrContainer>
@@ -89,7 +95,7 @@ const DayDashboard = () => {
               <InfoBlockLabel>Calories burned</InfoBlockLabel>
             </DescrContainer>
             {dashboardInf.burnedCalories !== undefined ? (
-              <p>{burnedCalories}</p>
+              <p>{Math.round(burnedCalories)}</p>
             ) : (
               <p>0</p>
             )}
@@ -103,7 +109,7 @@ const DayDashboard = () => {
                 <InfoBlockLabel>Calories remaining</InfoBlockLabel>
               </DescrContainer>
               {/* math and render by conditions */}
-              <p>{bmr + Calories - burnedCalories}</p>
+              <p>{Math.round(bmr + Calories - burnedCalories)}</p>
             </SecondaryInfoBlockMore>
           ) : (
             <SecondaryInfoBlock>
@@ -114,7 +120,7 @@ const DayDashboard = () => {
                 <InfoBlockLabel>Calories remaining</InfoBlockLabel>
               </DescrContainer>
               {/* math and render by conditions */}
-              <p>{bmr - Calories}</p>
+              <p>{Math.round(bmr - Calories)}</p>
             </SecondaryInfoBlock>
           )}
           {ExercisesTime > 110 ? (
