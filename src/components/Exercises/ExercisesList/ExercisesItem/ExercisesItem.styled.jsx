@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { ImageList as CustomImageList } from '@mui/material/ImageList';
 
 export const ContainerCubCateg = styled.div``;
 

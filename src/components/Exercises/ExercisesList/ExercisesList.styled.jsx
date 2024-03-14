@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import ImageList from '@mui/material/ImageList';
 
-// видалити та огорутти в sharedLoyaut
 export const Container = styled.div`
   margin: 0 auto;
   @media screen and (max-width: 767px) {
