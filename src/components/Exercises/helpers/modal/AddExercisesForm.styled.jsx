@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 
-export const AddFormContainer = styled.div`
-  /* width: 694px;
-  height: 550px;
-  padding: 48px 32px;
-  border: 1px solid rgba(239, 237, 232, 0.2);
-  border-radius: 12px;
-  background: #10100f; */
-`;
+export const AddFormContainer = styled.div``;
 
 export const ExercContainer = styled.div`
   @media screen and (max-width: 767px) {
@@ -45,7 +38,7 @@ export const ImageFon = styled.div`
   height: 100%;
   background: linear-gradient(rgba(4, 4, 4, 0.2), rgba(4, 4, 4, 0.2));
   border-radius: 12px;
-  mix-blend-mode: multiply; /* Змішує колір фону з коліром зображення */
+  mix-blend-mode: multiply;
 `;
 
 export const ListExerc = styled.ul`

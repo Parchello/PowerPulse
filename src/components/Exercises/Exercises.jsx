@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import {
   Container,
   NavContainer,
@@ -24,7 +25,6 @@ import { setCategory } from '../../redux/exercises/exercisesSlise.jsx';
 const Exercises = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
-
   const selectedCategory = useSelector(selectSelectedCategories);
 
   useEffect(() => {

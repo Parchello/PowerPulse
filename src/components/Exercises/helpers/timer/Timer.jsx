@@ -41,28 +41,10 @@ const Timer = () => {
     dispatch(setIsPlayed(!isPlay));
   };
 
-  // useEffect(() => {
-  //   if (!isPlay && progressRef.current !== null) {
-  //     const timeExerc = 180 - progressRef.current;
-
-  //     dispatch(setTimer(timeExerc));
-  //   }
-  // }, [isPlay, dispatch]);
-
-  // const getProsseTime = (progress) => {
-  //   progressRef.current = progress;
-  // };
-
   const getProsseTime = (progress) => {
     progressRef.current = progress;
   };
 
-  // useEffect(() => {
-  //   if (timeTimer !== 0) {
-  //     const calculatedCalories = Math.round((timeTimer * burnedCalories) / 180);
-  //     dispatch(setCalories(calculatedCalories));
-  //   }
-  // }, [timeTimer, burnedCalories, dispatch]);
   useEffect(() => {
     if (isPlay) {
       const intervalId = setInterval(() => {
@@ -71,7 +53,8 @@ const Timer = () => {
         const timeTimerinutes = timeTimer / 60;
 
         const calculatedCalories = Math.round(
-          (timeTimerinutes * burnedCalories) / 180
+          // * 30 додано для отримання швидкого результуту в модальному вікні
+          (timeTimerinutes * burnedCalories * 30) / 180
         );
         dispatch(setCalories(calculatedCalories));
       }, 1000);
