@@ -11,10 +11,6 @@ export const ExercisesItem = styled.li`
   @media screen and (min-width: 1440px) {
     padding-bottom: 32px;
   }
-
-  /* @media screen and (min-width: 768px) {
-    width: calc((100% - 16px) / 3);
-  } */
 `;
 
 export const ExerscisesItemContainer = styled.div`

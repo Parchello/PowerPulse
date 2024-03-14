@@ -1,8 +1,5 @@
-import Slider from 'react-slick';
 import { useDispatch, useSelector } from 'react-redux';
-import { settings } from '../../helpers/slidersSetings/sliderSetings.jsx';
 import {
-  ExercisesItem,
   ExerscisesItemContainer,
   BodyPart,
   BodyPartCategory,
@@ -16,12 +13,23 @@ import {
 import { getAllExercises } from '../../../../redux/exercises/operation.jsx';
 import { setCategory } from '../../../../redux/exercises/exercisesSlise.jsx';
 import { Loader } from '../../../Loader/Loader.jsx';
+import { Grid, Pagination, A11y, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/grid';
+import { useMediaQuery } from '@mui/material';
 
 const ExercisesSubcategoriesItem = () => {
   const dispatch = useDispatch();
   const visibleExercises = useSelector(filteredCategory);
   const urlParams = useSelector(selectUrlParams);
   const isLoading = useSelector(selectIsLoading);
+
+  const isMobileScreen = useMediaQuery('(max-width: 767px)');
+  const isTabletScreen = useMediaQuery('(max-width: 1439px)');
 
   const handleClick = (item) => {
     const { name } = item;
@@ -32,9 +40,21 @@ const ExercisesSubcategoriesItem = () => {
   return (
     <div>
       {isLoading && <Loader />}
-      <Slider {...settings}>
+
+      <Swiper
+        modules={[Navigation, Pagination, A11y, Grid]}
+        spaceBetween={16}
+        slidesPerView={isMobileScreen ? 1 : isTabletScreen ? 3 : 5}
+        navigation
+        grid={{
+          rows: isMobileScreen ? 20 : isTabletScreen ? 3 : 2,
+          columns: isMobileScreen ? 1 : isTabletScreen ? 3 : 2,
+          fill: 'columns',
+        }}
+        pagination={{ clickable: true }}
+      >
         {visibleExercises.map((item) => (
-          <ExercisesItem
+          <SwiperSlide
             key={item._id}
             style={{ width: 100 }}
             onClick={() => handleClick(item)}
@@ -49,9 +69,9 @@ const ExercisesSubcategoriesItem = () => {
               </BodyPart>
               <BodyPartCategory>{item.filter}</BodyPartCategory>
             </ExerscisesItemContainer>
-          </ExercisesItem>
+          </SwiperSlide>
         ))}
-      </Slider>
+      </Swiper>
     </div>
   );
 };
