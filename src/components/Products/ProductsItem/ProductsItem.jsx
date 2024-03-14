@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/sprite.svg';
 import { ModalProducts } from '../ModalProducts/ModalProducts';
 import {
@@ -49,7 +49,7 @@ export const ProductsItem = ({
   blood,
 }) => {
   const dispatch = useDispatch();
-
+  const initialDate = useSelector((state) => state.diary.initialDate);
   const [modalProductsIsOpen, setModalProductsIsOpen] = useState(false);
   const [modalWellDoneIsOpen, setModalWellDoneIsOpen] = useState(false);
   const [inputedWeight, setInputedWeight] = useState(0);
@@ -65,16 +65,16 @@ export const ProductsItem = ({
   // amount - number; minimum 1(g); required
   // calories - number; minimum 1; required
 
-  const formatDate = (date) => {
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
-  };
+  // const formatDate = (date) => {
+  //   const day = String(date.getDate()).padStart(2, '0');
+  //   const month = String(date.getMonth() + 1).padStart(2, '0');
+  //   const year = date.getFullYear();
+  //   return `${day}/${month}/${year}`;
+  // };
 
   const productData = {
     productId: _id,
-    date: formatDate(new Date()),
+    date: initialDate,
     amount: Number(inputedWeight),
     calories: Number(caloriesValue),
   };

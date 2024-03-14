@@ -35,17 +35,17 @@ const AddExerciseForm = () => {
   const dataAdd = useSelector(selectSelectedItem);
   const isMobileScreen = useMediaQuery('(max-width: 767px)');
   const isBigScreen = useMediaQuery('(min-width: 768px)');
-
-  const timeData = (date) => {
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
-  };
+  const initialDate = useSelector((state) => state.diary.initialDate);
+  // const timeData = (date) => {
+  //   const day = String(date.getDate()).padStart(2, '0');
+  //   const month = String(date.getMonth() + 1).padStart(2, '0');
+  //   const year = date.getFullYear();
+  //   return `${day}/${month}/${year}`;
+  // };
 
   const exerciseData = {
     exerciseId: dataAdd._id,
-    date: timeData(new Date()),
+    date: initialDate,
     time: time,
     calories: calories,
   };

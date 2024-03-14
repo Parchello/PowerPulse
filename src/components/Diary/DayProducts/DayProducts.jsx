@@ -19,7 +19,6 @@ import { Token } from '../../../redux/profile/selectors';
 export const ProductsTable = () => {
   const dispatch = useDispatch();
   const token = useSelector(Token);
-<<<<<<< HEAD
   const date = '14/03/2024';
 
   const initialDate = useSelector((state) => state.diary.initialDate);
@@ -34,10 +33,6 @@ export const ProductsTable = () => {
 
   // const dateNow = formatingDate(initialDate);
   console.log('FFFFFFFF', initialDate);
-=======
-  const initialDate = useSelector((state) => state.diary.initialDate);
-  // const date = '14/03/2024';
->>>>>>> main
   useEffect(() => {
     const request = {
       token,
@@ -59,10 +54,7 @@ export const ProductsTable = () => {
       {products.length > 0 ? (
         <ListOfProducts>
           {products.map((i) => (
-            // console.log(i.productId._id)
-            <div key={i.productId._id}>
-              <ProductItem prop={i} />
-            </div>
+            <ProductItem key={i._id} prop={i} />
           ))}
         </ListOfProducts>
       ) : (
@@ -75,3 +67,67 @@ export const ProductsTable = () => {
 };
 
 export default ProductsTable;
+
+// import {
+//   BottomInf,
+//   LiItemProducts,
+//   ProductBottomInfo,
+//   ProductInfo,
+//   TitleName,
+// } from './ProductItem.styled';
+// // import { Recommended } from '../Recommended/Recommended';
+// // import { NotRecommended } from '../NotRecomended/NotRecommended';
+// import { useDispatch } from 'react-redux';
+// import sprite from '../../../assets/sprite.svg';
+// import { deleteProductDiaryById } from '../../../redux/DiaryProducts/operations';
+
+// export const ProductItem = ({ prop }) => {
+//   const {
+//     productId: { _id, title, category, calories, weight },
+//   } = prop;
+
+//   const dispatch = useDispatch();
+//   const handleDelete = () => {
+//     const productInfo = {
+//       productId: _id,
+//       date: '09/03/2024',
+//       weight: weight,
+//       calories: calories,
+//     };
+
+//     dispatch(deleteProductDiaryById(productInfo));
+//   };
+//   console.log(prop);
+
+//   return (
+//     <LiItemProducts>
+//       <TitleName>Title</TitleName>
+//       <ProductInfo>{title}</ProductInfo>
+//       <TitleName>Category</TitleName>
+//       <ProductInfo>{category}</ProductInfo>
+//       <BottomInf>
+//         <div>
+//           <TitleName>Calories</TitleName>
+//           <ProductBottomInfo>{calories}</ProductBottomInfo>
+//         </div>
+//         <div>
+//           <TitleName>Weight</TitleName>
+//           <ProductBottomInfo>{weight}</ProductBottomInfo>
+//         </div>
+//         <div>
+//           <TitleName>Recommend</TitleName>
+//           <ProductBottomInfo>
+//             {/* {prop.notAllowed ? <NotRecommended /> : <Recommended />} */}
+//           </ProductBottomInfo>
+//         </div>
+//         <button onClick={() => handleDelete()}>
+//           <svg>
+//             <use xlinkHref={sprite + '#icon-red-raw'}></use>
+//           </svg>
+//         </button>
+//       </BottomInf>
+//     </LiItemProducts>
+//   );
+// };
+
+// export default ProductItem;
