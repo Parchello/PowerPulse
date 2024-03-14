@@ -23,23 +23,23 @@ export const ProductsTable = () => {
 
   const initialDate = useSelector((state) => state.diary.initialDate);
 
-  const formatingDate = (date) => {
-    const dateObject = new Date(date);
-    const day = String(dateObject.getDate()).padStart(2, '0');
-    const month = String(dateObject.getMonth() + 1).padStart(2, '0');
-    const year = dateObject.getFullYear();
-    return `${day}/${month}/${year}`;
-  };
+  // const formatingDate = (date) => {
+  //   const dateObject = new Date(date);
+  //   const day = String(dateObject.getDate()).padStart(2, '0');
+  //   const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+  //   const year = dateObject.getFullYear();
+  //   return `${day}/${month}/${year}`;
+  // };
 
-  const dateNow = formatingDate(initialDate);
-  console.log('FFFFFFFF', dateNow);
+  // const dateNow = formatingDate(initialDate);
+  console.log('FFFFFFFF', initialDate);
   useEffect(() => {
     const request = {
       token,
-      date: dateNow,
+      date: initialDate,
     };
     dispatch(fetchDiaryProducts(request));
-  }, [dispatch, token, dateNow]);
+  }, [dispatch, token, initialDate]);
   const products = useSelector(selectDiaryProducts);
   console.log('products: ', products);
   return (

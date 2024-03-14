@@ -37,7 +37,7 @@ const StyledDatepicker = () => {
     if (newDate >= new Date(user.createdAt)) {
       console.log('BTN regdate', new Date(user.createdAt));
       setSelectedDate(newDate);
-      dispatch(setInitialDate(format(newDate, 'MM/dd/yyyy')));
+      dispatch(setInitialDate(format(newDate, 'dd/MM/yyyy')));
     }
   };
 
@@ -47,7 +47,7 @@ const StyledDatepicker = () => {
     const newDate = selectedDate;
     newDate.setDate(selectedDate.getDate() + 1);
     setSelectedDate(newDate);
-    dispatch(setInitialDate(format(newDate, 'MM/dd/yyyy')));
+    dispatch(setInitialDate(format(newDate, 'dd/MM/yyyy')));
   };
 
   return (
@@ -55,11 +55,11 @@ const StyledDatepicker = () => {
       <CalendarCont>
         <DatePicker
           showIcon
-          selected={initialDate}
+          selected={selectedDate}
           minDate={user.createdAt}
           onChange={(date) => {
             setSelectedDate(date);
-            dispatch(setInitialDate(format(date, 'MM/dd/yyyy')));
+            dispatch(setInitialDate(format(date, 'dd/MM/yyyy')));
           }}
           customInput={<CustomInput />}
           dateFormat={'dd/MM/yyyy'}
