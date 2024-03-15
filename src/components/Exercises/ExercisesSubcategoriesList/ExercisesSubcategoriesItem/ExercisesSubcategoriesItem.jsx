@@ -13,7 +13,7 @@ import {
 import { getAllExercises } from '../../../../redux/exercises/operation.jsx';
 import { setCategory } from '../../../../redux/exercises/exercisesSlise.jsx';
 import { Loader } from '../../../Loader/Loader.jsx';
-import { Grid, Pagination, A11y, Navigation } from 'swiper/modules';
+import { Grid, Pagination, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -40,18 +40,25 @@ const ExercisesSubcategoriesItem = () => {
   return (
     <div>
       {isLoading && <Loader />}
-
       <Swiper
-        modules={[Navigation, Pagination, A11y, Grid]}
+        modules={[Pagination, A11y, Grid]}
         spaceBetween={16}
         slidesPerView={isMobileScreen ? 1 : isTabletScreen ? 3 : 5}
-        navigation
         grid={{
           rows: isMobileScreen ? 20 : isTabletScreen ? 3 : 2,
           columns: isMobileScreen ? 1 : isTabletScreen ? 3 : 2,
           fill: 'columns',
         }}
         pagination={{ clickable: true }}
+        style={{
+          '--swiper-pagination-color': '#e6533c',
+          '--swiper-pagination-bullet-inactive-color':
+            'rgba(239, 237, 232, 0.2)',
+          '--swiper-pagination-bullet-inactive-opacity': '1',
+          '--swiper-pagination-bullet-size': '14px',
+          '--swiper-pagination-bullet-horizontal-gap': '10px',
+          position: 'relative',
+        }}
       >
         {visibleExercises.map((item) => (
           <SwiperSlide

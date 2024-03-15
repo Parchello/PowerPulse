@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
+// import { Pagination } from 'swiper/modules';
 
 export const ExercisesItem = styled.li`
   display: block;
