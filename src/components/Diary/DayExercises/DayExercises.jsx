@@ -15,12 +15,16 @@ import { PositionCorrectorDiv } from '../NotFoundProducts/NotFoundProducts.style
 import { fetchDiaryExercises } from '../../../redux/diary/operations';
 import { selectDiaryExercises } from '../../../redux/diary/selectors';
 import { Token } from '../../../redux/profile/selectors';
+import { useMediaQuery } from '@mui/material';
+import TableExercise from '../DairyDayExerciseForTabletAndDesktop/DairyDayExerciseForTabletAndDesktop';
 //
 export const ExercisesTable = () => {
   const initialDate = useSelector((state) => state.diary.initialDate);
   const dispatch = useDispatch();
   const token = useSelector(Token);
-  // const date = '13/03/2024';
+
+  const isMobileScreen = useMediaQuery('(max-width: 767px)');
+
   useEffect(() => {
     const request = {
       token,
@@ -28,7 +32,9 @@ export const ExercisesTable = () => {
     };
     dispatch(fetchDiaryExercises(request));
   }, [dispatch, token, initialDate]);
+
   const exercises = useSelector(selectDiaryExercises);
+
   return (
     <DairyExercisesField>
       <HeadOfField>
@@ -38,16 +44,32 @@ export const ExercisesTable = () => {
           <use xlinkHref={sprite + '#icon-red-raw'} />
         </svg>
       </HeadOfField>
-      {exercises.length > 0 ? (
-        <ExerciseBlock>
-          {exercises.map((i) => (
-            <ExerciseItem key={i.exerciseId._id} prop={i} />
-          ))}
-        </ExerciseBlock>
+      {isMobileScreen ? (
+        <>
+          {exercises.length > 0 ? (
+            <ExerciseBlock>
+              {exercises.map((i) => (
+                <ExerciseItem key={i.exerciseId._id} prop={i} />
+              ))}
+            </ExerciseBlock>
+          ) : (
+            <PositionCorrectorDiv>
+              <NotFoundExercises />
+            </PositionCorrectorDiv>
+          )}
+        </>
       ) : (
-        <PositionCorrectorDiv>
-          <NotFoundExercises />
-        </PositionCorrectorDiv>
+        <>
+          {exercises.length > 0 ? (
+            <>
+              <TableExercise />
+            </>
+          ) : (
+            <PositionCorrectorDiv>
+              <NotFoundExercises />
+            </PositionCorrectorDiv>
+          )}
+        </>
       )}
     </DairyExercisesField>
   );

@@ -15,24 +15,17 @@ import { useEffect } from 'react';
 import { fetchDiaryProducts } from '../../../redux/diary/operations';
 import { selectDiaryProducts } from '../../../redux/diary/selectors';
 import { Token } from '../../../redux/profile/selectors';
+import { useMediaQuery } from '@mui/material';
+import TableProducts from '../DairyDayDayproductsForTabletAndDesktop/DairyDayDayproductsForTabletAndDesktop';
 
 export const ProductsTable = () => {
   const dispatch = useDispatch();
   const token = useSelector(Token);
 
-  // const date = '14/03/2024';
+  const isMobileScreen = useMediaQuery('(max-width: 767px)');
 
   const initialDate = useSelector((state) => state.diary.initialDate);
 
-  // const formatingDate = (date) => {
-  //   const dateObject = new Date(date);
-  //   const day = String(dateObject.getDate()).padStart(2, '0');
-  //   const month = String(dateObject.getMonth() + 1).padStart(2, '0');
-  //   const year = dateObject.getFullYear();
-  //   return `${day}/${month}/${year}`;
-  // };
-
-  // const dateNow = formatingDate(initialDate);
   useEffect(() => {
     const request = {
       token,
@@ -50,16 +43,32 @@ export const ProductsTable = () => {
           <use xlinkHref={sprite + '#icon-red-raw'} />
         </svg>
       </HeadOfField>
-      {products.length > 0 ? (
-        <ListOfProducts>
-          {products.map((i) => (
-            <ProductItem key={i._id} prop={i} />
-          ))}
-        </ListOfProducts>
+      {isMobileScreen ? (
+        <>
+          {products.length > 0 ? (
+            <ListOfProducts>
+              {products.map((i) => (
+                <ProductItem key={i._id} prop={i} />
+              ))}
+            </ListOfProducts>
+          ) : (
+            <PositionCorrectorDiv>
+              <NotFoundProducts />
+            </PositionCorrectorDiv>
+          )}
+        </>
       ) : (
-        <PositionCorrectorDiv>
-          <NotFoundProducts />
-        </PositionCorrectorDiv>
+        <>
+          {products.length > 0 ? (
+            <>
+              <TableProducts />
+            </>
+          ) : (
+            <PositionCorrectorDiv>
+              <NotFoundProducts />
+            </PositionCorrectorDiv>
+          )}
+        </>
       )}
     </DairyProductsField>
   );
