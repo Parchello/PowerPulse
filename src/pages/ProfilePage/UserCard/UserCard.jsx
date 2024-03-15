@@ -47,7 +47,6 @@ const Usercard = () => {
     </svg>
   );
 
-  //ф-ція обробник апдейта аватару
   const avatarFileHandler = (evt) => {
     const initialAvatar = evt.target.files[0];
     if (!initialAvatar) return;
