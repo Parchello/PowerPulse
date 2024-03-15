@@ -18,7 +18,6 @@ export const fetchDiaryDashboard = createAsyncThunk(
         //   date,
         // },
       });
-      console.log('res: ', res.data);
       return res.data;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
@@ -40,7 +39,6 @@ export const fetchDiaryProducts = createAsyncThunk(
       });
       return res.data;
     } catch (error) {
-      console.log('ERROR', error);
       if (error.response.data.message === 'Dairy entry not found') {
         return [];
       }

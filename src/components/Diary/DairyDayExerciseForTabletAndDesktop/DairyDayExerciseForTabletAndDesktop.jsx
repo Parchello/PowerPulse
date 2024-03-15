@@ -28,8 +28,6 @@ export default function TableExercise() {
   const token = useSelector(Token);
   const exercise = useSelector(selectDiaryExercises);
 
-  console.log(exercise);
-
   return (
     <TableContainer
       sx={{

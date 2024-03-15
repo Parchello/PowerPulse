@@ -31,21 +31,7 @@ const DayDashboard = () => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   const request = {
-  //     token,
-  //     date: initialDate,
-  //   };
-
-  //   dispatch(fetchDiaryDashboard(request));
-  // }, [dispatch, initialDate, token, Calories, burnedCalories]);
-
-  const {
-    Calories,
-    ExercisesTime,
-    // amountAll,
-    burnedCalories,
-  } = dashboardInf;
+  const { Calories, ExercisesTime, burnedCalories } = dashboardInf;
 
   useEffect(() => {
     const request = {
@@ -63,8 +49,6 @@ const DayDashboard = () => {
   {
     isNaN(Calories) ? 0 : Math.round(Calories);
   }
-
-  console.log('Calories: ', Calories);
 
   const bmrInf = useSelector(SelectUser);
   const { bmr } = bmrInf;
