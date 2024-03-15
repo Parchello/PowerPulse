@@ -40,6 +40,7 @@ export const ProfileSlice = createSlice({
         state.user.avatar = action.payload.avatarURL;
         state.user.sex = action.payload.sex;
         state.user.levelActivity = action.payload.levelActivity;
+        state.user.bmr = action.payload.bmr;
         state.isLoading = false;
         state.error = null;
       })
@@ -76,7 +77,7 @@ export const ProfileSlice = createSlice({
         toast.error('Data required!');
       })
       .addCase(patchAvatar.fulfilled, (state, action) => {
-        console.log("patchAvatar", action.payload);
+        console.log('patchAvatar', action.payload);
         state.user.avatar = action.payload.avatarURL;
       })
       .addCase(patchAvatar.pending, (state, action) => {
