@@ -13,6 +13,7 @@ import {
   SecondaryInfoBlockMore,
   SecondaryInfoBlockMoreExercises,
   ExclamationMark,
+  InfoBlockValue,
 } from './DayDashboard.styled';
 import { selectDayDashboard } from '../../../redux/diary/selectors';
 import { useEffect } from 'react';
@@ -79,7 +80,7 @@ const DayDashboard = () => {
               </svg>
               <InfoBlockLabel>Daily calorie intake</InfoBlockLabel>
             </DescrContainer>
-            {bmr !== undefined ? <p>{bmr}</p> : <p>{0}</p>}
+            {bmr !== undefined ? <InfoBlockValue>{bmr}</InfoBlockValue> : <InfoBlockValue>{0}</InfoBlockValue>}
           </MainInfoBlock>
           <MainInfoBlock>
             <DescrContainer>
@@ -88,7 +89,7 @@ const DayDashboard = () => {
               </svg>
               <InfoBlockLabel>Daily physical activity</InfoBlockLabel>
             </DescrContainer>
-            <p>110 min</p>
+            <InfoBlockValue>110 min</InfoBlockValue>
           </MainInfoBlock>
         </MainBlockOfMainInfoBlock>
         <MainBlockOfSecondaryInfoBlock>
@@ -100,9 +101,9 @@ const DayDashboard = () => {
               <InfoBlockLabel>Calories consumed</InfoBlockLabel>
             </DescrContainer>
             {dashboardInf.Calories !== undefined ? (
-              <p>{Math.round(Calories)}</p>
+              <InfoBlockValue>{Math.round(Calories)}</InfoBlockValue>
             ) : (
-              <p>0</p>
+              <InfoBlockValue>0</InfoBlockValue>
             )}
           </SecondaryInfoBlock>
           <SecondaryInfoBlock>
@@ -113,9 +114,9 @@ const DayDashboard = () => {
               <InfoBlockLabel>Calories burned</InfoBlockLabel>
             </DescrContainer>
             {dashboardInf.burnedCalories !== undefined ? (
-              <p>{Math.round(burnedCalories)}</p>
+              <InfoBlockValue>{Math.round(burnedCalories)}</InfoBlockValue>
             ) : (
-              <p>0</p>
+              <InfoBlockValue>0</InfoBlockValue>
             )}
           </SecondaryInfoBlock>
           {Calories > bmr ? (
@@ -128,7 +129,7 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
 
-              <p>{Math.round(bmr + Calories - burnedCalories) || '0'}</p>
+              <InfoBlockValue>{Math.round(bmr + Calories - burnedCalories) || '0'}</InfoBlockValue>
             </SecondaryInfoBlockMore>
           ) : (
             <SecondaryInfoBlock>
@@ -139,7 +140,7 @@ const DayDashboard = () => {
                 <InfoBlockLabel>Calories remaining</InfoBlockLabel>
               </DescrContainer>
               {/* math and render by conditions */}
-              <p>{Math.round(bmr + Calories - burnedCalories) || '0'}</p>
+              <InfoBlockValue>{Math.round(bmr + Calories - burnedCalories) || '0'}</InfoBlockValue>
             </SecondaryInfoBlock>
           )}
           {ExercisesTime > 110 ? (
@@ -152,7 +153,7 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
 
-              <p>+{Math.abs(Math.round(110 - ExercisesTime / 60))}</p>
+              <InfoBlockValue>+{Math.abs(Math.round(110 - ExercisesTime / 60))}</InfoBlockValue>
             </SecondaryInfoBlockMoreExercises>
           ) : (
             <SecondaryInfoBlock>
@@ -164,7 +165,7 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
 
-              <p>{Math.round(110 - ExercisesTime / 60) || '110m'}</p>
+              <InfoBlockValue>{Math.round(110 - ExercisesTime / 60) || '110m'}</InfoBlockValue>
             </SecondaryInfoBlock>
           )}
         </MainBlockOfSecondaryInfoBlock>

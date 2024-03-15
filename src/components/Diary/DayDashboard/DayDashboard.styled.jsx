@@ -34,6 +34,11 @@ export const InfoBlockValue = styled.p`
   font-size: 18px;
   line-height: 111%;
   color: ${(props) => props.theme.colors.white};
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 133%;
+  }
 `;
 
 export const SecondaryInfoBlock = styled.div`
