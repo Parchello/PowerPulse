@@ -22,7 +22,7 @@ export const ProductItem = ({ prop }) => {
   } = prop;
 
   const userInfo = useSelector(SelectUser);
-  const date = '14/03/2024';
+  const initialDate = useSelector((state) => state.diary.initialDate);
   const dispatch = useDispatch();
   const token = useSelector(Token);
 
@@ -56,7 +56,9 @@ export const ProductItem = ({ prop }) => {
           </ProductBottomInfo>
         </div>
         <DelBtn
-          onClick={() => dispatch(deleteProductDiaryById({ _id, date, token }))}
+          onClick={() =>
+            dispatch(deleteProductDiaryById({ _id, date: initialDate, token }))
+          }
         >
           <svg width={24} height={24}>
             <use xlinkHref={sprite + '#trash-03'}></use>

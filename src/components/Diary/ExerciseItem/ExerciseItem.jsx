@@ -17,7 +17,7 @@ import { Token } from '../../../redux/profile/selectors';
 
 export const ExerciseItem = ({ prop }) => {
   const dispatch = useDispatch();
-  const date = '14/03/2024';
+  const initialDate = useSelector((state) => state.diary.initialDate);
   const token = useSelector(Token);
   const {
     time,
@@ -52,7 +52,9 @@ export const ExerciseItem = ({ prop }) => {
           <BottomInfFieldTime>{time}</BottomInfFieldTime>
         </div>
         <DelBtn
-          onClick={() => dispatch(deleteExerciseById({ _id, token, date }))}
+          onClick={() =>
+            dispatch(deleteExerciseById({ _id, token, date: initialDate }))
+          }
         >
           <svg width={24} height={24}>
             <use xlinkHref={sprite + '#trash-03'}></use>

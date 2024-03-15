@@ -29,14 +29,14 @@ const DayDashboard = () => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  useEffect(() => {
-    const request = {
-      token,
-      date: initialDate,
-    };
+  // useEffect(() => {
+  //   const request = {
+  //     token,
+  //     date: initialDate,
+  //   };
 
-    dispatch(fetchDiaryDashboard(request));
-  }, [dispatch, initialDate, token]);
+  //   dispatch(fetchDiaryDashboard(request));
+  // }, [dispatch, initialDate, token, Calories, burnedCalories]);
 
   const {
     Calories,
@@ -45,7 +45,24 @@ const DayDashboard = () => {
     burnedCalories,
   } = dashboardInf;
 
-  console.log(Calories);
+  useEffect(() => {
+    const request = {
+      token,
+      date: initialDate,
+    };
+    Calories, burnedCalories;
+
+    dispatch(fetchDiaryDashboard(request));
+  }, [dispatch, initialDate, token, Calories, burnedCalories]);
+
+  {
+    isNaN(Calories) ? 0 : Math.round(Calories);
+  }
+  {
+    isNaN(Calories) ? 0 : Math.round(Calories);
+  }
+
+  console.log('Calories: ', Calories);
 
   const bmrInf = useSelector(SelectUser);
   const { bmr } = bmrInf;
@@ -109,7 +126,8 @@ const DayDashboard = () => {
                 <InfoBlockLabel>Calories remaining</InfoBlockLabel>
               </DescrContainer>
               {/* math and render by conditions */}
-              <p>{Math.round(bmr + Calories - burnedCalories)}</p>
+
+              <p>{Math.round(bmr + Calories - burnedCalories) || '0'}</p>
             </SecondaryInfoBlockMore>
           ) : (
             <SecondaryInfoBlock>
@@ -120,7 +138,7 @@ const DayDashboard = () => {
                 <InfoBlockLabel>Calories remaining</InfoBlockLabel>
               </DescrContainer>
               {/* math and render by conditions */}
-              <p>{Math.round(bmr - Calories)}</p>
+              <p>{Math.round(bmr + Calories - burnedCalories) || '0'}</p>
             </SecondaryInfoBlock>
           )}
           {ExercisesTime > 110 ? (
@@ -145,7 +163,7 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
 
-              <p>{Math.round(110 - ExercisesTime / 60)}</p>
+              <p>{Math.round(110 - ExercisesTime / 60) || '110m'}</p>
             </SecondaryInfoBlock>
           )}
         </MainBlockOfSecondaryInfoBlock>
