@@ -40,7 +40,6 @@ const ExercisesSubcategoriesItem = () => {
   return (
     <div>
       {isLoading && <Loader />}
-
       <Swiper
         modules={[Navigation, Pagination, A11y, Grid]}
         spaceBetween={16}

@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
+// import { Pagination } from 'swiper/modules';
 
 export const ExercisesItem = styled.li`
   display: block;
@@ -49,3 +50,14 @@ export const BodyPartCategory = styled.p`
   color: ${(props) => props.theme.colors.grey};
   margin-top: 2px;
 `;
+
+// export const PaginationStyled = createGlobalStyle`
+//  .swiper-pagination-bullet {
+// /* color: red; */
+//   }
+//   .swiper-pagination-bullet-active {
+//   color: #fff;
+//   background: #007aff;
+// }
+
+// `;
