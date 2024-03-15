@@ -60,6 +60,10 @@ export const InfoNameTable = styled.p`
 
   margin-bottom: 16px;
 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   padding: 8px;
   width: 128px;
 
@@ -86,6 +90,10 @@ export const BottomInfFieldTargetTable = styled.p`
   align-items: center;
 
   width: 84px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media screen and (min-width: 1440px) {
     width: 106px;

@@ -13,6 +13,10 @@ export const ProductInfoTable = styled.p`
 
   margin-bottom: 16px;
 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   @media screen and (min-width: 1440px) {
     border: 1px solid rgba(239, 237, 232, 0.3);
     border-radius: 12px;

@@ -72,6 +72,12 @@ export const SecondaryInfoBlockMore = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    padding: 18px;
+    width: 187px;
+    height: 116px;
+  }
 `;
 
 export const SecondaryInfoBlockMoreExercises = styled.div`
@@ -85,6 +91,12 @@ export const SecondaryInfoBlockMoreExercises = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    padding: 18px;
+    width: 187px;
+    height: 116px;
+  }
 `;
 
 export const DiaryWarningText = styled.p`
