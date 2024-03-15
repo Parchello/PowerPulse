@@ -7,7 +7,7 @@ import {
   fetchCurrentUser,
   patchUserParams,
 } from '../../../redux/profile/operations.jsx';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import {
   StyldInputShort,
@@ -29,10 +29,6 @@ import {
   ErrorDiv,
   SuccessDiv,
 } from './UserForm.Styled.jsx';
-// import StyledDatepicker from '../../../components/Diary/DaySwitch/StyledDatepicker.jsx';
-// import { useFormikContext } from 'formik';
-
-// import DatePicker from 'react-datepicker';
 
 const validate = (values, props /* only available when using withFormik */) => {
   const errors = {};
@@ -68,21 +64,9 @@ const validate = (values, props /* only available when using withFormik */) => {
   return errors;
 };
 
-// const DDatePicker = () => {
-//   const [startDate, setStartDate] = useState(new Date());
-//   return (
-//     <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-//   );
-// };
-
 const UserForm = () => {
   const currentUser = useSelector(SelectUser);
   const dispatch = useDispatch();
-  // const [name, setName] = useState();
-  console.log(currentUser);
-  // useEffect(() => {
-  //   setName(currentUser.name);
-  // }, [currentUser.name]);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -112,8 +96,6 @@ const UserForm = () => {
     },
   });
 
-  console.log(currentUser);
-
   useEffect(() => {
     if (currentUser.name !== '') {
       formik.setFormikState((prevState) => ({
@@ -132,21 +114,6 @@ const UserForm = () => {
       }));
     }
   }, [currentUser]);
-
-  // const DatePickerWrapper = () => {
-  //   const formik = useFormikContext();
-
-  //   const handleDateChange = (date) => {
-  //     formik.setFieldValue('birthday', date);
-  //   };
-
-  //   return (
-  //     <StyledDatepicker
-  //       selected={formik.values.birthday}
-  //       onChange={handleDateChange}
-  //     />
-  //   );
-  // };
 
   const handleInputStylesChange = (valueName) => {
     if (formik.errors[valueName]) {
@@ -299,14 +266,6 @@ const UserForm = () => {
             onChange={formik.handleChange}
             value={formik.values.birthday}
           />
-          {/* <StyledDatepicker
-            selected={formik.values.birthday}
-            onChange={(date) => formik.setFieldValue('birthday', date)}
-          /> */}
-          {/* <DDatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-          /> */}
         </DataContainerItem>
       </DataContainer>
       <BloodLabel htmlFor="blood"> Blood</BloodLabel>
