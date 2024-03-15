@@ -17,6 +17,7 @@ export const MainInfoBlock = styled.div`
   justify-content: space-between;
 
   @media screen and (min-width: 768px) {
+    padding: 18px;
     width: 187px;
     height: 116px;
   }
@@ -54,6 +55,7 @@ export const SecondaryInfoBlock = styled.div`
   justify-content: space-between;
 
   @media screen and (min-width: 768px) {
+    padding: 18px;
     width: 187px;
     height: 116px;
   }
