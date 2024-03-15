@@ -18,22 +18,6 @@ export const InputContainer = styled.div`
   }
 `;
 
-// export const Label = styled.label`
-//     font-size: 14px;
-//     line-height: 1.29;
-//     color: rgba(239, 237, 232, 0.6);
-//     position: absolute;
-//     top: 14px;
-//     left: 14px;
-//     pointer-events: none;
-//     transition: transform ${(p) => p.theme.transition}, font-size ${(p) => p.theme.transition}, line-height ${(p) => p.theme.transition}, left ${(p) => p.theme.transition};
-
-// @media screen and (min-width: 768px) {
-//     font-size: 16px;
-//     line-height: 1.5;
-// }
-// `
-
 export const RegisterField = styled(Field)`
   display: inline-block;
   border: 1px solid ${(p) => p.theme.colors.grey};
@@ -85,21 +69,6 @@ export const RegisterField = styled(Field)`
   &:focus,
   &:active {
     border-color: ${(p) => p.theme.colors.orange};
-
-    /* &:focus { //-----------+label
-        transform: translateY(-240%);
-        font-size: 12px;
-        line-height: 1.11;
-        left: 0px;
-        margin-top: 4px;
-        margin-bottom: 4px;
-
-        @media screen and (min-width: 768px) {
-        transform: translateY(-200%);
-        font-size: 14px;
-        line-height: 1.29;
-    }
-    } */
   }
 
   @media screen and (min-width: 768px) {
