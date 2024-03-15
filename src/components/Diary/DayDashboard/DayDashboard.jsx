@@ -64,13 +64,7 @@ const DayDashboard = () => {
               </svg>
               <InfoBlockLabel>Daily physical activity</InfoBlockLabel>
             </DescrContainer>
-            <div>
-              {dashboardInf.ExercisesTime !== undefined ? (
-                <p>110 min</p>
-              ) : (
-                <p>0</p>
-              )}
-            </div>
+            <p>110 min</p>
           </MainInfoBlock>
         </MainBlockOfMainInfoBlock>
         <MainBlockOfSecondaryInfoBlock>

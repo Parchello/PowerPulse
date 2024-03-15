@@ -21,6 +21,7 @@ export const ProfileSlice = createSlice({
       levelActivity: null,
       bmr: null,
       avatar: null,
+      createdAt: '',
     },
     isLoading: false,
     error: null,
@@ -40,7 +41,9 @@ export const ProfileSlice = createSlice({
         state.user.avatar = action.payload.avatarURL;
         state.user.sex = action.payload.sex;
         state.user.levelActivity = action.payload.levelActivity;
+        state.user.createdAt = action.payload.createdAt;
         state.user.bmr = action.payload.bmr;
+
         state.isLoading = false;
         state.error = null;
       })
