@@ -33,7 +33,6 @@ export const ProductsTable = () => {
   // };
 
   // const dateNow = formatingDate(initialDate);
-  console.log('FFFFFFFF', initialDate);
   useEffect(() => {
     const request = {
       token,
@@ -42,7 +41,6 @@ export const ProductsTable = () => {
     dispatch(fetchDiaryProducts(request));
   }, [dispatch, token, initialDate]);
   const products = useSelector(selectDiaryProducts);
-  console.log('products: ', products);
   return (
     <DairyProductsField>
       <HeadOfField>

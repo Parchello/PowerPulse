@@ -23,16 +23,20 @@ const DayDashboard = () => {
   const dispatch = useDispatch();
   const dashboardInf = useSelector(selectDayDashboard);
   const token = useSelector(Token);
-  const date = '14/03/2024';
+  const initialDate = useSelector((state) => state.diary.initialDate);
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
   useEffect(() => {
     const request = {
       token,
-      date,
+      date: initialDate,
     };
+
     dispatch(fetchDiaryDashboard(request));
-    dispatch(fetchCurrentUser());
-  }, [dispatch, token]);
+  }, [dispatch, initialDate, token]);
 
   const {
     Calories,
@@ -40,6 +44,8 @@ const DayDashboard = () => {
     // amountAll,
     burnedCalories,
   } = dashboardInf;
+
+  console.log(Calories);
 
   const bmrInf = useSelector(SelectUser);
   const { bmr } = bmrInf;

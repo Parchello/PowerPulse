@@ -21,8 +21,6 @@ export const ProductItem = ({ prop }) => {
     productId: { _id, title, category, groupBloodNotAllowed },
   } = prop;
 
-  console.log(prop);
-
   const userInfo = useSelector(SelectUser);
   const date = '14/03/2024';
   const dispatch = useDispatch();
