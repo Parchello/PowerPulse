@@ -3311,6 +3311,12 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    padding: 18px;
+    width: 187px;
+    height: 116px;
+  }
 `,VQ=E.div`
   border: 1px solid #3cbf61;
   border-radius: 12px;
@@ -3322,6 +3328,12 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    padding: 18px;
+    width: 187px;
+    height: 116px;
+  }
 `,qQ=E.p`
   font-weight: 400;
   font-size: 14px;
@@ -3727,6 +3739,10 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
 
   margin-bottom: 16px;
 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   padding: 8px;
   width: 128px;
 
@@ -3749,6 +3765,10 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   align-items: center;
 
   width: 84px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media screen and (min-width: 1440px) {
     width: 106px;
@@ -3974,6 +3994,10 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   align-items: center;
 
   margin-bottom: 16px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media screen and (min-width: 1440px) {
     border: 1px solid rgba(239, 237, 232, 0.3);
