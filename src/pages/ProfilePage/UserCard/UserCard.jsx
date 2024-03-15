@@ -29,10 +29,15 @@ const Usercard = () => {
   const dispatch = useDispatch();
   const user = useSelector(SelectUser);
   const [avatar, setAvatar] = useState();
+  const [bmr, setBmr] = useState();
 
   useEffect(() => {
     setAvatar(user.avatar);
   }, [user.avatar]);
+
+  useEffect(() => {
+    setBmr(user.bmr);
+  }, [user.bmr]);
 
   const userAvatar = <UserImg src={user.avatar || avatar} alt="User avatar" />;
 
@@ -62,6 +67,8 @@ const Usercard = () => {
     dispatch(logOut());
   };
 
+  console.log(user.bmr);
+
   return (
     <UserCard>
       <CardContainer>
@@ -90,7 +97,7 @@ const Usercard = () => {
             </svg>
             <ListText>Daily calorie intake</ListText>
           </DescrContainer>
-          <ListNumbers>{user.bmr || 0}</ListNumbers>
+          <ListNumbers>{bmr || 0}</ListNumbers>
         </ListItem>
         <ListItem>
           <DescrContainer>
