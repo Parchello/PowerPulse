@@ -133,7 +133,7 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
               <InfoBlockValue>
-                {Math.round(bmr + Calories - burnedCalories) || '0'}
+                {Math.round(bmr - Calories + burnedCalories) || '0'}
               </InfoBlockValue>
             </SecondaryInfoBlockMore>
           ) : (
@@ -146,7 +146,7 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
               <InfoBlockValue>
-                {Math.round(bmr + Calories - burnedCalories) || '0'}
+                {Math.round(bmr - Calories + burnedCalories) || '0'}
               </InfoBlockValue>
             </SecondaryInfoBlock>
           )}
