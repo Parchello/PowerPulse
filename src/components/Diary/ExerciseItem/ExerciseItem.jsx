@@ -21,7 +21,8 @@ export const ExerciseItem = ({ prop }) => {
   const token = useSelector(Token);
   const {
     time,
-    exerciseId: { _id, bodyPart, burnedCalories, equipment, name, target },
+    calories,
+    exerciseId: { _id, bodyPart, equipment, name, target },
   } = prop;
 
   return (
@@ -45,7 +46,7 @@ export const ExerciseItem = ({ prop }) => {
         </div>
         <div>
           <TitleName>Burned Calories</TitleName>
-          <BottomInfFieldCalor>{burnedCalories}</BottomInfFieldCalor>
+          <BottomInfFieldCalor>{calories}</BottomInfFieldCalor>
         </div>
         <div>
           <TitleName>Time</TitleName>
