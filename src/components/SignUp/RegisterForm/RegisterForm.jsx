@@ -57,10 +57,6 @@ export const RegisterForm = () => {
         password: '',
       }}
       validationSchema={RegisterSchema}
-      // onSubmit={() => {
-      //   handleSubmit(values);
-      //   actions.resetForm();
-      // }}
 
       onSubmit={handleSubmit}
     >
@@ -82,7 +78,6 @@ export const RegisterForm = () => {
                       : ''
                 }
               />
-              {/* <Label htmlFor="name" >Name</Label> */}
               {touched.name && (errors.name || !errors.name) && (
                 <ErrorsMargin>
                   {errors.name && (
@@ -112,7 +107,6 @@ export const RegisterForm = () => {
                       : ''
                 }
               />
-              {/* <Label htmlFor="email">Email</Label> */}
               {touched.email && (errors.email || !errors.email) && (
                 <ErrorsMargin>
                   {errors.email && (
@@ -158,7 +152,6 @@ export const RegisterForm = () => {
                   </EyeSvg>
                 )}
               </EyeBtn>
-              {/* <Label htmlFor="password">Password</Label> */}
               {touched.password && (errors.password || !errors.password) && (
                 <ErrorsMargin>
                   {errors.password && (
