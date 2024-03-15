@@ -18,9 +18,10 @@ const StyledDatepicker = () => {
 
   // console.log('new date', selectedDate);
   console.log('init', initialDate);
-  const user = useSelector((state) => state.diary.dayDashboard);
-  console.log('user', user);
-
+  // const user = useSelector((state) => state.diary.dayDashboard);
+  // console.log('user', user);
+  const cteat = useSelector((state) => state.profile.user.createdAt);
+  console.log('profile ctraeatedAt', cteat);
   const dispatch = useDispatch();
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
@@ -34,8 +35,8 @@ const StyledDatepicker = () => {
   const handlePrevDay = () => {
     const newDate = new Date(selectedDate);
     newDate.setDate(selectedDate.getDate() - 1);
-    if (newDate >= new Date(user.createdAt)) {
-      console.log('BTN regdate', new Date(user.createdAt));
+    if (newDate >= new Date(cteat)) {
+      console.log('BTN regdate', new Date(cteat));
       setSelectedDate(newDate);
       dispatch(setInitialDate(format(newDate, 'dd/MM/yyyy')));
     }
@@ -56,7 +57,7 @@ const StyledDatepicker = () => {
         <DatePicker
           showIcon
           selected={selectedDate}
-          minDate={user.createdAt}
+          minDate={cteat}
           onChange={(date) => {
             setSelectedDate(date);
             dispatch(setInitialDate(format(date, 'dd/MM/yyyy')));
