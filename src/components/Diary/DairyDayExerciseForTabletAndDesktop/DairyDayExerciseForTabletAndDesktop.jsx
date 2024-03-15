@@ -5,28 +5,30 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { useDispatch, useSelector } from 'react-redux';
-import { SelectUser, Token } from '../../../redux/profile/selectors';
-import { NotRecommended } from '../NotRecomended/NotRecommended';
-import { Recommended } from '../Recommended/Recommended';
+import { Token } from '../../../redux/profile/selectors';
 import { DelBtn } from '../DelBtn/DelBtn.styled';
-import { deleteProductDiaryById } from '../../../redux/diary/operations';
+import { deleteExerciseById } from '../../../redux/diary/operations';
 import sprite from '../../../assets/sprite.svg';
-import { selectDiaryProducts } from '../../../redux/diary/selectors';
-import { TitleName } from '../ProductItem/ProductItem.styled';
-import {
-  ProductBottomInfoTable,
-  ProductInfoCategoryTable,
-  ProductInfoTable,
-} from './DairyDayDayproductsForTabletAndDesktop.styled';
+import { selectDiaryExercises } from '../../../redux/diary/selectors';
+import { TitleName } from '../ExerciseItem/ExerciseItem.styled';
 
-export default function TableProducts() {
-  const userInfo = useSelector(SelectUser);
+import {
+  BottomInfFieldCaloriesTable,
+  BottomInfFieldTargetTable,
+  BottomInfFieldTimeTable,
+  InfoBodyPartTable,
+  InfoEquipTable,
+  InfoNameTable,
+} from './DairyDayExerciseForTabletAndDesktop.styled';
+
+export default function TableExercise() {
+  //   const userInfo = useSelector(SelectUser);
   const initialDate = useSelector((state) => state.diary.initialDate);
   const dispatch = useDispatch();
   const token = useSelector(Token);
-  const product = useSelector(selectDiaryProducts);
+  const exercise = useSelector(selectDiaryExercises);
 
-  console.log(product);
+  console.log(exercise);
 
   return (
     <TableContainer
@@ -57,72 +59,72 @@ export default function TableProducts() {
             }}
           >
             <TableCell align="left">
-              <TitleName>Title</TitleName>
+              <TitleName>Body Part</TitleName>
             </TableCell>
             <TableCell align="left">
-              <TitleName>Category</TitleName>
+              <TitleName>Equipment</TitleName>
             </TableCell>
             <TableCell align="left">
-              <TitleName>Calories</TitleName>
+              <TitleName>Name</TitleName>
             </TableCell>
             <TableCell align="left">
-              <TitleName>Weight</TitleName>
+              <TitleName>Target</TitleName>
             </TableCell>
             <TableCell align="left">
-              <TitleName>Recommend</TitleName>
+              <TitleName>Burned Calories</TitleName>
+            </TableCell>
+            <TableCell align="left">
+              <TitleName>Time</TitleName>
             </TableCell>
             <TableCell align="left"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {product.map((product) => (
+          {exercise.map((exercise) => (
             <TableRow
-              key={product.productId._id}
+              key={exercise.exerciseId._id}
               sx={{
                 '& td, & th': {
                   border: 0,
                   color: 'white',
                   background: 'none',
                   padding: '0 4px',
-                  verticalAlign: 'text-top',
+                  verticalAlign: 'top',
                 },
               }}
             >
               <TableCell component="th" scope="row">
-                <ProductInfoTable>{product.productId.title}</ProductInfoTable>
+                <InfoBodyPartTable>
+                  {exercise.exerciseId.bodyPart}
+                </InfoBodyPartTable>
+              </TableCell>
+              <TableCell component="th" scope="row">
+                <InfoEquipTable>{exercise.exerciseId.equipment}</InfoEquipTable>
               </TableCell>
               <TableCell align="left">
-                <ProductInfoCategoryTable>
-                  {product.productId.category}
-                </ProductInfoCategoryTable>
+                <InfoNameTable>{exercise.exerciseId.name}</InfoNameTable>
               </TableCell>
               <TableCell align="left">
-                <ProductBottomInfoTable>
-                  {product.calories}
-                </ProductBottomInfoTable>
+                <BottomInfFieldTargetTable>
+                  {exercise.exerciseId.target}
+                </BottomInfFieldTargetTable>
               </TableCell>
               <TableCell align="left">
-                <ProductBottomInfoTable>
-                  {product.amount}
-                </ProductBottomInfoTable>
+                <BottomInfFieldCaloriesTable>
+                  {exercise.calories}
+                </BottomInfFieldCaloriesTable>
               </TableCell>
               <TableCell align="left">
-                <ProductBottomInfoTable>
-                  {product.productId.groupBloodNotAllowed[
-                    userInfo.blood - 1
-                  ] ? (
-                    <NotRecommended />
-                  ) : (
-                    <Recommended />
-                  )}
-                </ProductBottomInfoTable>
+                <BottomInfFieldTimeTable>
+                  {exercise.time}
+                </BottomInfFieldTimeTable>
               </TableCell>
               <TableCell align="left">
                 <DelBtn
                   onClick={() =>
                     dispatch(
-                      deleteProductDiaryById({
-                        _id: product.productId._id,
+                      deleteExerciseById({
+                        _id: exercise.exerciseId._id,
                         date: initialDate,
                         token,
                       })

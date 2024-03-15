@@ -54,9 +54,6 @@ export const DairyProductsField = styled.div`
     width: 826px;
     height: 234px;
   }
-
-  &::-webkit-scrollbar {
-  }
 `;
 export const ProductBlock = styled.div`
   display: flex;
