@@ -9,15 +9,17 @@ export const fetchDiaryDashboard = createAsyncThunk(
   '/api/dashboard',
   async (info, thunkAPI) => {
     const { token, date } = info;
+    console.log('date, token', date, token);
     try {
-      const res = await axios.get('api/diary/', {
+      const res = await axios.get(`/api/diary?date=${date}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        params: {
-          date: date,
-        },
+        // params: {
+        //   date,
+        // },
       });
+      console.log('res: ', res.data);
       return res.data;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
@@ -35,15 +37,15 @@ export const fetchDiaryProducts = createAsyncThunk(
       const res = await axios.get(`/api/diary?date=${date}`, {
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       });
       return res.data;
     } catch (error) {
-      console.log('ERROR', error)
+      console.log('ERROR', error);
       if (error.response.data.message === 'Dairy entry not found') {
         return [];
       }
-        thunkAPI.rejectWithValue(error.message);
+      thunkAPI.rejectWithValue(error.message);
     }
   }
 );

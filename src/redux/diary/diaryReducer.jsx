@@ -26,7 +26,6 @@ const diaryProductsSlice = createSlice({
   reducers: {
     setInitialDate: (state, action) => {
       state.initialDate = action.payload;
-      console.log('StateDate', action.payload);
     },
   },
 
@@ -35,9 +34,10 @@ const diaryProductsSlice = createSlice({
       // dashboard
       .addCase(fetchDiaryDashboard.pending, handlePending)
       .addCase(fetchDiaryDashboard.fulfilled, (state, action) => {
+        console.log('action.payload: ', action);
         state.isLoading = false;
-        state.error = null;
         state.dayDashboard = action?.payload || [];
+        state.error = null;
         console.log('ACTION', action);
       })
       .addCase(fetchDiaryDashboard.rejected, handleRejection)
@@ -45,7 +45,6 @@ const diaryProductsSlice = createSlice({
       // diary
       .addCase(fetchDiaryProducts.pending, handlePending)
       .addCase(fetchDiaryProducts.fulfilled, (state, action) => {
-        console.log('action', action);
         state.isLoading = false;
         state.products = action.payload?.products || [];
         state.error = null;
