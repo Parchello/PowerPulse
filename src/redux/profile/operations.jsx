@@ -24,7 +24,7 @@ export const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const response = await axios.get('/api/users/current');
-      console.log(response);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -56,7 +56,6 @@ export const patchUserParams = createAsyncThunk(
 export const patchAvatar = createAsyncThunk(
   'profile/avatar',
   async (avatar, thunkAPI) => {
-    console.log('avatar in operations', avatar);
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
