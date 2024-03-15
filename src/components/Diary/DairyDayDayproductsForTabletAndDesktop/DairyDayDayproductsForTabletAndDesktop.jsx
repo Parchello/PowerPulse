@@ -36,6 +36,19 @@ export default function TableProducts() {
         overflowX: 'hidden',
         maxHeight: 264,
         overflowY: 'scroll',
+        '&::-webkit-scrollbar': {
+          width: '6px',
+        },
+
+        ' &::-webkit-scrollbar-track': {
+          borderRadius: '12px',
+        },
+
+        ' &::-webkit-scrollbar-thumb': {
+          borderRadius: '12px',
+
+          background: 'rgba(239, 237, 232, 0.1)',
+        },
       }}
     >
       <Table
