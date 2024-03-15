@@ -92,6 +92,11 @@ export const DiaryWarningText = styled.p`
   font-size: 14px;
   line-height: 129%;
   color: rgba(239, 237, 232, 0.3);
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 150%;
+  }
 `;
 
 export const DiaryInfoContainer = styled.div`
