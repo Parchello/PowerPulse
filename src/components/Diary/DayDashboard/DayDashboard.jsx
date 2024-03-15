@@ -127,7 +127,7 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
 
-              <p>+{Math.abs(110 - ExercisesTime)}</p>
+              <p>+{Math.abs(Math.round(110 - ExercisesTime / 60))}</p>
             </SecondaryInfoBlockMoreExercises>
           ) : (
             <SecondaryInfoBlock>
@@ -139,7 +139,7 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
 
-              <p>{110 - ExercisesTime}</p>
+              <p>{Math.round(110 - ExercisesTime / 60)}</p>
             </SecondaryInfoBlock>
           )}
         </MainBlockOfSecondaryInfoBlock>
