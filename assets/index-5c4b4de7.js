@@ -1093,21 +1093,6 @@ attempted value: ${s}
   &:focus,
   &:active {
     border-color: ${e=>e.theme.colors.orange};
-
-    /* &:focus { //-----------+label
-        transform: translateY(-240%);
-        font-size: 12px;
-        line-height: 1.11;
-        left: 0px;
-        margin-top: 4px;
-        margin-bottom: 4px;
-
-        @media screen and (min-width: 768px) {
-        transform: translateY(-200%);
-        font-size: 14px;
-        line-height: 1.29;
-    }
-    } */
   }
 
   @media screen and (min-width: 768px) {
