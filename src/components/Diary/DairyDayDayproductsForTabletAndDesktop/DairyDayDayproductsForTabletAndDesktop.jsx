@@ -26,8 +26,6 @@ export default function TableProducts() {
   const token = useSelector(Token);
   const product = useSelector(selectDiaryProducts);
 
-  console.log(product);
-
   return (
     <TableContainer
       sx={{

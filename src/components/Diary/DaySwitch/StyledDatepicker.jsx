@@ -14,14 +14,13 @@ import { setInitialDate } from '../../../redux/diary/diaryReducer';
 
 const StyledDatepicker = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const initialDate = useSelector((state) => state.diary.initialDate);
+  // const initialDate = useSelector((state) => state.diary.initialDate);
 
   // console.log('new date', selectedDate);
-  console.log('init', initialDate);
+  // console.log('init', initialDate);
   // const user = useSelector((state) => state.diary.dayDashboard);
   // console.log('user', user);
   const cteat = useSelector((state) => state.profile.user.createdAt);
-  console.log('profile ctraeatedAt', cteat);
   const dispatch = useDispatch();
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
@@ -41,8 +40,6 @@ const StyledDatepicker = () => {
       dispatch(setInitialDate(format(newDate, 'dd/MM/yyyy')));
     }
   };
-
-  // format(new Date(2014, 1, 11), 'MM/dd/yyyy');
 
   const handleNextDay = () => {
     const newDate = selectedDate;

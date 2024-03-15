@@ -31,21 +31,7 @@ const DayDashboard = () => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   const request = {
-  //     token,
-  //     date: initialDate,
-  //   };
-
-  //   dispatch(fetchDiaryDashboard(request));
-  // }, [dispatch, initialDate, token, Calories, burnedCalories]);
-
-  const {
-    Calories,
-    ExercisesTime,
-    // amountAll,
-    burnedCalories,
-  } = dashboardInf;
+  const { Calories, ExercisesTime, burnedCalories } = dashboardInf;
 
   useEffect(() => {
     const request = {
@@ -64,8 +50,6 @@ const DayDashboard = () => {
     isNaN(Calories) ? 0 : Math.round(Calories);
   }
 
-  console.log('Calories: ', Calories);
-
   const bmrInf = useSelector(SelectUser);
   const { bmr } = bmrInf;
 
@@ -80,7 +64,11 @@ const DayDashboard = () => {
               </svg>
               <InfoBlockLabel>Daily calorie intake</InfoBlockLabel>
             </DescrContainer>
-            {bmr !== undefined ? <InfoBlockValue>{bmr}</InfoBlockValue> : <InfoBlockValue>{0}</InfoBlockValue>}
+            {bmr !== undefined ? (
+              <InfoBlockValue>{bmr}</InfoBlockValue>
+            ) : (
+              <InfoBlockValue>{0}</InfoBlockValue>
+            )}
           </MainInfoBlock>
           <MainInfoBlock>
             <DescrContainer>
@@ -128,7 +116,9 @@ const DayDashboard = () => {
                 <InfoBlockLabel>Calories remaining</InfoBlockLabel>
               </DescrContainer>
               {/* math and render by conditions */}
-              <InfoBlockValue>{Math.round(bmr - Calories + burnedCalories) || '0'}</InfoBlockValue>
+              <InfoBlockValue>
+                {Math.round(bmr - Calories + burnedCalories) || '0'}
+              </InfoBlockValue>
             </SecondaryInfoBlockMore>
           ) : (
             <SecondaryInfoBlock>
@@ -139,7 +129,9 @@ const DayDashboard = () => {
                 <InfoBlockLabel>Calories remaining</InfoBlockLabel>
               </DescrContainer>
               {/* math and render by conditions */}
-              <InfoBlockValue>{Math.round(bmr - Calories + burnedCalories) || '0'}</InfoBlockValue>
+              <InfoBlockValue>
+                {Math.round(bmr - Calories + burnedCalories) || '0'}
+              </InfoBlockValue>
             </SecondaryInfoBlock>
           )}
           {ExercisesTime > 110 ? (
@@ -152,7 +144,9 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
 
-              <InfoBlockValue>+{Math.abs(Math.round(110 - ExercisesTime / 60))}</InfoBlockValue>
+              <InfoBlockValue>
+                +{Math.abs(Math.round(110 - ExercisesTime / 60))}
+              </InfoBlockValue>
             </SecondaryInfoBlockMoreExercises>
           ) : (
             <SecondaryInfoBlock>
@@ -164,7 +158,9 @@ const DayDashboard = () => {
               </DescrContainer>
               {/* math and render by conditions */}
 
-              <InfoBlockValue>{Math.round(110 - ExercisesTime / 60) || '110m'}</InfoBlockValue>
+              <InfoBlockValue>
+                {Math.round(110 - ExercisesTime / 60) || '110m'}
+              </InfoBlockValue>
             </SecondaryInfoBlock>
           )}
         </MainBlockOfSecondaryInfoBlock>
