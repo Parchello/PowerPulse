@@ -17,8 +17,8 @@ export const MainInfoBlock = styled.div`
   justify-content: space-between;
 
   @media screen and (min-width: 768px) {
-    /* width: 187px; */
-    /* height: 116px; */
+    width: 187px;
+    height: 116px;
   }
 `;
 
@@ -49,8 +49,8 @@ export const SecondaryInfoBlock = styled.div`
   justify-content: space-between;
 
   @media screen and (min-width: 768px) {
-    /* width: 187px; */
-    /* height: 116px; */
+    width: 187px;
+    height: 116px;
   }
 `;
 
@@ -136,6 +136,7 @@ export const MainBlockOfSecondaryInfoBlock = styled.div`
   width: 335px;
   @media screen and (min-width: 768px) {
     margin: 0;
+    width: 390px;
   }
 `;
 
