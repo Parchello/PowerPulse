@@ -35,7 +35,6 @@ const StyledDatepicker = () => {
     const newDate = new Date(selectedDate);
     newDate.setDate(selectedDate.getDate() - 1);
     if (newDate >= new Date(cteat)) {
-      console.log('BTN regdate', new Date(cteat));
       setSelectedDate(newDate);
       dispatch(setInitialDate(format(newDate, 'dd/MM/yyyy')));
     }
