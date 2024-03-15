@@ -15,6 +15,11 @@ export const MainInfoBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    /* width: 187px; */
+    /* height: 116px; */
+  }
 `;
 
 export const InfoBlockLabel = styled.p`
@@ -42,6 +47,11 @@ export const SecondaryInfoBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    /* width: 187px; */
+    /* height: 116px; */
+  }
 `;
 
 export const SecondaryInfoBlockMore = styled.div`
@@ -85,12 +95,22 @@ export const DiaryInfoContainer = styled.div`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
+    row-gap: 32px;
     width: 704px;
   }
   @media screen and (min-width: 1440px) {
+    align-self: baseline;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+
+    &:first-child {
+      row-gap: 16px;
+    }
+
+    & > :nth-child(2) {
+      margin-bottom: 16px;
+    }
   }
 `;
 
@@ -126,9 +146,16 @@ export const RememberText = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 505px;
+    margin-bottom: 64px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 390px;
+    margin-bottom: 0;
   }
+`;
+
+export const ExclamationMark = styled.svg`
+  width: 24px;
+  height: 24px;
 `;

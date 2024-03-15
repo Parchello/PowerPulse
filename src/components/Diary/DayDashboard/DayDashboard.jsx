@@ -12,6 +12,7 @@ import {
   RememberText,
   SecondaryInfoBlockMore,
   SecondaryInfoBlockMoreExercises,
+  ExclamationMark,
 } from './DayDashboard.styled';
 import { selectDayDashboard } from '../../../redux/diary/selectors';
 import { useEffect } from 'react';
@@ -168,9 +169,11 @@ const DayDashboard = () => {
           )}
         </MainBlockOfSecondaryInfoBlock>
         <RememberText>
-          <svg width="24px" height="24px">
-            <use xlinkHref={sprite + '#icon-icons'} />
-          </svg>
+          <div>
+            <ExclamationMark>
+              <use xlinkHref={sprite + '#icon-icons'} />
+            </ExclamationMark>
+          </div>
           <DiaryWarningText>
             Record all your meals in the calorie diary every day. This will help
             you be aware of your nutrition and make informed choices.
