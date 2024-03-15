@@ -37,6 +37,8 @@ const AddPExerciseSuccess = () => {
 
   function closeModal() {
     dispatch(setSucssesModal(false));
+    dispatch(setTimer(0));
+    dispatch(setCalories(0));
   }
 
   function onClickNext() {
@@ -91,7 +93,7 @@ const AddPExerciseSuccess = () => {
           </div>
           <Button onClick={() => onClickNext()}>Next exercise</Button>
         </DoneContainer>
-        <LinkToDairy to="/diary">
+        <LinkToDairy to="/diary" onClick={onClickNext}>
           To the diary{' '}
           <svg width="16px" height="16px">
             <use xlinkHref={sprite + '#icon-gray-arrow'} />
